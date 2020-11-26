@@ -1,0 +1,32 @@
+main {
+    .all_contacts {
+        min-height: 65vh;
+        border-radius: 25px;
+        margin: 0 auto;
+        box-shadow: 10px 10px 40px #000;
+        overflow: hidden;
+        background-color: #fff;
+
+        .header_section {
+            box-shadow: 0px -15px 20px #000;
+            padding: 0 25px ;
+            ul {
+                height: 50px;
+                display: grid;
+                grid-template-columns: 30px repeat(7, 1fr);
+                align-items: center;
+                li{
+                    font-size: 16px;
+                    text-align: center;
+                    input{
+                        margin-top: 4px;
+                        width: 17px;
+                        height: 17px;
+                        cursor: pointer;
+                    }
+                   
+                }
+            }
+        }
+    }
+}

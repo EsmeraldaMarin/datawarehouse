@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=https://use.fontawesome.com/releases/v5.13.0/css/all.css>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Data Warehouse</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="assets/logo.png" alt="Logo Data Warehouse">
+        </a>
+
+        <nav>
+            <ul>
+                <li class="li_active"><a href="index.html">Contactos</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+                <li><a href="companias.html">Compañías</a></li>
+                <li><a href="regiones.html">Región/Ciudad</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contacts_manager">
+            <div class="search_section_ctn">
+                <label for="input_contactos">
+                    <h1> Contactos</h1>
+                </label>
+                <div>
+                    <input type="search" name="Busque un contacto" id="input_contactos"
+                        placeholder="Busque un contacto">
+                    <i class="fas fa-caret-down arrow_down"></i>
+                    <i class="fas fa-search search_btn"></i>
+
+                </div>
+            </div>
+            <div class="operations_section_ctn">
+
+                <i class="fas fa-arrow-up imp_contact"></i>
+                <button class="exp_contact">Exportar contactos</button>
+                <button class="add_contact">Agregar contacto</button>
+            </div>
+        </section>
+        <section class="all_contacts">
+
+            <div class="header_section">
+
+                <ul>
+                    <li>
+                        <input type="checkbox" name="" id="selectAllContacts">
+                    </li>
+                    <li>Contacto</li>
+                    <li>País/Región</li>
+                    <li>Compañía</li>
+                    <li>Cargo</li>
+                    <li>Canal preferido</li>
+                    <li>Interés</li>
+                    <li>Acciones</li>
+                </ul>
+
+            </div>
+            <div class="contacts_section">
+
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
