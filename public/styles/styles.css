@@ -18,6 +18,7 @@
 }
 
 body {
+  min-width: 1000px;
   padding: 0 40px;
   min-height: 100vh;
   background-color: #272343;
@@ -130,13 +131,16 @@ main .contacts_manager .search_section_ctn > div {
   overflow: hidden;
 }
 
-main .contacts_manager .search_section_ctn > div input {
+main .contacts_manager .search_section_ctn > div > input {
   width: 100%;
   height: 100%;
   padding: 0 70px 0 30px;
   outline: none;
   font-family: "Nunito", sans-serif;
   font-size: 16px;
+  position: relative;
+  top: 0;
+  z-index: 2;
 }
 
 main .contacts_manager .search_section_ctn > div input[type="search" i]::-webkit-search-cancel-button {
@@ -151,6 +155,7 @@ main .contacts_manager .search_section_ctn > div i {
   cursor: pointer;
   color: #272343;
   line-height: 35px;
+  z-index: 3;
 }
 
 main .contacts_manager .search_section_ctn > div i.search_btn {
@@ -159,11 +164,42 @@ main .contacts_manager .search_section_ctn > div i.search_btn {
 }
 
 main .contacts_manager .search_section_ctn > div i.search_btn:hover {
-  background-color: #eee;
+  color: #666;
 }
 
 main .contacts_manager .search_section_ctn > div i.arrow_down {
   right: 40px;
+}
+
+main .contacts_manager .search_section_ctn > div .filter_list {
+  width: 100%;
+  height: 0px;
+  display: flex;
+  position: relative;
+  transition: height 0.5s ease;
+  background-color: #fff;
+}
+
+main .contacts_manager .search_section_ctn > div .filter_list > div {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+main .contacts_manager .search_section_ctn > div.active {
+  overflow: inherit;
+}
+
+main .contacts_manager .search_section_ctn > div.active > input {
+  border-radius: 17px 17px 0 0;
+  box-shadow: 0 2px 2px #ddd;
+}
+
+main .contacts_manager .search_section_ctn > div.active .filter_list {
+  height: 300px;
+  border-radius: 0 0 17px 17px;
+  box-shadow: -5px -5px 20px #000;
+  transition: height 0.5s ease;
 }
 
 main .contacts_manager .operations_section_ctn {

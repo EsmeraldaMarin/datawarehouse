@@ -31,12 +31,59 @@
                 <label for="input_contactos">
                     <h1> Contactos</h1>
                 </label>
-                <div>
+                <div id="searchSection">
                     <input type="search" name="Busque un contacto" id="input_contactos"
                         placeholder="Busque un contacto">
-                    <i class="fas fa-caret-down arrow_down"></i>
+                    <i class="fas fa-caret-down arrow_down" id="displayFilter"></i>
                     <i class="fas fa-search search_btn"></i>
+                    <div class="filter_list" id="filterList">
+                        <div class="labels">
+                            <label for="">Nombre del contacto</label>
+                            <label for="">Cargo</label>
+                            <label for="">País/Región</label>
+                            <label for="">Compañía</label>
+                            <label for="">Canal Favorito</label>
+                            <label for="">Interés</label>
 
+                        </div>
+                        <div class="inputs_options">
+                            <input type="search" name="" id="">
+
+                            <input type="search" name="" id="">
+
+                            <select name="pais_region" id="">
+                                <option value="">Todos</option>
+                                <!--CREAR CON JS-->
+                                <option value="">Argentina</option>
+                                <option value="">Mexico</option>
+                            </select>
+
+                            <select name="pais_region" id="">
+                                <option value="">Todos</option>
+                                <!--CREAR CON JS-->
+                                <option value="">Amazon</option>
+                                <option value="">Mercado Libre</option>
+                            </select>
+
+                            <select name="pais_region" id="">
+                                <option value="">Cualquiera</option>
+                                <!--CREAR CON JS-->
+                                <option value="">Whatsapp</option>
+                                <option value="">Slack</option>
+                            </select>
+
+                            <select name="pais_region" id="">
+                                <option value="">Cualquiera</option>
+                                <option value="">100%</option>
+                                <option value="">75%</option>
+                                <option value="">50%</option>
+                                <option value="">25%</option>
+                                <option value="">0%</option>
+                            </select>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
             <div class="operations_section_ctn">
@@ -70,6 +117,7 @@
 
         </section>
     </main>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
