@@ -9,28 +9,74 @@ main {
 
         .header_section {
             box-shadow: 0 1px 5px #ddd;
-            padding: 0 25px ;
+            padding: 0 25px;
             ul {
                 height: 50px;
                 display: grid;
-                grid-template-columns: 30px repeat(7, 1fr);
+                grid-template-columns: 60px 300px repeat(6, 1fr);
                 align-items: center;
-                li{
+                li {
                     font-size: 16px;
-                    text-align: center;
-                    input{
+                    input {
                         margin-top: 4px;
                         width: 17px;
                         height: 17px;
                         cursor: pointer;
                     }
-                   
                 }
             }
         }
-        .contacts_section{
-            background-image: linear-gradient( #fff, #fff, rgba($color: $pColor, $alpha: .2));
-
+        .contacts_section {
+            padding: 5px 25px;
+            .contact {
+                height: 50px;
+                display: grid;
+                margin: 10px 0;
+                grid-template-columns: 60px 300px repeat(6, 1fr);
+                align-items: center;
+                font-size: 14px;
+                .checkbox {
+                    input {
+                        margin-top: 4px;
+                        width: 17px;
+                        height: 17px;
+                        cursor: pointer;
+                    }
+                }
+                .contact_info {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 25px;
+                        object-fit: cover;
+                        margin-right: 10px;
+                    }
+                    .name_contact{
+                        .email {
+                            color: #555;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .pais_region {
+                    .region {
+                        color: #555;
+                        font-size: 12px;
+                    }
+                }
+                .empresa {
+                }
+                .cargo {
+                }
+                .canal {
+                }
+                .interes {
+                }
+                .acciones {
+                }
+            }
         }
     }
 }

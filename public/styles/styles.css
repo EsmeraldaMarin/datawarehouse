@@ -110,13 +110,12 @@ main .all_contacts .header_section {
 main .all_contacts .header_section ul {
   height: 50px;
   display: grid;
-  grid-template-columns: 30px repeat(7, 1fr);
+  grid-template-columns: 60px 300px repeat(6, 1fr);
   align-items: center;
 }
 
 main .all_contacts .header_section ul li {
   font-size: 16px;
-  text-align: center;
 }
 
 main .all_contacts .header_section ul li input {
@@ -127,7 +126,46 @@ main .all_contacts .header_section ul li input {
 }
 
 main .all_contacts .contacts_section {
-  background-image: linear-gradient(#fff, #fff, rgba(7, 13, 89, 0.2));
+  padding: 5px 25px;
+}
+
+main .all_contacts .contacts_section .contact {
+  height: 50px;
+  display: grid;
+  margin: 10px 0;
+  grid-template-columns: 60px 300px repeat(6, 1fr);
+  align-items: center;
+  font-size: 14px;
+}
+
+main .all_contacts .contacts_section .contact .checkbox input {
+  margin-top: 4px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+main .all_contacts .contacts_section .contact .contact_info {
+  display: flex;
+  align-items: center;
+}
+
+main .all_contacts .contacts_section .contact .contact_info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+main .all_contacts .contacts_section .contact .contact_info .name_contact .email {
+  color: #555;
+  font-size: 12px;
+}
+
+main .all_contacts .contacts_section .contact .pais_region .region {
+  color: #555;
+  font-size: 12px;
 }
 
 main .contacts_manager {
