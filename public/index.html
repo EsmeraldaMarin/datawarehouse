@@ -47,9 +47,9 @@
 
                         </div>
                         <div class="inputs_options">
-                            <input type="search" name="" id="">
+                            <input type="search" name="" id="" placeholder="Introduzca un nombre">
 
-                            <input type="search" name="" id="">
+                            <input type="search" name="" id=""  placeholder="Introduzca un cargo">
 
                             <select name="pais_region" id="">
                                 <option value="">Todos</option>
@@ -114,7 +114,23 @@
             <div class="contacts_section">
 
             </div>
-
+        </section>
+        <section class="footer_section">
+            <div class="rows_per_page">
+                <p>Filas por página</p>
+                <select name="" id="" class="options_rows">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+            <div class="pages">
+                <!--Cambiar con js-->
+                <p>1-10 de 30 filas</p>
+                <button class="prev_page"> < </button>
+                <button class="next_page" > > </button>
+            </div>
         </section>
     </main>
     <script src="scripts/index.js"></script>

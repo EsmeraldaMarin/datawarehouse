@@ -4,6 +4,7 @@
     border: 0;
     box-sizing: border-box;
     font-family: $pFont;
+    outline: none;
 
     ul{
         list-style: none;
@@ -15,8 +16,10 @@
 }
 
 body{
-    min-width: 1000px;
+    
+    min-width: 1100px;
     padding: 0 40px;
     min-height: 100vh;
-    background-color: $pColor;
+    background-image: linear-gradient( #fff, #fff, rgba($color: $pColor, $alpha: .2));
+
 }

@@ -1,20 +1,22 @@
 main {
     .contacts_manager {
-        margin: 30px 0;
+        margin: 50px 0;
         display: flex;
         justify-content: space-between;
         .search_section_ctn {
             h1 {
-                color: #fff;
+                color: $pColor;
                 font-size: 2em;
-                margin-bottom: 7px;
+                margin-bottom: 20px;
             }
             > div {
                 position: relative;
-                width: 400px;
-                height: 35px;
+                width: 450px;
+                height: 40px;
                 border-radius: 20px;
                 overflow: hidden;
+                box-shadow: 0px 1px 3px #bbb;
+
                 > input {
                     width: 100%;
                     height: 100%;
@@ -36,7 +38,7 @@ main {
                     top: 0px;
                     cursor: pointer;
                     color: $pColor;
-                    line-height: 35px;
+                    line-height: 40px;
                     z-index: 3;
                     &.search_btn {
                         border-left: 1px solid $pColor;
@@ -54,29 +56,47 @@ main {
                     height: 0px;
                     display: flex;
                     position: relative;
-                    transition: height 0.5s ease;
                     background-color: #fff;
+                    overflow: hidden;
                     > div {
-                        height: 100%;
                         display: grid;
+                        height: 100%;
                         grid-template-rows: repeat(6, 1fr);
+                        grid-row-gap: 15px;
+                        align-items: center;
                     }
+
                     .labels {
                     }
                     .inputs_options {
+                        input {
+                            padding: 5px;
+                            border-bottom: 3px solid $pColor;
+                            outline: none;
+                        }
+                        select {
+                            padding: 10px;
+                            background-color: $pColor;
+                            outline: none;
+                            color: #fff;
+                        }
                     }
                 }
                 &.active {
                     overflow: inherit;
+                    border-radius: 17px 17px 0 0;
                     > input {
                         border-radius: 17px 17px 0 0;
-                        box-shadow: 0 2px 2px #ddd;
+                        box-shadow: 0 1px 2px #eee;
                     }
                     .filter_list {
-                        height: 300px;
+                        height: 400px;
+                        padding: 20px;
                         border-radius: 0 0 17px 17px;
-                        box-shadow: -5px -5px 20px #000;
-                        transition: height 0.5s ease;
+                        box-shadow: 0px 1px 5px #bbb;
+                        transition: height 0.7s ease;
+                        display: flex;
+                        justify-content: space-between;
                     }
                 }
             }
@@ -85,48 +105,60 @@ main {
             display: flex;
             align-items: flex-end;
             i {
-                margin: 0 5px;
-                width: 43.6px;
-                height: 43.6px;
-                border: 2px solid #fff;
+                margin: 0 10px;
+                width: 42px;
+                height: 42px;
                 position: relative;
                 text-align: center;
-                line-height: 48px;
-                color: #fff;
+                line-height: 42px;
+                color: $pColor;
+                transition: all 0.2s ease;
+                border-radius: 25px;
+                box-shadow: 0px 1px 3px #ccc;
+                &:hover {
+                    transform: scale(1.05);
+                    transition: all 0.2s ease;
+                }
+
+                &::before {
+                    position: absolute;
+                    right: 14px;
+                    top: 3px;
+                }
                 &::after {
                     content: "";
                     width: 20px;
                     height: 2px;
-                    background-color: #fff;
+                    background-color: $pColor;
                     display: inline-block;
                     position: absolute;
-                    top: 10px;
-                    right: 9px;
-                }
-                &:hover {
-                    background-color: rgba($color: #fff, $alpha: 0.1);
+                    top: 12px;
+                    right: 11px;
                 }
             }
             button {
-                padding: 9px 20px;
-                margin: 0px 5px;
+                padding: 11px 20px;
+                margin: 0px 10px;
                 font-size: 16px;
+                border-radius: 25px;
+                box-shadow: 0px 1px 3px #ccc;
                 &.add_contact {
-                    background-color: #fff;
-                    border: 2px solid #fff;
-                    color: $pColor;
-                    font-weight: bold;
+                    background-color: $pColor;
+                    color: #fff;
+                    transition: all 0.2s ease;
                     &:hover {
-                        background-color: #ddd;
+                        transform: scale(1.03);
+                        transition: all 0.2s ease;
                     }
                 }
                 &.exp_contact {
                     background-color: transparent;
-                    border: 2px solid #fff;
                     box-sizing: content-box;
-                    color: #fff;
+                    color: $pColor;
+                    transition: all 0.2s ease;
                     &:hover {
-                        background-color: rgba($color: #fff, $alpha: 0.1);
+                        transform: scale(1.03);
+                        transition: all 0.2s ease;
                     }
                 }
             }

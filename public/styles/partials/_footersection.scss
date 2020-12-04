@@ -1,0 +1,28 @@
+.footer_section{
+    height: 80px;
+    width: 100%;
+    padding:0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid $pColor;
+
+    .rows_per_page{
+        display: flex;
+        select{
+            background-color: transparent;
+            margin: 0 10px;
+        }
+    }
+    .pages{
+        display: flex;
+        button{
+            margin: 0 10px;
+            background-color: transparent;
+            font-size: 18px;
+            &:hover{
+                color: #555;
+            }
+        }
+    }
+}
