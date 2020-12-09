@@ -66,13 +66,13 @@ main {
                         align-items: center;
                     }
 
-                    .labels {
-                    }
                     .inputs_options {
+                        
                         input {
                             padding: 5px;
                             border-bottom: 3px solid $pColor;
                             outline: none;
+                            font-size: 16px;
                         }
                         select {
                             padding: 10px;

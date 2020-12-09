@@ -3,7 +3,6 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    font-family: $pFont;
     outline: none;
 
     ul{
@@ -18,8 +17,14 @@
 body{
     
     min-width: 1500px;
-    padding: 0 60px;
     min-height: 100vh;
     background-image: linear-gradient( #fff, #fff, rgba($color: $pColor, $alpha: .2));
+    font-family: $pFont;
+    main{
+        padding: 0 60px;
+    }
+}
 
+button{
+    font-family: $pFont;
 }

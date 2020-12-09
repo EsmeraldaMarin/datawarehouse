@@ -1,4 +1,3 @@
 Este Commit
 
-* Estilo de pag principal
-* check de contactos
+* estilo y ventana de importar contactos

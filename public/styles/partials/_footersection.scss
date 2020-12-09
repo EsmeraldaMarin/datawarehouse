@@ -12,6 +12,7 @@
         select{
             background-color: transparent;
             margin: 0 10px;
+            cursor: pointer;
         }
     }
     .pages{
@@ -20,6 +21,7 @@
             margin: 0 10px;
             background-color: transparent;
             font-size: 18px;
+            cursor: pointer;
             &:hover{
                 color: #555;
             }

@@ -7,6 +7,7 @@ main {
         overflow: hidden;
         background-color: #fff;
 
+
         .header_section {
             box-shadow: 0 1px 5px #ddd;
             padding: 0 25px;
@@ -28,6 +29,7 @@ main {
         }
         .contacts_section {
             padding: 5px 0px;
+            font-family:  $sFont;
             .contact {
                 padding: 10px 25px;
                 height: 65px;
@@ -87,7 +89,7 @@ main {
                     .bg_line {
                         width: 170px;
                         height: 10px;
-                        background-color: #ddd;
+                        background-color: #eee;
                         border-radius: 25px;
                         display: inline-block;
                     }
@@ -147,7 +149,7 @@ main {
                         cursor: pointer;
                         &.dots {
                             display: block;
-                            font-size: 20px;
+                            font-size: 14px;
                         }
                     }
                     &.active {
@@ -162,7 +164,7 @@ main {
                 }
                 &.selected {
                     background-color: $sColor;
-                    & .canal {
+                    .canal {
                         p {
                             background-color: $tColor;
                         }
