@@ -22,13 +22,21 @@ header {
                 margin: 0 20px;
                 padding: 0 10px;
                 line-height: 35px;
-
-                a {
-                    color: $pColor;
-                    font-size: 16px;
+                position: relative;
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 3px;
+                    margin: 0 auto;
+                    background-color: $pColor;
+                    display: block;
+                    transition: all 0.5s ease;
                 }
                 &:hover {
-                    border-bottom: 3px solid $pColor;
+                    &:after {
+                        width: 100%;
+                        transition: width 0.5s ease;
+                    }
                 }
                 &.li_active {
                     height: 40px;
@@ -41,8 +49,14 @@ header {
                         color: #fff;
                     }
                     &:hover {
-                        border: none;
+                        &::after {
+                            display: none;
+                        }
                     }
+                }
+                a {
+                    color: $pColor;
+                    font-size: 16px;
                 }
             }
         }

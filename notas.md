@@ -1,5 +1,4 @@
 Este Commit
 
-* Comienzo de proyecto
-* Creacion de carpetas, archivos
-* maquetado y estilado parcial de la primer pagina
+* Estilo de pag principal
+* check de contactos

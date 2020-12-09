@@ -13,7 +13,7 @@ main {
             ul {
                 height: 50px;
                 display: grid;
-                grid-template-columns: 60px 300px repeat(6, 1fr);
+                grid-template-columns: 40px 300px repeat(3, 150px) repeat(2, 1fr) 70px;
                 align-items: center;
                 li {
                     font-size: 16px;
@@ -27,12 +27,12 @@ main {
             }
         }
         .contacts_section {
-            padding: 5px 25px;
+            padding: 5px 0px;
             .contact {
-                height: 50px;
+                padding: 10px 25px;
+                height: 65px;
                 display: grid;
-                margin: 10px 0;
-                grid-template-columns: 60px 300px repeat(6, 1fr);
+                grid-template-columns: 40px 300px repeat(3, 150px) repeat(2, 1fr) 70px;
                 align-items: center;
                 font-size: 14px;
                 .checkbox {
@@ -53,7 +53,7 @@ main {
                         object-fit: cover;
                         margin-right: 10px;
                     }
-                    .name_contact{
+                    .name_contact {
                         .email {
                             color: #555;
                             font-size: 12px;
@@ -66,15 +66,107 @@ main {
                         font-size: 12px;
                     }
                 }
-                .empresa {
-                }
-                .cargo {
-                }
                 .canal {
+                    p {
+                        width: 90px;
+                        height: 25px;
+                        display: inline-block;
+                        margin-right: 5px;
+                        font-size: 10px;
+                        font-weight: bold;
+                        background-color: $sColor;
+                        line-height: 25px;
+                        text-align: center;
+                        border-radius: 25px;
+                        text-transform: uppercase;
+                    }
                 }
                 .interes {
+                    position: relative;
+                    width: 100%;
+                    .bg_line {
+                        width: 170px;
+                        height: 10px;
+                        background-color: #ddd;
+                        border-radius: 25px;
+                        display: inline-block;
+                    }
+                    .color_line {
+                        position: absolute;
+                        top: 3.5px;
+                        height: 10px;
+                        border-radius: 25px;
+                    }
+                    &.onehundred {
+                        .color_line {
+                            background-color: #f00;
+                            width: 170px;
+                        }
+                        &::after {
+                            content: "100%";
+                        }
+                    }
+                    &.seventyfive {
+                        .color_line {
+                            background-color: rgb(255, 174, 0);
+                            width: 127.5px;
+                        }
+                        &::after {
+                            content: "75%";
+                        }
+                    }
+                    &.fifty {
+                        .color_line {
+                            background-color: #ff0;
+                            width: 85px;
+                        }
+                        &::after {
+                            content: "50%";
+                        }
+                    }
+                    &.twentyfive {
+                        .color_line {
+                            background-color: rgb(0, 195, 255);
+                            width: 42.5px;
+                        }
+                        &::after {
+                            content: "25%";
+                        }
+                    }
+                    &.cero {
+                        &::after {
+                            content: "0%";
+                        }
+                    }
                 }
                 .acciones {
+                    display: flex;
+                    justify-content: center;
+                    i {
+                        display: none;
+                        cursor: pointer;
+                        &.dots {
+                            display: block;
+                            font-size: 20px;
+                        }
+                    }
+                    &.active {
+                        justify-content: space-around;
+                        i {
+                            display: block;
+                            &.dots {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &.selected {
+                    background-color: $sColor;
+                    & .canal {
+                        p {
+                            background-color: $tColor;
+                        }
+                    }
                 }
             }
         }

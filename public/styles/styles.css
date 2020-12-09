@@ -6,6 +6,8 @@ naranja fuerte: #ff841f;
 azul fuerte : 070d59
 fucsia: ea2c62
 lila: 6a097d
+rosa lindo: ffdada
+amarillo: ffda77
 
 
 */
@@ -28,8 +30,8 @@ lila: 6a097d
 }
 
 body {
-  min-width: 1100px;
-  padding: 0 40px;
+  min-width: 1500px;
+  padding: 0 60px;
   min-height: 100vh;
   background-image: linear-gradient(#fff, #fff, rgba(7, 13, 89, 0.2));
 }
@@ -65,15 +67,22 @@ header nav ul li {
   margin: 0 20px;
   padding: 0 10px;
   line-height: 35px;
+  position: relative;
 }
 
-header nav ul li a {
-  color: #070d59;
-  font-size: 16px;
+header nav ul li:after {
+  content: "";
+  width: 0;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #070d59;
+  display: block;
+  transition: all 0.5s ease;
 }
 
-header nav ul li:hover {
-  border-bottom: 3px solid #070d59;
+header nav ul li:hover:after {
+  width: 100%;
+  transition: width 0.5s ease;
 }
 
 header nav ul li.li_active {
@@ -89,8 +98,13 @@ header nav ul li.li_active a {
   color: #fff;
 }
 
-header nav ul li.li_active:hover {
-  border: none;
+header nav ul li.li_active:hover::after {
+  display: none;
+}
+
+header nav ul li a {
+  color: #070d59;
+  font-size: 16px;
 }
 
 main .all_contacts {
@@ -110,7 +124,7 @@ main .all_contacts .header_section {
 main .all_contacts .header_section ul {
   height: 50px;
   display: grid;
-  grid-template-columns: 60px 300px repeat(6, 1fr);
+  grid-template-columns: 40px 300px repeat(3, 150px) repeat(2, 1fr) 70px;
   align-items: center;
 }
 
@@ -126,14 +140,14 @@ main .all_contacts .header_section ul li input {
 }
 
 main .all_contacts .contacts_section {
-  padding: 5px 25px;
+  padding: 5px 0px;
 }
 
 main .all_contacts .contacts_section .contact {
-  height: 50px;
+  padding: 10px 25px;
+  height: 65px;
   display: grid;
-  margin: 10px 0;
-  grid-template-columns: 60px 300px repeat(6, 1fr);
+  grid-template-columns: 40px 300px repeat(3, 150px) repeat(2, 1fr) 70px;
   align-items: center;
   font-size: 14px;
 }
@@ -168,6 +182,115 @@ main .all_contacts .contacts_section .contact .pais_region .region {
   font-size: 12px;
 }
 
+main .all_contacts .contacts_section .contact .canal p {
+  width: 90px;
+  height: 25px;
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #ffdada;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+
+main .all_contacts .contacts_section .contact .interes {
+  position: relative;
+  width: 100%;
+}
+
+main .all_contacts .contacts_section .contact .interes .bg_line {
+  width: 170px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+main .all_contacts .contacts_section .contact .interes .color_line {
+  position: absolute;
+  top: 3.5px;
+  height: 10px;
+  border-radius: 25px;
+}
+
+main .all_contacts .contacts_section .contact .interes.onehundred .color_line {
+  background-color: #f00;
+  width: 170px;
+}
+
+main .all_contacts .contacts_section .contact .interes.onehundred::after {
+  content: "100%";
+}
+
+main .all_contacts .contacts_section .contact .interes.seventyfive .color_line {
+  background-color: #ffae00;
+  width: 127.5px;
+}
+
+main .all_contacts .contacts_section .contact .interes.seventyfive::after {
+  content: "75%";
+}
+
+main .all_contacts .contacts_section .contact .interes.fifty .color_line {
+  background-color: #ff0;
+  width: 85px;
+}
+
+main .all_contacts .contacts_section .contact .interes.fifty::after {
+  content: "50%";
+}
+
+main .all_contacts .contacts_section .contact .interes.twentyfive .color_line {
+  background-color: #00c3ff;
+  width: 42.5px;
+}
+
+main .all_contacts .contacts_section .contact .interes.twentyfive::after {
+  content: "25%";
+}
+
+main .all_contacts .contacts_section .contact .interes.cero::after {
+  content: "0%";
+}
+
+main .all_contacts .contacts_section .contact .acciones {
+  display: flex;
+  justify-content: center;
+}
+
+main .all_contacts .contacts_section .contact .acciones i {
+  display: none;
+  cursor: pointer;
+}
+
+main .all_contacts .contacts_section .contact .acciones i.dots {
+  display: block;
+  font-size: 20px;
+}
+
+main .all_contacts .contacts_section .contact .acciones.active {
+  justify-content: space-around;
+}
+
+main .all_contacts .contacts_section .contact .acciones.active i {
+  display: block;
+}
+
+main .all_contacts .contacts_section .contact .acciones.active i.dots {
+  display: none;
+}
+
+main .all_contacts .contacts_section .contact.selected {
+  background-color: #ffdada;
+}
+
+main .all_contacts .contacts_section .contact.selected .canal p {
+  background-color: #fd6e6e;
+}
+
 main .contacts_manager {
   margin: 50px 0;
   display: flex;
@@ -182,7 +305,7 @@ main .contacts_manager .search_section_ctn h1 {
 
 main .contacts_manager .search_section_ctn > div {
   position: relative;
-  width: 450px;
+  width: 500px;
   height: 40px;
   border-radius: 20px;
   overflow: hidden;
@@ -320,7 +443,7 @@ main .contacts_manager .operations_section_ctn i::after {
 }
 
 main .contacts_manager .operations_section_ctn button {
-  padding: 11px 20px;
+  padding: 11px 30px;
   margin: 0px 10px;
   font-size: 16px;
   border-radius: 25px;
