@@ -55,36 +55,36 @@
 .bg_add_contact {
     @extend %bgManagers;
     flex-direction: column;
-    .header_section {
-        width: 80%;
-        height: 140px;
-        background-color: $sColor;
-        color: $tColor;
-        position: relative;
-        h3 {
-            margin: 20px;
-        }
-        svg {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            fill: $tColor;
-            background-color: rgba($color: #fff, $alpha: .6);
-            border-radius: 20px;
-            &:hover{
-                background-color: rgba($color: #fff, $alpha: .9);
+    min-width: 1500px;
 
+    > div {
+        width: 80%;
+        position: relative;
+        max-height: 570px;
+        overflow: auto;
+
+        .header_section {
+            height: 140px;
+            background-color: $sColor;
+            color: $tColor;
+            position: relative;
+            h3 {
+                padding: 20px;
+            }
+            svg {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                fill: $tColor;
+                background-color: rgba($color: #fff, $alpha: 0.3);
+                border-radius: 20px;
+                &:hover {
+                    background-color: rgba($color: #fff, $alpha: 0.6);
+                }
             }
         }
-    }
-    .body_section {
-        width: 80%;
-        height: 420px;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
         .info_contact_p {
             width: 95%;
             height: 120px;
@@ -96,9 +96,10 @@
             color: #fff;
             justify-content: space-evenly;
             align-items: center;
-            position: relative;
+            position: absolute;
             z-index: 2;
             justify-self: center;
+            left: 2.5%;
             .form-floating {
                 width: 170px;
                 height: 25px;
@@ -123,161 +124,171 @@
                 }
             }
         }
-        .info_contact_s,
-        .info_contact_t {
-            width: 100%;
-            margin: 30px 0 0 50px;
+        .body_section {
+            background-color: #fff;
             display: flex;
-            .form-selects {
+            flex-direction: column;
+            padding: 70px 0 30px;
+            position: relative;
+            .info_contact_s,
+            .info_contact_t {
+                margin: 30px 0 0 50px;
+                display: flex;
+                .form-selects {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 20px;
+                    width: 200px;
+                    label {
+                        margin-bottom: 10px;
+                    }
+                    select {
+                        width: 200px;
+                        height: 30px;
+                        padding: 0 10px;
+                        border-radius: 15px;
+                        background-color: $sColor;
+                    }
+                    input {
+                        width: 200px;
+                        height: 30px;
+                        border-bottom: 3px solid $sColor;
+                        &:disabled {
+                            border-color: #bbb;
+                        }
+                    }
+                }
+            }
+            .info_contact_t {
+                button {
+                    width: 70px;
+                    height: 30px;
+                    background-color: $tColor;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    transition: all 0.25s ease;
+                    margin: 29px 0 0 0px;
+                    position: absolute;
+                    left: 790px;
+                    top: 188px;
+
+                    i {
+                        color: #fff;
+                    }
+                    &:hover {
+                        background-color: #fff;
+                        box-shadow: 0px 0px 7px 0px rgba(201, 201, 201, 0.69);
+                        i {
+                            color: $tColor;
+                        }
+                    }
+                    &:active {
+                        background-color: #888;
+                        i {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .info_contact_c {
+                width: 400px;
+                margin: 30px 0 0 70px;
                 display: flex;
                 flex-direction: column;
-                margin: 0 20px;
-                width: 200px;
+                position: relative;
                 label {
                     margin-bottom: 10px;
                 }
-                select {
-                    width: 200px;
-                    height: 30px;
-                    padding: 0 10px;
-                    border-radius: 15px;
-                    background-color: $sColor;
-                }
                 input {
-                    width: 200px;
-                    height: 30px;
-                    border-bottom: 3px solid $sColor;
-                    &:disabled {
-                        border-color: #bbb;
-                    }
+                    width: 270px;
                 }
-            }
-        }
-        .info_contact_t {
-            button {
-                width: 70px;
-                height: 30px;
-                background-color: $tColor;
-                border-radius: 15px;
-                cursor: pointer;
-                transition: all 0.25s ease;
-                margin: 29px 0 0 20px;
-                i {
-                    color: #fff;
+                select {
+                    position: absolute;
+                    right: 65px;
+                    bottom: -3px;
                 }
-                &:hover {
-                    background-color: #fff;
-                    box-shadow: 0px 0px 7px 0px rgba(201, 201, 201, 0.69);
-                    i {
-                        color: $tColor;
-                    }
-                }
-                &:active {
-                    background-color: #888;
-                    i {
-                        color: #fff;
-                    }
-                }
-            }
-        }
-        .info_contact_c {
-            width: 400px;
-            margin: 30px 0 0 70px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            label {
-                margin-bottom: 10px;
-            }
-            input {
-                width: 270px;
-            }
-            select {
-                position: absolute;
-                right: 65px;
-                bottom: -3px;
-            }
 
-            input[type="range"],
-            input[type="range"]::-webkit-slider-runnable-track,
-            input[type="range"]::-webkit-slider-thumb {
-                -webkit-appearance: none;
-            }
-            // circle
-            input[type="range"]::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                border-radius: 10px;
-                background: #fff;
-                cursor: pointer;
-                width: 15px;
-                height: 15px;
-                margin-top: -2px;
-                border: 3px solid #000;
-            }
-            //LINE
-            input[type="range"]::-webkit-slider-runnable-track {
-                width: 270px;
-                height: 10px;
-                cursor: pointer;
-                background-image: linear-gradient(
-                    to right,
-                    #00c3ff,
-                    #00c3ff 25%,
-                    #ff0 25%,
-                    #ff0 50%,
-                    #ffae00 50%,
-                    #ffae00 75%,
-                    #f00 75%
-                );
-                border-radius: 5px;
-            }
-            //line focus
-            input[type="range"]:focus::-webkit-slider-runnable-track {
-                background-image: linear-gradient(
-                    to right,
-                    #00c3ff,
-                    #00c3ff 25%,
-                    #ff0 25%,
-                    #ff0 50%,
-                    #ffae00 50%,
-                    #ffae00 75%,
-                    #f00 75%
-                );
-            }
-        }
-        .btn_section {
-            align-self: flex-end;
-            width: 500px;
-            margin-top: 40px;
-            display: flex;
-            justify-content: space-evenly;
-            button {
-                width: 200px;
-                height: 40px;
-                font-size: 16px;
-                transition: all 0.25s ease;
-                &.cancel_btn {
-                    color: $tColor;
-                    border: 3px solid $tColor;
-                    background-color: transparent;
-                    &:hover {
-                        color: $sColor;
-                        border-color: $sColor;
-                    }
-                    &:disabled {
-                        color: #bbb;
-                        border: 3px solid #bbb;
-                    }
+                input[type="range"],
+                input[type="range"]::-webkit-slider-runnable-track,
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
                 }
-                &.save_btn {
-                    background-color: $tColor;
-                    color: #fff;
-                    &:hover {
-                        background-color: $sColor;
+                // circle
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    border-radius: 10px;
+                    background: #fff;
+                    cursor: pointer;
+                    width: 15px;
+                    height: 15px;
+                    margin-top: -2px;
+                    border: 3px solid #000;
+                }
+                //LINE
+                input[type="range"]::-webkit-slider-runnable-track {
+                    width: 270px;
+                    height: 10px;
+                    cursor: pointer;
+                    background-image: linear-gradient(
+                        to right,
+                        #00c3ff,
+                        #00c3ff 25%,
+                        #ff0 25%,
+                        #ff0 50%,
+                        #ffae00 50%,
+                        #ffae00 75%,
+                        #f00 75%
+                    );
+                    border-radius: 5px;
+                }
+                //line focus
+                input[type="range"]:focus::-webkit-slider-runnable-track {
+                    background-image: linear-gradient(
+                        to right,
+                        #00c3ff,
+                        #00c3ff 25%,
+                        #ff0 25%,
+                        #ff0 50%,
+                        #ffae00 50%,
+                        #ffae00 75%,
+                        #f00 75%
+                    );
+                }
+            }
+            .btn_section {
+                align-self: flex-end;
+                width: 500px;
+                margin-top: 40px;
+                display: flex;
+                justify-content: space-evenly;
+                button {
+                    width: 200px;
+                    height: 40px;
+                    font-size: 16px;
+                    transition: all 0.25s ease;
+                    &.cancel_btn {
+                        color: $tColor;
+                        border: 3px solid $tColor;
+                        background-color: transparent;
+                        &:hover {
+                            color: $sColor;
+                            border-color: $sColor;
+                        }
+                        &:disabled {
+                            color: #bbb;
+                            border: 3px solid #bbb;
+                        }
                     }
-                    &:disabled {
-                        background-color: #bbb;
+                    &.save_btn {
+                        background-color: $tColor;
                         color: #fff;
+                        &:hover {
+                            background-color: $sColor;
+                        }
+                        &:disabled {
+                            background-color: #bbb;
+                            color: #fff;
+                        }
                     }
                 }
             }
