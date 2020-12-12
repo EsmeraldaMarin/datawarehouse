@@ -1,0 +1,119 @@
+let connection = require('../connection');
+
+function selectContacts(req, res) {
+
+    //FALTA RESOLVER CHANNELS
+
+    let sql = `SELECT 
+    contacts.id, contacts.name, contacts.lastname, contacts.email, contacts.position, contacts.address, contacts.img_url,
+    companies.name as 'company',
+    cities.name as 'city',
+    countries.name as 'country',
+    regions.name as 'region'
+    FROM contacts
+    INNER JOIN companies ON contacts.company_id = companies.id
+    INNER JOIN cities ON contacts.city_id = cities.id
+    INNER JOIN countries ON cities.country_id = countries.id
+    INNER JOIN regions ON countries.region_id = regions.id`;
+
+    connection.query(sql, function (err, contacts) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal error' });
+
+        } else {
+            res.send(contacts)
+        }
+    })
+}
+
+function insertContact(req, res) {
+
+    let newContact = req.body;
+
+    /*
+        {
+            "name": "Catalina",
+            "lastname": "Rosales",
+            "email": "catarosales@gmail.com",
+            "position": "organizadora de eventos",
+            "company_id": 2,
+            "city_id": 2,
+            "address": "La Rioja 123",
+            "img_url": "https://storage.googleapis.com/static-vibuk/profiles/26300.jpg"
+        }
+    */
+
+    let sql = `INSERT INTO datawarehouse.contacts(name, lastname, email, position, company_id, city_id, address, img_url)
+     VALUES ('${newContact.name}', '${newContact.lastname}', '${newContact.email}', '${newContact.position}', ${newContact.company_id}, ${newContact.city_id}, '${newContact.address}', '${newContact.img_url}');`;
+
+    connection.query(sql, function (err, contacts) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos del contacto' });
+
+        } else {
+            res.status(201).json(
+                {
+                    message: 'contact created',
+                    contactId: contacts.insertId
+                }
+            )
+        }
+    })
+}
+
+function updateContact(req, res) {
+
+    let update = req.body;
+    let contactId = req.params.id;
+
+    let sql = `UPDATE 
+            datawarehouse.contacts
+        SET
+            name = '${update.name}',
+            lastname = '${update.lastname}',
+            email = '${update.email}',
+            position = '${update.position}',
+            company_id = ${update.company_id},
+            city_id = ${update.city_id},
+            address = '${update.address}',
+            img_url= '${update.img_url}'
+        WHERE
+            id = ${contactId}`
+
+
+    connection.query(sql, function (err, contact) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos para actualizar' });
+
+        } else {
+            res.status(200).json({ message: 'contact updated', contact })
+        }
+    })
+
+}
+
+function deleteContact(req, res) {
+
+    let contactId = req.params.id;
+    let sql = `DELETE FROM contacts WHERE id = ${contactId}`
+    console.log(contactId)
+    connection.query(sql, function (err, contact) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal Error' });
+
+        } else {
+            res.status(200).json({ message: 'contact deleted', contact })
+        }
+    })
+}
+
+module.exports = {
+    selectContacts,
+    insertContact,
+    updateContact,
+    deleteContact
+};
