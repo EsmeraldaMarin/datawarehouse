@@ -2,12 +2,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.bg_import_contact, .bg_add_contact {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  backdrop-filter: blur(4px);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*
 naranja fuerte: #ff841f;
+
 azul fuerte : 070d59
 fucsia: ea2c62
 lila: 6a097d
-rosa lindo: ffdada
+
+rosa lindo claro: ffdada
+rosa lindo oscuro: fd6e6e;
+
 amarillo: ffda77
 
 
@@ -32,7 +49,7 @@ amarillo: ffda77
 body {
   min-width: 1500px;
   min-height: 100vh;
-  background-image: linear-gradient(#fff, #fff, rgba(7, 13, 89, 0.2));
+  background-image: linear-gradient(#fff, #fff, rgba(253, 110, 110, 0.2));
   font-family: "Montserrat", sans-serif;
 }
 
@@ -40,7 +57,7 @@ body main {
   padding: 0 60px;
 }
 
-button {
+button, input, select {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -52,7 +69,7 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
-  border-top: 5px solid #070d59;
+  border-top: 5px solid #fd6e6e;
 }
 
 header img {
@@ -83,7 +100,7 @@ header nav ul li:after {
   width: 0;
   height: 3px;
   margin: 0 auto;
-  background-color: #070d59;
+  background-color: #fd6e6e;
   display: block;
   transition: all 0.5s ease;
 }
@@ -97,7 +114,7 @@ header nav ul li.li_active {
   height: 40px;
   margin: 0 10px;
   padding: 0 20px;
-  background-color: #070d59;
+  background-color: #fd6e6e;
   border-radius: 30px;
   line-height: 40px;
 }
@@ -111,7 +128,7 @@ header nav ul li.li_active:hover::after {
 }
 
 header nav ul li a {
-  color: #070d59;
+  color: #fd6e6e;
   font-size: 16px;
 }
 
@@ -307,7 +324,7 @@ main .contacts_manager {
 }
 
 main .contacts_manager .search_section_ctn h1 {
-  color: #070d59;
+  color: #fd6e6e;
   font-size: 2em;
   margin-bottom: 20px;
 }
@@ -343,13 +360,13 @@ main .contacts_manager .search_section_ctn > div i {
   position: absolute;
   top: 0px;
   cursor: pointer;
-  color: #070d59;
+  color: #fd6e6e;
   line-height: 40px;
   z-index: 3;
 }
 
 main .contacts_manager .search_section_ctn > div i.search_btn {
-  border-left: 1px solid #070d59;
+  border-left: 1px solid #fd6e6e;
   right: 0;
 }
 
@@ -380,14 +397,14 @@ main .contacts_manager .search_section_ctn > div .filter_list > div {
 
 main .contacts_manager .search_section_ctn > div .filter_list .inputs_options input {
   padding: 5px;
-  border-bottom: 3px solid #070d59;
+  border-bottom: 3px solid #fd6e6e;
   outline: none;
   font-size: 16px;
 }
 
 main .contacts_manager .search_section_ctn > div .filter_list .inputs_options select {
   padding: 10px;
-  background-color: #070d59;
+  background-color: #fd6e6e;
   outline: none;
   color: #fff;
 }
@@ -424,15 +441,15 @@ main .contacts_manager .operations_section_ctn i {
   position: relative;
   text-align: center;
   line-height: 42px;
-  color: #070d59;
+  color: #fd6e6e;
   transition: all 0.2s ease;
   border-radius: 25px;
-  box-shadow: 0px 1px 3px #ccc;
+  box-shadow: 0px 1px 5px #ccc;
 }
 
 main .contacts_manager .operations_section_ctn i:hover {
-  transform: scale(1.05);
-  transition: all 0.2s ease;
+  box-shadow: 0px 3px 13px -7px #000000;
+  transform: translateY(-2px);
 }
 
 main .contacts_manager .operations_section_ctn i::before {
@@ -445,7 +462,7 @@ main .contacts_manager .operations_section_ctn i::after {
   content: "";
   width: 20px;
   height: 2px;
-  background-color: #070d59;
+  background-color: #fd6e6e;
   display: inline-block;
   position: absolute;
   top: 12px;
@@ -457,43 +474,30 @@ main .contacts_manager .operations_section_ctn button {
   margin: 0px 10px;
   font-size: 16px;
   border-radius: 25px;
-  box-shadow: 0px 1px 3px #ccc;
+  box-shadow: 0px 1px 5px #ccc;
 }
 
 main .contacts_manager .operations_section_ctn button.add_contact {
-  background-color: #070d59;
+  background-color: #fd6e6e;
   color: #fff;
   transition: all 0.2s ease;
 }
 
 main .contacts_manager .operations_section_ctn button.add_contact:hover {
-  transform: scale(1.03);
-  transition: all 0.2s ease;
+  box-shadow: 0px 3px 13px -7px #000000;
+  transform: translateY(-2px);
 }
 
 main .contacts_manager .operations_section_ctn button.exp_contact {
   background-color: transparent;
   box-sizing: content-box;
-  color: #070d59;
+  color: #fd6e6e;
   transition: all 0.2s ease;
 }
 
 main .contacts_manager .operations_section_ctn button.exp_contact:hover {
-  transform: scale(1.03);
-  transition: all 0.2s ease;
-}
-
-.bg_import_contact {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  backdrop-filter: blur(4px);
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  box-shadow: 0px 3px 13px -7px #000000;
+  transform: translateY(-2px);
 }
 
 .bg_import_contact .box_import {
@@ -533,7 +537,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 }
 
 .bg_import_contact .box_import button {
-  background-color: #070d59;
+  background-color: #fd6e6e;
   width: 90%;
   height: 45px;
   font-family: "Montserrat", sans-serif;
@@ -552,6 +556,256 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   background-color: #555;
 }
 
+.bg_add_contact {
+  flex-direction: column;
+}
+
+.bg_add_contact .header_section {
+  width: 80%;
+  height: 140px;
+  background-color: #ffdada;
+  color: #fd6e6e;
+  position: relative;
+}
+
+.bg_add_contact .header_section h3 {
+  margin: 20px;
+}
+
+.bg_add_contact .header_section svg {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  fill: #fd6e6e;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+
+.bg_add_contact .header_section svg:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bg_add_contact .body_section {
+  width: 80%;
+  height: 420px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg_add_contact .body_section .info_contact_p {
+  width: 95%;
+  height: 120px;
+  padding: 10px;
+  margin: -60px auto 0;
+  background-color: #fd6e6e;
+  border-radius: 60px;
+  display: flex;
+  color: #fff;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  justify-self: center;
+}
+
+.bg_add_contact .body_section .info_contact_p .form-floating {
+  width: 170px;
+  height: 25px;
+  position: relative;
+}
+
+.bg_add_contact .body_section .info_contact_p .form-floating input {
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+}
+
+.bg_add_contact .body_section .info_contact_p .form-floating input:focus ~ label {
+  top: -100%;
+  font-size: 12px;
+}
+
+.bg_add_contact .body_section .info_contact_p .form-floating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.25s ease;
+}
+
+.bg_add_contact .body_section .info_contact_s,
+.bg_add_contact .body_section .info_contact_t {
+  width: 100%;
+  margin: 30px 0 0 50px;
+  display: flex;
+}
+
+.bg_add_contact .body_section .info_contact_s .form-selects,
+.bg_add_contact .body_section .info_contact_t .form-selects {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  width: 200px;
+}
+
+.bg_add_contact .body_section .info_contact_s .form-selects label,
+.bg_add_contact .body_section .info_contact_t .form-selects label {
+  margin-bottom: 10px;
+}
+
+.bg_add_contact .body_section .info_contact_s .form-selects select,
+.bg_add_contact .body_section .info_contact_t .form-selects select {
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 15px;
+  background-color: #ffdada;
+}
+
+.bg_add_contact .body_section .info_contact_s .form-selects input,
+.bg_add_contact .body_section .info_contact_t .form-selects input {
+  width: 200px;
+  height: 30px;
+  border-bottom: 3px solid #ffdada;
+}
+
+.bg_add_contact .body_section .info_contact_s .form-selects input:disabled,
+.bg_add_contact .body_section .info_contact_t .form-selects input:disabled {
+  border-color: #bbb;
+}
+
+.bg_add_contact .body_section .info_contact_t button {
+  width: 70px;
+  height: 30px;
+  background-color: #fd6e6e;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin: 29px 0 0 20px;
+}
+
+.bg_add_contact .body_section .info_contact_t button i {
+  color: #fff;
+}
+
+.bg_add_contact .body_section .info_contact_t button:hover {
+  background-color: #fff;
+  box-shadow: 0px 0px 7px 0px rgba(201, 201, 201, 0.69);
+}
+
+.bg_add_contact .body_section .info_contact_t button:hover i {
+  color: #fd6e6e;
+}
+
+.bg_add_contact .body_section .info_contact_t button:active {
+  background-color: #888;
+}
+
+.bg_add_contact .body_section .info_contact_t button:active i {
+  color: #fff;
+}
+
+.bg_add_contact .body_section .info_contact_c {
+  width: 400px;
+  margin: 30px 0 0 70px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.bg_add_contact .body_section .info_contact_c label {
+  margin-bottom: 10px;
+}
+
+.bg_add_contact .body_section .info_contact_c input {
+  width: 270px;
+}
+
+.bg_add_contact .body_section .info_contact_c select {
+  position: absolute;
+  right: 65px;
+  bottom: -3px;
+}
+
+.bg_add_contact .body_section .info_contact_c input[type="range"],
+.bg_add_contact .body_section .info_contact_c input[type="range"]::-webkit-slider-runnable-track,
+.bg_add_contact .body_section .info_contact_c input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.bg_add_contact .body_section .info_contact_c input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  margin-top: -2px;
+  border: 3px solid #000;
+}
+
+.bg_add_contact .body_section .info_contact_c input[type="range"]::-webkit-slider-runnable-track {
+  width: 270px;
+  height: 10px;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #00c3ff, #00c3ff 25%, #ff0 25%, #ff0 50%, #ffae00 50%, #ffae00 75%, #f00 75%);
+  border-radius: 5px;
+}
+
+.bg_add_contact .body_section .info_contact_c input[type="range"]:focus::-webkit-slider-runnable-track {
+  background-image: linear-gradient(to right, #00c3ff, #00c3ff 25%, #ff0 25%, #ff0 50%, #ffae00 50%, #ffae00 75%, #f00 75%);
+}
+
+.bg_add_contact .body_section .btn_section {
+  align-self: flex-end;
+  width: 500px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bg_add_contact .body_section .btn_section button {
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  transition: all 0.25s ease;
+}
+
+.bg_add_contact .body_section .btn_section button.cancel_btn {
+  color: #fd6e6e;
+  border: 3px solid #fd6e6e;
+  background-color: transparent;
+}
+
+.bg_add_contact .body_section .btn_section button.cancel_btn:hover {
+  color: #ffdada;
+  border-color: #ffdada;
+}
+
+.bg_add_contact .body_section .btn_section button.cancel_btn:disabled {
+  color: #bbb;
+  border: 3px solid #bbb;
+}
+
+.bg_add_contact .body_section .btn_section button.save_btn {
+  background-color: #fd6e6e;
+  color: #fff;
+}
+
+.bg_add_contact .body_section .btn_section button.save_btn:hover {
+  background-color: #ffdada;
+}
+
+.bg_add_contact .body_section .btn_section button.save_btn:disabled {
+  background-color: #bbb;
+  color: #fff;
+}
+
 .footer_section {
   height: 80px;
   width: 100%;
@@ -559,7 +813,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 5px solid #070d59;
+  border-bottom: 5px solid #fd6e6e;
 }
 
 .footer_section .rows_per_page {

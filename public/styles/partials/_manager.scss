@@ -1,17 +1,7 @@
-.bg_import_contact{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
-    backdrop-filter: blur(4px);
-    z-index: 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bg_import_contact {
+    @extend %bgManagers;
 
-    
-    .box_import{
+    .box_import {
         width: 400px;
         height: 400px;
         border-radius: 30px;
@@ -22,11 +12,11 @@
         align-items: center;
         justify-content: space-evenly;
         position: relative;
-        .close_btn{
+        .close_btn {
             width: 40px;
             height: 40px;
             border-radius: 20px;
-            background-color: rgba($color: #fff, $alpha: .4);
+            background-color: rgba($color: #fff, $alpha: 0.4);
             position: absolute;
             top: -40px;
             right: -40px;
@@ -34,16 +24,15 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            &:hover{
-                background-color: rgba($color: #fff, $alpha: .6);
+            &:hover {
+                background-color: rgba($color: #fff, $alpha: 0.6);
             }
         }
-        p{
+        p {
             text-align: center;
             margin-bottom: -10px;
-            
         }
-        button{
+        button {
             background-color: $pColor;
             width: 90%;
             height: 45px;
@@ -53,12 +42,244 @@
             cursor: pointer;
             transition: transform 0.5s ease;
 
-            &:hover{
+            &:hover {
                 box-shadow: 0px 10px 13px -7px #000000;
                 transform: translateY(-5px);
             }
-            &:active{
+            &:active {
                 background-color: #555;
+            }
+        }
+    }
+}
+.bg_add_contact {
+    @extend %bgManagers;
+    flex-direction: column;
+    .header_section {
+        width: 80%;
+        height: 140px;
+        background-color: $sColor;
+        color: $tColor;
+        position: relative;
+        h3 {
+            margin: 20px;
+        }
+        svg {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            fill: $tColor;
+            background-color: rgba($color: #fff, $alpha: .6);
+            border-radius: 20px;
+            &:hover{
+                background-color: rgba($color: #fff, $alpha: .9);
+
+            }
+        }
+    }
+    .body_section {
+        width: 80%;
+        height: 420px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        .info_contact_p {
+            width: 95%;
+            height: 120px;
+            padding: 10px;
+            margin: -60px auto 0;
+            background-color: $tColor;
+            border-radius: 60px;
+            display: flex;
+            color: #fff;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            justify-self: center;
+            .form-floating {
+                width: 170px;
+                height: 25px;
+                position: relative;
+                input {
+                    width: 100%;
+                    height: 100%;
+                    border-bottom: 2px solid #fff;
+                    background-color: transparent;
+                    color: #fff;
+                    font-size: 16px;
+                    &:focus ~ label {
+                        top: -100%;
+                        font-size: 12px;
+                    }
+                }
+                label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transition: all 0.25s ease;
+                }
+            }
+        }
+        .info_contact_s,
+        .info_contact_t {
+            width: 100%;
+            margin: 30px 0 0 50px;
+            display: flex;
+            .form-selects {
+                display: flex;
+                flex-direction: column;
+                margin: 0 20px;
+                width: 200px;
+                label {
+                    margin-bottom: 10px;
+                }
+                select {
+                    width: 200px;
+                    height: 30px;
+                    padding: 0 10px;
+                    border-radius: 15px;
+                    background-color: $sColor;
+                }
+                input {
+                    width: 200px;
+                    height: 30px;
+                    border-bottom: 3px solid $sColor;
+                    &:disabled {
+                        border-color: #bbb;
+                    }
+                }
+            }
+        }
+        .info_contact_t {
+            button {
+                width: 70px;
+                height: 30px;
+                background-color: $tColor;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: all 0.25s ease;
+                margin: 29px 0 0 20px;
+                i {
+                    color: #fff;
+                }
+                &:hover {
+                    background-color: #fff;
+                    box-shadow: 0px 0px 7px 0px rgba(201, 201, 201, 0.69);
+                    i {
+                        color: $tColor;
+                    }
+                }
+                &:active {
+                    background-color: #888;
+                    i {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .info_contact_c {
+            width: 400px;
+            margin: 30px 0 0 70px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            label {
+                margin-bottom: 10px;
+            }
+            input {
+                width: 270px;
+            }
+            select {
+                position: absolute;
+                right: 65px;
+                bottom: -3px;
+            }
+
+            input[type="range"],
+            input[type="range"]::-webkit-slider-runnable-track,
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+            }
+            // circle
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                border-radius: 10px;
+                background: #fff;
+                cursor: pointer;
+                width: 15px;
+                height: 15px;
+                margin-top: -2px;
+                border: 3px solid #000;
+            }
+            //LINE
+            input[type="range"]::-webkit-slider-runnable-track {
+                width: 270px;
+                height: 10px;
+                cursor: pointer;
+                background-image: linear-gradient(
+                    to right,
+                    #00c3ff,
+                    #00c3ff 25%,
+                    #ff0 25%,
+                    #ff0 50%,
+                    #ffae00 50%,
+                    #ffae00 75%,
+                    #f00 75%
+                );
+                border-radius: 5px;
+            }
+            //line focus
+            input[type="range"]:focus::-webkit-slider-runnable-track {
+                background-image: linear-gradient(
+                    to right,
+                    #00c3ff,
+                    #00c3ff 25%,
+                    #ff0 25%,
+                    #ff0 50%,
+                    #ffae00 50%,
+                    #ffae00 75%,
+                    #f00 75%
+                );
+            }
+        }
+        .btn_section {
+            align-self: flex-end;
+            width: 500px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            button {
+                width: 200px;
+                height: 40px;
+                font-size: 16px;
+                transition: all 0.25s ease;
+                &.cancel_btn {
+                    color: $tColor;
+                    border: 3px solid $tColor;
+                    background-color: transparent;
+                    &:hover {
+                        color: $sColor;
+                        border-color: $sColor;
+                    }
+                    &:disabled {
+                        color: #bbb;
+                        border: 3px solid #bbb;
+                    }
+                }
+                &.save_btn {
+                    background-color: $tColor;
+                    color: #fff;
+                    &:hover {
+                        background-color: $sColor;
+                    }
+                    &:disabled {
+                        background-color: #bbb;
+                        color: #fff;
+                    }
+                }
             }
         }
     }
