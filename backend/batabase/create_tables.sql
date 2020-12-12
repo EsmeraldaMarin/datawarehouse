@@ -47,7 +47,8 @@ CREATE TABLE `datawarehouse`.`contacts` (
     `company_id`INT NOT NULL,
     `city_id`INT NOT NULL,
     `address` VARCHAR(255) NOT NULL,
-    `img_url` VARCHAR(255) NULL,
+    `img_url` VARCHAR(255) NOT NULL,
+    `interest` INT NOT NULL
     PRIMARY KEY (`id`)
 );
 CREATE TABLE `datawarehouse`.`channels` (

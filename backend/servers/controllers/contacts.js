@@ -5,7 +5,7 @@ function selectContacts(req, res) {
     //FALTA RESOLVER CHANNELS
 
     let sql = `SELECT 
-    contacts.id, contacts.name, contacts.lastname, contacts.email, contacts.position, contacts.address, contacts.img_url,
+    contacts.id, contacts.name, contacts.lastname, contacts.email, contacts.position, contacts.address,contacts.interest, contacts.img_url,
     companies.name as 'company',
     cities.name as 'city',
     countries.name as 'country',
@@ -40,12 +40,13 @@ function insertContact(req, res) {
             "company_id": 2,
             "city_id": 2,
             "address": "La Rioja 123",
+            "interest": 100,
             "img_url": "https://storage.googleapis.com/static-vibuk/profiles/26300.jpg"
         }
     */
 
-    let sql = `INSERT INTO datawarehouse.contacts(name, lastname, email, position, company_id, city_id, address, img_url)
-     VALUES ('${newContact.name}', '${newContact.lastname}', '${newContact.email}', '${newContact.position}', ${newContact.company_id}, ${newContact.city_id}, '${newContact.address}', '${newContact.img_url}');`;
+    let sql = `INSERT INTO datawarehouse.contacts(name, lastname, email, position, company_id, city_id, address, interest, img_url)
+     VALUES ('${newContact.name}', '${newContact.lastname}', '${newContact.email}', '${newContact.position}', ${newContact.company_id}, ${newContact.city_id}, '${newContact.address}', ${newContact.interest}, '${newContact.img_url}');`;
 
     connection.query(sql, function (err, contacts) {
         if (err) {
@@ -78,6 +79,7 @@ function updateContact(req, res) {
             company_id = ${update.company_id},
             city_id = ${update.city_id},
             address = '${update.address}',
+            interest = ${update.interest}
             img_url= '${update.img_url}'
         WHERE
             id = ${contactId}`

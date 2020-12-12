@@ -12,23 +12,7 @@ arrowDown.addEventListener('click', (e) => {
     searchSection.classList.toggle('active')
 })
 
-//select a contact funcion
 
-let selectContactBtn = document.querySelectorAll('#selectContact')
-
-selectContactBtn.forEach(el => {
-    el.addEventListener('change', () => {
-
-        let contactRow = el.parentNode.parentNode
-        if (el.checked) {
-            contactRow.classList.add("selected")
-            el.checked = true
-        } else {
-            contactRow.classList.remove("selected")
-            el.checked = false
-        }
-    })
-})
 
 //select all conctacts function
 
@@ -50,16 +34,6 @@ selectAllContactsBtn.addEventListener('change', () => {
         })
     }
 
-})
-
-//see more actions
-
-let seeMoreActionsBtn = document.querySelectorAll('#actions #dots');
-seeMoreActionsBtn.forEach(el => {
-    el.addEventListener('click', () => {
-        let parent = el.parentNode
-        parent.classList.toggle('active')
-    })
 })
 
 // importar contacto window

@@ -14,7 +14,7 @@ main {
             ul {
                 height: 50px;
                 display: grid;
-                grid-template-columns: 40px 300px repeat(3, 150px) repeat(2, 1fr) 70px;
+                grid-template-columns: 40px 250px repeat(2, 150px) repeat(3, 1fr) 70px;
                 align-items: center;
                 li {
                     font-size: 16px;
@@ -34,9 +34,12 @@ main {
                 padding: 10px 25px;
                 height: 65px;
                 display: grid;
-                grid-template-columns: 40px 300px repeat(3, 150px) repeat(2, 1fr) 70px;
+                grid-template-columns: 40px 250px repeat(2, 150px) repeat(3, 1fr) 70px;
                 align-items: center;
                 font-size: 14px;
+                p,li{
+                    text-transform: capitalize;
+                }
                 .checkbox {
                     input {
                         margin-top: 4px;
@@ -59,6 +62,7 @@ main {
                         .email {
                             color: #555;
                             font-size: 12px;
+                            text-transform: lowercase;
                         }
                     }
                 }
@@ -95,7 +99,7 @@ main {
                     }
                     .color_line {
                         position: absolute;
-                        top: 3.5px;
+                        top: 5px;
                         height: 10px;
                         border-radius: 25px;
                     }
