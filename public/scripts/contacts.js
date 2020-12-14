@@ -77,9 +77,12 @@ function showContacts() {
 }
 showContacts()
 
-function deleteContact(id) {
+function deleteContact(parent) {
+    let id = parent.id
+    parent.remove()
 
     id = id.replace("contact", "")
+
     let url = `http://localhost:3000/contacts/${id}`
     let parametros = {
 
@@ -90,7 +93,7 @@ function deleteContact(id) {
 
     fetch(url, parametros)
         .then(res => res.json())
-        .then(console.log("contacto borrado")) 
+        .then(console.log("contacto borrado"))
 
 }
 
@@ -128,8 +131,38 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn) {
     trashBtn.forEach(el => {
         el.addEventListener('click', () => {
             let parent = el.parentNode.parentNode
-            deleteContact(parent.id)
-            parent.remove()
+            console.log("boton trash")
+            showDeleteModal(parent)
+
         })
     })
+}
+
+function showDeleteModal(parent) {
+
+    let importWindowHTML =
+        `<div class='bg_delete_contact' id= 'bgdeleteContact'>
+            <div class='box_delete'>
+            <div class='close_btn' id= 'closeDelContactBtn'>
+                <img src='assets/button-close.svg'  alt='close Button'>
+            </div>
+            <img src='assets/delete_contact.png' alt='Delete contact Image'>
+
+            <p>¿Está seguro que desea borrar este contacto?</p>
+            <button id="delConfirmBtn">Borrar contacto</button>
+        </div>
+        </div>`
+
+    showWindow(importWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
+
+    let delConfirmBtn = document.getElementById('delConfirmBtn')
+    console.log("boton confirm")
+
+    delConfirmBtn.addEventListener('click', ()=>{
+        let container = document.getElementById("bgdeleteContact")
+        container.remove()
+        deleteContact(parent)
+    })
+
+
 }

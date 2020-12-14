@@ -58,6 +58,8 @@ impContactBtn.addEventListener('click', () => {
 
 })
 
+
+
 //add contact window
 
 let addContactBtn = document.getElementById('addContact')

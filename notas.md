@@ -1,6 +1,6 @@
 Este Commit
 
-* coneccion bcak con front en contactos. Funciones de show contacts y delete
+* modal de confirmacion para borrar contacto
 
 corregir selects al agregar un canal en agregar usuarios
 
