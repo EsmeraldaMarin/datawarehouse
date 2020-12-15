@@ -1,31 +1,32 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
     outline: none;
 
-    ul{
+    ul {
         list-style: none;
     }
-    a{
+    a {
         text-decoration: none;
         color: #000;
     }
 }
 
-body{
-    
+body {
     min-width: 1500px;
     min-height: 100vh;
-    background-image: linear-gradient( #fff, #fff, rgba($color: $pColor, $alpha: .2));
+    background-image: linear-gradient(#fff, #fff, rgba($color: $pColor, $alpha: 0.2));
     font-family: $pFont;
-    main{
+    main {
         padding: 0 60px;
     }
 }
 
-button, input, select{
+button,
+input,
+select {
     font-family: $pFont;
 }
 

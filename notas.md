@@ -1,6 +1,6 @@
 Este Commit
 
-* canales en contacto
+* canal details
 
 corregir selects al agregar un canal en agregar usuarios
 

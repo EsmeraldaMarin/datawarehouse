@@ -4,13 +4,13 @@ main {
         border-radius: 25px;
         margin: 0 auto;
         box-shadow: 0px 1px 7px #bbb;
-        overflow: hidden;
         background-color: #fff;
-
 
         .header_section {
             box-shadow: 0 1px 5px #ddd;
             padding: 0 25px;
+            border-radius: 25px 25px 0 0;
+
             ul {
                 height: 50px;
                 display: grid;
@@ -29,7 +29,7 @@ main {
         }
         .contacts_section {
             padding: 5px 0px;
-            font-family:  $sFont;
+            font-family: $sFont;
             .contact {
                 padding: 10px 25px;
                 height: 65px;
@@ -37,7 +37,8 @@ main {
                 grid-template-columns: 40px 250px repeat(3, 150px) repeat(2, 1fr) 70px;
                 align-items: center;
                 font-size: 16px;
-                p,li{
+                > p,
+                li {
                     text-transform: capitalize;
                 }
                 .checkbox {
@@ -73,7 +74,7 @@ main {
                     }
                 }
                 .canal {
-                    p {
+                    .channel {
                         width: 80px;
                         height: 20px;
                         display: inline-block;
@@ -86,9 +87,59 @@ main {
                         text-align: center;
                         border-radius: 20px;
                         text-transform: uppercase;
+                        position: relative;
+                        cursor: pointer;
+
+                        .details-ctn {
+                            display: none;
+                            max-width: 150px;
+                            min-width: 150px;
+                            background-color: rgb(240, 240, 240);
+                            padding: 7px;
+                            font-size: 12px;
+                            position: absolute;
+                            top: -100px;
+                            left: -35px;
+                            text-align: left;
+                            font-weight: normal;
+                            font-family: $pFont;
+                            border-radius: 15px;
+                            p,
+                            .preferencia {
+                                margin-bottom: 3px;
+                                color: #000;
+                            }
+                            .title-channel {
+                                text-transform: uppercase;
+                                border-bottom: 1px solid #fff;
+                                text-align: center;
+                                padding-bottom: 3px;
+                                font-weight: bold;
+                            }
+                            .preferencia {
+                                text-transform: capitalize;
+                                position: relative;
+                                .triangle {
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 10px 10px 0 10px;
+                                    border-color: rgb(240, 240, 240) transparent transparent transparent;
+                                    position: absolute;
+                                    bottom: -100%;
+                                    right: 43%;
+
+                                }
+                            }
+                        }
+                        &:hover {
+                            .details-ctn {
+                                display: block;
+                            }
+                        }
                     }
                 }
-                .cargo{
+                .cargo {
                     padding-right: 10px;
                 }
                 .interes {
@@ -173,7 +224,7 @@ main {
                 &.selected {
                     background-color: $sColor;
                     .canal {
-                        p {
+                        .channel {
                             background-color: $tColor;
                         }
                     }

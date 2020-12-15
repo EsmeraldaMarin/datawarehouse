@@ -6,6 +6,7 @@ let app = express()
 
 const {defineRol, validateRol, validateAcount}= require('./middlewares/authorization');
 const {selectContacts, insertContact, updateContact, deleteContact} = require('./controllers/contacts')
+const {getChannelsById} = require('./controllers/channels');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
@@ -32,6 +33,11 @@ app.get('/contacts', selectContacts);
 app.post('/contacts', insertContact);
 app.put('/contacts/:id', updateContact);
 app.delete('/contacts/:id', deleteContact);
+
+//channels
+
+app.get('/channels/:id', getChannelsById);
+
 
 //companies
 

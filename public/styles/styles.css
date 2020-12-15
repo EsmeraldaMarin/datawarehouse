@@ -57,7 +57,9 @@ body main {
   padding: 0 60px;
 }
 
-button, input, select {
+button,
+input,
+select {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -137,13 +139,13 @@ main .all_contacts {
   border-radius: 25px;
   margin: 0 auto;
   box-shadow: 0px 1px 7px #bbb;
-  overflow: hidden;
   background-color: #fff;
 }
 
 main .all_contacts .header_section {
   box-shadow: 0 1px 5px #ddd;
   padding: 0 25px;
+  border-radius: 25px 25px 0 0;
 }
 
 main .all_contacts .header_section ul {
@@ -178,7 +180,8 @@ main .all_contacts .contacts_section .contact {
   font-size: 16px;
 }
 
-main .all_contacts .contacts_section .contact p, main .all_contacts .contacts_section .contact li {
+main .all_contacts .contacts_section .contact > p,
+main .all_contacts .contacts_section .contact li {
   text-transform: capitalize;
 }
 
@@ -213,7 +216,7 @@ main .all_contacts .contacts_section .contact .pais_region .region {
   font-size: 12px;
 }
 
-main .all_contacts .contacts_section .contact .canal p {
+main .all_contacts .contacts_section .contact .canal .channel {
   width: 80px;
   height: 20px;
   display: inline-block;
@@ -226,6 +229,58 @@ main .all_contacts .contacts_section .contact .canal p {
   text-align: center;
   border-radius: 20px;
   text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel .details-ctn {
+  display: none;
+  max-width: 150px;
+  min-width: 150px;
+  background-color: #f0f0f0;
+  padding: 7px;
+  font-size: 12px;
+  position: absolute;
+  top: -100px;
+  left: -35px;
+  text-align: left;
+  font-weight: normal;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 15px;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel .details-ctn p,
+main .all_contacts .contacts_section .contact .canal .channel .details-ctn .preferencia {
+  margin-bottom: 3px;
+  color: #000;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel .details-ctn .title-channel {
+  text-transform: uppercase;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+  padding-bottom: 3px;
+  font-weight: bold;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel .details-ctn .preferencia {
+  text-transform: capitalize;
+  position: relative;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel .details-ctn .preferencia .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #f0f0f0 transparent transparent transparent;
+  position: absolute;
+  bottom: -100%;
+  right: 43%;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel:hover .details-ctn {
+  display: block;
 }
 
 main .all_contacts .contacts_section .contact .cargo {
@@ -323,7 +378,7 @@ main .all_contacts .contacts_section .contact.selected {
   background-color: #ffdada;
 }
 
-main .all_contacts .contacts_section .contact.selected .canal p {
+main .all_contacts .contacts_section .contact.selected .canal .channel {
   background-color: #fd6e6e;
 }
 

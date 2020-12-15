@@ -11,7 +11,7 @@ function showContacts() {
 
                 let classInteres;
                 let channels = contact.channelsName.split(",");
-                
+
 
                 switch (contact.interest) {
                     case 100:
@@ -65,13 +65,13 @@ function showContacts() {
                 contactsSection.insertAdjacentHTML('beforeend', contactUl)
                 let channelLi = document.querySelector(`#contact${contact.id} li#canal`);
                 channels.forEach(ch => {
-                    let p = document.createElement('p')
+                    let p = document.createElement('div')
                     p.textContent = ch;
                     p.className = "channel"
                     channelLi.appendChild(p)
                 })
-                    
-                
+
+
 
 
             });
@@ -81,13 +81,34 @@ function showContacts() {
             let selectContactBtn = document.querySelectorAll('#selectContact');
             let seeMoreActionsBtn = document.querySelectorAll('#actions #dots');
             let trashBtn = document.querySelectorAll('#actions #trashBtn');
-            actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn)
+            let channelsBtn = document.querySelectorAll('#canal .channel');
 
-            
+            actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn)
+
         })
 
 }
 showContacts()
+
+
+
+function showContactById(id) {
+    const url = `http://localhost:3000/channels/${id}`
+
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(res => res.json())
+            .then((json) => {
+                resolve(json)
+            })
+    });
+}
+
+/*
+contactsSection.addEventListener('click', () => {
+    let contact = showContactById(11).then(el => { return el})
+    contact.then(res=>console.log(res))
+})*/
 
 function deleteContact(parent) {
     let id = parent.id
@@ -109,7 +130,7 @@ function deleteContact(parent) {
 
 }
 
-function actionsTable(checkbox, seeMoreBtn, trashBtn) {
+function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
 
     //select a contact funcion
 
@@ -143,11 +164,39 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn) {
     trashBtn.forEach(el => {
         el.addEventListener('click', () => {
             let parent = el.parentNode.parentNode
-            console.log("boton trash")
             showDeleteModal(parent)
 
         })
     })
+
+    //channel details
+
+    channels.forEach(el => {
+        let parent = el.parentNode.parentNode
+        let id = parent.id
+        id = id.replace("contact", "")
+
+        let contact = showContactById(id).then(el => { return el })
+        contact.then(res => {
+            let channel = res.find(ch => ch.channel_name == el.textContent)
+
+            showChannelDetail(channel, el)
+        })
+
+    })
+}
+
+function showChannelDetail(channel, p) {
+    let channelDetailHtml = `
+    <div class="details-ctn">
+        <p class="title-channel">${channel.channel_name}</p>
+        <p>${channel.channel_username}</p>
+        <div class="preferencia">${channel.preferences}
+            <div class="triangle"></div>
+        </div>
+    </div>
+    `
+    p.insertAdjacentHTML('afterbegin', channelDetailHtml)
 }
 
 function showDeleteModal(parent) {
@@ -170,7 +219,7 @@ function showDeleteModal(parent) {
     let delConfirmBtn = document.getElementById('delConfirmBtn')
     console.log("boton confirm")
 
-    delConfirmBtn.addEventListener('click', ()=>{
+    delConfirmBtn.addEventListener('click', () => {
         let container = document.getElementById("bgdeleteContact")
         container.remove()
         deleteContact(parent)
