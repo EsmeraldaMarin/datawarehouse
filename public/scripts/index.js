@@ -25,6 +25,11 @@ selectAllContactsBtn.addEventListener('change', () => {
         contacts.forEach(el => {
             el.parentNode.parentNode.classList.add("selected");
             el.checked = true
+            el.addEventListener('change', ()=>{
+                if(!el.checked){
+                    selectAllContactsBtn.checked = false
+                }
+            })
         })
 
     } else {
@@ -142,10 +147,10 @@ addContactBtn.addEventListener('click', () => {
                         <select name="" id="canalSelectAdd">
                             <option value="">Whatsapp</option>
                             <option value="">Slack</option>
-                            <option value="">Instagram</option>
                             <option value="">Linkedin</option>
-                            <option value="">Número Celular</option>
+                            <option value="">Teléfono</option>
                             <option value="">Email</option>
+                            <option value="">Facebook</option>
                         </select>
                     </div>
 
@@ -159,7 +164,6 @@ addContactBtn.addEventListener('click', () => {
                             <option value="">Sin Preferencias</option>
                             <option value="">No Molestar</option>
                             <option value="">Canal Preferido</option>
-                            <option value="">Solo Mensajes</option>
                         </select>
 
                     </div>
@@ -170,13 +174,6 @@ addContactBtn.addEventListener('click', () => {
 
                     <label for="interesInputAdd">Interés</label>
                     <input class="" type="range" value="0" min="0" max="100" step="25" id="interesInputAdd">
-                    <select name="" id="">
-                        <option value="100">100%</option>
-                        <option value="75">75%</option>
-                        <option value="50">50%</option>
-                        <option value="25">25%</option>
-                        <option value="0">0%</option>
-                    </select>
                 </div>
 
                 <div class="btn_section">

@@ -10,6 +10,8 @@ function showContacts() {
             info.forEach(contact => {
 
                 let classInteres;
+                let channels = contact.channelsName.split(",");
+                
 
                 switch (contact.interest) {
                     case 100:
@@ -30,6 +32,7 @@ function showContacts() {
                         break;
                 }
 
+
                 let contactUl = `
                     <ul class="contact" id= "contact${contact.id}">
                         <li class="checkbox">
@@ -48,10 +51,7 @@ function showContacts() {
                         </li>
                         <li class="empresa">${contact.company}</li>
                         <li class="cargo">${contact.position}</li>
-                        <li class="canal">
-                            <p class="channel">Whatsapp</p>
-                            <p class="channel">Slack</p>
-                        </li>
+                        <li class="canal" id="canal"></li>
                         <li class="interes ${classInteres}">
                             <div class="bg_line"></div>
                             <div class="color_line"></div>
@@ -63,6 +63,16 @@ function showContacts() {
                         </li>
                     </ul>`
                 contactsSection.insertAdjacentHTML('beforeend', contactUl)
+                let channelLi = document.querySelector(`#contact${contact.id} li#canal`);
+                channels.forEach(ch => {
+                    let p = document.createElement('p')
+                    p.textContent = ch;
+                    p.className = "channel"
+                    channelLi.appendChild(p)
+                })
+                    
+                
+
 
             });
 
@@ -72,6 +82,8 @@ function showContacts() {
             let seeMoreActionsBtn = document.querySelectorAll('#actions #dots');
             let trashBtn = document.querySelectorAll('#actions #trashBtn');
             actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn)
+
+            
         })
 
 }

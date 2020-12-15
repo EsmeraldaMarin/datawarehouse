@@ -149,7 +149,7 @@ main .all_contacts .header_section {
 main .all_contacts .header_section ul {
   height: 50px;
   display: grid;
-  grid-template-columns: 40px 250px repeat(2, 150px) repeat(3, 1fr) 70px;
+  grid-template-columns: 40px 250px repeat(3, 150px) repeat(2, 1fr) 70px;
   align-items: center;
 }
 
@@ -173,9 +173,9 @@ main .all_contacts .contacts_section .contact {
   padding: 10px 25px;
   height: 65px;
   display: grid;
-  grid-template-columns: 40px 250px repeat(2, 150px) repeat(3, 1fr) 70px;
+  grid-template-columns: 40px 250px repeat(3, 150px) repeat(2, 1fr) 70px;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 main .all_contacts .contacts_section .contact p, main .all_contacts .contacts_section .contact li {
@@ -214,17 +214,22 @@ main .all_contacts .contacts_section .contact .pais_region .region {
 }
 
 main .all_contacts .contacts_section .contact .canal p {
-  width: 90px;
-  height: 25px;
+  width: 80px;
+  height: 20px;
   display: inline-block;
   margin-right: 5px;
-  font-size: 10px;
+  margin-bottom: 5px;
+  font-size: 9px;
   font-weight: bold;
   background-color: #ffdada;
-  line-height: 25px;
+  line-height: 20px;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 20px;
   text-transform: uppercase;
+}
+
+main .all_contacts .contacts_section .contact .cargo {
+  padding-right: 10px;
 }
 
 main .all_contacts .contacts_section .contact .interes {
@@ -739,12 +744,6 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 
 .bg_add_contact > div .body_section .info_contact_c input {
   width: 270px;
-}
-
-.bg_add_contact > div .body_section .info_contact_c select {
-  position: absolute;
-  right: 65px;
-  bottom: -3px;
 }
 
 .bg_add_contact > div .body_section .info_contact_c input[type="range"],

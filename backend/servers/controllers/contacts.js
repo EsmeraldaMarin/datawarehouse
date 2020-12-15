@@ -9,12 +9,17 @@ function selectContacts(req, res) {
     companies.name as 'company',
     cities.name as 'city',
     countries.name as 'country',
-    regions.name as 'region'
+    regions.name as 'region',
+    channels.user_id,
+    GROUP_CONCAT(channels.id) as 'channelsId',
+    GROUP_CONCAT(channels.channel_name) as 'channelsName'
     FROM contacts
     INNER JOIN companies ON contacts.company_id = companies.id
     INNER JOIN cities ON contacts.city_id = cities.id
     INNER JOIN countries ON cities.country_id = countries.id
-    INNER JOIN regions ON countries.region_id = regions.id`;
+    INNER JOIN regions ON countries.region_id = regions.id
+    INNER JOIN channels ON channels.user_id = contacts.id
+    GROUP BY channels.user_id`;
 
     connection.query(sql, function (err, contacts) {
         if (err) {
