@@ -2,7 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-.bg_import_contact, .bg_delete_contact, .bg_add_contact {
+.bg_import_contact,
+.bg_delete_contact, .bg_add_contact {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -449,11 +450,15 @@ main .contacts_manager .search_section_ctn > div i.search_btn {
 }
 
 main .contacts_manager .search_section_ctn > div i.search_btn:hover {
-  color: #666;
+  color: #ffdada;
 }
 
 main .contacts_manager .search_section_ctn > div i.arrow_down {
   right: 40px;
+}
+
+main .contacts_manager .search_section_ctn > div i.arrow_down:hover {
+  color: #ffdada;
 }
 
 main .contacts_manager .search_section_ctn > div .filter_list {
@@ -578,7 +583,10 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   transform: translateY(-2px);
 }
 
-.bg_import_contact .box_import, .bg_import_contact .box_delete, .bg_delete_contact .box_import, .bg_delete_contact .box_delete {
+.bg_import_contact .box_import,
+.bg_import_contact .box_delete,
+.bg_delete_contact .box_import,
+.bg_delete_contact .box_delete {
   width: 400px;
   height: 400px;
   border-radius: 30px;
@@ -591,7 +599,10 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   position: relative;
 }
 
-.bg_import_contact .box_import .close_btn, .bg_import_contact .box_delete .close_btn, .bg_delete_contact .box_import .close_btn, .bg_delete_contact .box_delete .close_btn {
+.bg_import_contact .box_import .close_btn,
+.bg_import_contact .box_delete .close_btn,
+.bg_delete_contact .box_import .close_btn,
+.bg_delete_contact .box_delete .close_btn {
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -605,16 +616,25 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   cursor: pointer;
 }
 
-.bg_import_contact .box_import .close_btn:hover, .bg_import_contact .box_delete .close_btn:hover, .bg_delete_contact .box_import .close_btn:hover, .bg_delete_contact .box_delete .close_btn:hover {
+.bg_import_contact .box_import .close_btn:hover,
+.bg_import_contact .box_delete .close_btn:hover,
+.bg_delete_contact .box_import .close_btn:hover,
+.bg_delete_contact .box_delete .close_btn:hover {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.bg_import_contact .box_import p, .bg_import_contact .box_delete p, .bg_delete_contact .box_import p, .bg_delete_contact .box_delete p {
+.bg_import_contact .box_import p,
+.bg_import_contact .box_delete p,
+.bg_delete_contact .box_import p,
+.bg_delete_contact .box_delete p {
   text-align: center;
   margin-bottom: -10px;
 }
 
-.bg_import_contact .box_import button, .bg_import_contact .box_delete button, .bg_delete_contact .box_import button, .bg_delete_contact .box_delete button {
+.bg_import_contact .box_import button,
+.bg_import_contact .box_delete button,
+.bg_delete_contact .box_import button,
+.bg_delete_contact .box_delete button {
   background-color: #fd6e6e;
   width: 90%;
   height: 45px;
@@ -625,12 +645,18 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   transition: transform 0.5s ease;
 }
 
-.bg_import_contact .box_import button:hover, .bg_import_contact .box_delete button:hover, .bg_delete_contact .box_import button:hover, .bg_delete_contact .box_delete button:hover {
+.bg_import_contact .box_import button:hover,
+.bg_import_contact .box_delete button:hover,
+.bg_delete_contact .box_import button:hover,
+.bg_delete_contact .box_delete button:hover {
   box-shadow: 0px 5px 13px -7px #000000;
   transform: translateY(-2px);
 }
 
-.bg_import_contact .box_import button:active, .bg_import_contact .box_delete button:active, .bg_delete_contact .box_import button:active, .bg_delete_contact .box_delete button:active {
+.bg_import_contact .box_import button:active,
+.bg_import_contact .box_delete button:active,
+.bg_delete_contact .box_import button:active,
+.bg_delete_contact .box_delete button:active {
   background-color: #555;
 }
 
@@ -642,7 +668,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 .bg_add_contact > div {
   width: 80%;
   position: relative;
-  max-height: 570px;
+  max-height: 640px;
   overflow: auto;
 }
 
@@ -709,6 +735,11 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   font-size: 12px;
 }
 
+.bg_add_contact > div .info_contact_p .form-floating input.inputActive ~ label {
+  top: -100%;
+  font-size: 12px;
+}
+
 .bg_add_contact > div .info_contact_p .form-floating label {
   position: absolute;
   top: 0;
@@ -740,7 +771,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 
 .bg_add_contact > div .body_section .info_contact_s .form-selects label,
 .bg_add_contact > div .body_section .info_contact_t .form-selects label {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .bg_add_contact > div .body_section .info_contact_s .form-selects select,
@@ -764,38 +795,37 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   border-color: #bbb;
 }
 
-.bg_add_contact > div .body_section .info_contact_t button {
-  width: 70px;
+.bg_add_contact > div .body_section .info_contact_t h3,
+.bg_add_contact > div .body_section .info_contact_t h4 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.bg_add_contact > div .body_section .info_contact_t h3 {
+  margin-bottom: 20px;
+}
+
+.bg_add_contact > div .body_section .info_contact_t h4 {
+  display: flex;
   height: 30px;
-  background-color: #fd6e6e;
+  line-height: 30px;
+}
+
+.bg_add_contact > div .body_section .info_contact_t h4 i {
+  width: 30px;
+  height: 30px;
   border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  margin: 29px 0 0 0px;
-  position: absolute;
-  left: 790px;
-  top: 188px;
-}
-
-.bg_add_contact > div .body_section .info_contact_t button i {
+  background-color: #fd6e6e;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
 }
 
-.bg_add_contact > div .body_section .info_contact_t button:hover {
-  background-color: #fff;
-  box-shadow: 0px 0px 7px 0px rgba(201, 201, 201, 0.69);
-}
-
-.bg_add_contact > div .body_section .info_contact_t button:hover i {
-  color: #fd6e6e;
-}
-
-.bg_add_contact > div .body_section .info_contact_t button:active {
-  background-color: #888;
-}
-
-.bg_add_contact > div .body_section .info_contact_t button:active i {
-  color: #fff;
+.bg_add_contact > div .body_section .info_contact_t.telefono i {
+  transform: rotate(90deg);
+  font-size: 14px;
 }
 
 .bg_add_contact > div .body_section .info_contact_c {

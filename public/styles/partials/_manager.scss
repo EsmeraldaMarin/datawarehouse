@@ -1,7 +1,9 @@
-.bg_import_contact, .bg_delete_contact {
+.bg_import_contact,
+.bg_delete_contact {
     @extend %bgManagers;
 
-    .box_import, .box_delete {
+    .box_import,
+    .box_delete {
         width: 400px;
         height: 400px;
         border-radius: 30px;
@@ -60,7 +62,7 @@
     > div {
         width: 80%;
         position: relative;
-        max-height: 570px;
+        max-height: 640px;
         overflow: auto;
 
         .header_section {
@@ -115,6 +117,10 @@
                         top: -100%;
                         font-size: 12px;
                     }
+                    &.inputActive ~ label{
+                        top: -100%;
+                        font-size: 12px;
+                    }
                 }
                 label {
                     position: absolute;
@@ -140,7 +146,7 @@
                     margin: 0 20px;
                     width: 200px;
                     label {
-                        margin-bottom: 10px;
+                        margin-bottom: 20px;
                     }
                     select {
                         width: 200px;
@@ -160,33 +166,35 @@
                 }
             }
             .info_contact_t {
-                button {
-                    width: 70px;
+                
+                h3,
+                h4 {
+                    font-size: inherit;
+                    font-weight: inherit;
+                }
+                h3{
+                    margin-bottom: 20px;
+                }
+                h4{
+                    display: flex;
                     height: 30px;
-                    background-color: $tColor;
-                    border-radius: 15px;
-                    cursor: pointer;
-                    transition: all 0.25s ease;
-                    margin: 29px 0 0 0px;
-                    position: absolute;
-                    left: 790px;
-                    top: 188px;
-
-                    i {
+                    line-height: 30px;
+                    i{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 15px;
+                        background-color: $tColor;
                         color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: 10px;
                     }
-                    &:hover {
-                        background-color: #fff;
-                        box-shadow: 0px 0px 7px 0px rgba(201, 201, 201, 0.69);
-                        i {
-                            color: $tColor;
-                        }
-                    }
-                    &:active {
-                        background-color: #888;
-                        i {
-                            color: #fff;
-                        }
+                }
+                &.telefono{
+                    i{
+                        transform: rotate(90deg);
+                        font-size: 14px;
                     }
                 }
             }
@@ -202,7 +210,6 @@
                 input {
                     width: 270px;
                 }
-                
 
                 input[type="range"],
                 input[type="range"]::-webkit-slider-runnable-track,

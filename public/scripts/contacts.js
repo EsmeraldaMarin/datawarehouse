@@ -32,7 +32,6 @@ function showContacts() {
                         break;
                 }
 
-
                 let contactUl = `
                     <ul class="contact" id= "contact${contact.id}">
                         <li class="checkbox">
@@ -103,12 +102,6 @@ function showContactById(id) {
             })
     });
 }
-
-/*
-contactsSection.addEventListener('click', () => {
-    let contact = showContactById(11).then(el => { return el})
-    contact.then(res=>console.log(res))
-})*/
 
 function deleteContact(parent) {
     let id = parent.id
@@ -188,7 +181,6 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
 
 function showChannelDetail(channel, p) {
     let preferenceIcon;
-    console.log(channel.preferences)
     switch (channel.preferences) {
         case "No Molestar":
             preferenceIcon = '<i class="far fa-bell-slash"></i>';
@@ -230,7 +222,6 @@ function showDeleteModal(parent) {
     showWindow(importWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
 
     let delConfirmBtn = document.getElementById('delConfirmBtn')
-    console.log("boton confirm")
 
     delConfirmBtn.addEventListener('click', () => {
         let container = document.getElementById("bgdeleteContact")

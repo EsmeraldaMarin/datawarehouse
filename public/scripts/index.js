@@ -25,8 +25,8 @@ selectAllContactsBtn.addEventListener('change', () => {
         contacts.forEach(el => {
             el.parentNode.parentNode.classList.add("selected");
             el.checked = true
-            el.addEventListener('change', ()=>{
-                if(!el.checked){
+            el.addEventListener('change', () => {
+                if (!el.checked) {
                     selectAllContactsBtn.checked = false
                 }
             })
@@ -111,7 +111,7 @@ addContactBtn.addEventListener('click', () => {
 
                 <div class="info_contact_s">
                     <div class="form-selects">
-                        <label for="regionSelectAdd">Región</label>
+                        <label for="regionSelectAdd">Región*</label>
                         <select name="" id="regionSelectAdd">
                             <option value="">bdd</option>
                             <option value="">bdd</option>
@@ -119,7 +119,7 @@ addContactBtn.addEventListener('click', () => {
                     </div>
 
                     <div class="form-selects">
-                        <label for="paisSelectAdd">País</label>
+                        <label for="paisSelectAdd">País*</label>
                         <select name="" id="paisSelectAdd" disabled>
                             <option value="">bdd</option>
                             <option value="">bdd</option>
@@ -127,7 +127,7 @@ addContactBtn.addEventListener('click', () => {
                     </div>
 
                     <div class="form-selects">
-                        <label for="ciudadSelectAdd">Ciudad</label>
+                        <label for="ciudadSelectAdd">Ciudad*</label>
                         <select name="" id="ciudadSelectAdd" disabled>
                             <option value="">bdd</option>
                             <option value="">bdd</option>
@@ -135,28 +135,21 @@ addContactBtn.addEventListener('click', () => {
                     </div>
 
                     <div class="form-selects">
-                        <label for="addressInputAdd">Dirección</label>
+                        <label for="addressInputAdd">Dirección*</label>
                         <input type="text" id="addressInputAdd" placeholder="Ingrese una dirección" disabled>
                     </div>
 
                 </div>
-                <div class="info_contact_t">
+                <div class="info_contact_t email">
 
                     <div class="form-selects">
-                        <label for="canalSelectAdd">Canal de Contacto</label>
-                        <select name="" id="canalSelectAdd">
-                            <option value="">Whatsapp</option>
-                            <option value="">Slack</option>
-                            <option value="">Linkedin</option>
-                            <option value="">Teléfono</option>
-                            <option value="">Email</option>
-                            <option value="">Facebook</option>
-                        </select>
+                        <h3 for="canalSelectAdd">Canales de Contacto</h3>
+                        <h4><i class="far fa-envelope"></i>Email</h4>
                     </div>
 
                     <div class="form-selects">
                         <label for="cuentaInputAdd">Cuenta de usuario</label>
-                        <input type="text" id="cuentaInputAdd" placeholder="@cuenta123">
+                        <input type="email" id="emailCuentaInputAdd" placeholder="youremail@gmail.com">
                     </div>
                     <div class="form-selects">
                         <label for="preferenciasSelectAdd">Preferencias</label>
@@ -167,8 +160,86 @@ addContactBtn.addEventListener('click', () => {
                         </select>
 
                     </div>
+                </div>
+                <div class="info_contact_t whatsapp">
+                    <div class="form-selects">
+                        <h4><i class="fab fa-whatsapp"></i>Whatsapp</h4>
+                    </div>
+                    <div class="form-selects">
+                        <input type="number" id="whatsappCuentaInputAdd" placeholder="0000-000000">
+                    </div>
+                    <div class="form-selects">
+                        <select name="" id="preferenciasSelectAdd">
+                            <option value="">Sin Preferencias</option>
+                            <option value="">No Molestar</option>
+                            <option value="">Canal Preferido</option>
+                        </select>
 
-                    <button id= "addChannel"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="info_contact_t telefono">
+                    <div class="form-selects">
+                        <h4><i class="fas fa-phone"></i>Telefono</h4>
+                    </div>
+                    <div class="form-selects">
+                        <input type="number" id="telefonoCuentaInputAdd" placeholder="0000-000000">
+                    </div>
+                    <div class="form-selects">
+                        <select name="" id="preferenciasSelectAdd">
+                            <option value="">Sin Preferencias</option>
+                            <option value="">No Molestar</option>
+                            <option value="">Canal Preferido</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="info_contact_t facebook">
+                    <div class="form-selects">
+                        <h4><i class="fab fa-facebook-f"></i>Facebook</h4>
+                    </div>
+                    <div class="form-selects">
+                        <input type="text" id="facebookCuentaInputAdd" placeholder="Tu Cuenta">
+                    </div>
+                    <div class="form-selects">
+                        <select name="" id="preferenciasSelectAdd">
+                            <option value="">Sin Preferencias</option>
+                            <option value="">No Molestar</option>
+                            <option value="">Canal Preferido</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="info_contact_t linkedin">
+                    <div class="form-selects">
+                        <h4><i class="fab fa-linkedin-in"></i>Linkedin</h4>
+                    </div>
+                    <div class="form-selects">
+                        <input type="text" id="linkedinCuentaInputAdd" placeholder="Tu Cuenta">
+                    </div>
+                    <div class="form-selects">
+                        <select name="" id="preferenciasSelectAdd">
+                            <option value="">Sin Preferencias</option>
+                            <option value="">No Molestar</option>
+                            <option value="">Canal Preferido</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="info_contact_t slack">
+                    <div class="form-selects">
+                        <h4><i class="fab fa-slack"></i>Slack</h4>
+                    </div>
+                    <div class="form-selects">
+                        <input type="text" id="slackCuentaInputAdd" placeholder="@TuCuenta123">
+                    </div>
+                    <div class="form-selects">
+                        <select name="" id="preferenciasSelectAdd">
+                            <option value="">Sin Preferencias</option>
+                            <option value="">No Molestar</option>
+                            <option value="">Canal Preferido</option>
+                        </select>
+
+                    </div>
                 </div>
                 <div class="info_contact_c">
 
@@ -185,33 +256,19 @@ addContactBtn.addEventListener('click', () => {
         </div>
     </div>`
 
+
     showWindow(htmlText, 'closeAddContactBtn', 'bgAddContact');
-
-    let addChannelBtn = document.getElementById('addChannel')
-
-    addChannelBtn.addEventListener('click', () => {
-
-        let ctn = addChannelBtn.parentNode;
-        let newCtn = ctn.cloneNode(true)
-        newCtn.classList.add('newClon')
-        ctn.parentNode.insertBefore(newCtn, ctn.nextSibling)
-
-        let btnClon = document.querySelector('.newClon button')
-        btnClon.remove()
-        
-        let labels = document.querySelectorAll('.newClon label')
-        labels.forEach(lab => lab.remove())
-
-        let selects = document.querySelectorAll('.newClon select')
-        selects.forEach(se => se.setAttribute("disabled", ""))
-
-        let inputs = document.querySelectorAll('.newClon input')
-        inputs.forEach(inp => inp.setAttribute("disabled", ""))
-        
-
-
+    let floatingInput = document.querySelectorAll('.form-control')
+    floatingInput.forEach(input=> {
+        input.addEventListener('keyup', () => {
+            if (input.value) {
+                input.classList.add("inputActive")
+            }else{
+                input.classList.remove("inputActive")
+            }
+        })
     })
-
+    
 })
 
 

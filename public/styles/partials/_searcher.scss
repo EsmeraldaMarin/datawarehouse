@@ -44,11 +44,14 @@ main {
                         border-left: 1px solid $pColor;
                         right: 0;
                         &:hover {
-                            color: #666;
+                            color: $sColor;
                         }
                     }
                     &.arrow_down {
                         right: 40px;
+                        &:hover {
+                            color: $sColor;
+                        }
                     }
                 }
                 .filter_list {
