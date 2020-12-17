@@ -10,6 +10,7 @@ $sFont: 'Nunito', sans-serif;
 $pColor : #fd6e6e;
 $sColor : #ffdada;
 $tColor : #fd6e6e;
+$cColor : #fff5f5;
 
 %bgManagers{
     width: 100%;
@@ -18,7 +19,7 @@ $tColor : #fd6e6e;
     position: fixed;
     top: 0;
     backdrop-filter: blur(4px);
-    z-index: 5;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;

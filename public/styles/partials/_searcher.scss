@@ -58,10 +58,12 @@ main {
                     position: relative;
                     background-color: #fff;
                     overflow: hidden;
+                    transition: height 0.7s ease;
+
                     > div {
                         display: grid;
                         height: 100%;
-                        grid-template-rows: repeat(6, 1fr);
+                        grid-template-rows: repeat(5, 1fr);
                         grid-row-gap: 15px;
                         align-items: center;
                     }
@@ -90,11 +92,10 @@ main {
                         box-shadow: 0 1px 2px #eee;
                     }
                     .filter_list {
-                        height: 400px;
+                        height: 350px;
                         padding: 20px;
                         border-radius: 0 0 17px 17px;
                         box-shadow: 0px 1px 5px #bbb;
-                        transition: height 0.7s ease;
                         display: flex;
                         justify-content: space-between;
                     }

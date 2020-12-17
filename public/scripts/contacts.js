@@ -187,13 +187,26 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
 }
 
 function showChannelDetail(channel, p) {
+    let preferenceIcon;
+    console.log(channel.preferences)
+    switch (channel.preferences) {
+        case "No Molestar":
+            preferenceIcon = '<i class="far fa-bell-slash"></i>';
+            break;
+        case "Sin Preferencia":
+            preferenceIcon ='<i class="far fa-thumbs-up"></i>' ;
+            break;
+
+        case "Canal Preferido":
+            preferenceIcon = '<i class="far fa-star"></i>';
+            break;
+    }
+
     let channelDetailHtml = `
     <div class="details-ctn">
         <p class="title-channel">${channel.channel_name}</p>
-        <p>${channel.channel_username}</p>
-        <div class="preferencia">${channel.preferences}
-            <div class="triangle"></div>
-        </div>
+        <p><i class="far fa-user"></i> ${channel.channel_username}</p>
+        <P class="preferencia">${preferenceIcon} ${channel.preferences}</P>
     </div>
     `
     p.insertAdjacentHTML('afterbegin', channelDetailHtml)
