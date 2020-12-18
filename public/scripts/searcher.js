@@ -34,6 +34,7 @@ function searchContact() {
                 if (propiedad.substring(0, wordLength) == busqueda) { response.push(contact) }
             }
 
+            info.forEach(contact => { searchTerms(contact, contact.name + contact.lastname) });
             info.forEach(contact => { searchTerms(contact, contact.name) });
             info.forEach(contact => { searchTerms(contact, contact.lastname) });
             info.forEach(contact => { searchTerms(contact, contact.email) });
