@@ -7,73 +7,7 @@ function showContacts() {
         .then(res => res.json())
         .then(info => {
 
-            info.forEach(contact => {
-
-                let classInteres;
-                let channels = contact.channelsName.split(",");
-
-
-                switch (contact.interest) {
-                    case 100:
-                        classInteres = "onehundred";
-                        break;
-                    case 75:
-                        classInteres = "seventyfive";
-                        break;
-
-                    case 50:
-                        classInteres = "fifty";
-                        break;
-                    case 25:
-                        classInteres = "twentyfive";
-                        break;
-                    case 0:
-                        classInteres = "cero";
-                        break;
-                }
-
-                let contactUl = `
-                    <ul class="contact" id= "contact${contact.id}">
-                        <li class="checkbox">
-                            <input type="checkbox" name="" id="selectContact">
-                        </li>
-                        <li class="contact_info">
-                            <img src= ${contact.img_url} alt="perfil photo">
-                            <div class="name_contact">
-                                <p class="name">${contact.name} ${contact.lastname}</p>
-                                <p class="email">${contact.email}</p>
-                            </div>
-                        </li>
-                        <li class="pais_region">
-                            <p class="pais">${contact.country}</p>
-                            <p class="region">${contact.region}</p>
-                        </li>
-                        <li class="empresa">${contact.company}</li>
-                        <li class="cargo">${contact.position}</li>
-                        <li class="canal" id="canal"></li>
-                        <li class="interes ${classInteres}">
-                            <div class="bg_line"></div>
-                            <div class="color_line"></div>
-                        </li>
-                        <li class="acciones" id="actions">
-                            <i class="dots" id="dots">•••</i>
-                            <i class="fas fa-trash trash" id="trashBtn"></i>
-                            <i class="fas fa-edit edit"></i>
-                        </li>
-                    </ul>`
-                contactsSection.insertAdjacentHTML('beforeend', contactUl)
-                let channelLi = document.querySelector(`#contact${contact.id} li#canal`);
-                channels.forEach(ch => {
-                    let p = document.createElement('div')
-                    p.textContent = ch;
-                    p.className = "channel"
-                    channelLi.appendChild(p)
-                })
-
-
-
-
-            });
+            createUlContacts(info)
 
         })
         .then(() => {
@@ -89,6 +23,73 @@ function showContacts() {
 }
 showContacts()
 
+function createUlContacts(info) {
+
+    info.forEach(contact => {
+
+        let classInteres;
+        let channels = contact.channelsName.split(",");
+
+
+        switch (contact.interest) {
+            case 100:
+                classInteres = "onehundred";
+                break;
+            case 75:
+                classInteres = "seventyfive";
+                break;
+
+            case 50:
+                classInteres = "fifty";
+                break;
+            case 25:
+                classInteres = "twentyfive";
+                break;
+            case 0:
+                classInteres = "cero";
+                break;
+        }
+
+        let contactUl = `
+            <ul class="contact" id= "contact${contact.id}">
+                <li class="checkbox">
+                    <input type="checkbox" name="" id="selectContact">
+                </li>
+                <li class="contact_info">
+                    <img src= ${contact.img_url} alt="perfil photo">
+                    <div class="name_contact">
+                        <p class="name">${contact.name} ${contact.lastname}</p>
+                        <p class="email">${contact.email}</p>
+                    </div>
+                </li>
+                <li class="pais_region">
+                    <p class="pais">${contact.country}</p>
+                    <p class="region">${contact.region}</p>
+                </li>
+                <li class="empresa">${contact.company}</li>
+                <li class="cargo">${contact.position}</li>
+                <li class="canal" id="canal"></li>
+                <li class="interes ${classInteres}">
+                    <div class="bg_line"></div>
+                    <div class="color_line"></div>
+                </li>
+                <li class="acciones" id="actions">
+                    <i class="dots" id="dots">•••</i>
+                    <i class="fas fa-trash trash" id="trashBtn"></i>
+                    <i class="fas fa-edit edit"></i>
+                </li>
+            </ul>`
+        contactsSection.insertAdjacentHTML('beforeend', contactUl)
+        let channelLi = document.querySelector(`#contact${contact.id} li#canal`);
+        channels.forEach(ch => {
+            let p = document.createElement('div')
+            p.textContent = ch;
+            p.className = "channel"
+            channelLi.appendChild(p)
+        });
+
+    });
+}
 
 
 function showContactById(id) {
@@ -186,7 +187,7 @@ function showChannelDetail(channel, p) {
             preferenceIcon = '<i class="far fa-bell-slash"></i>';
             break;
         case "Sin Preferencia":
-            preferenceIcon ='<i class="far fa-thumbs-up"></i>' ;
+            preferenceIcon = '<i class="far fa-thumbs-up"></i>';
             break;
 
         case "Canal Preferido":

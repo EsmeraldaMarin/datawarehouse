@@ -1,6 +1,12 @@
 Este Commit
 
-* correcciones en agregar usuario front
+* search contact 
+
+
+hacer
+
+poner en minuscula los nombres y apellidos de los usuarios desde agregar usuarios
+
 
 //CONTACTOS PARA PRACTICAR
 
