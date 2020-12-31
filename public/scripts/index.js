@@ -81,7 +81,8 @@ addContactBtn.addEventListener('click', () => {
             </div>
             <div class="info_contact_p">
                 <div class="image">
-                    <img src="" alt="">
+                    <img src="assets/avatar.png" alt="" id= "imgPreview">
+                    <input type="file" id="imgUploader">
                     <i class="fas fa-camera"></i>
                 </div>
 
@@ -259,19 +260,33 @@ addContactBtn.addEventListener('click', () => {
 
     showWindow(htmlText, 'closeAddContactBtn', 'bgAddContact');
     let floatingInput = document.querySelectorAll('.form-control')
-    floatingInput.forEach(input=> {
+    floatingInput.forEach(input => {
         input.addEventListener('keyup', () => {
             if (input.value) {
                 input.classList.add("inputActive")
-            }else{
+            } else {
                 input.classList.remove("inputActive")
             }
         })
     })
-    
+    let imgPreview = document.getElementById('imgPreview');
+    let imgUploader = document.getElementById('imgUploader');
+
+    uploadImg(imgPreview, imgUploader)
+
 })
+//function subir imagen
 
-
+function uploadImg(imgP, imgU) {
+    imgU.addEventListener('change', (e) => {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            imgP.src = e.target.result
+        }
+        reader.readAsDataURL(file)
+    })
+}
 //funcion show Window
 
 function showWindow(htmlText, btnId, ctnId) {

@@ -1,11 +1,14 @@
 Este Commit
 
-* sin resultados contact
-
+* cargar imagen y previsualizar en agg contacto
 
 hacer
 
 poner en minuscula los nombres y apellidos de los usuarios desde agregar usuarios
+
+subir imagenes
+
+https://www.youtube.com/watch?v=gXdEdauvW0M
 
 
 //CONTACTOS PARA PRACTICAR

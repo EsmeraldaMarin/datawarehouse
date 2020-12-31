@@ -744,6 +744,44 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   left: 2.5%;
 }
 
+.bg_add_contact > div .info_contact_p .image {
+  position: relative;
+  cursor: pointer;
+}
+
+.bg_add_contact > div .info_contact_p .image img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #ffdada;
+  border-radius: 45px;
+  object-fit: cover;
+}
+
+.bg_add_contact > div .info_contact_p .image input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+.bg_add_contact > div .info_contact_p .image i {
+  font-size: 12px;
+  position: absolute;
+  right: -3px;
+  color: #fd6e6e;
+  background-color: #fff;
+  border: 2px solid #ffdada;
+  border-radius: 15px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
 .bg_add_contact > div .info_contact_p .form-floating {
   width: 170px;
   height: 25px;
