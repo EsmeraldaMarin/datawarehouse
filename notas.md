@@ -1,6 +1,7 @@
 Este Commit
 
-* cargar imagen y previsualizar en agg contacto
+* select location add contact, bugs to fix
+
 
 hacer
 
@@ -9,6 +10,11 @@ poner en minuscula los nombres y apellidos de los usuarios desde agregar usuario
 subir imagenes
 
 https://www.youtube.com/watch?v=gXdEdauvW0M
+
+CORREGIR 
+
+CUANDO LLAMO A LA FUNCION PARA OBTENER LAS CIUDADES, EL EVENTO CHANGE SE DISPARA MAS DE UNA VEZ. CORREGIR
+select location add contact, bugs to fix
 
 
 //CONTACTOS PARA PRACTICAR

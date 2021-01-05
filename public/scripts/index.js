@@ -1,6 +1,10 @@
 //varibles globales
 
 let body = document.querySelector('body')
+let urlRegions = 'http://localhost:3000/regions';
+let urlCountries = 'http://localhost:3000/countries';
+let urlCities = 'http://localhost:3000/cities';
+
 
 
 //arrow down
@@ -113,25 +117,20 @@ addContactBtn.addEventListener('click', () => {
                 <div class="info_contact_s">
                     <div class="form-selects">
                         <label for="regionSelectAdd">Región*</label>
-                        <select name="" id="regionSelectAdd">
-                            <option value="">bdd</option>
-                            <option value="">bdd</option>
-                        </select>
+                        <select name="" id="regionSelectAdd"></select>
                     </div>
 
                     <div class="form-selects">
                         <label for="paisSelectAdd">País*</label>
                         <select name="" id="paisSelectAdd" disabled>
-                            <option value="">bdd</option>
-                            <option value="">bdd</option>
+                            
                         </select>
                     </div>
 
                     <div class="form-selects">
                         <label for="ciudadSelectAdd">Ciudad*</label>
                         <select name="" id="ciudadSelectAdd" disabled>
-                            <option value="">bdd</option>
-                            <option value="">bdd</option>
+                            
                         </select>
                     </div>
 
@@ -274,7 +273,81 @@ addContactBtn.addEventListener('click', () => {
 
     uploadImg(imgPreview, imgUploader)
 
+    let regionSelect = document.getElementById('regionSelectAdd');
+    let countrySelect = document.getElementById('paisSelectAdd');
+    let citySelect = document.getElementById('ciudadSelectAdd');
+
+    let region = getLocationOptions(urlRegions, regionSelect, false);
+    region.then(regionsInfo => {
+
+        regionSelect.addEventListener('change', (e) => {
+
+            if (countrySelect.childNodes) {
+                countrySelect.innerHTML = ``
+            }
+
+            let regionSelected = regionsInfo.find(reg => reg.name == regionSelect.value);
+            let country = getLocationOptions(urlCountries, countrySelect, regionSelected);
+            countrySelect.removeAttribute('disabled');
+
+
+            country.then(countriesInfo => {
+
+
+                countrySelect.addEventListener('change', (e) => {
+
+                    if (citySelect.childNodes) {
+                        citySelect.innerHTML = ``
+                    }
+
+                    let countrySelected = countriesInfo.find(co => co.name == countrySelect.value);
+                    let city = getLocationOptions(urlCities, citySelect, countrySelected);
+                    citySelect.removeAttribute('disabled');
+
+                })
+
+
+            });
+
+        })
+
+
+
+
+    })
 })
+
+//funcion opciones ubicacion add contacto
+
+function getLocationOptions(url, ctn, parentLocation) {
+
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(res => res.json())
+            .then((info) => {
+
+                info.forEach(el => {
+                    if (parentLocation) {
+
+                        if (parentLocation.name == el.region || parentLocation.name == el.country) {
+                            let option = document.createElement('option')
+                            option.textContent = el.name
+                            option.value = el.name
+                            ctn.appendChild(option)
+                        }
+                    } else {
+                        let option = document.createElement('option')
+                        option.textContent = el.name
+                        option.value = el.name
+                        ctn.appendChild(option)
+                    }
+                })
+                resolve(info)
+            })
+    });
+
+}
+
 //function subir imagen
 
 function uploadImg(imgP, imgU) {

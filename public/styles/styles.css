@@ -694,6 +694,14 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   min-width: 1500px;
 }
 
+.bg_add_contact select {
+  text-transform: capitalize;
+}
+
+.bg_add_contact select option {
+  text-transform: capitalize;
+}
+
 .bg_add_contact > div {
   width: 80%;
   position: relative;

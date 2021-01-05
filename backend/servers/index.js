@@ -7,6 +7,9 @@ let app = express()
 const {defineRol, validateRol, validateAcount}= require('./middlewares/authorization');
 const {selectContacts, insertContact, updateContact, deleteContact} = require('./controllers/contacts')
 const {getChannelsById} = require('./controllers/channels');
+const {selectRegions} = require('./controllers/regions');
+const {selectCountries} = require('./controllers/countries');
+const {selectCities} = require('./controllers/cities');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
@@ -48,21 +51,21 @@ app.delete('/companies', );
 
 //regiones
 
-app.get('/regions', );
+app.get('/regions', selectRegions);
 app.post('/regions', );
 app.put('/regions', );
 app.delete('/regions', );
 
 //countries
 
-app.get('/countries', );
+app.get('/countries', selectCountries);
 app.post('/countries', );
 app.put('/countries', );
 app.delete('/countries', );
 
 //cities
 
-app.get('/cities', );
+app.get('/cities', selectCities);
 app.post('/cities', );
 app.put('/cities', );
 app.delete('/cities', );
