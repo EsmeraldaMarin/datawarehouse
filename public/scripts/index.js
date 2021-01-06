@@ -296,6 +296,7 @@ addContactBtn.addEventListener('click', () => {
 
                 countrySelect.addEventListener('change', (e) => {
 
+
                     if (citySelect.childNodes) {
                         citySelect.innerHTML = ``
                     }
@@ -303,6 +304,7 @@ addContactBtn.addEventListener('click', () => {
                     let countrySelected = countriesInfo.find(co => co.name == countrySelect.value);
                     let city = getLocationOptions(urlCities, citySelect, countrySelected);
                     citySelect.removeAttribute('disabled');
+
 
                 })
 
@@ -333,6 +335,18 @@ function getLocationOptions(url, ctn, parentLocation) {
                             let option = document.createElement('option')
                             option.textContent = el.name
                             option.value = el.name
+                            
+                            let childrenCtn = ctn.childNodes
+                            console.log(childrenCtn)
+
+                            if(childrenCtn.length > 0){
+                                childrenCtn.forEach(ch => {
+                                    if (ch.value == option.value) {
+                                        ch.remove()
+                                        return
+                                    }
+                                })
+                            }
                             ctn.appendChild(option)
                         }
                     } else {
