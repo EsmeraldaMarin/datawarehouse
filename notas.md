@@ -1,11 +1,20 @@
 Este Commit
 
-* select location add contact bugs fixed
+* select de companias
+* correcciones de select de localizacion
+
 
 
 hacer
 
 poner en minuscula los nombres y apellidos de los usuarios desde agregar usuarios
+filas por pagina de contactos
+agregar cruz para quitar cnales de contacto
+crear svg propios y no de fontawesome
+crear contacto con los datos obtenidos
+trabajar con el filtro de busqieda
+maquetar los otros html
+
 
 subir imagenes
 

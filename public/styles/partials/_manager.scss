@@ -169,6 +169,30 @@
                     left: 0;
                     transition: all 0.25s ease;
                 }
+                &.form-floating-company {
+
+                    border-bottom: 2px solid #fff;
+
+                    select#floatingCompania {
+                        width: 100%;
+                        height: 100%;
+                        background-color: $tColor;
+                        color: #fff;
+                        &:focus ~ label {
+                            top: -100%;
+                            font-size: 12px;
+                        }
+                        &.inputActive ~ label {
+                            top: -100%;
+                            font-size: 12px;
+                        }
+                    }
+                    label{
+                        height: 100%;
+                        background-color: $tColor;
+
+                    }
+                }
             }
         }
         .body_section {

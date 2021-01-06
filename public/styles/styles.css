@@ -822,6 +822,32 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   transition: all 0.25s ease;
 }
 
+.bg_add_contact > div .info_contact_p .form-floating.form-floating-company {
+  border-bottom: 2px solid #fff;
+}
+
+.bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania {
+  width: 100%;
+  height: 100%;
+  background-color: #fd6e6e;
+  color: #fff;
+}
+
+.bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania:focus ~ label {
+  top: -100%;
+  font-size: 12px;
+}
+
+.bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania.inputActive ~ label {
+  top: -100%;
+  font-size: 12px;
+}
+
+.bg_add_contact > div .info_contact_p .form-floating.form-floating-company label {
+  height: 100%;
+  background-color: #fd6e6e;
+}
+
 .bg_add_contact > div .body_section {
   background-color: #fff;
   display: flex;

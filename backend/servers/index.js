@@ -10,6 +10,7 @@ const {getChannelsById} = require('./controllers/channels');
 const {selectRegions} = require('./controllers/regions');
 const {selectCountries} = require('./controllers/countries');
 const {selectCities} = require('./controllers/cities');
+const {selectCompanies} = require('./controllers/companies');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
@@ -44,7 +45,7 @@ app.get('/channels/:id', getChannelsById);
 
 //companies
 
-app.get('/companies', );
+app.get('/companies', selectCompanies);
 app.post('/companies', );
 app.put('/companies', );
 app.delete('/companies', );

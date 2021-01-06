@@ -4,6 +4,7 @@ let body = document.querySelector('body')
 let urlRegions = 'http://localhost:3000/regions';
 let urlCountries = 'http://localhost:3000/countries';
 let urlCities = 'http://localhost:3000/cities';
+let urlCompanies = 'http://localhost:3000/companies';
 
 
 
@@ -106,8 +107,8 @@ addContactBtn.addEventListener('click', () => {
                     <input type="email" class="form-control" id="floatingEmail">
                     <label for="floatingEmail">Email *</label>
                 </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingCompania">
+                <div class="form-floating form-floating-company">
+                    <select name="" class="form-control" id="floatingCompania"></select>
                     <label for="floatingCompania">Compañía *</label>
                 </div>
             </div>
@@ -117,20 +118,22 @@ addContactBtn.addEventListener('click', () => {
                 <div class="info_contact_s">
                     <div class="form-selects">
                         <label for="regionSelectAdd">Región*</label>
-                        <select name="" id="regionSelectAdd"></select>
+                        <select name="" id="regionSelectAdd">
+                            <option>Seleccione una región</option>
+                        </select>
                     </div>
 
                     <div class="form-selects">
                         <label for="paisSelectAdd">País*</label>
                         <select name="" id="paisSelectAdd" disabled>
-                            
+                            <option>Seleccione un país</option>
                         </select>
                     </div>
 
                     <div class="form-selects">
                         <label for="ciudadSelectAdd">Ciudad*</label>
                         <select name="" id="ciudadSelectAdd" disabled>
-                            
+                            <option>Seleccione una ciudad</option>
                         </select>
                     </div>
 
@@ -259,6 +262,8 @@ addContactBtn.addEventListener('click', () => {
 
     showWindow(htmlText, 'closeAddContactBtn', 'bgAddContact');
     let floatingInput = document.querySelectorAll('.form-control')
+    let floatingInputCompany = document.querySelector('#floatingCompania');
+
     floatingInput.forEach(input => {
         input.addEventListener('keyup', () => {
             if (input.value) {
@@ -268,60 +273,79 @@ addContactBtn.addEventListener('click', () => {
             }
         })
     })
+
+    floatingInputCompany.addEventListener('change', () => {
+        if (floatingInputCompany.value) {
+            floatingInputCompany.classList.add("inputActive")
+        } else {
+            floatingInputCompany.classList.remove("inputActive")
+        }
+    })
+    getOptionsOfDB(urlCompanies, floatingInputCompany, false)
+
     let imgPreview = document.getElementById('imgPreview');
     let imgUploader = document.getElementById('imgUploader');
 
     uploadImg(imgPreview, imgUploader)
+    locationSelects()
+
+
+})
+
+//funcion selects dependientes
+
+function locationSelects() {
 
     let regionSelect = document.getElementById('regionSelectAdd');
     let countrySelect = document.getElementById('paisSelectAdd');
     let citySelect = document.getElementById('ciudadSelectAdd');
+    let addressInput = document.getElementById('addressInputAdd');
 
-    let region = getLocationOptions(urlRegions, regionSelect, false);
+
+    let region = getOptionsOfDB(urlRegions, regionSelect, false);
     region.then(regionsInfo => {
+
 
         regionSelect.addEventListener('change', (e) => {
 
             if (countrySelect.childNodes) {
-                countrySelect.innerHTML = ``
+                countrySelect.innerHTML = `<option>Seleccione un pais</option>`
+            }
+            if(citySelect.childNodes){
+                citySelect.innerHTML = `<option>Seleccione una ciudad</option>`
             }
 
             let regionSelected = regionsInfo.find(reg => reg.name == regionSelect.value);
-            let country = getLocationOptions(urlCountries, countrySelect, regionSelected);
+            let country = getOptionsOfDB(urlCountries, countrySelect, regionSelected);
             countrySelect.removeAttribute('disabled');
 
 
             country.then(countriesInfo => {
 
+                addressInput.removeAttribute('disabled');
 
                 countrySelect.addEventListener('change', (e) => {
 
-
                     if (citySelect.childNodes) {
-                        citySelect.innerHTML = ``
+                        citySelect.innerHTML = `<option>Seleccione una ciudad</option>`
                     }
 
                     let countrySelected = countriesInfo.find(co => co.name == countrySelect.value);
-                    let city = getLocationOptions(urlCities, citySelect, countrySelected);
+                    let city = getOptionsOfDB(urlCities, citySelect, countrySelected);
                     citySelect.removeAttribute('disabled');
 
 
                 })
-
-
             });
 
         })
-
-
-
-
     })
-})
+}
+
 
 //funcion opciones ubicacion add contacto
 
-function getLocationOptions(url, ctn, parentLocation) {
+function getOptionsOfDB(url, ctn, parentLocation) {
 
     return new Promise((resolve, reject) => {
         fetch(url)
@@ -335,11 +359,10 @@ function getLocationOptions(url, ctn, parentLocation) {
                             let option = document.createElement('option')
                             option.textContent = el.name
                             option.value = el.name
-                            
-                            let childrenCtn = ctn.childNodes
-                            console.log(childrenCtn)
 
-                            if(childrenCtn.length > 0){
+                            let childrenCtn = ctn.childNodes
+
+                            if (childrenCtn.length > 0) {
                                 childrenCtn.forEach(ch => {
                                     if (ch.value == option.value) {
                                         ch.remove()
