@@ -54,7 +54,6 @@ function searchContact() {
         }).then((res) => {
 
             if (res.length == 0) {
-                console.log("Sin Resultados")
                 sinResultados(busqueda)
                 return
             }
@@ -74,7 +73,7 @@ function searchContact() {
 function sinResultados(busqueda) {
     contactsSection.innerHTML = `
     <div class="not_found">
-        <h3>Ouch!</h3>
+        <h3>Ups!</h3>
         <img src="assets/not_found.svg" alt="contact not found image">
         <p>No hay resultados para</p>
         <p class="palabra">"${busqueda}"</p>

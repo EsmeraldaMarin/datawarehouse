@@ -294,6 +294,8 @@ addContactBtn.addEventListener('click', () => {
 
 //funcion selects dependientes
 
+let countrieEventCreated = false;
+
 function locationSelects() {
 
     let regionSelect = document.getElementById('regionSelectAdd');
@@ -324,18 +326,22 @@ function locationSelects() {
 
                 addressInput.removeAttribute('disabled');
 
-                countrySelect.addEventListener('change', (e) => {
+                if(!countrieEventCreated){
+                    countrySelect.addEventListener('change', (e) => {
 
-                    if (citySelect.childNodes) {
-                        citySelect.innerHTML = `<option>Seleccione una ciudad</option>`
-                    }
-
-                    let countrySelected = countriesInfo.find(co => co.name == countrySelect.value);
-                    let city = getOptionsOfDB(urlCities, citySelect, countrySelected);
-                    citySelect.removeAttribute('disabled');
-
-
-                })
+                        countrieEventCreated = true;
+    
+                        if (citySelect.childNodes) {
+                            citySelect.innerHTML = `<option>Seleccione una ciudad</option>`
+                        }
+    
+                        let countrySelected = countriesInfo.find(co => co.name == countrySelect.value);
+                        let city = getOptionsOfDB(urlCities, citySelect, countrySelected);
+                        citySelect.removeAttribute('disabled');
+    
+                        
+                    })
+                }
             });
 
         })
@@ -360,7 +366,7 @@ function getOptionsOfDB(url, ctn, parentLocation) {
                             option.textContent = el.name
                             option.value = el.name
 
-                            let childrenCtn = ctn.childNodes
+                           /*  let childrenCtn = ctn.childNodes
 
                             if (childrenCtn.length > 0) {
                                 childrenCtn.forEach(ch => {
@@ -369,7 +375,7 @@ function getOptionsOfDB(url, ctn, parentLocation) {
                                         return
                                     }
                                 })
-                            }
+                            } */
                             ctn.appendChild(option)
                         }
                     } else {
