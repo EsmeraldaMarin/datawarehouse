@@ -183,14 +183,14 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
 function showChannelDetail(channel, p) {
     let preferenceIcon;
     switch (channel.preferences) {
-        case "No Molestar":
+        case "no molestar":
             preferenceIcon = '<i class="far fa-bell-slash"></i>';
             break;
-        case "Sin Preferencia":
+        case "sin preferencia":
             preferenceIcon = '<i class="far fa-thumbs-up"></i>';
             break;
 
-        case "Canal Preferido":
+        case "canal preferido":
             preferenceIcon = '<i class="far fa-star"></i>';
             break;
     }
@@ -207,20 +207,7 @@ function showChannelDetail(channel, p) {
 
 function showDeleteModal(parent) {
 
-    let importWindowHTML =
-        `<div class='bg_delete_contact' id= 'bgdeleteContact'>
-            <div class='box_delete'>
-            <div class='close_btn' id= 'closeDelContactBtn'>
-                <img src='assets/button-close.svg'  alt='close Button'>
-            </div>
-            <img src='assets/delete_contact.png' alt='Delete contact Image'>
-
-            <p>¿Está seguro que desea borrar este contacto?</p>
-            <button id="delConfirmBtn">Borrar contacto</button>
-        </div>
-        </div>`
-
-    showWindow(importWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
+    showWindow(deleteWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
 
     let delConfirmBtn = document.getElementById('delConfirmBtn')
 

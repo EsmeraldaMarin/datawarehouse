@@ -1,7 +1,7 @@
 Este Commit
 
-* select de companias
-* correcciones de select de localizacion
+* input range, values
+* borrar opcion de canal
 
 
 
