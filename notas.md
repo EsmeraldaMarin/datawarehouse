@@ -1,7 +1,6 @@
 Este Commit
 
-* input range, values
-* borrar opcion de canal
+* GARDAR EN OBJETO EL NUEVO CONTACTO
 
 
 
@@ -18,7 +17,14 @@ maquetar los otros html
 
 subir imagenes
 
-https://www.youtube.com/watch?v=gXdEdauvW0M
+ var reader = new FileReader();
+ reader.readAsDataURL(blob); 
+ reader.onloadend = function() {
+     var base64data = reader.result;                
+     console.log(base64data);
+ }
+
+ https://stackoverflow.com/questions/18650168/convert-blob-to-base64
 
 CORREGIR 
 

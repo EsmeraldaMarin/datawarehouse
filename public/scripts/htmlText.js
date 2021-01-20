@@ -69,14 +69,14 @@ let htmlTextAddContact = `
                 <div class="info_contact_t header">
 
                     <div class="form-selects">
-                        <h3 for="canalSelectAdd">Canales de Contacto</h3>
+                        <h3 for="canalSelectAdd">Canales de Contacto *</h3>
                     </div>
 
                     <div class="form-selects">
-                        <label for="cuentaInputAdd">Cuenta de usuario</label>
+                        <label for="cuentaInputAdd">Cuenta de usuario *</label>
                     </div>
                     <div class="form-selects">
-                        <label for="preferenciasSelectAdd">Preferencias</label>
+                        <label for="preferenciasSelectAdd">Preferencias *</label>
                     </div>
                 </div>
                 <div class="info_contact_t email">
@@ -89,7 +89,7 @@ let htmlTextAddContact = `
                         <input type="email" id="emailCuentaInputAdd" placeholder="youremail@gmail.com">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciasSelectAdd">
+                        <select name="" id="preferenciaEmail">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -106,7 +106,7 @@ let htmlTextAddContact = `
                         <input type="number" id="whatsappCuentaInputAdd" placeholder="0000-000000">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciasSelectAdd">
+                        <select name="" id="preferenciaWhatsapp">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -123,7 +123,7 @@ let htmlTextAddContact = `
                         <input type="number" id="telefonoCuentaInputAdd" placeholder="0000-000000">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciasSelectAdd">
+                        <select name="" id="preferenciaTelefono">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -140,7 +140,7 @@ let htmlTextAddContact = `
                         <input type="text" id="facebookCuentaInputAdd" placeholder="Tu Cuenta">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciasSelectAdd">
+                        <select name="" id="preferenciaFacebook">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -157,7 +157,7 @@ let htmlTextAddContact = `
                         <input type="text" id="linkedinCuentaInputAdd" placeholder="Tu Cuenta">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciasSelectAdd">
+                        <select name="" id="preferenciaLinkedin">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -174,7 +174,7 @@ let htmlTextAddContact = `
                         <input type="text" id="slackCuentaInputAdd" placeholder="@TuCuenta123">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciasSelectAdd">
+                        <select name="" id="preferenciaSlack>
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -185,13 +185,13 @@ let htmlTextAddContact = `
                 </div>
                 <div class="info_contact_c">
 
-                    <label for="interesInputAdd">Interés</label>
+                    <label for="interesInputAdd">Interés *</label>
                     <input class="" type="range" value="0" min="0" max="100" step="25" id="interesInputAdd">
                 </div>
 
                 <div class="btn_section">
-                    <button class="cancel_btn" disabled>Cancelar</button>
-                    <button class="save_btn" disabled>Guadar Contacto</button>
+                    <button class="cancel_btn" id="cancelBtn">Cancelar</button>
+                    <button class="save_btn" id= "saveBtn">Guadar Contacto</button>
 
                 </div>
             </div>

@@ -207,6 +207,7 @@
                 img.returnIcon{
                     width: 17px;
                     transform: translateX(-100%);
+                    cursor: pointer;
                 }
                 .form-selects {
                     display: flex;
@@ -268,6 +269,7 @@
                 img.disableChannel {
                     width: 12px;
                     height: 12px;
+                    cursor: pointer;
 
                 }
                 &.channelDisabled{
@@ -365,27 +367,24 @@
                         border: 3px solid $tColor;
                         background-color: transparent;
                         &:hover {
-                            color: $sColor;
-                            border-color: $sColor;
+                            color: $cColor;
+                            border-color: $cColor;
                         }
-                        &:disabled {
-                            color: #bbb;
-                            border: 3px solid #bbb;
-                        }
+                        
                     }
                     &.save_btn {
                         background-color: $tColor;
                         color: #fff;
                         &:hover {
-                            background-color: $sColor;
+                            background-color: $cColor;
                         }
-                        &:disabled {
-                            background-color: #bbb;
-                            color: #fff;
-                        }
+                        
                     }
                 }
             }
         }
     }
+}
+button, select{
+    cursor: pointer;
 }

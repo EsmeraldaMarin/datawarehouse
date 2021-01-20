@@ -867,6 +867,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 .bg_add_contact > div .body_section .info_contact_t img.returnIcon {
   width: 17px;
   transform: translateX(-100%);
+  cursor: pointer;
 }
 
 .bg_add_contact > div .body_section .info_contact_s .form-selects,
@@ -951,6 +952,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 .bg_add_contact > div .body_section .info_contact_t img.disableChannel {
   width: 12px;
   height: 12px;
+  cursor: pointer;
 }
 
 .bg_add_contact > div .body_section .info_contact_s.channelDisabled img.disableChannel,
@@ -1044,13 +1046,8 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 }
 
 .bg_add_contact > div .body_section .btn_section button.cancel_btn:hover {
-  color: #ffdada;
-  border-color: #ffdada;
-}
-
-.bg_add_contact > div .body_section .btn_section button.cancel_btn:disabled {
-  color: #bbb;
-  border: 3px solid #bbb;
+  color: #fa8d8d;
+  border-color: #fa8d8d;
 }
 
 .bg_add_contact > div .body_section .btn_section button.save_btn {
@@ -1059,12 +1056,11 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 }
 
 .bg_add_contact > div .body_section .btn_section button.save_btn:hover {
-  background-color: #ffdada;
+  background-color: #fa8d8d;
 }
 
-.bg_add_contact > div .body_section .btn_section button.save_btn:disabled {
-  background-color: #bbb;
-  color: #fff;
+button, select {
+  cursor: pointer;
 }
 
 .footer_section {
