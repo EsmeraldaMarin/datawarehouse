@@ -30,6 +30,11 @@ amarillo: ffda77
 
 
 */
+/*
+#9effaf
+#BAA4F2
+
+*/
 * {
   margin: 0;
   padding: 0;
@@ -225,7 +230,7 @@ main .all_contacts .contacts_section .contact .canal .channel {
   margin-bottom: 5px;
   font-size: 9px;
   font-weight: bold;
-  background-color: #ffdada;
+  background-color: #baa4f2;
   line-height: 20px;
   text-align: center;
   border-radius: 20px;
@@ -240,7 +245,7 @@ main .all_contacts .contacts_section .contact .canal .channel .details-ctn {
   max-width: 0px;
   min-width: 0px;
   width: 0;
-  background-color: #ffdada;
+  background-color: #baa4f2;
   clip-path: polygon(0 0, 100% 0, 100% 90%, 28% 90%, 23% 100%, 18% 90%, 0 90%);
   font-size: 12px;
   position: absolute;
@@ -267,7 +272,7 @@ main .all_contacts .contacts_section .contact .canal .channel .details-ctn .titl
   padding: 8px 15px 3px 15px;
   text-align: center;
   font-weight: bold;
-  background-color: #fd6e6e;
+  background-color: #070d59;
   color: #fff;
 }
 
@@ -286,7 +291,7 @@ main .all_contacts .contacts_section .contact .canal .channel .details-ctn i {
 }
 
 main .all_contacts .contacts_section .contact .canal .channel:hover {
-  background-color: #fd6e6e;
+  background-color: #070d59;
 }
 
 main .all_contacts .contacts_section .contact .canal .channel:hover .details-ctn {
@@ -386,11 +391,11 @@ main .all_contacts .contacts_section .contact .acciones.active i.dots {
 }
 
 main .all_contacts .contacts_section .contact.selected {
-  background-color: #ffdada;
+  background-color: #baa4f2;
 }
 
 main .all_contacts .contacts_section .contact.selected .canal .channel {
-  background-color: #fd6e6e;
+  background-color: #070d59;
 }
 
 main .all_contacts .contacts_section .contact.selected .canal .channel:hover {
@@ -423,6 +428,87 @@ main .all_contacts .contacts_section .not_found p {
 main .all_contacts .contacts_section .not_found p.palabra {
   font-size: 28px;
   font-weight: bold;
+}
+
+.all_companies {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+}
+
+.all_companies .company_card {
+  border-radius: 25px;
+  box-shadow: 0 1px 5px #ccc;
+  background-color: #fff;
+  padding: 20px 30px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.all_companies .company_card .seemore_card {
+  width: 100%;
+  height: 0;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #070d59;
+  color: #fff;
+  font-size: 1.2em;
+  justify-content: center;
+  align-items: center;
+  transition: height .25s ease;
+  cursor: pointer;
+}
+
+.all_companies .company_card h2 {
+  padding-bottom: 10px;
+  font-size: 1.5em;
+  border-bottom: 3px solid #070d59;
+}
+
+.all_companies .company_card .info_company {
+  margin: 15px 0;
+}
+
+.all_companies .company_card .info_company span {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.all_companies .company_card .info_company p:last-child {
+  font-size: 14px;
+}
+
+.all_companies .company_card .users_company p {
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+.all_companies .company_card .users_company > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.all_companies .company_card .users_company > div img {
+  width: 40px;
+  height: 40px;
+  margin-left: -10px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.all_companies .company_card .users_company > div img:first-child {
+  margin-left: 0;
+}
+
+.all_companies .company_card:hover .seemore_card {
+  height: 100%;
 }
 
 main .contacts_manager {
@@ -479,7 +565,7 @@ main .contacts_manager .search_section_ctn > div i.search_btn {
 }
 
 main .contacts_manager .search_section_ctn > div i.search_btn:hover {
-  color: #ffdada;
+  color: #baa4f2;
 }
 
 main .contacts_manager .search_section_ctn > div i.arrow_down {
@@ -487,7 +573,7 @@ main .contacts_manager .search_section_ctn > div i.arrow_down {
 }
 
 main .contacts_manager .search_section_ctn > div i.arrow_down:hover {
-  color: #ffdada;
+  color: #baa4f2;
 }
 
 main .contacts_manager .search_section_ctn > div .filter_list {
@@ -711,8 +797,8 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 
 .bg_add_contact > div .header_section {
   height: 140px;
-  background-color: #ffdada;
-  color: #fd6e6e;
+  background-color: #baa4f2;
+  color: #070d59;
   position: relative;
 }
 
@@ -726,7 +812,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   position: absolute;
   top: 20px;
   right: 20px;
-  fill: #fd6e6e;
+  fill: #070d59;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
 }
@@ -740,7 +826,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   height: 120px;
   padding: 10px;
   margin: -60px auto 0;
-  background-color: #fd6e6e;
+  background-color: #070d59;
   border-radius: 60px;
   display: flex;
   color: #fff;
@@ -760,7 +846,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 .bg_add_contact > div .info_contact_p .image img {
   width: 70px;
   height: 70px;
-  border: 2px solid #ffdada;
+  border: 2px solid #baa4f2;
   border-radius: 45px;
   object-fit: cover;
 }
@@ -778,9 +864,9 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   font-size: 12px;
   position: absolute;
   right: -3px;
-  color: #fd6e6e;
+  color: #070d59;
   background-color: #fff;
-  border: 2px solid #ffdada;
+  border: 2px solid #baa4f2;
   border-radius: 15px;
   width: 25px;
   height: 25px;
@@ -829,7 +915,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 .bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania {
   width: 100%;
   height: 100%;
-  background-color: #fd6e6e;
+  background-color: #070d59;
   color: #fff;
 }
 
@@ -845,7 +931,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 
 .bg_add_contact > div .info_contact_p .form-floating.form-floating-company label {
   height: 100%;
-  background-color: #fd6e6e;
+  background-color: #070d59;
 }
 
 .bg_add_contact > div .body_section {
@@ -889,14 +975,14 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   height: 30px;
   padding: 0 10px;
   border-radius: 15px;
-  background-color: #ffdada;
+  background-color: #baa4f2;
 }
 
 .bg_add_contact > div .body_section .info_contact_s .form-selects input,
 .bg_add_contact > div .body_section .info_contact_t .form-selects input {
   width: 200px;
   height: 30px;
-  border-bottom: 3px solid #ffdada;
+  border-bottom: 3px solid #baa4f2;
 }
 
 .bg_add_contact > div .body_section .info_contact_s .form-selects input:disabled,
@@ -934,7 +1020,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: #fd6e6e;
+  background-color: #070d59;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -1040,23 +1126,23 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 }
 
 .bg_add_contact > div .body_section .btn_section button.cancel_btn {
-  color: #fd6e6e;
-  border: 3px solid #fd6e6e;
+  color: #070d59;
+  border: 3px solid #070d59;
   background-color: transparent;
 }
 
 .bg_add_contact > div .body_section .btn_section button.cancel_btn:hover {
-  color: #fa8d8d;
-  border-color: #fa8d8d;
+  color: #baa4f2;
+  border-color: #baa4f2;
 }
 
 .bg_add_contact > div .body_section .btn_section button.save_btn {
-  background-color: #fd6e6e;
+  background-color: #070d59;
   color: #fff;
 }
 
 .bg_add_contact > div .body_section .btn_section button.save_btn:hover {
-  background-color: #fa8d8d;
+  background-color: #baa4f2;
 }
 
 button, select {

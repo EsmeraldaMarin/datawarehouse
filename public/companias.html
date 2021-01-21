@@ -11,6 +11,91 @@
 
 <body>
 
+    <header>
+        <a href="index.html">
+            <img src="assets/logo.png" alt="Logo Data Warehouse">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Contactos</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+                <li class="li_active"><a href="companias.html">Compañías</a></li>
+                <li><a href="regiones.html">Región/Ciudad</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contacts_manager">
+            <div class="search_section_ctn">
+                <h1> Compañías</h1>
+                <div id="searchSection">
+                    <input type="search" name="Busque una compañía" id="input_companias"
+                        placeholder="Busque una compañía">
+                    <i class="fas fa-caret-down arrow_down" id="displayFilter"></i>
+                    <i class="fas fa-search search_btn" id="search_companias"></i>
+                    <div class="filter_list" id="filterList">
+                        <div class="labels">
+                            <label for="nameCompany">Nombre de la Compañía</label>
+                            <label for="regionCompany">País/Región</label>
+                        </div>
+                        <div class="inputs_options">
+                            <select id="nameCompany">
+                                <!--CREAR CON JS-->
+                                <option value="">Acamica</option>
+                                <option value="">Bunge</option>
+                            </select>
+
+                            <select id="regionCompany">
+                                <option value="">Todos</option>
+                                <!--CREAR CON JS-->
+                                <option value="">Argentina</option>
+                                <option value="">Mexico</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="operations_section_ctn">
+
+                <i class="fas fa-arrow-up imp_contact" id="impCompany"></i>
+                <button class="exp_contact">Exportar compañías</button>
+                <button class="add_contact" id="addCompany">Agregar compañía</button>
+            </div>
+        </section>
+        <div class="all_companies">
+            <article class="company_card">
+                <div class="seemore_card">
+                    Ver Info
+                </div>
+                <h2>Bunge</h2>
+                <div class="info_company">
+                    <span>Ubicacion</span>
+                    <p>Argentina, Latam</p>
+                    <p>Av.San Martin, Tancacha</p>
+
+                </div>
+                <div class="users_company">
+                    <p>Todos los contactos</p>
+                    <div>
+                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
+                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
+                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
+                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
+                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
+                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
+                    </div>
+                </div>
+            </article>
+            
+            
+
+
+        </div>
+    </main>
+
+    <script src="scripts/htmlText.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
