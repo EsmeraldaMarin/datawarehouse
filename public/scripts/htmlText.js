@@ -1,6 +1,6 @@
 let htmlTextAddContact = `
     <div class="bg_add_contact" id="bgAddContact">
-       <div>
+       <form id="form">
             <div class="header_section">
                 <h3><b>NUEVO CONTACTO</b></h3>
                 <svg role="img" class="closeBtn" id= "closeAddContactBtn">
@@ -10,28 +10,30 @@ let htmlTextAddContact = `
             <div class="info_contact_p">
                 <div class="image">
                     <img src="assets/avatar.png" alt="" id= "imgPreview">
-                    <input type="file" id="imgUploader">
+                    <input name="img_url" type="file" id="imgUploader">
                     <i class="fas fa-camera"></i>
                 </div>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingNombre">
+                    <input type="text" class="form-control" name="name" id="floatingNombre">
                     <label for="floatingNombre">Nombre *</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingApellido">
+                    <input type="text" class="form-control" name= "lastname" id="floatingApellido">
                     <label for="floatingApellido">Apellido *</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingCargo">
+                    <input type="text" class="form-control" name="position" id="floatingCargo">
                     <label for="floatingCargo">Cargo *</label>
                 </div>
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail">
+                    <input type="email" class="form-control" name="email" id="floatingEmail">
                     <label for="floatingEmail">Email *</label>
                 </div>
                 <div class="form-floating form-floating-company">
-                    <select name="" class="form-control" id="floatingCompania"></select>
+                    <select name="company_id" class="form-control" name="company_id" id="floatingCompania">
+                        <option>Seleccione una compañía</option>
+                    </select>
                     <label for="floatingCompania">Compañía *</label>
                 </div>
             </div>
@@ -41,28 +43,28 @@ let htmlTextAddContact = `
                 <div class="info_contact_s">
                     <div class="form-selects">
                         <label for="regionSelectAdd">Región*</label>
-                        <select name="" id="regionSelectAdd">
+                        <select id="regionSelectAdd">
                             <option>Seleccione una región</option>
                         </select>
                     </div>
 
                     <div class="form-selects">
                         <label for="paisSelectAdd">País*</label>
-                        <select name="" id="paisSelectAdd" disabled>
+                        <select id="paisSelectAdd" disabled>
                             <option>Seleccione un país</option>
                         </select>
                     </div>
 
                     <div class="form-selects">
                         <label for="ciudadSelectAdd">Ciudad*</label>
-                        <select name="" id="ciudadSelectAdd" disabled>
+                        <select name="city_id" id="ciudadSelectAdd" disabled>
                             <option>Seleccione una ciudad</option>
                         </select>
                     </div>
 
                     <div class="form-selects">
                         <label for="addressInputAdd">Dirección*</label>
-                        <input type="text" id="addressInputAdd" placeholder="Ingrese una dirección" disabled>
+                        <input type="text" id="addressInputAdd" name="address" placeholder="Ingrese una dirección" disabled>
                     </div>
 
                 </div>
@@ -78,25 +80,6 @@ let htmlTextAddContact = `
                     <div class="form-selects">
                         <label for="preferenciasSelectAdd">Preferencias *</label>
                     </div>
-                </div>
-                <div class="info_contact_t email">
-
-                    <div class="form-selects">
-                        <h4><i class="far fa-envelope"></i>Email</h4>
-                    </div>
-
-                    <div class="form-selects">
-                        <input type="email" id="emailCuentaInputAdd" placeholder="youremail@gmail.com">
-                    </div>
-                    <div class="form-selects">
-                        <select name="" id="preferenciaEmail">
-                            <option value="sin preferencias">Sin Preferencias</option>
-                            <option value="no molestar">No Molestar</option>
-                            <option value="canal preferido">Canal Preferido</option>
-                        </select>
-                    </div>
-                    
-                    <img src="assets/button-close.svg" class="disableChannel"/>
                 </div>
                 <div class="info_contact_t whatsapp">
                     <div class="form-selects">
@@ -186,16 +169,16 @@ let htmlTextAddContact = `
                 <div class="info_contact_c">
 
                     <label for="interesInputAdd">Interés *</label>
-                    <input class="" type="range" value="0" min="0" max="100" step="25" id="interesInputAdd">
+                    <input class="" name="interest" type="range" value="0" min="0" max="100" step="25" id="interesInputAdd">
                 </div>
 
                 <div class="btn_section">
                     <button class="cancel_btn" id="cancelBtn">Cancelar</button>
-                    <button class="save_btn" id= "saveBtn">Guadar Contacto</button>
+                    <button type= "submit" class="save_btn" id= "saveBtn">Guadar Contacto</button>
 
                 </div>
             </div>
-        </div>
+        </form>
     </div>`;
 
 let deleteWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>

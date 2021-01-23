@@ -5,6 +5,7 @@ let urlRegions = "http://localhost:3000/regions";
 let urlCountries = "http://localhost:3000/countries";
 let urlCities = "http://localhost:3000/cities";
 let urlCompanies = "http://localhost:3000/companies";
+let urlContacts = "http://localhost:3000/contacts";
 
 //arrow down
 
@@ -39,8 +40,9 @@ function locationSelects(
       }
 
       let regionSelected = regionsInfo.find(
-        (reg) => reg.name == regionSelect.value
+        (reg) => reg.name == regionSelect.options[regionSelect.selectedIndex].textContent
       );
+      console.log(regionSelect)
       let country = getOptionsOfDB(urlCountries, countrySelect, regionSelected);
       countrySelect.removeAttribute("disabled");
 
@@ -55,7 +57,7 @@ function locationSelects(
             }
 
             let countrySelected = countriesInfo.find(
-              (co) => co.name == countrySelect.value
+              (co) => co.name == countrySelect.options[countrySelect.selectedIndex].textContent
             );
             let city = getOptionsOfDB(urlCities, citySelect, countrySelected);
             citySelect.addEventListener("change", () => {
@@ -84,13 +86,13 @@ function getOptionsOfDB(url, ctn, parentLocation) {
             ) {
               let option = document.createElement("option");
               option.textContent = el.name;
-              option.value = el.name;
+              option.value = el.id;
               ctn.appendChild(option);
             }
           } else {
             let option = document.createElement("option");
             option.textContent = el.name;
-            option.value = el.name;
+            option.value = el.id;
             ctn.appendChild(option);
           }
         });
@@ -101,13 +103,18 @@ function getOptionsOfDB(url, ctn, parentLocation) {
 
 //function subir imagen
 
-function uploadImg(imgP, imgU) {
+function uploadImg(imgP, imgU, file) {
   imgU.addEventListener("change", (e) => {
-    let file = e.target.files[0];
+
+    if (file.length > 0) {
+      file.shift()
+    }
+
+    file.push(e.target.files[0]);
     let imgCodified;
     // let reader = new FileReader();
 
-    if (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif") {
+    if (file[0].type == "image/jpeg" || file[0].type == "image/png" || file[0].type == "image/gif") {
 
       /* reader.onload = (e) => {
         imgP.src = e.target.result;
@@ -115,7 +122,7 @@ function uploadImg(imgP, imgU) {
       };
       reader.readAsDataURL(file); */
 
-      imgCodified = URL.createObjectURL(file)
+      imgCodified = URL.createObjectURL(file[0])
       imgP.src = imgCodified
 
     } else {

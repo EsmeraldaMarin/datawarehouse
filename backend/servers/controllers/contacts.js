@@ -33,8 +33,9 @@ function selectContacts(req, res) {
 }
 
 function insertContact(req, res) {
-
+    //let image = req.file
     let newContact = req.body;
+    console.log(newContact)
 
     /*
         {

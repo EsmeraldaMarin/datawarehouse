@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const multer = require('multer');
+
+let upload = multer();
 
 let app = express()
 
@@ -34,7 +37,7 @@ app.post('/users/login', validateAcount); //se loguea un usuario
 //contactos
 
 app.get('/contacts', selectContacts);
-app.post('/contacts', insertContact);
+app.post('/contacts', upload.none(), insertContact);
 app.put('/contacts/:id', updateContact);
 app.delete('/contacts/:id', deleteContact);
 

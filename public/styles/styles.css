@@ -788,25 +788,25 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   text-transform: capitalize;
 }
 
-.bg_add_contact > div {
+.bg_add_contact > #form {
   width: 80%;
   position: relative;
   max-height: 640px;
   overflow: auto;
 }
 
-.bg_add_contact > div .header_section {
+.bg_add_contact > #form .header_section {
   height: 140px;
   background-color: #baa4f2;
   color: #070d59;
   position: relative;
 }
 
-.bg_add_contact > div .header_section h3 {
+.bg_add_contact > #form .header_section h3 {
   padding: 20px;
 }
 
-.bg_add_contact > div .header_section svg {
+.bg_add_contact > #form .header_section svg {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -817,11 +817,11 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   border-radius: 20px;
 }
 
-.bg_add_contact > div .header_section svg:hover {
+.bg_add_contact > #form .header_section svg:hover {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.bg_add_contact > div .info_contact_p {
+.bg_add_contact > #form .info_contact_p {
   width: 95%;
   height: 120px;
   padding: 10px;
@@ -838,12 +838,12 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   left: 2.5%;
 }
 
-.bg_add_contact > div .info_contact_p .image {
+.bg_add_contact > #form .info_contact_p .image {
   position: relative;
   cursor: pointer;
 }
 
-.bg_add_contact > div .info_contact_p .image img {
+.bg_add_contact > #form .info_contact_p .image img {
   width: 70px;
   height: 70px;
   border: 2px solid #baa4f2;
@@ -851,7 +851,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   object-fit: cover;
 }
 
-.bg_add_contact > div .info_contact_p .image input {
+.bg_add_contact > #form .info_contact_p .image input {
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -860,7 +860,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   cursor: pointer;
 }
 
-.bg_add_contact > div .info_contact_p .image i {
+.bg_add_contact > #form .info_contact_p .image i {
   font-size: 12px;
   position: absolute;
   right: -3px;
@@ -876,13 +876,13 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   top: 0;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating {
+.bg_add_contact > #form .info_contact_p .form-floating {
   width: 170px;
   height: 25px;
   position: relative;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating input {
+.bg_add_contact > #form .info_contact_p .form-floating input {
   width: 100%;
   height: 100%;
   border-bottom: 2px solid #fff;
@@ -891,50 +891,50 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   font-size: 16px;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating input:focus ~ label {
+.bg_add_contact > #form .info_contact_p .form-floating input:focus ~ label {
   top: -100%;
   font-size: 12px;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating input.inputActive ~ label {
+.bg_add_contact > #form .info_contact_p .form-floating input.inputActive ~ label {
   top: -100%;
   font-size: 12px;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating label {
+.bg_add_contact > #form .info_contact_p .form-floating label {
   position: absolute;
   top: 0;
   left: 0;
   transition: all 0.25s ease;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating.form-floating-company {
+.bg_add_contact > #form .info_contact_p .form-floating.form-floating-company {
   border-bottom: 2px solid #fff;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania {
+.bg_add_contact > #form .info_contact_p .form-floating.form-floating-company select#floatingCompania {
   width: 100%;
   height: 100%;
   background-color: #070d59;
   color: #fff;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania:focus ~ label {
+.bg_add_contact > #form .info_contact_p .form-floating.form-floating-company select#floatingCompania:focus ~ label {
   top: -100%;
   font-size: 12px;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating.form-floating-company select#floatingCompania.inputActive ~ label {
+.bg_add_contact > #form .info_contact_p .form-floating.form-floating-company select#floatingCompania.inputActive ~ label {
   top: -100%;
   font-size: 12px;
 }
 
-.bg_add_contact > div .info_contact_p .form-floating.form-floating-company label {
+.bg_add_contact > #form .info_contact_p .form-floating.form-floating-company label {
   height: 100%;
   background-color: #070d59;
 }
 
-.bg_add_contact > div .body_section {
+.bg_add_contact > #form .body_section {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -942,35 +942,35 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   position: relative;
 }
 
-.bg_add_contact > div .body_section .info_contact_s,
-.bg_add_contact > div .body_section .info_contact_t {
+.bg_add_contact > #form .body_section .info_contact_s,
+.bg_add_contact > #form .body_section .info_contact_t {
   margin: 30px 0 0 50px;
   display: flex;
   align-items: center;
 }
 
-.bg_add_contact > div .body_section .info_contact_s img.returnIcon,
-.bg_add_contact > div .body_section .info_contact_t img.returnIcon {
+.bg_add_contact > #form .body_section .info_contact_s img.returnIcon,
+.bg_add_contact > #form .body_section .info_contact_t img.returnIcon {
   width: 17px;
   transform: translateX(-100%);
   cursor: pointer;
 }
 
-.bg_add_contact > div .body_section .info_contact_s .form-selects,
-.bg_add_contact > div .body_section .info_contact_t .form-selects {
+.bg_add_contact > #form .body_section .info_contact_s .form-selects,
+.bg_add_contact > #form .body_section .info_contact_t .form-selects {
   display: flex;
   flex-direction: column;
   margin: 0 20px;
   width: 200px;
 }
 
-.bg_add_contact > div .body_section .info_contact_s .form-selects label,
-.bg_add_contact > div .body_section .info_contact_t .form-selects label {
+.bg_add_contact > #form .body_section .info_contact_s .form-selects label,
+.bg_add_contact > #form .body_section .info_contact_t .form-selects label {
   margin-bottom: 20px;
 }
 
-.bg_add_contact > div .body_section .info_contact_s .form-selects select,
-.bg_add_contact > div .body_section .info_contact_t .form-selects select {
+.bg_add_contact > #form .body_section .info_contact_s .form-selects select,
+.bg_add_contact > #form .body_section .info_contact_t .form-selects select {
   width: 200px;
   height: 30px;
   padding: 0 10px;
@@ -978,45 +978,45 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   background-color: #baa4f2;
 }
 
-.bg_add_contact > div .body_section .info_contact_s .form-selects input,
-.bg_add_contact > div .body_section .info_contact_t .form-selects input {
+.bg_add_contact > #form .body_section .info_contact_s .form-selects input,
+.bg_add_contact > #form .body_section .info_contact_t .form-selects input {
   width: 200px;
   height: 30px;
   border-bottom: 3px solid #baa4f2;
 }
 
-.bg_add_contact > div .body_section .info_contact_s .form-selects input:disabled,
-.bg_add_contact > div .body_section .info_contact_t .form-selects input:disabled {
+.bg_add_contact > #form .body_section .info_contact_s .form-selects input:disabled,
+.bg_add_contact > #form .body_section .info_contact_t .form-selects input:disabled {
   border-color: #bbb;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.email,
-.bg_add_contact > div .body_section .info_contact_t.email {
+.bg_add_contact > #form .body_section .info_contact_s.email,
+.bg_add_contact > #form .body_section .info_contact_t.email {
   margin-top: 0;
 }
 
-.bg_add_contact > div .body_section .info_contact_s h3,
-.bg_add_contact > div .body_section .info_contact_s h4,
-.bg_add_contact > div .body_section .info_contact_t h3,
-.bg_add_contact > div .body_section .info_contact_t h4 {
+.bg_add_contact > #form .body_section .info_contact_s h3,
+.bg_add_contact > #form .body_section .info_contact_s h4,
+.bg_add_contact > #form .body_section .info_contact_t h3,
+.bg_add_contact > #form .body_section .info_contact_t h4 {
   font-size: inherit;
   font-weight: inherit;
 }
 
-.bg_add_contact > div .body_section .info_contact_s h3,
-.bg_add_contact > div .body_section .info_contact_t h3 {
+.bg_add_contact > #form .body_section .info_contact_s h3,
+.bg_add_contact > #form .body_section .info_contact_t h3 {
   margin-bottom: 20px;
 }
 
-.bg_add_contact > div .body_section .info_contact_s h4,
-.bg_add_contact > div .body_section .info_contact_t h4 {
+.bg_add_contact > #form .body_section .info_contact_s h4,
+.bg_add_contact > #form .body_section .info_contact_t h4 {
   display: flex;
   height: 30px;
   line-height: 30px;
 }
 
-.bg_add_contact > div .body_section .info_contact_s h4 i,
-.bg_add_contact > div .body_section .info_contact_t h4 i {
+.bg_add_contact > #form .body_section .info_contact_s h4 i,
+.bg_add_contact > #form .body_section .info_contact_t h4 i {
   width: 30px;
   height: 30px;
   border-radius: 15px;
@@ -1028,47 +1028,47 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   margin-right: 10px;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.telefono i,
-.bg_add_contact > div .body_section .info_contact_t.telefono i {
+.bg_add_contact > #form .body_section .info_contact_s.telefono i,
+.bg_add_contact > #form .body_section .info_contact_t.telefono i {
   transform: rotate(90deg);
   font-size: 14px;
 }
 
-.bg_add_contact > div .body_section .info_contact_s img.disableChannel,
-.bg_add_contact > div .body_section .info_contact_t img.disableChannel {
+.bg_add_contact > #form .body_section .info_contact_s img.disableChannel,
+.bg_add_contact > #form .body_section .info_contact_t img.disableChannel {
   width: 12px;
   height: 12px;
   cursor: pointer;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.channelDisabled img.disableChannel,
-.bg_add_contact > div .body_section .info_contact_t.channelDisabled img.disableChannel {
+.bg_add_contact > #form .body_section .info_contact_s.channelDisabled img.disableChannel,
+.bg_add_contact > #form .body_section .info_contact_t.channelDisabled img.disableChannel {
   opacity: 0;
   position: relative;
   z-index: 1;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.channelDisabled .form-selects select,
-.bg_add_contact > div .body_section .info_contact_t.channelDisabled .form-selects select {
+.bg_add_contact > #form .body_section .info_contact_s.channelDisabled .form-selects select,
+.bg_add_contact > #form .body_section .info_contact_t.channelDisabled .form-selects select {
   background-color: #ccc;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.channelDisabled .form-selects input,
-.bg_add_contact > div .body_section .info_contact_t.channelDisabled .form-selects input {
+.bg_add_contact > #form .body_section .info_contact_s.channelDisabled .form-selects input,
+.bg_add_contact > #form .body_section .info_contact_t.channelDisabled .form-selects input {
   border-bottom: 3px solid #ccc;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.channelDisabled h4,
-.bg_add_contact > div .body_section .info_contact_t.channelDisabled h4 {
+.bg_add_contact > #form .body_section .info_contact_s.channelDisabled h4,
+.bg_add_contact > #form .body_section .info_contact_t.channelDisabled h4 {
   color: #ccc;
 }
 
-.bg_add_contact > div .body_section .info_contact_s.channelDisabled h4 i,
-.bg_add_contact > div .body_section .info_contact_t.channelDisabled h4 i {
+.bg_add_contact > #form .body_section .info_contact_s.channelDisabled h4 i,
+.bg_add_contact > #form .body_section .info_contact_t.channelDisabled h4 i {
   background-color: #ccc;
 }
 
-.bg_add_contact > div .body_section .info_contact_c {
+.bg_add_contact > #form .body_section .info_contact_c {
   width: 400px;
   margin: 30px 0 0 70px;
   display: flex;
@@ -1076,18 +1076,18 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   position: relative;
 }
 
-.bg_add_contact > div .body_section .info_contact_c input {
+.bg_add_contact > #form .body_section .info_contact_c input {
   margin: 0 10px;
   width: 270px;
 }
 
-.bg_add_contact > div .body_section .info_contact_c input[type="range"],
-.bg_add_contact > div .body_section .info_contact_c input[type="range"]::-webkit-slider-runnable-track,
-.bg_add_contact > div .body_section .info_contact_c input[type="range"]::-webkit-slider-thumb {
+.bg_add_contact > #form .body_section .info_contact_c input[type="range"],
+.bg_add_contact > #form .body_section .info_contact_c input[type="range"]::-webkit-slider-runnable-track,
+.bg_add_contact > #form .body_section .info_contact_c input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-.bg_add_contact > div .body_section .info_contact_c input[type="range"]::-webkit-slider-thumb {
+.bg_add_contact > #form .body_section .info_contact_c input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border-radius: 10px;
   background: #fff;
@@ -1098,7 +1098,7 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   border: 3px solid #000;
 }
 
-.bg_add_contact > div .body_section .info_contact_c input[type="range"]::-webkit-slider-runnable-track {
+.bg_add_contact > #form .body_section .info_contact_c input[type="range"]::-webkit-slider-runnable-track {
   width: 270px;
   height: 10px;
   cursor: pointer;
@@ -1106,11 +1106,11 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   border-radius: 5px;
 }
 
-.bg_add_contact > div .body_section .info_contact_c input[type="range"]:focus::-webkit-slider-runnable-track {
+.bg_add_contact > #form .body_section .info_contact_c input[type="range"]:focus::-webkit-slider-runnable-track {
   background-image: linear-gradient(to right, #00c3ff, #00c3ff 25%, #ff0 25%, #ff0 50%, #ffae00 50%, #ffae00 75%, #f00 75%);
 }
 
-.bg_add_contact > div .body_section .btn_section {
+.bg_add_contact > #form .body_section .btn_section {
   align-self: flex-end;
   width: 500px;
   margin-top: 40px;
@@ -1118,30 +1118,30 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
   justify-content: space-evenly;
 }
 
-.bg_add_contact > div .body_section .btn_section button {
+.bg_add_contact > #form .body_section .btn_section button {
   width: 200px;
   height: 40px;
   font-size: 16px;
   transition: all 0.25s ease;
 }
 
-.bg_add_contact > div .body_section .btn_section button.cancel_btn {
+.bg_add_contact > #form .body_section .btn_section button.cancel_btn {
   color: #070d59;
   border: 3px solid #070d59;
   background-color: transparent;
 }
 
-.bg_add_contact > div .body_section .btn_section button.cancel_btn:hover {
+.bg_add_contact > #form .body_section .btn_section button.cancel_btn:hover {
   color: #baa4f2;
   border-color: #baa4f2;
 }
 
-.bg_add_contact > div .body_section .btn_section button.save_btn {
+.bg_add_contact > #form .body_section .btn_section button.save_btn {
   background-color: #070d59;
   color: #fff;
 }
 
-.bg_add_contact > div .body_section .btn_section button.save_btn:hover {
+.bg_add_contact > #form .body_section .btn_section button.save_btn:hover {
   background-color: #baa4f2;
 }
 

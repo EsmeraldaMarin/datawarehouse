@@ -55,9 +55,11 @@ addContactBtn.addEventListener("click", () => {
   let cancelBtn = document.getElementById("cancelBtn");
   let saveBtn = document.getElementById("saveBtn");
   let inputRangeInteres = document.getElementById("interesInputAdd");
+  let form = document.getElementById('form');
+  let file = [];
 
   getOptionsOfDB(urlCompanies, floatingInputCompany, false);
-  uploadImg(imgPreview, imgUploader);
+  uploadImg(imgPreview, imgUploader, file);
   locationSelects(regionSelect, countrySelect, citySelect, addressInput);
   disableChannel();
 
@@ -96,7 +98,8 @@ addContactBtn.addEventListener("click", () => {
     ctn.remove();
   });
 
-  saveBtn.addEventListener("click", () => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
     let newContact, name, lastname, position, email, company, city, address, img, interest;
     let channels = {
       email: [],
@@ -107,7 +110,27 @@ addContactBtn.addEventListener("click", () => {
       slack: [],
     };
 
-    try {
+
+    let formData = new FormData(e.currentTarget)
+    let params = {
+      method: 'POST',
+      type: 'no-cors',
+      body: formData
+    };
+    formData.set('img_url', imgPreview.src)
+    /* fetch(urlContacts, params)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err)) */
+
+    /* try {
+
+
+      fetch(urlContacts, params)
+        .then(res => res.json())
+        .then(info => {
+          console.log(info)
+        })
 
       floatingInput.forEach((info) => {
         if (info.value == "") {
@@ -239,13 +262,13 @@ addContactBtn.addEventListener("click", () => {
         addressSelected: addressInput.value,
       };
 
-      if(channelInputs[0].hasAttribute("disabled")&&
-      channelInputs[1].hasAttribute("disabled")&&
-      channelInputs[2].hasAttribute("disabled")&&
-      channelInputs[3].hasAttribute("disabled")&&
-      channelInputs[4].hasAttribute("disabled")&&
-      channelInputs[5].hasAttribute("disabled")
-      ){
+      if (channelInputs[0].hasAttribute("disabled") &&
+        channelInputs[1].hasAttribute("disabled") &&
+        channelInputs[2].hasAttribute("disabled") &&
+        channelInputs[3].hasAttribute("disabled") &&
+        channelInputs[4].hasAttribute("disabled") &&
+        channelInputs[5].hasAttribute("disabled")
+      ) {
         console.log("No hay ningun canal")
         throw "ningun canal"
       }
@@ -257,17 +280,18 @@ addContactBtn.addEventListener("click", () => {
         throw "input direccion";
 
       } else {
-        city = selectValues.citySelected;
+        city = parseInt(selectValues.citySelected, 10);
         address = selectValues.addressSelected;
 
       }
-      company = floatingInputCompany.value;
+      company = parseInt(floatingInputCompany.value, 10);
       interest = parseInt(inputRangeInteres.value, 10);
       if (imgPreview.src == "http://127.0.0.1:5500/public/assets/avatar.png") {
         img = "assets/avatar.png"
       } else {
         img = imgPreview.src
       }
+
 
 
       newContact = {
@@ -278,14 +302,30 @@ addContactBtn.addEventListener("click", () => {
         company: company,
         city: city,
         address: address,
-        channels: channels,
+        // channels: channels,
         interest: interest,
         img: img
       };
+      console.log(newContact)
+
+      
+        {
+            "name": "Catalina",
+            "lastname": "Rosales",
+            "email": "catarosales@gmail.com",
+            "position": "organizadora de eventos",
+            "company_id": 2,
+            "city_id": 2,
+            "address": "La Rioja 123",
+            "interest": 100,
+            "img_url": "https://storage.googleapis.com/static-vibuk/profiles/26300.jpg"
+        }
+    
+
 
 
     } catch (err) {
       console.error(`Falta rellenar el campo de ${err}`)
-    }
+    } */
   });
 });

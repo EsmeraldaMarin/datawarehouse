@@ -1,6 +1,7 @@
 Este Commit
 
-* section companies maquetado
+* correciones add contact
+* form data add contact
 
 
 
