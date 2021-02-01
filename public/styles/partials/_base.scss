@@ -19,9 +19,13 @@ body {
     min-height: 100vh;
     background-image: linear-gradient(#fff, #fff, rgba($color: $pColor, $alpha: 0.2));
     font-family: $pFont;
+    overflow: auto;
     main {
         padding: 0 60px;
     }
+}
+body.modalActive{
+    overflow: hidden;
 }
 
 button,

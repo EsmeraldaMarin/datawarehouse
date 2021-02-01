@@ -34,7 +34,7 @@
                         placeholder="Busque una compañía">
                     <i class="fas fa-caret-down arrow_down" id="displayFilter"></i>
                     <i class="fas fa-search search_btn" id="search_companias"></i>
-                    <div class="filter_list" id="filterList">
+                    <div class="filter_list companies-filter-list" id="filterList">
                         <div class="labels">
                             <label for="nameCompany">Nombre de la Compañía</label>
                             <label for="regionCompany">País/Región</label>
@@ -63,39 +63,12 @@
                 <button class="add_contact" id="addCompany">Agregar compañía</button>
             </div>
         </section>
-        <div class="all_companies">
-            <article class="company_card">
-                <div class="seemore_card">
-                    Ver Info
-                </div>
-                <h2>Bunge</h2>
-                <div class="info_company">
-                    <span>Ubicacion</span>
-                    <p>Argentina, Latam</p>
-                    <p>Av.San Martin, Tancacha</p>
-
-                </div>
-                <div class="users_company">
-                    <p>Todos los contactos</p>
-                    <div>
-                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                    </div>
-                </div>
-            </article>
-            
-            
-
-
-        </div>
+        <div class="all_companies" id="companiesSection"> </div>
     </main>
 
     <script src="scripts/htmlText.js"></script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/companies/getCompanies.js"></script>
 </body>
 
 </html>

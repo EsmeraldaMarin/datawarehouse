@@ -31,7 +31,7 @@ main {
             padding: 5px 0 20px 0px;
             font-family: $sFont;
             .contact {
-                padding: 10px 25px;
+                padding: 5px 25px;
                 height: 65px;
                 display: grid;
                 grid-template-columns: 40px 250px repeat(3, 150px) repeat(2, 1fr) 70px;
@@ -58,6 +58,7 @@ main {
                         border-radius: 25px;
                         object-fit: cover;
                         margin-right: 10px;
+                        box-shadow: 0 0 5px #ddd;
                     }
                     .name_contact {
                         .email {
@@ -89,7 +90,7 @@ main {
                         text-transform: uppercase;
                         position: relative;
                         cursor: pointer;
-                        transition: background-color 0.25s ease;
+                        //transition: background-color 0.25s ease;
 
 
                         .details-ctn {
@@ -139,6 +140,7 @@ main {
 
                         &:hover {
                             background-color: $tColor;
+                            color: #fff;
                             .details-ctn {
                                 max-width: 170px;
                                 min-width: 170px;
@@ -233,8 +235,10 @@ main {
                     .canal {
                         .channel {
                             background-color: $tColor;
+                            color: #Fff;
                             &:hover{
                                 background-color: #fff;
+                                color: $tColor;
                             }
                         }
                     }
@@ -264,6 +268,64 @@ main {
                 }
 
             }
+        }
+    }
+}
+.interes {
+    position: relative;
+    width: 100%;
+    .bg_line {
+        width: 170px;
+        height: 10px;
+        background-color: #eee;
+        border-radius: 25px;
+        display: inline-block;
+    }
+    .color_line {
+        position: absolute;
+        top: 5px;
+        height: 10px;
+        border-radius: 25px;
+    }
+    &.onehundred {
+        .color_line {
+            background-color: #f00;
+            width: 170px;
+        }
+        &::after {
+            content: "100%";
+        }
+    }
+    &.seventyfive {
+        .color_line {
+            background-color: rgb(255, 174, 0);
+            width: 127.5px;
+        }
+        &::after {
+            content: "75%";
+        }
+    }
+    &.fifty {
+        .color_line {
+            background-color: #ff0;
+            width: 85px;
+        }
+        &::after {
+            content: "50%";
+        }
+    }
+    &.twentyfive {
+        .color_line {
+            background-color: rgb(0, 195, 255);
+            width: 42.5px;
+        }
+        &::after {
+            content: "25%";
+        }
+    }
+    &.cero {
+        &::after {
+            content: "0%";
         }
     }
 }

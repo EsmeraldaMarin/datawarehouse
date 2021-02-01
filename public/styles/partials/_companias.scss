@@ -1,3 +1,10 @@
+.contacts_manager .search_section_ctn > div.active .filter_list.companies-filter-list {
+    height: 150px;
+    > div {
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
 .all_companies {
     width: 100%;
     display: grid;
@@ -11,20 +18,22 @@
         margin: 10px 0;
         position: relative;
         overflow: hidden;
-        .seemore_card{
-            width: 100%;
-            height: 0;
-            display: flex;
+        text-transform: capitalize;
+        .seemore_card {
             position: absolute;
-            top: 0;
-            left: 0;
-            background-color: $pColor;
+            padding: 5px 10px;
+            border-radius: 25px;
+            background-color: $tColor;
             color: #fff;
-            font-size: 1.2em;
-            justify-content: center;
-            align-items: center;
-            transition: height .25s ease;    
-            cursor: pointer;    
+            font-size: 14px;
+            top: 25px;
+            right: 30px;
+            cursor: pointer;
+            transition: background-color 0.25s ease;
+            &:hover {
+                background-color: #eee;
+                color: $tColor;
+            }
         }
         h2 {
             padding-bottom: 10px;
@@ -66,9 +75,98 @@
                 }
             }
         }
-        &:hover{
-            .seemore_card{
-                height: 100%;
+    }
+}
+
+.bgInfoCompany {
+    @extend %bgManagers;
+    .box_company {
+        width: 900px;
+        height: 450px;
+        border-radius: 30px;
+        background-color: #fff;
+        padding: 30px 50px;
+        flex-direction: column;
+        position: relative;
+        text-transform: capitalize;
+        animation-name: comeToWindow;
+        animation-duration: .25s;   
+        animation-timing-function: linear; 
+
+        .close_btn {
+            @extend %btnClose;
+        }
+        h2 {
+            font-size: 2.5em;
+            padding: 0 0 10px;
+            border-bottom: 4px solid $pColor;
+        }
+        .location {
+            display: flex;
+            margin: 20px 0;
+            align-items: center;
+            i {
+                font-size: 25px;
+                margin-right: 33px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+        .contacts {
+            > div {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                i {
+                    font-size: 25px;
+                    margin-right: 20px;
+                }
+                p {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+            .contactsUl {
+                width: 100%;
+                min-height: 220px;
+                max-height: 220px;
+                margin: 0 auto;
+                padding: 10px 20px;
+                border-radius: 25px;
+                box-shadow: inset 0px 0px 7px #E1E1E1;
+                overflow: auto;
+                li {
+                    display: grid;
+                    grid-template-columns: 60px 220px 220px 1fr;
+                    align-items: center;
+                    border-bottom: 2px solid #eee;
+                    padding: 10px 0;
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 25px;
+                        object-fit: cover;
+                        margin-right: 10px;
+                        box-shadow: 0 0 5px #ddd;
+                    }
+                    .infoContact {
+                        .email {
+                            color: #555;
+                            font-size: 12px;
+                            text-transform: lowercase;
+                        }
+                    }
+                    &:last-child{
+                        border: 0;
+                    }
+                }
+                &.noContacts{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }

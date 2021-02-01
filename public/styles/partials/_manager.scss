@@ -14,21 +14,12 @@
         align-items: center;
         justify-content: space-evenly;
         position: relative;
+        animation-name: comeToWindow;
+        animation-duration: .15s;   
+        animation-timing-function: linear; 
         .close_btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
-            background-color: rgba($color: #fff, $alpha: 0.4);
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            &:hover {
-                background-color: rgba($color: #fff, $alpha: 0.6);
-            }
+            @extend %btnClose
+
         }
         p {
             text-align: center;
@@ -189,6 +180,7 @@
                     label {
                         height: 100%;
                         background-color: $tColor;
+                        width: 100%;
                     }
                 }
             }

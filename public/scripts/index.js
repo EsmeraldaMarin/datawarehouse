@@ -137,12 +137,14 @@ function uploadImg(imgP, imgU, file) {
 
 function showWindow(htmlText, btnId, ctnId) {
   body.insertAdjacentHTML("afterbegin", htmlText);
+  body.classList.add('modalActive')
 
   let btnClose = document.getElementById(`${btnId}`);
   let container = document.getElementById(`${ctnId}`);
 
   btnClose.addEventListener("click", () => {
     container.remove();
+    body.classList.remove('modalActive')
   });
 }
 

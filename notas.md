@@ -1,7 +1,6 @@
 Este Commit
 
-* correciones add contact
-* form data add contact
+* companies modal
 
 
 

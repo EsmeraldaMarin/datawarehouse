@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-$pFont: 'Montserrat', sans-serif;
-$sFont: 'Nunito', sans-serif;
+$pFont: "Montserrat", sans-serif;
+$sFont: "Nunito", sans-serif;
 
 //'Lato', sans-serif
-$pColor : #070d59;
-$sColor : #baa4f2;
-$tColor : #070d59;
-$cColor : #baa4f2;
+$pColor: #070d59;
+$sColor: #baa4f2;
+$tColor: #070d59;
+$cColor: #baa4f2;
 
-%bgManagers{
+%bgManagers {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
@@ -23,9 +23,39 @@ $cColor : #baa4f2;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
+@keyframes comeToWindow {
+    0% {
+        transform: scale(.7);
+    }
+    25% {
+        transform: scale(.8);
+    }
+    50% {
+        transform: scale(.9);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+%btnClose {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba($color: #fff, $alpha: 0.4);
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba($color: #fff, $alpha: 0.6);
+    }
+}
 // lista colores
 
 /*

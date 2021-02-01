@@ -6,7 +6,6 @@ function showContacts() {
     fetch(url)
         .then(res => res.json())
         .then(info => {
-
             createUlContacts(info)
 
         })
@@ -49,6 +48,8 @@ function createUlContacts(info) {
                 classInteres = "cero";
                 break;
         }
+
+        contact.img_url = "assets/avatar.png"
 
         let contactUl = `
             <ul class="contact" id= "contact${contact.id}">
