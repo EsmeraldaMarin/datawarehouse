@@ -30,29 +30,9 @@
             <div class="search_section_ctn">
                 <h1> Compañías</h1>
                 <div id="searchSection">
-                    <input type="search" name="Busque una compañía" id="input_companias"
-                        placeholder="Busque una compañía">
-                    <i class="fas fa-caret-down arrow_down" id="displayFilter"></i>
+                    <input type="search" autocomplete="off" name="" id="input_companias"
+                        placeholder="Busque una Compañía, Ubicación o Email">
                     <i class="fas fa-search search_btn" id="search_companias"></i>
-                    <div class="filter_list companies-filter-list" id="filterList">
-                        <div class="labels">
-                            <label for="nameCompany">Nombre de la Compañía</label>
-                            <label for="regionCompany">País/Región</label>
-                        </div>
-                        <div class="inputs_options">
-                            <select id="nameCompany">
-                                <!--CREAR CON JS-->
-                                <option value="">Todos</option>
-                                
-                            </select>
-
-                            <select id="regionCompany">
-                                <option value="">Todos</option>
-                                <!--CREAR CON JS-->
-                                
-                            </select>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="operations_section_ctn">
@@ -67,8 +47,9 @@
 
     <script src="scripts/htmlText.js"></script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/searcher.js"></script>
     <script src="scripts/companies/getCompanies.js"></script>
-    <script src="scripts/companies/searcher.js"></script>
+    <script src="scripts/companies/searcherCompanies.js"></script>
     <script src="scripts/companies/companyManager.js"></script>
 </body>
 

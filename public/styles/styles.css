@@ -537,14 +537,6 @@ main .all_contacts .contacts_section .not_found p.palabra {
   content: "0%";
 }
 
-.contacts_manager .search_section_ctn > div.active .filter_list.companies-filter-list {
-  height: 150px;
-}
-
-.contacts_manager .search_section_ctn > div.active .filter_list.companies-filter-list > div {
-  grid-template-rows: repeat(2, 1fr);
-}
-
 .all_companies {
   width: 100%;
   display: grid;
@@ -562,7 +554,6 @@ main .all_contacts .contacts_section .not_found p.palabra {
   overflow: hidden;
   text-transform: capitalize;
   min-height: 245px;
-  max-height: 245px;
 }
 
 .all_companies .company_card .seemore_card {
@@ -585,6 +576,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
 
 .all_companies .company_card h2 {
   padding-bottom: 10px;
+  padding-right: 80px;
   font-size: 1.5em;
   border-bottom: 3px solid #070d59;
 }
@@ -625,6 +617,35 @@ main .all_contacts .contacts_section .not_found p.palabra {
 
 .all_companies .company_card .users_company > div img:first-child {
   margin-left: 0;
+}
+
+.all_companies .not_found {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  grid-area: 1/1/1/5;
+}
+
+.all_companies .not_found h3 {
+  font-size: 38px;
+}
+
+.all_companies .not_found img {
+  width: 400px;
+}
+
+.all_companies .not_found p {
+  font-size: 20px;
+}
+
+.all_companies .not_found p.palabra {
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .bgInfoCompany .box_company {
@@ -749,7 +770,7 @@ main .contacts_manager .search_section_ctn > div > input {
   padding: 0 70px 0 30px;
   outline: none;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   position: relative;
   top: 0;
   z-index: 2;
@@ -777,70 +798,6 @@ main .contacts_manager .search_section_ctn > div i.search_btn {
 
 main .contacts_manager .search_section_ctn > div i.search_btn:hover {
   color: #baa4f2;
-}
-
-main .contacts_manager .search_section_ctn > div i.arrow_down {
-  right: 40px;
-}
-
-main .contacts_manager .search_section_ctn > div i.arrow_down:hover {
-  color: #baa4f2;
-}
-
-main .contacts_manager .search_section_ctn > div .filter_list {
-  width: 100%;
-  height: 0px;
-  display: flex;
-  position: relative;
-  background-color: #fff;
-  overflow: hidden;
-  transition: height 0.7s ease;
-  z-index: 1;
-}
-
-main .contacts_manager .search_section_ctn > div .filter_list > div {
-  display: grid;
-  height: 100%;
-  grid-template-rows: repeat(5, 1fr);
-  grid-row-gap: 15px;
-  align-items: center;
-}
-
-main .contacts_manager .search_section_ctn > div .filter_list > div select {
-  text-transform: capitalize;
-}
-
-main .contacts_manager .search_section_ctn > div .filter_list .inputs_options input {
-  padding: 5px;
-  border-bottom: 3px solid #070d59;
-  outline: none;
-  font-size: 16px;
-}
-
-main .contacts_manager .search_section_ctn > div .filter_list .inputs_options select {
-  padding: 10px;
-  background-color: #070d59;
-  outline: none;
-  color: #fff;
-}
-
-main .contacts_manager .search_section_ctn > div.active {
-  overflow: inherit;
-  border-radius: 17px 17px 0 0;
-}
-
-main .contacts_manager .search_section_ctn > div.active > input {
-  border-radius: 17px 17px 0 0;
-  box-shadow: 0 1px 2px #eee;
-}
-
-main .contacts_manager .search_section_ctn > div.active .filter_list {
-  height: 350px;
-  padding: 20px;
-  border-radius: 0 0 17px 17px;
-  box-shadow: 0px 1px 5px #bbb;
-  display: flex;
-  justify-content: space-between;
 }
 
 main .contacts_manager .operations_section_ctn {
@@ -1361,7 +1318,8 @@ main .contacts_manager .operations_section_ctn button.exp_contact:hover {
 }
 
 .bg_add.bg_add_company.createdContact > #form span {
-  font-size: 1.5em;
+  font-size: 3em;
+  color: #fff;
 }
 
 button, select {

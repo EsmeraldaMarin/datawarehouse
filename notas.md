@@ -1,6 +1,6 @@
 Este Commit
 
-* add company finished
+* search Companies
 
 
 

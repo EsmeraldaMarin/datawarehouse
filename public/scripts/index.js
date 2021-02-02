@@ -7,16 +7,6 @@ let urlCities = "http://localhost:3000/cities";
 let urlCompanies = "http://localhost:3000/companies";
 let urlContacts = "http://localhost:3000/contacts";
 
-//arrow down
-
-let arrowDown = document.getElementById("displayFilter");
-
-arrowDown.addEventListener("click", (e) => {
-  let searchSection = document.getElementById("searchSection");
-  searchSection.classList.toggle("active");
-});
-
-
 //funcion selects dependientes
 
 let countrieEventCreated = false;
@@ -171,29 +161,7 @@ function disableChannel() {
     });
   });
 }
-function completeSelects(companySel, regionSel) {
 
-  fetch(urlCompanies)
-    .then(res => res.json())
-    .then(info => {
-      info.forEach(com => {
-        let option = document.createElement('option')
-        option.textContent = com.name
-        companySel.appendChild(option)
-      })
-    })
-  fetch(urlCountries)
-    .then(res => res.json())
-    .then(info => {
-      info.forEach(com => {
-        let option = document.createElement('option')
-        com.name = com.name.substr(0, 3)
-        option.textContent = `${com.name}, ${com.region}`
-        regionSel.appendChild(option)
-      })
-    })
-
-}
 function inputLabels(input) {
   input.addEventListener("change", () => {
     if (input.value) {

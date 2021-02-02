@@ -1,10 +1,3 @@
-.contacts_manager .search_section_ctn > div.active .filter_list.companies-filter-list {
-    height: 150px;
-    > div {
-        grid-template-rows: repeat(2, 1fr);
-        
-    }
-}
 
 .all_companies {
     width: 100%;
@@ -21,7 +14,6 @@
         overflow: hidden;
         text-transform: capitalize;
         min-height: 245px;
-        max-height: 245px;
         .seemore_card {
             position: absolute;
             padding: 5px 10px;
@@ -40,6 +32,7 @@
         }
         h2 {
             padding-bottom: 10px;
+            padding-right: 80px;
             font-size: 1.5em;
             border-bottom: 3px solid $pColor;
         }
@@ -78,6 +71,31 @@
                 }
             }
         }
+    }
+    .not_found{
+        width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $pFont;
+        grid-area: 1/1/1/5;
+        h3{
+            font-size: 38px;
+        }
+        img{
+            width: 400px;
+        }
+        p{
+            font-size: 20px;
+            &.palabra{
+                font-size: 28px;
+                font-weight: bold;
+            }
+        }
+
     }
 }
 

@@ -32,46 +32,9 @@
                     <h1> Contactos</h1>
                 </label>
                 <div id="searchSection">
-                    <input type="search" name="Busque un contacto" id="input_contactos"
-                        placeholder="Busque un contacto">
-                    <i class="fas fa-caret-down arrow_down" id="displayFilter"></i>
+                    <input type="search" autocomplete="off" name="Busque un contacto" id="input_contactos"
+                        placeholder="Busque un Contacto, Ubicación, Email o Cargo">
                     <i class="fas fa-search search_btn" id="search_contactos"></i>
-                    <div class="filter_list" id="filterList">
-                        <div class="labels">
-                            <label for="">Nombre del contacto</label>
-                            <label for="">Cargo</label>
-                            <label for="">País/Región</label>
-                            <label for="">Compañía</label>
-                            <label for="">Interés</label>
-                        </div>
-                        <div class="inputs_options">
-                            <input type="search" name="" id="" placeholder="Introduzca un nombre">
-
-                            <input type="search" name="" id="" placeholder="Introduzca un cargo">
-
-                            <select name="pais_region" id="paisRegionContacts">
-                                <option value="">Todos</option>
-
-
-                            </select>
-
-                            <select name="pais_region" id="companyContacts">
-                                <option value="">Todos</option>
-
-                            </select>
-
-                            <select name="pais_region" id="">
-                                <option value="">Cualquiera</option>
-                                <option value="">100%</option>
-                                <option value="">75%</option>
-                                <option value="">50%</option>
-                                <option value="">25%</option>
-                                <option value="">0%</option>
-                            </select>
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
             <div class="operations_section_ctn">
@@ -123,9 +86,10 @@
 
     <script src="scripts/htmlText.js"></script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/searcher.js"></script>
     <script src="scripts/contacts/contactManager.js"></script>
     <script src="scripts/contacts/getContacts.js"></script>
-    <script src="scripts/contacts/searcher.js"></script>
+    <script src="scripts/contacts/searcherContacts.js"></script>
 </body>
 
 </html>

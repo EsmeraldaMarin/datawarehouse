@@ -6,23 +6,22 @@ function showContacts() {
     fetch(url)
         .then(res => res.json())
         .then(info => {
-            createUlContacts(info)
-
+            createContacts(info)
         })
-        .then(() => {
-            let selectContactBtn = document.querySelectorAll('#selectContact');
-            let seeMoreActionsBtn = document.querySelectorAll('#actions #dots');
-            let trashBtn = document.querySelectorAll('#actions #trashBtn');
-            let channelsBtn = document.querySelectorAll('#canal .channel');
-
-            actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn)
-
-        })
-
 }
 showContacts()
 
-function createUlContacts(info) {
+function createContacts(info) {
+    createUl(info);
+    let selectContactBtn = document.querySelectorAll('#selectContact');
+    let seeMoreActionsBtn = document.querySelectorAll('#actions #dots');
+    let trashBtn = document.querySelectorAll('#actions #trashBtn');
+    let channelsBtn = document.querySelectorAll('#canal .channel');
+
+    actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn)
+}
+
+function createUl(info) {
 
     info.forEach(contact => {
 
@@ -90,6 +89,7 @@ function createUlContacts(info) {
         });
 
     });
+
 }
 
 
