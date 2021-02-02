@@ -68,7 +68,8 @@ function createUl(info) {
                 </li>
                 <li class="empresa">${contact.company}</li>
                 <li class="cargo">${contact.position}</li>
-                <li class="canal" id="canal"></li>
+                <li class="canal" id="canal">
+                </li>
                 <li class="interes ${classInteres}">
                     <div class="bg_line"></div>
                     <div class="color_line"></div>
@@ -79,15 +80,45 @@ function createUl(info) {
                     <i class="fas fa-edit edit"></i>
                 </li>
             </ul>`
-        contactsSection.insertAdjacentHTML('beforeend', contactUl)
+        contactsSection.insertAdjacentHTML('beforeend', contactUl);
         let channelLi = document.querySelector(`#contact${contact.id} li#canal`);
+        let btn1 = document.createElement('button');
+        btn1.textContent = `›`;
+
         channels.forEach(ch => {
+
             let p = document.createElement('div')
             p.textContent = ch;
             p.className = "channel"
+            if (ch == channels[0]) {
+                p.classList.add('channelOnScreen')
+            }
             channelLi.appendChild(p)
         });
 
+        //scroll de los canales a la pantalla
+        if (channels.length > 1) {
+            channelLi.appendChild(btn1);
+            let ins = 0;
+            btn1.addEventListener('click', (e) => {
+                ins++
+                if(ins == channels.length ){
+                    ins = 0
+                }
+                let channelChildren = []
+                let allChildren = e.target.parentNode.children
+                for (let i = 0; i < allChildren.length; i++) {
+                    if (allChildren[i].classList.contains('channel')) {
+                        channelChildren.push(allChildren[i])
+                    }
+                    if (allChildren[i].classList.contains('channelOnScreen')) {
+                        allChildren[i].classList.remove('channelOnScreen')
+                    }
+                }
+                channelChildren[ins].classList.add('channelOnScreen')
+
+            })
+        }
     });
 
 }
@@ -215,6 +246,7 @@ function showDeleteModal(parent) {
     delConfirmBtn.addEventListener('click', () => {
         let container = document.getElementById("bgdeleteContact")
         container.remove()
+        body.classList.remove('modalActive')
         deleteContact(parent)
     })
 

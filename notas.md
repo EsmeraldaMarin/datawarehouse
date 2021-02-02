@@ -1,6 +1,6 @@
 Este Commit
 
-* interface redesign
+* channels carrusel
 
 
 
