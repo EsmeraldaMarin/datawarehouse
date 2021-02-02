@@ -64,22 +64,9 @@ addContactBtn.addEventListener("click", () => {
   disableChannel();
 
   floatingInput.forEach((input) => {
-    input.addEventListener("keyup", () => {
-      if (input.value) {
-        input.classList.add("inputActive");
-      } else {
-        input.classList.remove("inputActive");
-      }
-    });
+    inputLabels(input)
   });
-
-  floatingInputCompany.addEventListener("change", () => {
-    if (floatingInputCompany.value) {
-      floatingInputCompany.classList.add("inputActive");
-    } else {
-      floatingInputCompany.classList.remove("inputActive");
-    }
-  });
+  inputLabels(floatingInputCompany)
 
   inputRangeInteres.addEventListener("change", () => {
     if (inputRangeInteres.nextSibling) {

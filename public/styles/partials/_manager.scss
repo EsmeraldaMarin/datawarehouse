@@ -45,7 +45,7 @@
         }
     }
 }
-.bg_add_contact {
+.bg_add {
     @extend %bgManagers;
     flex-direction: column;
     min-width: 1500px;
@@ -377,6 +377,29 @@
         }
     }
 }
+.bg_add.bg_add_company{
+    >#form{
+        width: 70%;
+        .form-floating{
+            width: 220px;
+        }
+        .info_contact_s{
+            margin-bottom: 30px;
+        }
+    }
+    &.createdContact{
+        >#form{
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                font-size: 1.5em;
+            }
+        }
+    }
+}
 button, select{
     cursor: pointer;
 }
+

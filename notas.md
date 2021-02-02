@@ -1,6 +1,6 @@
 Este Commit
 
-* companies modal
+* add company finished
 
 
 

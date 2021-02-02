@@ -42,7 +42,6 @@ function locationSelects(
       let regionSelected = regionsInfo.find(
         (reg) => reg.name == regionSelect.options[regionSelect.selectedIndex].textContent
       );
-      console.log(regionSelect)
       let country = getOptionsOfDB(urlCountries, countrySelect, regionSelected);
       countrySelect.removeAttribute("disabled");
 
@@ -170,5 +169,37 @@ function disableChannel() {
         parent.childNodes[5].childNodes[1].removeAttribute("disabled");
       }
     });
+  });
+}
+function completeSelects(companySel, regionSel) {
+
+  fetch(urlCompanies)
+    .then(res => res.json())
+    .then(info => {
+      info.forEach(com => {
+        let option = document.createElement('option')
+        option.textContent = com.name
+        companySel.appendChild(option)
+      })
+    })
+  fetch(urlCountries)
+    .then(res => res.json())
+    .then(info => {
+      info.forEach(com => {
+        let option = document.createElement('option')
+        com.name = com.name.substr(0, 3)
+        option.textContent = `${com.name}, ${com.region}`
+        regionSel.appendChild(option)
+      })
+    })
+
+}
+function inputLabels(input) {
+  input.addEventListener("change", () => {
+    if (input.value) {
+      input.classList.add("inputActive");
+    } else {
+      input.classList.remove("inputActive");
+    }
   });
 }

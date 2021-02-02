@@ -1,5 +1,5 @@
 let htmlTextAddContact = `
-    <div class="bg_add_contact" id="bgAddContact">
+    <div class="bg_add_contact bg_add" id="bgAddContact">
        <form id="form">
             <div class="header_section">
                 <h3><b>NUEVO CONTACTO</b></h3>
@@ -180,6 +180,68 @@ let htmlTextAddContact = `
             </div>
         </form>
     </div>`;
+
+
+let htmlTextAddCompany = `
+<div class="bg_add_company bg_add" id="bgAddCompany">
+   <form id="form">
+        <div class="header_section">
+            <h3><b>NUEVA COMPAÑÍA</b></h3>
+            <svg role="img" class="closeBtn" id= "closeAddCompanyBtn">
+                <use href="assets/button-close.svg#path-1"/>
+            </svg>
+        </div>
+        <div class="info_contact_p">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="name" id="floatingNombre">
+                <label for="floatingNombre">Nombre *</label>
+            </div>           
+            <div class="form-floating">
+                <input type="email" class="form-control" name="email" id="floatingEmail">
+                <label for="floatingEmail">Email *</label>
+            </div>
+            <div class="form-floating">
+                <input type="number" class="form-control" name= "phone" id="floatingPhone">
+                <label for="floatingPhone">Teléfono *</label>
+            </div>            
+        </div>
+        <div class="body_section">
+            <div class="info_contact_s">
+                <div class="form-selects">
+                    <label for="regionSelectAdd">Región*</label>
+                    <select id="regionSelectAdd">
+                        <option>Seleccione una región</option>
+                    </select>
+                </div>
+
+                <div class="form-selects">
+                    <label for="paisSelectAdd">País*</label>
+                    <select id="paisSelectAdd" disabled>
+                        <option>Seleccione un país</option>
+                    </select>
+                </div>
+
+                <div class="form-selects">
+                    <label for="ciudadSelectAdd">Ciudad*</label>
+                    <select name="city_id" id="ciudadSelectAdd" disabled>
+                        <option>Seleccione una ciudad</option>
+                    </select>
+                </div>
+
+                <div class="form-selects">
+                    <label for="addressInputAdd">Dirección*</label>
+                    <input type="text" id="addressInputAdd" name="address" placeholder="Ingrese una dirección" disabled>
+                </div>
+
+            </div>
+            <div class="btn_section">
+                <button class="cancel_btn" id="cancelBtn">Cancelar</button>
+                <button type= "submit" class="save_btn" id= "saveBtn">Guadar Compañía</button>
+
+            </div>
+        </div>
+    </form>
+</div>`
 
 let deleteWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
         <div class='box_delete'>

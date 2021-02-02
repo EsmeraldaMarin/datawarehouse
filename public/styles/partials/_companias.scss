@@ -2,6 +2,7 @@
     height: 150px;
     > div {
         grid-template-rows: repeat(2, 1fr);
+        
     }
 }
 
@@ -19,6 +20,8 @@
         position: relative;
         overflow: hidden;
         text-transform: capitalize;
+        min-height: 245px;
+        max-height: 245px;
         .seemore_card {
             position: absolute;
             padding: 5px 10px;
@@ -90,8 +93,8 @@
         position: relative;
         text-transform: capitalize;
         animation-name: comeToWindow;
-        animation-duration: .25s;   
-        animation-timing-function: linear; 
+        animation-duration: 0.25s;
+        animation-timing-function: linear;
 
         .close_btn {
             @extend %btnClose;
@@ -135,7 +138,7 @@
                 margin: 0 auto;
                 padding: 10px 20px;
                 border-radius: 25px;
-                box-shadow: inset 0px 0px 7px #E1E1E1;
+                box-shadow: inset 0px 0px 7px #e1e1e1;
                 overflow: auto;
                 li {
                     display: grid;
@@ -158,11 +161,11 @@
                             text-transform: lowercase;
                         }
                     }
-                    &:last-child{
+                    &:last-child {
                         border: 0;
                     }
                 }
-                &.noContacts{
+                &.noContacts {
                     display: flex;
                     justify-content: center;
                     align-items: center;

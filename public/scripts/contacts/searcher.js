@@ -1,5 +1,12 @@
 let inputSearchContacts = document.getElementById('input_contactos');
 let btnSearchContacts = document.getElementById('search_contactos');
+let nameCompanyConSelect = document.getElementById('paisRegionContacts');
+let regionCompanyConSelect = document.getElementById('companyContacts');
+
+
+
+
+completeSelects(regionCompanyConSelect, nameCompanyConSelect)
 
 
 btnSearchContacts.addEventListener("click", searchContact);

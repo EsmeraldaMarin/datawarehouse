@@ -13,7 +13,7 @@ function getCompanies() {
                         Ver Info
                     </div>
                     <div class="info_company">
-                        <span>Ubicacion</span>
+                        <span>Ubicación</span>
                         <p>${comp.country}, ${comp.region}</p>
                         <p>${comp.address}, ${comp.city}</p>
 

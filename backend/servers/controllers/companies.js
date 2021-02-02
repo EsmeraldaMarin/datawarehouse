@@ -46,7 +46,29 @@ function selectCompanies(req, res) {
         }
     })
 }
+function insertCompany(req, res) {
+    let newCompany = req.body;
 
+    let sql = `INSERT INTO datawarehouse.companies(name, phone, email, city_id, address)
+    VALUES ("${newCompany.name}", "${newCompany.phone}", "${newCompany.email}", ${newCompany.city_id}, "${newCompany.address}");`;
+
+    connection.query(sql, function (err, company) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos' });
+
+        } else {
+            res.status(201).json(
+                {
+                    message: 'company created',
+                    companyId: company.insertId
+                }
+            )
+        }
+    })
+
+}
 module.exports = {
     selectCompanies,
+    insertCompany
 }
