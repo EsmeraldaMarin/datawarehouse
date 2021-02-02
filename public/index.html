@@ -26,62 +26,68 @@
         </nav>
     </header>
     <main>
-        <section class="contacts_manager">
-            <div class="search_section_ctn">
-                <label for="input_contactos">
+        <div class="user_section">
+            <div class="user_logged">
+                <img src="assets/avatar.png" alt="user picture">
+                <p>Esmeralda Marin</p>
+            </div>
+            <button>Cerrar Sesión</button>
+        </div>
+        <div>
+            <div class="contacts_manager">
+                <div class="search_section_ctn">
                     <h1> Contactos</h1>
-                </label>
-                <div id="searchSection">
-                    <input type="search" autocomplete="off" name="Busque un contacto" id="input_contactos"
-                        placeholder="Busque un Contacto, Ubicación, Email o Cargo">
-                    <i class="fas fa-search search_btn" id="search_contactos"></i>
+                    <div id="searchSection">
+                        <input type="search" autocomplete="off" name="Busque un contacto" id="input_contactos"
+                            placeholder="Busque un Contacto, Ubicación, Email o Cargo">
+                        <i class="fas fa-search search_btn" id="search_contactos"></i>
+                    </div>
+                </div>
+                <div class="operations_section_ctn">
+
+                    <i class="fas fa-arrow-up imp_contact" id="impContact"></i>
+                    <button class="exp_contact">Exportar contactos</button>
+                    <button class="add_contact" id="addContact">Agregar contacto</button>
                 </div>
             </div>
-            <div class="operations_section_ctn">
+            <div class="all_contacts">
 
-                <i class="fas fa-arrow-up imp_contact" id="impContact"></i>
-                <button class="exp_contact">Exportar contactos</button>
-                <button class="add_contact" id="addContact">Agregar contacto</button>
-            </div>
-        </section>
-        <section class="all_contacts">
+                <div class="header_section">
 
-            <div class="header_section">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="selectAllContacts">
+                        </li>
+                        <li>Contacto</li>
+                        <li>País/Región</li>
+                        <li>Compañía</li>
+                        <li>Cargo</li>
+                        <li>Canales</li>
+                        <li>Interés</li>
+                        <li>Acciones</li>
+                    </ul>
 
-                <ul>
-                    <li>
-                        <input type="checkbox" name="" id="selectAllContacts">
-                    </li>
-                    <li>Contacto</li>
-                    <li>País/Región</li>
-                    <li>Compañía</li>
-                    <li>Cargo</li>
-                    <li>Canales</li>
-                    <li>Interés</li>
-                    <li>Acciones</li>
-                </ul>
-
+                </div>
+                <div class="contacts_section" id="contactsSection"></div>
             </div>
-            <div class="contacts_section" id="contactsSection"></div>
-        </section>
-        <section class="footer_section">
-            <div class="rows_per_page">
-                <p>Filas por página</p>
-                <select name="" id="" class="options_rows">
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                </select>
+            <div class="footer_section">
+                <div class="rows_per_page">
+                    <p>Filas por página</p>
+                    <select class="options_rows">
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                <div class="pages">
+                    <!--Cambiar con js-->
+                    <p>1-10 de 30 filas</p>
+                    <button class="prev_page"> 🡠 </button>
+                    <button class="next_page"> 🡢 </button>
+                </div>
             </div>
-            <div class="pages">
-                <!--Cambiar con js-->
-                <p>1-10 de 30 filas</p>
-                <button class="prev_page">
-                    < </button>
-                        <button class="next_page"> > </button>
-            </div>
-        </section>
+        </div>
     </main>
 
     <script src="scripts/htmlText.js"></script>

@@ -2,7 +2,7 @@
 .all_companies {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
     .company_card {
         border-radius: 25px;

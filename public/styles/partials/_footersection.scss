@@ -5,8 +5,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 5px solid $pColor;
-
     .rows_per_page{
         display: flex;
         select{
@@ -17,6 +15,7 @@
     }
     .pages{
         display: flex;
+        align-items: center;
         button{
             margin: 0 10px;
             background-color: transparent;

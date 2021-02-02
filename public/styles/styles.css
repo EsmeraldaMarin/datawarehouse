@@ -16,6 +16,15 @@
   align-items: center;
 }
 
+.user_section .user_logged img, main .all_contacts .contacts_section .contact .contact_info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-right: 10px;
+  box-shadow: 0 0 5px #ddd;
+}
+
 @keyframes comeToWindow {
   0% {
     transform: scale(0.7);
@@ -97,9 +106,16 @@ body {
   background-image: linear-gradient(#fff, #fff, rgba(7, 13, 89, 0.2));
   font-family: "Montserrat", sans-serif;
   overflow: auto;
+  display: flex;
+  border-top: 5px solid #070d59;
+  border-bottom: 5px solid #070d59;
 }
 
 body main {
+  width: 100%;
+}
+
+body main > div {
   padding: 0 60px;
 }
 
@@ -114,35 +130,45 @@ select {
 }
 
 header {
-  width: 100%;
-  height: 80px;
-  padding: 0 60px 0 80px;
+  max-width: 200px;
+  min-width: 200px;
+  height: 100vh;
+  padding-top: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  border-top: 5px solid #070d59;
+  flex-direction: column;
+  background-color: #070d59;
+  position: sticky;
+  top: 0;
 }
 
-header img {
+header > a {
+  padding-bottom: 30px;
+  border-bottom: 3px solid #fff;
+}
+
+header > a img {
   width: 100px;
   filter: grayscale(1);
 }
 
 header nav {
   height: 100%;
+  width: 100%;
+  margin-top: 30px;
 }
 
 header nav ul {
-  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 header nav ul li {
   height: 35px;
-  margin: 0 20px;
-  padding: 0 10px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0 20px;
   line-height: 35px;
   position: relative;
 }
@@ -152,7 +178,7 @@ header nav ul li:after {
   width: 0;
   height: 3px;
   margin: 0 auto;
-  background-color: #070d59;
+  background-color: #fff;
   display: block;
   transition: all 0.5s ease;
 }
@@ -164,15 +190,14 @@ header nav ul li:hover:after {
 
 header nav ul li.li_active {
   height: 40px;
+  width: 100.5%;
   margin: 0 10px;
-  padding: 0 20px;
-  background-color: #070d59;
-  border-radius: 30px;
+  background-color: #eee;
   line-height: 40px;
 }
 
 header nav ul li.li_active a {
-  color: #fff;
+  color: #070d59;
 }
 
 header nav ul li.li_active:hover::after {
@@ -180,8 +205,38 @@ header nav ul li.li_active:hover::after {
 }
 
 header nav ul li a {
-  color: #070d59;
+  color: #fff;
   font-size: 16px;
+}
+
+.user_section {
+  width: 100%;
+  height: 60px;
+  background-color: #eee;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user_section .user_logged {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 17px;
+  cursor: pointer;
+}
+
+.user_section .user_logged:hover {
+  background-color: #ddd;
+}
+
+.user_section button {
+  height: 100%;
+  padding: 0 20px;
+  background-color: #eee;
+}
+
+.user_section button:hover {
+  background-color: #ddd;
 }
 
 main .all_contacts {
@@ -201,7 +256,7 @@ main .all_contacts .header_section {
 main .all_contacts .header_section ul {
   height: 50px;
   display: grid;
-  grid-template-columns: 40px 250px repeat(3, 150px) repeat(2, 1fr) 70px;
+  grid-template-columns: 40px 250px repeat(3, 140px) 130px 1fr 70px;
   align-items: center;
 }
 
@@ -225,7 +280,7 @@ main .all_contacts .contacts_section .contact {
   padding: 5px 25px;
   height: 65px;
   display: grid;
-  grid-template-columns: 40px 250px repeat(3, 150px) repeat(2, 1fr) 70px;
+  grid-template-columns: 40px 250px repeat(3, 140px) 130px 1fr 50px;
   align-items: center;
   font-size: 16px;
 }
@@ -247,15 +302,6 @@ main .all_contacts .contacts_section .contact .contact_info {
   align-items: center;
 }
 
-main .all_contacts .contacts_section .contact .contact_info img {
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
-  object-fit: cover;
-  margin-right: 10px;
-  box-shadow: 0 0 5px #ddd;
-}
-
 main .all_contacts .contacts_section .contact .contact_info .name_contact .email {
   color: #555;
   font-size: 12px;
@@ -268,9 +314,9 @@ main .all_contacts .contacts_section .contact .pais_region .region {
 }
 
 main .all_contacts .contacts_section .contact .canal .channel {
+  display: none;
   width: 80px;
   height: 20px;
-  display: inline-block;
   margin-right: 5px;
   margin-bottom: 5px;
   font-size: 9px;
@@ -282,6 +328,10 @@ main .all_contacts .contacts_section .contact .canal .channel {
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
+}
+
+main .all_contacts .contacts_section .contact .canal .channel:first-child {
+  display: inline-block;
 }
 
 main .all_contacts .contacts_section .contact .canal .channel .details-ctn {
@@ -441,7 +491,7 @@ main .all_contacts .contacts_section .contact.selected {
 
 main .all_contacts .contacts_section .contact.selected .canal .channel {
   background-color: #070d59;
-  color: #Fff;
+  color: #fff;
 }
 
 main .all_contacts .contacts_section .contact.selected .canal .channel:hover {
@@ -540,7 +590,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
 .all_companies {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
 }
 
@@ -1333,7 +1383,6 @@ button, select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 5px solid #070d59;
 }
 
 .footer_section .rows_per_page {
@@ -1348,6 +1397,7 @@ button, select {
 
 .footer_section .pages {
   display: flex;
+  align-items: center;
 }
 
 .footer_section .pages button {

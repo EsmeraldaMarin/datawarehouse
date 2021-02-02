@@ -173,7 +173,7 @@ let htmlTextAddContact = `
                 </div>
 
                 <div class="btn_section">
-                    <button class="cancel_btn" id="cancelBtn">Cancelar</button>
+                    <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
                     <button type= "submit" class="save_btn" id= "saveBtn">Guadar Contacto</button>
 
                 </div>
@@ -235,7 +235,7 @@ let htmlTextAddCompany = `
 
             </div>
             <div class="btn_section">
-                <button class="cancel_btn" id="cancelBtn">Cancelar</button>
+                <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
                 <button type= "submit" class="save_btn" id= "saveBtn">Guadar Compañía</button>
 
             </div>

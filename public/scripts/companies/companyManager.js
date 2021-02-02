@@ -20,6 +20,7 @@ addCompanyBtn.addEventListener('click', () => {
     })
 
     cancelBtn.addEventListener("click", () => {
+        body.classList.remove('modalActive')
         ctn.remove();
     });
     form.addEventListener('submit', (e) => {

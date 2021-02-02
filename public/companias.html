@@ -26,23 +26,32 @@
         </nav>
     </header>
     <main>
-        <section class="contacts_manager">
-            <div class="search_section_ctn">
-                <h1> Compañías</h1>
-                <div id="searchSection">
-                    <input type="search" autocomplete="off" name="" id="input_companias"
-                        placeholder="Busque una Compañía, Ubicación o Email">
-                    <i class="fas fa-search search_btn" id="search_companias"></i>
+        <div class="user_section">
+            <div class="user_logged">
+                <img src="assets/avatar.png" alt="user picture">
+                <p>Esmeralda Marin</p>
+            </div>
+            <button>Cerrar Sesión</button>
+        </div> 
+        <div>
+            <section class="contacts_manager">
+                <div class="search_section_ctn">
+                    <h1> Compañías</h1>
+                    <div id="searchSection">
+                        <input type="search" autocomplete="off" name="" id="input_companias"
+                            placeholder="Busque una Compañía, Ubicación o Email">
+                        <i class="fas fa-search search_btn" id="search_companias"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="operations_section_ctn">
-
-                <i class="fas fa-arrow-up imp_contact" id="impCompany"></i>
-                <button class="exp_contact">Exportar compañías</button>
-                <button class="add_contact" id="addCompany">Agregar compañía</button>
-            </div>
-        </section>
-        <div class="all_companies" id="companiesSection"> </div>
+                <div class="operations_section_ctn">
+    
+                    <i class="fas fa-arrow-up imp_contact" id="impCompany"></i>
+                    <button class="exp_contact">Exportar compañías</button>
+                    <button class="add_contact" id="addCompany">Agregar compañía</button>
+                </div>
+            </section>
+            <div class="all_companies" id="companiesSection"> </div>
+        </div>
     </main>
 
     <script src="scripts/htmlText.js"></script>

@@ -20,8 +20,14 @@ body {
     background-image: linear-gradient(#fff, #fff, rgba($color: $pColor, $alpha: 0.2));
     font-family: $pFont;
     overflow: auto;
-    main {
-        padding: 0 60px;
+    display: flex;
+    border-top: 5px solid $pColor;
+    border-bottom: 5px solid $pColor;
+    main{
+        width: 100%;
+        >div{
+            padding: 0 60px;
+        }
     }
 }
 body.modalActive{

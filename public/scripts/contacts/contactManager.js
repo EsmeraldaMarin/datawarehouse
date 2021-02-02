@@ -82,6 +82,7 @@ addContactBtn.addEventListener("click", () => {
 
   cancelBtn.addEventListener("click", () => {
     let ctn = document.getElementById("bgAddContact");
+    body.classList.remove('modalActive')
     ctn.remove();
   });
 
