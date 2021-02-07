@@ -7,6 +7,8 @@ function searcherFunction(url, input, section) {
     }
     let response = []
 
+    input.parentNode.parentNode.parentNode.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a href="index.html">Todos los resultados</a></li><li>${busqueda}</li></ul>`);
+
     fetch(url)
         .then(res => res.json())
         .then(info => {
@@ -18,7 +20,7 @@ function searcherFunction(url, input, section) {
 
             if (url == urlContacts) {
                 searchContact(info)
-            }else if(url == urlCompanies){
+            } else if (url == urlCompanies) {
                 searchCompany(info)
             }
             function searchContact(info) {
@@ -57,7 +59,7 @@ function searcherFunction(url, input, section) {
 
             if (url == urlContacts) {
                 createContacts(res)
-            }else if(url == urlCompanies){
+            } else if (url == urlCompanies) {
                 createCompanies(res)
             }
         })

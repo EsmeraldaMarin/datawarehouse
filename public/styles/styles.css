@@ -817,6 +817,7 @@ main .contacts_manager {
   margin: 50px 0;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 main .contacts_manager .search_section_ctn h1 {
@@ -868,6 +869,36 @@ main .contacts_manager .search_section_ctn > div i.search_btn {
 
 main .contacts_manager .search_section_ctn > div i.search_btn:hover {
   color: #baa4f2;
+}
+
+main .contacts_manager .searchTerms {
+  position: absolute;
+  bottom: -35%;
+  display: flex;
+  align-items: center;
+}
+
+main .contacts_manager .searchTerms li:first-child {
+  display: flex;
+  align-items: center;
+}
+
+main .contacts_manager .searchTerms li:first-child:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin: 0 10px;
+  clip-path: polygon(0 0, 35% 0, 100% 50%, 35% 100%, 0 100%, 65% 50%);
+  background-color: #000;
+}
+
+main .contacts_manager .searchTerms li:first-child:hover {
+  text-decoration: underline;
+}
+
+main .contacts_manager .searchTerms li:first-child a {
+  color: #070d59;
 }
 
 main .contacts_manager .operations_section_ctn {

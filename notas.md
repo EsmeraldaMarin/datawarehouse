@@ -9,9 +9,9 @@ hacer
 poner en minuscula los nombres y apellidos de los usuarios desde agregar usuarios
 filas por pagina de contactos
 crear svg propios y no de fontawesome
-crear contacto con los datos obtenidos
-trabajar con el filtro de busqieda
 maquetar los otros html
+ver lo de subir las imagenes
+luego de hacer una busqueda, cuando se quiere volver a ver todos los contactos. revisar ese link una vez terminada la parte del login
 
 
 subir imagenes
@@ -87,112 +87,3 @@ CORREGIR
 }
 
 
-
-<h3>Contactos</h3>
-                    <ul>
-                        <li>
-                            <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                            <div class="info_contact_company">
-                                <p class="name_user">Tomas Aguirre</p>
-                                <p class="email_user">tomiaguirre@gmail.com</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                            <div class="info_contact_company">
-                                <p class="name_user">Tomas Aguirre</p>
-                                <p class="email_user">tomiaguirre@gmail.com</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                            <div class="info_contact_company">
-                                <p class="name_user">Tomas Aguirre</p>
-                                <p class="email_user">tomiaguirre@gmail.com</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                            <div class="info_contact_company">
-                                <p class="name_user">Tomas Aguirre</p>
-                                <p class="email_user">tomiaguirre@gmail.com</p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://i.pinimg.com/236x/18/b2/38/18b23822d6117f28d22d2154dd6389df.jpg" alt="">
-                            <div class="info_contact_company">
-                                <p class="name_user">Tomas Aguirre</p>
-                                <p class="email_user">tomiaguirre@gmail.com</p>
-
-                            </div>
-                        </li>
-                    </ul>
-
-styles
-
-
-ul {
-            position: absolute;
-            background-color: #fff;
-            height: 0px;
-            width: 82%;
-            margin: 0 auto;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            padding: 5px;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            li {
-                display: flex;
-                align-items: center;
-                padding: 5px;
-                font-size: 12px;
-                cursor: pointer;
-                img {
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 25px;
-                    object-fit: cover;
-                }
-                .info_contact_company {
-                    margin-left: 10px;
-                    .email_user {
-                        color: #333;
-                    }
-                    .name_user {
-                        text-transform: capitalize;
-                    }
-                }
-
-                &:hover {
-                    background-color: #eee;
-                }
-            }
-
-            &::-webkit-scrollbar {
-                -webkit-appearance: none;
-            }
-
-            &::-webkit-scrollbar:vertical {
-                width: 5px;
-            }
-
-            &::-webkit-scrollbar-button:increment,
-            &::-webkit-scrollbar-button {
-                display: none;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: #797979;
-                border-radius: 20px;
-            }
-
-            &::-webkit-scrollbar-track {
-                border-radius: 10px;
-            }
-        }
