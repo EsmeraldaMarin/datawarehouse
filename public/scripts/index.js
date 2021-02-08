@@ -171,3 +171,17 @@ function inputLabels(input) {
     }
   });
 }
+
+//function tree view
+
+function treeView() {
+  let toggler = document.getElementsByClassName("caret");
+
+  for (let i = 0; i < toggler.length; i++) {
+    let tog = toggler[i]
+    tog.addEventListener("click", () => {
+      tog.parentElement.querySelector(".nested").classList.toggle("active");
+      tog.classList.toggle("caret-down");
+    });
+  }
+}

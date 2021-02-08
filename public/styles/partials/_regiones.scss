@@ -1,0 +1,90 @@
+.all_regions {
+    width: 100%;
+
+    .regions_card {
+        width: 500px;
+        padding: 40px 40px;
+        margin-bottom: 25px;
+        position: relative;
+        background-color: #fff;
+        box-shadow: 0 0 5px #ccc;
+        border-radius: 25px;
+        text-transform: capitalize;
+        font-size: 1.3em;
+        font-weight: bold;
+        > ul {
+            margin: 20px 0;
+            li {
+                font-size: 0.9em;
+                padding: 7px 25px;
+                cursor: pointer;
+                .caret::after {
+                    right: 80px;
+                }
+                .btn_seeinfo {
+                    right: 120px;
+                }
+                &:hover {
+                    background-color: #eee;
+                    > .btn_seeinfo {
+                        opacity: 1;
+                    }
+                }
+                > ul {
+                    margin: 20px 0;
+                    li {
+                        padding: 7px 25px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: #ddd;
+                            > .btn_seeinfo {
+                                opacity: 1;
+                            }
+                        }
+                        .btn_seeinfo {
+                            right: 150px;
+                        }
+                    }
+                }
+            }
+        }
+        > .btn_seeinfo {
+            opacity: 1;
+            &:hover {
+                color: $sColor;
+            }
+        }
+    }
+    .btn_seeinfo {
+        height: 25px;
+        position: absolute;
+        right: 100px;
+        text-decoration: underline;
+        background-color: transparent;
+        opacity: 0;
+    }
+
+    .caret {
+        cursor: pointer;
+        user-select: none;
+        &::after {
+            content: "\25B6";
+            transform: rotate(90deg);
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+            position: absolute;
+            right: 60px;
+        }
+    }
+    .caret-down::after {
+        transform: rotate(-90deg);
+    }
+    .nested {
+        display: none;
+    }
+    .active {
+        display: block;
+        border-left: 2px solid $pColor;
+    }
+}

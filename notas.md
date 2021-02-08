@@ -1,6 +1,6 @@
 Este Commit
 
-* channels carrusel
+* diseño inicial de regions
 
 
 
