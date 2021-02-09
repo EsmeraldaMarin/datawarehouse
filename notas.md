@@ -1,6 +1,6 @@
 Este Commit
 
-* diseño inicial de regions
+* diseño de regions
 
 
 

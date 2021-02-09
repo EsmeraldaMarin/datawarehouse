@@ -46,10 +46,46 @@
 
                     <i class="fas fa-arrow-up imp_contact" id="impContact"></i>
                     <button class="exp_contact">Exportar regiones</button>
-                    <button class="add_contact" id="addContact">Agregar región</button>
+                    <!-- <button class="add_contact" id="addContact">Agregar región</button> -->
                 </div>
             </div>
-            <ul class="all_regions" id="regionsSection"> </ul>
+            <div class="bodyRegionsSection">
+                <ul class="all_regions" id="regionsSection"> </ul>
+                <div class="addLocation">
+                    <article class="addCard">
+                        <h3>Agregar Región</h3>
+                        <input type="text" placeholder="Nombre de la región">
+                        <button>Agregar</button>
+                    </article>
+                    <article class="addCard">
+                        <h3>Agregar País</h3>
+                        <div class="selects">
+                            <div>
+                                <label for="regionSelect">Seleccione la Región</label>
+                                <select id="regionSelect"></select>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Nombre del país">
+                        <button>Agregar</button>
+                    </article>
+                    <article class="addCard">
+                        <h3>Agregar Ciudad</h3>
+                        <label for="Sel"></label>
+                        <div class="selects">
+                            <div>
+                                <label for="regionSelect2">Seleccione la Región</label>
+                                <select id="regionSelect2"></select>
+                            </div>
+                            <div>
+                                <label for="paisSelect">Seleccione el País</label>
+                                <select id="paisSelect" disabled></select>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Nombre de la ciudad">
+                        <button>Agregar</button>
+                    </article>
+                </div>
+            </div>
 
         </div>
 
@@ -58,8 +94,8 @@
     <script src="scripts/index.js"></script>
     <script src="scripts/searcher.js"></script>
     <script src="scripts/regions/getregions.js"></script>
-<!--     <script src="scripts/regions/searcherregions.js"></script>
-    <script src="scripts/regions/companyManager.js"></script> -->
+    <script src="scripts/regions/regionsManager.js"></script>
+    <!--<script src="scripts/regions/companyManager.js"></script> -->
 </body>
 
 </html>

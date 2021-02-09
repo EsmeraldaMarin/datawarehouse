@@ -474,33 +474,6 @@ main .all_contacts .contacts_section .contact .interes.cero::after {
   content: "0%";
 }
 
-main .all_contacts .contacts_section .contact .acciones {
-  display: flex;
-  justify-content: center;
-}
-
-main .all_contacts .contacts_section .contact .acciones i {
-  display: none;
-  cursor: pointer;
-}
-
-main .all_contacts .contacts_section .contact .acciones i.dots {
-  display: block;
-  font-size: 14px;
-}
-
-main .all_contacts .contacts_section .contact .acciones.active {
-  justify-content: space-around;
-}
-
-main .all_contacts .contacts_section .contact .acciones.active i {
-  display: block;
-}
-
-main .all_contacts .contacts_section .contact .acciones.active i.dots {
-  display: none;
-}
-
 main .all_contacts .contacts_section .contact.selected {
   background-color: #baa4f2;
 }
@@ -545,6 +518,33 @@ main .all_contacts .contacts_section .not_found p {
 main .all_contacts .contacts_section .not_found p.palabra {
   font-size: 28px;
   font-weight: bold;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+}
+
+.acciones i {
+  display: none;
+  cursor: pointer;
+}
+
+.acciones i.dots {
+  display: block;
+  font-size: 14px;
+}
+
+.acciones.active {
+  justify-content: space-around;
+}
+
+.acciones.active i {
+  display: block;
+}
+
+.acciones.active i.dots {
+  display: none;
 }
 
 .interes {
@@ -813,11 +813,12 @@ main .all_contacts .contacts_section .not_found p.palabra {
   align-items: center;
 }
 
-.all_regions {
-  width: 100%;
+.bodyRegionsSection {
+  display: flex;
+  justify-content: space-between;
 }
 
-.all_regions .regions_card {
+.bodyRegionsSection .all_regions .regions_card {
   width: 500px;
   padding: 40px 40px;
   margin-bottom: 25px;
@@ -830,76 +831,88 @@ main .all_contacts .contacts_section .not_found p.palabra {
   font-weight: bold;
 }
 
-.all_regions .regions_card > ul {
+.bodyRegionsSection .all_regions .regions_card .acciones {
+  position: absolute;
+  right: -10%;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-evenly;
+  top: 2px;
+}
+
+.bodyRegionsSection .all_regions .regions_card .acciones .dots {
+  font-size: 22px;
+  transform: rotate(90deg);
+}
+
+.bodyRegionsSection .all_regions .regions_card > ul {
   margin: 20px 0;
 }
 
-.all_regions .regions_card > ul li {
+.bodyRegionsSection .all_regions .regions_card > ul li {
   font-size: 0.9em;
   padding: 7px 25px;
   cursor: pointer;
+  position: relative;
 }
 
-.all_regions .regions_card > ul li .caret::after {
-  right: 80px;
+.bodyRegionsSection .all_regions .regions_card > ul li .accionesFixed {
+  top: 10px;
+  position: absolute;
+  right: 0px;
+  font-size: 13px;
 }
 
-.all_regions .regions_card > ul li .btn_seeinfo {
-  right: 120px;
+.bodyRegionsSection .all_regions .regions_card > ul li .accionesFixed i {
+  margin-right: 5px;
+  color: #baa4f2;
 }
 
-.all_regions .regions_card > ul li:hover {
-  background-color: #eee;
+.bodyRegionsSection .all_regions .regions_card > ul li .accionesFixed i:hover {
+  color: #070d59;
 }
 
-.all_regions .regions_card > ul li:hover > .btn_seeinfo {
-  opacity: 1;
+.bodyRegionsSection .all_regions .regions_card > ul li .caret::after {
+  right: 60px;
 }
 
-.all_regions .regions_card > ul li > ul {
+.bodyRegionsSection .all_regions .regions_card > ul li .btn_seeinfo {
+  right: 100px;
+}
+
+.bodyRegionsSection .all_regions .regions_card > ul li > ul {
   margin: 20px 0;
 }
 
-.all_regions .regions_card > ul li > ul li {
+.bodyRegionsSection .all_regions .regions_card > ul li > ul li {
+  position: relative;
   padding: 7px 25px;
   cursor: pointer;
 }
 
-.all_regions .regions_card > ul li > ul li:hover {
-  background-color: #ddd;
+.bodyRegionsSection .all_regions .regions_card > ul li > ul li .accionesFixed {
+  right: 40px;
 }
 
-.all_regions .regions_card > ul li > ul li:hover > .btn_seeinfo {
-  opacity: 1;
-}
-
-.all_regions .regions_card > ul li > ul li .btn_seeinfo {
-  right: 150px;
-}
-
-.all_regions .regions_card > .btn_seeinfo {
-  opacity: 1;
-}
-
-.all_regions .regions_card > .btn_seeinfo:hover {
-  color: #baa4f2;
-}
-
-.all_regions .btn_seeinfo {
+.bodyRegionsSection .all_regions .btn_seeinfo {
   height: 25px;
   position: absolute;
   right: 100px;
   text-decoration: underline;
   background-color: transparent;
-  opacity: 0;
 }
 
-.all_regions .caret {
+.bodyRegionsSection .all_regions .btn_seeinfo:hover {
+  color: #baa4f2;
+}
+
+.bodyRegionsSection .all_regions .caret {
   cursor: pointer;
   user-select: none;
 }
 
-.all_regions .caret::after {
+.bodyRegionsSection .all_regions .caret::after {
   content: "\25B6";
   transform: rotate(90deg);
   color: black;
@@ -909,17 +922,92 @@ main .all_contacts .contacts_section .not_found p.palabra {
   right: 60px;
 }
 
-.all_regions .caret-down::after {
+.bodyRegionsSection .all_regions .caret-down::after {
   transform: rotate(-90deg);
 }
 
-.all_regions .nested {
+.bodyRegionsSection .all_regions .nested {
   display: none;
 }
 
-.all_regions .active {
+.bodyRegionsSection .all_regions .activeTView {
   display: block;
   border-left: 2px solid #070d59;
+}
+
+.bodyRegionsSection .addLocation {
+  width: 45%;
+}
+
+.bodyRegionsSection .addLocation .addCard {
+  margin: 20px 0;
+}
+
+.bodyRegionsSection .addLocation .addCard:first-child {
+  margin-top: 0;
+}
+
+.bodyRegionsSection .addLocation .addCard h3 {
+  padding: 7px 0;
+  border-bottom: 5px solid #070d59;
+  margin-bottom: 30px;
+  font-size: 1.3em;
+}
+
+.bodyRegionsSection .addLocation .addCard input {
+  width: 250px;
+  border-bottom: 3px solid #baa4f2;
+  margin-bottom: 30px;
+  background-color: transparent;
+  color: #000;
+  font-size: 16px;
+}
+
+.bodyRegionsSection .addLocation .addCard input::placeholder {
+  color: #000;
+}
+
+.bodyRegionsSection .addLocation .addCard .selects {
+  display: flex;
+}
+
+.bodyRegionsSection .addLocation .addCard .selects > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.bodyRegionsSection .addLocation .addCard .selects > div select {
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  font-size: 16px;
+  background-color: #baa4f2;
+  text-transform: capitalize;
+}
+
+.bodyRegionsSection .addLocation .addCard .selects > div label {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.bodyRegionsSection .addLocation .addCard button {
+  width: 150px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #070d59;
+  float: right;
+  transition: transform 0.25s ease;
+}
+
+.bodyRegionsSection .addLocation .addCard button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px #bbb;
 }
 
 main .ctn_manager {

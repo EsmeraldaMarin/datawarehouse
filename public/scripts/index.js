@@ -36,7 +36,7 @@ function locationSelects(
       countrySelect.removeAttribute("disabled");
 
       country.then((countriesInfo) => {
-        if (!countrieEventCreated) {
+        if (!countrieEventCreated && citySelect) {
           countrySelect.addEventListener("change", (e) => {
             countrieEventCreated = true;
 
@@ -180,7 +180,7 @@ function treeView() {
   for (let i = 0; i < toggler.length; i++) {
     let tog = toggler[i]
     tog.addEventListener("click", () => {
-      tog.parentElement.querySelector(".nested").classList.toggle("active");
+      tog.parentElement.querySelector(".nested").classList.toggle("activeTView");
       tog.classList.toggle("caret-down");
     });
   }

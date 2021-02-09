@@ -33,6 +33,11 @@ function createRegionsCards(info) {
             liRegion = `<li class="regions_card" id="region${reg.id}">
                 <span>${reg.name}</span>
                 <button class="btn_seeinfo">Ver Info</button>
+                <div class="acciones">
+                    <i class="dots">•••</i>
+                    <i class="fas fa-trash trash"></i>
+                    <i class="fas fa-edit edit"></i>
+                </div>
             </li>`
         } else {
             liRegion = `<li class="regions_card" id="region${reg.id}">
@@ -40,9 +45,16 @@ function createRegionsCards(info) {
                 <button class="btn_seeinfo">Ver Info</button>
                 <ul class="nested">
                 </ul>
+                <div class="acciones">
+                    <i class="dots">•••</i>
+                    <i class="fas fa-trash trash"></i>
+                    <i class="fas fa-edit edit"></i>
+                </div>
             </li>`
         }
         regionsSection.insertAdjacentHTML('beforeend', liRegion);
+
+
 
         let ulCountry = document.querySelector(`#region${reg.id} >ul`)
 
@@ -51,11 +63,19 @@ function createRegionsCards(info) {
             if (con.allCities.length == 0) {
                 liCountry = `<li id="country${con.id}">
                     <span>${con.name}</span>
+                    <div class="accionesFixed">
+                        <i class="fas fa-trash trash"></i>
+                        <i class="fas fa-edit edit"></i>
+                    </div>
                     <button class="btn_seeinfo">Ver Info</button>
                 </li>`
             } else {
                 liCountry = `<li id="country${con.id}">
                     <span class="caret">${con.name}</span>
+                    <div class="accionesFixed">
+                        <i class="fas fa-trash trash"></i>
+                        <i class="fas fa-edit edit"></i>
+                    </div>
                     <button class="btn_seeinfo">Ver Info</button>
                     <ul class="nested">
                     </ul>
@@ -66,10 +86,14 @@ function createRegionsCards(info) {
             let ulCity = document.querySelector(`#country${con.id} >ul`)
 
             con.allCities.forEach(cit => {
-                let liCity= `<li><span>${cit.name}</span>
-                <button class="btn_seeinfo">Ver Info</button>
+                let liCity = `<li><span>${cit.name}</span>
+                    <button class="btn_seeinfo">Ver Info</button>
+                    <div class="accionesFixed">
+                        <i class="fas fa-trash trash"></i>
+                        <i class="fas fa-edit edit"></i>
+                    </div>
                 </li>`
-                
+
                 ulCity.insertAdjacentHTML('beforeend', liCity);
 
             })
@@ -77,6 +101,15 @@ function createRegionsCards(info) {
 
         })
 
+    })
+    let actionsBtn = document.querySelectorAll(".acciones");
+    actionsBtn.forEach(ac => {
+        ac.addEventListener('mouseover', (e) => {
+            ac.classList.add('active')
+            ac.addEventListener('mouseout', (e) => {
+                ac.classList.remove('active')
+            })
+        })
     })
     treeView()
 }

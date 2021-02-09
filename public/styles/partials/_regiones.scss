@@ -1,90 +1,170 @@
-.all_regions {
-    width: 100%;
-
-    .regions_card {
-        width: 500px;
-        padding: 40px 40px;
-        margin-bottom: 25px;
-        position: relative;
-        background-color: #fff;
-        box-shadow: 0 0 5px #ccc;
-        border-radius: 25px;
-        text-transform: capitalize;
-        font-size: 1.3em;
-        font-weight: bold;
-        > ul {
-            margin: 20px 0;
-            li {
-                font-size: 0.9em;
-                padding: 7px 25px;
-                cursor: pointer;
-                .caret::after {
-                    right: 80px;
+.bodyRegionsSection {
+    display: flex;
+    justify-content: space-between;
+    .all_regions {
+        .regions_card {
+            width: 500px;
+            padding: 40px 40px;
+            margin-bottom: 25px;
+            position: relative;
+            background-color: #fff;
+            box-shadow: 0 0 5px #ccc;
+            border-radius: 25px;
+            text-transform: capitalize;
+            font-size: 1.3em;
+            font-weight: bold;
+            .acciones {
+                position: absolute;
+                right: -10%;
+                display: flex;
+                flex-direction: column;
+                height: 100px;
+                justify-content: space-evenly;
+                top: 2px;
+                .dots {
+                    font-size: 22px;
+                    transform: rotate(90deg);
                 }
-                .btn_seeinfo {
-                    right: 120px;
-                }
-                &:hover {
-                    background-color: #eee;
-                    > .btn_seeinfo {
-                        opacity: 1;
-                    }
-                }
-                > ul {
-                    margin: 20px 0;
-                    li {
-                        padding: 7px 25px;
-                        cursor: pointer;
-                        &:hover {
-                            background-color: #ddd;
-                            > .btn_seeinfo {
-                                opacity: 1;
+            }
+            > ul {
+                margin: 20px 0;
+                li {
+                    font-size: 0.9em;
+                    padding: 7px 25px;
+                    cursor: pointer;
+                    position: relative;
+                    .accionesFixed {
+                        top: 10px;
+                        position: absolute;
+                        right: 0px;
+                        font-size: 13px;
+                        i {
+                            margin-right: 5px;
+                            color: $sColor;
+                            &:hover {
+                                color: $pColor;
                             }
                         }
-                        .btn_seeinfo {
-                            right: 150px;
+                    }
+                    .caret::after {
+                        right: 60px;
+                    }
+                    .btn_seeinfo {
+                        right: 100px;
+                    }
+                    > ul {
+                        margin: 20px 0;
+                        li {
+                            position: relative;
+                            padding: 7px 25px;
+                            cursor: pointer;
+                            .accionesFixed {
+                                right: 40px;
+                            }
                         }
                     }
                 }
             }
         }
-        > .btn_seeinfo {
-            opacity: 1;
+        .btn_seeinfo {
+            height: 25px;
+            position: absolute;
+            right: 100px;
+            text-decoration: underline;
+            background-color: transparent;
             &:hover {
                 color: $sColor;
             }
         }
-    }
-    .btn_seeinfo {
-        height: 25px;
-        position: absolute;
-        right: 100px;
-        text-decoration: underline;
-        background-color: transparent;
-        opacity: 0;
-    }
 
-    .caret {
-        cursor: pointer;
-        user-select: none;
-        &::after {
-            content: "\25B6";
-            transform: rotate(90deg);
-            color: black;
-            display: inline-block;
-            margin-right: 6px;
-            position: absolute;
-            right: 60px;
+        .caret {
+            cursor: pointer;
+            user-select: none;
+            &::after {
+                content: "\25B6";
+                transform: rotate(90deg);
+                color: black;
+                display: inline-block;
+                margin-right: 6px;
+                position: absolute;
+                right: 60px;
+            }
+        }
+        .caret-down::after {
+            transform: rotate(-90deg);
+        }
+        .nested {
+            display: none;
+        }
+        .activeTView {
+            display: block;
+            border-left: 2px solid $pColor;
         }
     }
-    .caret-down::after {
-        transform: rotate(-90deg);
-    }
-    .nested {
-        display: none;
-    }
-    .active {
-        display: block;
-        border-left: 2px solid $pColor;
+    .addLocation {
+        width: 45%;
+        .addCard {
+            //display: flex;
+            //flex-direction: column;
+            // padding: 50px;
+            margin: 20px 0;
+            &:first-child {
+                margin-top: 0;
+            }
+            h3 {
+                padding: 7px 0;
+                border-bottom: 5px solid $pColor;
+                margin-bottom: 30px;
+                font-size: 1.3em;
+            }
+            input {
+                width: 250px;
+                border-bottom: 3px solid $sColor;
+                margin-bottom: 30px;
+                background-color: transparent;
+                color: #000;
+                font-size: 16px;
+                &::placeholder {
+                    color: #000;
+                }
+            }
+            .selects{
+                display: flex;
+            }
+            .selects >div {
+                display: flex;
+                flex-direction: column;
+                select {
+                    width: 200px;
+                    height: 30px;
+                    padding: 0 10px;
+                    border-radius: 15px;
+                    margin-bottom: 30px;
+                    margin-right: 10px;
+                    font-size: 16px;
+                    background-color: $sColor;
+                    text-transform: capitalize;
+                }
+                label{
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+            }
+            button {
+                width: 150px;
+                height: 30px;
+                padding: 0 10px;
+                border-radius: 15px;
+                font-size: 16px;
+                color: #fff;
+                background-color: $pColor;
+                float: right;
+                transition: transform 0.25s ease;
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 2px 5px #bbb;
+                }
+            }
+        }
     }
 }

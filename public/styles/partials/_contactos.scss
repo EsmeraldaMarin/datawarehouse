@@ -216,27 +216,7 @@ main {
                         }
                     }
                 }
-                .acciones {
-                    display: flex;
-                    justify-content: center;
-                    i {
-                        display: none;
-                        cursor: pointer;
-                        &.dots {
-                            display: block;
-                            font-size: 14px;
-                        }
-                    }
-                    &.active {
-                        justify-content: space-around;
-                        i {
-                            display: block;
-                            &.dots {
-                                display: none;
-                            }
-                        }
-                    }
-                }
+                
                 &.selected {
                     background-color: $sColor;
                     .canal {
@@ -276,6 +256,27 @@ main {
                         font-weight: bold;
                     }
                 }
+            }
+        }
+    }
+}
+.acciones {
+    display: flex;
+    justify-content: center;
+    i {
+        display: none;
+        cursor: pointer;
+        &.dots {
+            display: block;
+            font-size: 14px;
+        }
+    }
+    &.active {
+        justify-content: space-around;
+        i {
+            display: block;
+            &.dots {
+                display: none;
             }
         }
     }
