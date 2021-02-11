@@ -185,3 +185,72 @@ function treeView() {
     });
   }
 }
+
+//create contacts ul
+
+function createContactsList(ctn, allContactsInfo, key) {
+
+  let classInteres;
+
+  if (allContactsInfo.length == 0) {
+    ctn.classList.add('noContacts')
+    ctn.innerHTML = `<span>No hay contactos para mostrar</span>`
+  } else {
+
+    ctn.classList.remove('noContacts');
+    ctn.innerHTML = ``
+    allContactsInfo.forEach(contact => {
+
+      switch (contact.interest) {
+        case 100:
+          classInteres = "onehundred";
+          break;
+        case 75:
+          classInteres = "seventyfive";
+          break;
+
+        case 50:
+          classInteres = "fifty";
+          break;
+        case 25:
+          classInteres = "twentyfive";
+          break;
+        case 0:
+          classInteres = "cero";
+          break;
+      }
+      //cambiar la img
+      let contactHtml = `
+          <li id="contact${contact.id}" class = "contactLi">
+              <img src="assets/avatar.png" alt="contactImage">
+              <div class="infoContact">
+                  <p>${contact.name} ${contact.lastname}</p>
+                  <p class="email">${contact.email}</p>
+              </div>
+              <div class="location">
+                  <p>${contact.region}</p>
+                  <p class="country">${contact.country}</p>
+              </div>
+              <p class="company">${contact.company}</p>
+              <p class="cargo">${contact.position}</p>
+              <div class="interes ${classInteres}">
+                  <div class="bg_line"></div>
+                  <div class="color_line"></div>
+              </div>
+          </li>
+          `
+      ctn.insertAdjacentHTML('beforeend', contactHtml);
+
+      let locationDiv= document.querySelector('.contactLi >.location')
+      let companyDiv= document.querySelector('.contactLi >.company')
+
+      if(key == "company"){
+        companyDiv.remove()
+      } else if(key == "location"){
+        locationDiv.remove()
+      }
+
+    })
+  }
+
+}

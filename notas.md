@@ -1,17 +1,28 @@
-Este Commit
+# Este Commit
 
-* diseño de regions
+* modal show region info
 
+## HACER
 
+* show info modal de paises y ciudades
+* agregar región, país, ciudad
+* borrar región, país, ciudad
+* buscador región, país, ciudad
+* editar contactos, compañías, región ciudad
+* borrar compañía
+* maquetar usuarios
+* hacer función de filas de contactos por hoja
+* mejorar el buscador para haverlo compatible con mayúsculas y tildes
+* login y sign up
+* middlewares 
+* exp contactos, compañias, etc
+* imprtar contactos, compañías, etc 
+* cerrar sesión
+* mostrar info del usuario en el header superior
+* solucionar el problema con las img de los contactos
+* DOCUMENTACIÓN SWAGGER Y README.MD
 
-hacer
-
-poner en minuscula los nombres y apellidos de los usuarios desde agregar usuarios
-filas por pagina de contactos
-crear svg propios y no de fontawesome
-maquetar los otros html
-ver lo de subir las imagenes
-luego de hacer una busqueda, cuando se quiere volver a ver todos los contactos. revisar ese link una vez terminada la parte del login
+### FECHA LÍMITE 10/03/21
 
 
 subir imagenes

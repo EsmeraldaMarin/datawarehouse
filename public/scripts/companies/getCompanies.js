@@ -65,7 +65,6 @@ function createCompanyCards(info) {
 }
 
 function showCompanyInfo(companyInfo) {
-    let classInteres;
 
     let htmlCompanyInfo =
         `<div class='bgInfoCompany' id='bgInfoCompany'>
@@ -92,53 +91,8 @@ function showCompanyInfo(companyInfo) {
 
     showWindow(htmlCompanyInfo, 'closeInfoCompany', 'bgInfoCompany');
     let contactsSection = document.getElementById('contactsCompanyUl')
-
-    if (companyInfo.allContacts.length == 0) {
-        contactsSection.classList.add('noContacts')
-        contactsSection.innerHTML = `<span>No hay contactos para mostrar</span>`
-    } else {
-
-        contactsSection.classList.remove('noContacts');
-        contactsSection.innerHTML = ``
-        companyInfo.allContacts.forEach(contact => {
-
-            switch (contact.interest) {
-                case 100:
-                    classInteres = "onehundred";
-                    break;
-                case 75:
-                    classInteres = "seventyfive";
-                    break;
-
-                case 50:
-                    classInteres = "fifty";
-                    break;
-                case 25:
-                    classInteres = "twentyfive";
-                    break;
-                case 0:
-                    classInteres = "cero";
-                    break;
-            }
-
-            //cambiar la img
-            let contactHtml = `
-            <li>
-                <img src="assets/avatar.png" alt="contactImage">
-                <div class="infoContact">
-                    <p>${contact.name} ${contact.lastname}</p>
-                    <p class="email">${contact.email}</p>
-                </div>
-                <p class="cargo">${contact.position}</p>
-                <div class="interes ${classInteres}">
-                    <div class="bg_line"></div>
-                    <div class="color_line"></div>
-                </div>
-            </li>
-            `
-            contactsSection.insertAdjacentHTML('beforeend', contactHtml)
-        })
-    }
+    createContactsList(contactsSection, companyInfo.allContacts, "company")
 
 
 }
+

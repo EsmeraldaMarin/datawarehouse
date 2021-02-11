@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-.bgInfoCompany, .bg_import_contact,
+.bgInfoCompany, .bgInfoLocation, .bg_import_contact,
 .bg_delete_contact, .bg_add {
   width: 100%;
   height: 100%;
@@ -40,7 +40,7 @@
   }
 }
 
-.bgInfoCompany .box_company .close_btn, .bg_import_contact .box_import .close_btn,
+.bgInfoCompany .box_company .close_btn, .bgInfoLocation .box_location .close_btn, .bg_import_contact .box_import .close_btn,
 .bg_import_contact .box_delete .close_btn,
 .bg_delete_contact .box_import .close_btn,
 .bg_delete_contact .box_delete .close_btn {
@@ -57,11 +57,60 @@
   cursor: pointer;
 }
 
-.bgInfoCompany .box_company .close_btn:hover, .bg_import_contact .box_import .close_btn:hover,
+.bgInfoCompany .box_company .close_btn:hover, .bgInfoLocation .box_location .close_btn:hover, .bg_import_contact .box_import .close_btn:hover,
 .bg_import_contact .box_delete .close_btn:hover,
 .bg_delete_contact .box_import .close_btn:hover,
 .bg_delete_contact .box_delete .close_btn:hover {
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.bgInfoCompany .box_company .contacts .contactsUl, .bgInfoLocation .box_location .contacts .contactsUl {
+  width: 100%;
+  min-height: 220px;
+  max-height: 220px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: inset 0px 0px 7px #e1e1e1;
+  overflow: auto;
+}
+
+.bgInfoCompany .box_company .contacts .contactsUl li, .bgInfoLocation .box_location .contacts .contactsUl li {
+  display: grid;
+  grid-template-columns: 60px 220px 190px 220px 1fr;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding: 10px 0;
+}
+
+.bgInfoCompany .box_company .contacts .contactsUl li img, .bgInfoLocation .box_location .contacts .contactsUl li img {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-right: 10px;
+  box-shadow: 0 0 5px #ddd;
+}
+
+.bgInfoCompany .box_company .contacts .contactsUl li .infoContact .email, .bgInfoLocation .box_location .contacts .contactsUl li .infoContact .email {
+  color: #555;
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+.bgInfoCompany .box_company .contacts .contactsUl li .location .country, .bgInfoLocation .box_location .contacts .contactsUl li .location .country {
+  color: #555;
+  font-size: 12px;
+}
+
+.bgInfoCompany .box_company .contacts .contactsUl li:last-child, .bgInfoLocation .box_location .contacts .contactsUl li:last-child {
+  border: 0;
+}
+
+.bgInfoCompany .box_company .contacts .noContacts.contactsUl, .bgInfoLocation .box_location .contacts .noContacts.contactsUl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*
@@ -719,8 +768,8 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .bgInfoCompany .box_company {
-  width: 900px;
-  height: 450px;
+  width: 1100px;
+  height: 550px;
   border-radius: 30px;
   background-color: #fff;
   padding: 30px 50px;
@@ -738,18 +787,18 @@ main .all_contacts .contacts_section .not_found p.palabra {
   border-bottom: 4px solid #070d59;
 }
 
-.bgInfoCompany .box_company .location {
+.bgInfoCompany .box_company > .location {
   display: flex;
   margin: 20px 0;
   align-items: center;
 }
 
-.bgInfoCompany .box_company .location i {
+.bgInfoCompany .box_company > .location i {
   font-size: 25px;
   margin-right: 33px;
 }
 
-.bgInfoCompany .box_company .location p {
+.bgInfoCompany .box_company > .location p {
   font-size: 16px;
 }
 
@@ -770,47 +819,8 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .bgInfoCompany .box_company .contacts .contactsUl {
-  width: 100%;
-  min-height: 220px;
-  max-height: 220px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  border-radius: 25px;
-  box-shadow: inset 0px 0px 7px #e1e1e1;
-  overflow: auto;
-}
-
-.bgInfoCompany .box_company .contacts .contactsUl li {
-  display: grid;
-  grid-template-columns: 60px 220px 220px 1fr;
-  align-items: center;
-  border-bottom: 2px solid #eee;
-  padding: 10px 0;
-}
-
-.bgInfoCompany .box_company .contacts .contactsUl li img {
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
-  object-fit: cover;
-  margin-right: 10px;
-  box-shadow: 0 0 5px #ddd;
-}
-
-.bgInfoCompany .box_company .contacts .contactsUl li .infoContact .email {
-  color: #555;
-  font-size: 12px;
-  text-transform: lowercase;
-}
-
-.bgInfoCompany .box_company .contacts .contactsUl li:last-child {
-  border: 0;
-}
-
-.bgInfoCompany .box_company .contacts .contactsUl.noContacts {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 300px;
+  max-height: 300px;
 }
 
 .bodyRegionsSection {
@@ -1008,6 +1018,127 @@ main .all_contacts .contacts_section .not_found p.palabra {
 .bodyRegionsSection .addLocation .addCard button:hover {
   transform: translateY(-2px);
   box-shadow: 0 2px 5px #bbb;
+}
+
+.bgInfoLocation .box_location {
+  width: 1100px;
+  height: 650px;
+  border-radius: 30px;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 30px 50px;
+  flex-direction: column;
+  position: relative;
+  text-transform: capitalize;
+  animation-name: comeToWindow;
+  animation-duration: 0.25s;
+  animation-timing-function: linear;
+  overflow: auto;
+}
+
+.bgInfoLocation .box_location .close_btn {
+  top: 25px;
+  right: 25px;
+  background-color: #eee;
+}
+
+.bgInfoLocation .box_location .close_btn:hover {
+  background-color: #ddd;
+}
+
+.bgInfoLocation .box_location h2 {
+  font-size: 2.5em;
+  padding: 0 0 10px;
+  border-bottom: 4px solid #070d59;
+}
+
+.bgInfoLocation .box_location .contacts > div {
+  display: flex;
+  align-items: center;
+  margin: 30px 0 20px;
+}
+
+.bgInfoLocation .box_location .contacts > div i {
+  font-size: 25px;
+  margin-right: 20px;
+}
+
+.bgInfoLocation .box_location .contacts > div p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bgInfoLocation .box_location .companies > div {
+  display: flex;
+  align-items: center;
+  margin: 30px 0 20px;
+}
+
+.bgInfoLocation .box_location .companies > div i {
+  font-size: 25px;
+  margin-right: 20px;
+}
+
+.bgInfoLocation .box_location .companies > div p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li {
+  background-color: #fff;
+  box-shadow: 0 0 5px #bbb;
+  border-radius: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li p {
+  margin: 5px 0;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li i {
+  margin-right: 10px;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li .comName {
+  width: 100%;
+  border-bottom: 3px solid #baa4f2;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  padding-bottom: 10px;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li .comEmail {
+  text-transform: lowercase;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li .location {
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: 20px 20px;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li .location i {
+  grid-area: 1/1/2/2;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li .location p {
+  grid-area: 1/2/2/3;
+}
+
+.bgInfoLocation .box_location .companies .companiesUl li .location p.address {
+  grid-area: 2/2/3/3;
+  font-size: 14px;
 }
 
 main .ctn_manager {

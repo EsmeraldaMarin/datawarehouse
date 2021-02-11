@@ -11,7 +11,6 @@ function selectRegions(req, res) {
             res.status(500).json({ error: 'Internal error' });
 
         } else {
-            // res.send(regions)
             let allInforegions = []
 
             for (let i = 0; i < regions.length; i++) {
@@ -40,8 +39,6 @@ function selectRegions(req, res) {
                                 } else {
                                     country.allCities = cities
 
-                                    //console.log(country)
-
                                     if (it == countries.length - 1) {
                                         region.allCountries = countries
                                         allInforegions.push(region)
@@ -53,11 +50,6 @@ function selectRegions(req, res) {
                                 }
                             })
                         }
-
-
-
-
-
                     }
                 })
             }
@@ -65,6 +57,63 @@ function selectRegions(req, res) {
     })
 }
 
+function selectInfoRegion(req, res) {
+
+    let regionId = req.params.id;
+    let sql = `SELECT * FROM regions WHERE regions.id = ${regionId}`;
+
+
+    connection.query(sql, function (err, region) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal error' });
+
+        } else {
+
+            let sqlContactsByRegion = `SELECT contacts.id, contacts.name,contacts.lastname, contacts.email, contacts.position, contacts.interest, contacts.img_url,
+                companies.name AS 'company'
+                FROM contacts
+                INNER JOIN companies ON contacts.company_id = companies.id
+                INNER JOIN cities ON contacts.city_id = cities.id
+                INNER JOIN countries ON cities.country_id = countries.id
+                INNER JOIN regions ON countries.region_id = regions.id
+                WHERE regions.id = ${regionId}`
+
+            connection.query(sqlContactsByRegion, (err, contacts) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).json({ error: 'Internal error' });
+
+                } else {
+                    region[0].allContacts = contacts
+                    // res.send(region)
+                }
+            })
+            let sqlCompaniesByRegion = `SELECT companies.id, companies.name,companies.email, companies.phone, companies.address,
+                cities.name AS 'city'
+                FROM companies
+                INNER JOIN cities ON companies.city_id = cities.id
+                INNER JOIN countries ON cities.country_id = countries.id
+                INNER JOIN regions ON countries.region_id = regions.id
+                WHERE regions.id = ${regionId}`
+
+            connection.query(sqlCompaniesByRegion, (err, companies) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).json({ error: 'Internal error' });
+
+                } else {
+                    region[0].allCompanies = companies
+                    res.send(region)
+                }
+            })
+        }
+    })
+
+
+}
+
 module.exports = {
     selectRegions,
+    selectInfoRegion
 }

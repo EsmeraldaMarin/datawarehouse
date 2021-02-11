@@ -64,6 +64,53 @@ $cColor: #baa4f2;
         background-color: rgba($color: #fff, $alpha: 0.6);
     }
 }
+
+%ulContactsModals {
+    width: 100%;
+    min-height: 220px;
+    max-height: 220px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 7px #e1e1e1;
+    overflow: auto;
+    li {
+        display: grid;
+        grid-template-columns: 60px 220px 190px 220px 1fr;
+        align-items: center;
+        border-bottom: 2px solid #eee;
+        padding: 10px 0;
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 25px;
+            object-fit: cover;
+            margin-right: 10px;
+            box-shadow: 0 0 5px #ddd;
+        }
+        .infoContact {
+            .email {
+                color: #555;
+                font-size: 12px;
+                text-transform: lowercase;
+            }
+        }
+        .location{
+            .country{
+                color: #555;
+                font-size: 12px;
+            }
+        }
+        &:last-child {
+            border: 0;
+        }
+    }
+    &.noContacts {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 // lista colores
 
 /*

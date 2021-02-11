@@ -24,7 +24,16 @@ function selectCompanies(req, res) {
             for (let i = 0; i < companies.length; i++) {
 
                 let company = companies[i]
-                let sqlContacts = `SELECT  * FROM contacts
+                let sqlContacts = `SELECT contacts.id, contacts.name,contacts.lastname, contacts.email, contacts.position, contacts.interest, contacts.img_url,
+                companies.name AS 'company',
+                regions.name AS 'region',
+                countries.name AS 'country',
+                cities.name AS 'city'
+                FROM contacts
+                INNER JOIN companies ON contacts.company_id = companies.id
+                INNER JOIN cities ON contacts.city_id = cities.id
+                INNER JOIN countries ON cities.country_id = countries.id
+                INNER JOIN regions ON countries.region_id = regions.id
                 WHERE company_id = ${company.id}`
 
                 connection.query(sqlContacts, (err, contacts) => {
