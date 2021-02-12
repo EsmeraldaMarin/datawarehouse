@@ -46,7 +46,7 @@
                             }
                         }
                     }
-                    .caret::after {
+                    .caret::after, .caretChild::after {
                         right: 60px;
                     }
                     .btn_seeinfo {
@@ -77,7 +77,7 @@
             }
         }
 
-        .caret {
+        .caret, .caretChild {
             cursor: pointer;
             user-select: none;
             &::after {
@@ -165,6 +165,9 @@
                     box-shadow: 0 2px 5px #bbb;
                 }
             }
+            >p{
+                text-align: center
+            }
         }
     }
 }
@@ -218,7 +221,9 @@
                 }
             }
             .contactsUl {
-                @extend %ulContactsModals
+                @extend %ulContactsModals;
+                min-height: 300px;
+                max-height: 300px;
             }
         }
         .companies{

@@ -71,7 +71,7 @@
   margin: 0 auto;
   padding: 10px 20px;
   border-radius: 25px;
-  box-shadow: inset 0px 0px 7px #e1e1e1;
+  box-shadow: inset 0px 0px 7px #ccc;
   overflow: auto;
 }
 
@@ -883,7 +883,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
   color: #070d59;
 }
 
-.bodyRegionsSection .all_regions .regions_card > ul li .caret::after {
+.bodyRegionsSection .all_regions .regions_card > ul li .caret::after, .bodyRegionsSection .all_regions .regions_card > ul li .caretChild::after {
   right: 60px;
 }
 
@@ -917,12 +917,12 @@ main .all_contacts .contacts_section .not_found p.palabra {
   color: #baa4f2;
 }
 
-.bodyRegionsSection .all_regions .caret {
+.bodyRegionsSection .all_regions .caret, .bodyRegionsSection .all_regions .caretChild {
   cursor: pointer;
   user-select: none;
 }
 
-.bodyRegionsSection .all_regions .caret::after {
+.bodyRegionsSection .all_regions .caret::after, .bodyRegionsSection .all_regions .caretChild::after {
   content: "\25B6";
   transform: rotate(90deg);
   color: black;
@@ -1020,6 +1020,10 @@ main .all_contacts .contacts_section .not_found p.palabra {
   box-shadow: 0 2px 5px #bbb;
 }
 
+.bodyRegionsSection .addLocation .addCard > p {
+  text-align: center;
+}
+
 .bgInfoLocation .box_location {
   width: 1100px;
   height: 650px;
@@ -1066,6 +1070,11 @@ main .all_contacts .contacts_section .not_found p.palabra {
 .bgInfoLocation .box_location .contacts > div p {
   font-size: 16px;
   font-weight: bold;
+}
+
+.bgInfoLocation .box_location .contacts .contactsUl {
+  min-height: 300px;
+  max-height: 300px;
 }
 
 .bgInfoLocation .box_location .companies > div {

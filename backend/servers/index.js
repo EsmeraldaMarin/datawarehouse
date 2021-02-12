@@ -7,13 +7,13 @@ let upload = multer();
 
 let app = express()
 
-const {defineRol, validateRol, validateAcount}= require('./middlewares/authorization');
-const {selectContacts, insertContact, updateContact, deleteContact} = require('./controllers/contacts')
-const {getChannelsById} = require('./controllers/channels');
-const {selectRegions, selectInfoRegion} = require('./controllers/regions');
-const {selectCountries} = require('./controllers/countries');
-const {selectCities} = require('./controllers/cities');
-const {selectCompanies, insertCompany} = require('./controllers/companies');
+const { defineRol, validateRol, validateAcount } = require('./middlewares/authorization');
+const { selectContacts, insertContact, updateContact, deleteContact } = require('./controllers/contacts')
+const { getChannelsById } = require('./controllers/channels');
+const { selectRegions, selectInfoRegion, insertRegion } = require('./controllers/regions');
+const { selectCountries, selectCountryByRegionId, insertCountry } = require('./controllers/countries');
+const { selectCities, selectCityByCountryId, insertCity } = require('./controllers/cities');
+const { selectCompanies, insertCompany } = require('./controllers/companies');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
@@ -27,8 +27,8 @@ app.use(bodyParser.json());
 // si es regular, se elimina la pestana de usuarios en el header
 app.get('/users', defineRol, validateRol);
 app.post('/users', defineRol, validateRol); //se crea un usuario
-app.put('/users', defineRol, validateRol );
-app.delete('/users', defineRol, validateRol );
+app.put('/users', defineRol, validateRol);
+app.delete('/users', defineRol, validateRol);
 
 //login
 
@@ -50,33 +50,36 @@ app.get('/channels/:id', getChannelsById);
 
 app.get('/companies', selectCompanies);
 app.post('/companies', upload.none(), insertCompany);
-app.put('/companies', );
-app.delete('/companies', );
+app.put('/companies',);
+app.delete('/companies',);
 
 //regiones
 
 app.get('/regions', selectRegions);
-app.post('/regions', );
-app.put('/regions', );
-app.delete('/regions', );
+app.post('/regions', upload.none(), insertRegion);
+app.put('/regions',);
+app.delete('/regions',);
 app.get('/regions/:id', selectInfoRegion)
 
 //countries
 
 app.get('/countries', selectCountries);
-app.post('/countries', );
-app.put('/countries', );
-app.delete('/countries', );
+app.post('/countries', upload.none(), insertCountry);
+app.put('/countries',);
+app.delete('/countries',);
+app.get('/countries/:id', selectCountryByRegionId)
 
 //cities
 
 app.get('/cities', selectCities);
-app.post('/cities', );
-app.put('/cities', );
-app.delete('/cities', );
+app.post('/cities', upload.none(), insertCity);
+app.put('/cities',);
+app.delete('/cities',);
+app.get('/cities/:id', selectCityByCountryId)
 
 
 
-app.listen(3000, ()=>{
+
+app.listen(3000, () => {
     console.log("The server is running on port 3000")
 })

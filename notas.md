@@ -1,11 +1,9 @@
 # Este Commit
 
-* modal show region info
+* agregar location
 
 ## HACER
 
-* show info modal de paises y ciudades
-* agregar región, país, ciudad
 * borrar región, país, ciudad
 * buscador región, país, ciudad
 * editar contactos, compañías, región ciudad

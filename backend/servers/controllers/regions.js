@@ -11,7 +11,9 @@ function selectRegions(req, res) {
             res.status(500).json({ error: 'Internal error' });
 
         } else {
-            let allInforegions = []
+
+            res.send(regions)
+            /* let allInforegions = []
 
             for (let i = 0; i < regions.length; i++) {
 
@@ -28,6 +30,7 @@ function selectRegions(req, res) {
                         for (let it = 0; it < countries.length; it++) {
 
                             let country = countries[it]
+
                             let sqlCities = `SELECT cities.id, cities.name FROM cities
                             WHERE country_id = ${country.id}`
 
@@ -45,14 +48,17 @@ function selectRegions(req, res) {
                                         if (i == regions.length - 1) {
                                             res.send(allInforegions)
                                         }
+
                                     }
 
                                 }
                             })
+
                         }
+                        
                     }
                 })
-            }
+            } */
         }
     })
 }
@@ -113,7 +119,31 @@ function selectInfoRegion(req, res) {
 
 }
 
+
+function insertRegion(req, res) {
+    let newRegion = req.body;
+
+    let sql = `INSERT INTO datawarehouse.regions(name)
+     VALUES ('${newRegion.name}');`;
+
+    connection.query(sql, function (err, regions) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos de la region' });
+
+        } else {
+            res.status(201).json(
+                {
+                    message: 'region created',
+                    regionId: regions.insertId
+                }
+            )
+        }
+    })
+}
+
 module.exports = {
     selectRegions,
-    selectInfoRegion
+    selectInfoRegion,
+    insertRegion
 }

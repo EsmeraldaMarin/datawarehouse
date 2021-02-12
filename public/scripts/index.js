@@ -175,15 +175,15 @@ function inputLabels(input) {
 //function tree view
 
 function treeView() {
-  let toggler = document.getElementsByClassName("caret");
+  let toggler = document.querySelectorAll(".caret");
 
-  for (let i = 0; i < toggler.length; i++) {
-    let tog = toggler[i]
-    tog.addEventListener("click", () => {
-      tog.parentElement.querySelector(".nested").classList.toggle("activeTView");
+  toggler.forEach(tog => {
+    tog.addEventListener("click", e => {
+      let ul = e.target.parentElement.querySelector(".nested")
+      ul.classList.toggle("activeTView");
       tog.classList.toggle("caret-down");
     });
-  }
+  })
 }
 
 //create contacts ul
@@ -241,12 +241,12 @@ function createContactsList(ctn, allContactsInfo, key) {
           `
       ctn.insertAdjacentHTML('beforeend', contactHtml);
 
-      let locationDiv= document.querySelector('.contactLi >.location')
-      let companyDiv= document.querySelector('.contactLi >.company')
+      let locationDiv = document.querySelector('.contactLi >.location')
+      let companyDiv = document.querySelector('.contactLi >.company')
 
-      if(key == "company"){
+      if (key == "company") {
         companyDiv.remove()
-      } else if(key == "location"){
+      } else if (key == "location") {
         locationDiv.remove()
       }
 
