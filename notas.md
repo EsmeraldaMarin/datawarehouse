@@ -1,6 +1,6 @@
 # Este Commit
 
-* agregar location
+* borrar region
 
 ## HACER
 

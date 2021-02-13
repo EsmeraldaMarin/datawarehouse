@@ -129,8 +129,19 @@ function createRegionsCards(infoReg) {
                             })
                         })
                     })
-                    
-                    setTimeout(treeView, 500);
+
+                    setTimeout(() => {
+                        treeView()
+                        let trashBtn = document.querySelectorAll('.acciones .trash');
+                        trashBtn.forEach(el => {
+                            el.addEventListener('click', () => {
+                                let parent = el.parentNode.parentNode
+                                showDeleteModal(parent, urlRegions)
+
+                            })
+                        })
+
+                    }, 500);
 
 
                 }
@@ -204,5 +215,42 @@ function createCompaniesList(ctn, allCompaniesInfo) {
 
         })
     }
+
+}
+
+
+
+function showDeleteModal(parent, url) {
+
+    showWindow(deleteRegWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
+
+    let delConfirmBtn = document.getElementById('delConfirmBtn')
+
+    delConfirmBtn.addEventListener('click', () => {
+        let container = document.getElementById("bgdeleteContact")
+        container.remove()
+        body.classList.remove('modalActive')
+        deleteRegion(parent, url)
+    })
+
+
+}
+function deleteRegion(parent, url) {
+    let id = parent.id
+    id = id.replace("region", "")
+
+    let parametros = {
+
+        method: 'DELETE',
+        //body: form,
+        type: 'no-cors'
+    }
+    let newUrl = `${url}/${id}`
+    fetch(newUrl, parametros)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            location.reload()
+        })
 
 }

@@ -13,52 +13,7 @@ function selectRegions(req, res) {
         } else {
 
             res.send(regions)
-            /* let allInforegions = []
 
-            for (let i = 0; i < regions.length; i++) {
-
-                let region = regions[i]
-                let sqlCountries = `SELECT  countries.name, countries.id FROM countries
-                WHERE region_id = ${region.id}`
-                connection.query(sqlCountries, (err, countries) => {
-                    if (err) {
-                        console.log(err)
-                        res.status(500).json({ error: 'Internal error' });
-
-                    } else {
-
-                        for (let it = 0; it < countries.length; it++) {
-
-                            let country = countries[it]
-
-                            let sqlCities = `SELECT cities.id, cities.name FROM cities
-                            WHERE country_id = ${country.id}`
-
-                            connection.query(sqlCities, (err, cities) => {
-                                if (err) {
-                                    console.log(err)
-                                    res.status(500).json({ error: 'Internal error' });
-
-                                } else {
-                                    country.allCities = cities
-
-                                    if (it == countries.length - 1) {
-                                        region.allCountries = countries
-                                        allInforegions.push(region)
-                                        if (i == regions.length - 1) {
-                                            res.send(allInforegions)
-                                        }
-
-                                    }
-
-                                }
-                            })
-
-                        }
-                        
-                    }
-                })
-            } */
         }
     })
 }
@@ -142,8 +97,34 @@ function insertRegion(req, res) {
     })
 }
 
+function deleteRegion(req, res) {
+
+    let regionId = req.params.id;
+    let sql = `DELETE FROM regions WHERE id = ${regionId}`
+    
+    connection.query(sql, function (err, region) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal Error' });
+
+        } else {
+
+            let sqlCountries = `DELETE FROM countries WHERE region_id = ${regionId}`
+            connection.query(sqlCountries, function (err, countries) {
+                if (err) {
+                    console.log(err)
+                }else{
+                    res.status(200).json({ message: 'region deleted', countries })
+                }
+            })
+        }
+    })
+
+}
+
 module.exports = {
     selectRegions,
     selectInfoRegion,
-    insertRegion
+    insertRegion, 
+    deleteRegion
 }

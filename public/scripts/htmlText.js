@@ -255,6 +255,16 @@ let deleteWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
     </div>
     </div>`;
 
+let deleteRegWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
+        <div class='box_delete'>
+        <div class='close_btn' id= 'closeDelContactBtn'>
+            <img src='assets/button-close.svg'  alt='close Button'>
+        </div>
+        <p>¿Está seguro que desea borrar esta ubicación?</p>
+        <button id="delConfirmBtn">Borrar</button>
+    </div>
+    </div>`;
+
 let importWindowHTML = `<div class='bg_import_contact' id= 'bgImportContact'>
     <div class='box_import'>
         <div class='close_btn' id= 'closeImpContactBtn'>
