@@ -220,6 +220,8 @@ function createContactsList(ctn, allContactsInfo, key) {
           break;
       }
       //cambiar la img
+      let country = contact.country.substring(0, 3)
+
       let contactHtml = `
           <li id="contact${contact.id}" class = "contactLi">
               <img src="assets/avatar.png" alt="contactImage">
@@ -228,8 +230,8 @@ function createContactsList(ctn, allContactsInfo, key) {
                   <p class="email">${contact.email}</p>
               </div>
               <div class="location">
-                  <p>${contact.region}</p>
-                  <p class="country">${contact.country}</p>
+                  <p class= "region">${contact.region}</p>
+                  <p class="country">${contact.city}, ${country}</p>  
               </div>
               <p class="company">${contact.company}</p>
               <p class="cargo">${contact.position}</p>
@@ -241,13 +243,10 @@ function createContactsList(ctn, allContactsInfo, key) {
           `
       ctn.insertAdjacentHTML('beforeend', contactHtml);
 
-      let locationDiv = document.querySelector('.contactLi >.location')
       let companyDiv = document.querySelector('.contactLi >.company')
 
       if (key == "company") {
         companyDiv.remove()
-      } else if (key == "location") {
-        locationDiv.remove()
       }
 
     })

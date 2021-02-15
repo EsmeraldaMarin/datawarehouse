@@ -1077,6 +1077,11 @@ main .all_contacts .contacts_section .not_found p.palabra {
   max-height: 300px;
 }
 
+.bgInfoLocation .box_location .contacts .contactsUl li {
+  grid-template-columns: 60px 200px 150px 150px 200px 1fr;
+  font-size: 15px;
+}
+
 .bgInfoLocation .box_location .companies > div {
   display: flex;
   align-items: center;
@@ -1135,6 +1140,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
   display: grid;
   grid-template-columns: 24px 1fr;
   grid-template-rows: 20px 20px;
+  align-items: center;
 }
 
 .bgInfoLocation .box_location .companies .companiesUl li .location i {

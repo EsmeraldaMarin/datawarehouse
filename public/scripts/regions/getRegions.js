@@ -106,18 +106,14 @@ function createRegionsCards(infoReg) {
                         btn.addEventListener('click', (e) => {
 
                             let id = e.target.parentNode.id
+                            id = id.replace("region", "");
 
-                            if (id.charAt(0) == 'r') {
+                            fetch(`${urlRegions}/${id}`)
+                                .then(res => res.json())
+                                .then(info => {
+                                    showLocationInfo(info[0])
 
-                                id = id.replace("region", "")
-                                fetch(`${urlRegions}/${id}`)
-                                    .then(res => res.json())
-                                    .then(info => {
-                                        showLocationInfo(info[0])
-
-                                    })
-
-                            }
+                                })
                         })
                     })
                     let actionsBtn = document.querySelectorAll(".acciones");
@@ -132,15 +128,26 @@ function createRegionsCards(infoReg) {
 
                     setTimeout(() => {
                         treeView()
-                        let trashBtn = document.querySelectorAll('.acciones .trash');
+                        let trashBtn = document.querySelectorAll('.trash');
                         trashBtn.forEach(el => {
                             el.addEventListener('click', () => {
-                                let parent = el.parentNode.parentNode
-                                showDeleteModal(parent, urlRegions)
+                                let parentId = el.parentNode.parentNode.id
 
+                                if (parentId.charAt(0) == 'r') {
+                                    let id = parentId.replace("region", "");
+                                    showDeleteModal(id, urlRegions)
+
+                                } else if (parentId.charAt(1) == 'o') {
+                                    let id = parentId.replace("country", "");
+                                    showDeleteModal(id, urlCountries)
+
+                                } else if (parentId.charAt(1) == 'i') {
+                                    let id = parentId.replace("city", "");
+                                    showDeleteModal(id, urlCities)
+
+                                }
                             })
                         })
-
                     }, 500);
 
 
@@ -196,7 +203,7 @@ function createCompaniesList(ctn, allCompaniesInfo) {
         ctn.classList.remove('noCompanies');
         ctn.innerHTML = ``
         allCompaniesInfo.forEach(company => {
-
+            let country = company.country.substring(0 , 3)
             let companyHtml = `
             <li id="company${company.id}" class = "companyLi">
 
@@ -205,7 +212,7 @@ function createCompaniesList(ctn, allCompaniesInfo) {
                 <p class="comPhone"><i class="fas fa-phone-square-alt"></i>${company.phone}</p>
                 <div class="location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>${company.city}</p>
+                    <p>${company.city}, ${country}</p>
                     <p class="address">${company.address}</p>
                 </div>
                
@@ -220,7 +227,7 @@ function createCompaniesList(ctn, allCompaniesInfo) {
 
 
 
-function showDeleteModal(parent, url) {
+function showDeleteModal(id, url) {
 
     showWindow(deleteRegWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
 
@@ -230,14 +237,12 @@ function showDeleteModal(parent, url) {
         let container = document.getElementById("bgdeleteContact")
         container.remove()
         body.classList.remove('modalActive')
-        deleteRegion(parent, url)
+        deleteRegion(id, url)
     })
 
 
 }
-function deleteRegion(parent, url) {
-    let id = parent.id
-    id = id.replace("region", "")
+function deleteRegion(id, url) {
 
     let parametros = {
 

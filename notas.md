@@ -1,10 +1,9 @@
 # Este Commit
 
-* borrar region
+* borrar pais y ciudad
 
 ## HACER
 
-* borrar región, país, ciudad
 * buscador región, país, ciudad
 * editar contactos, compañías, región ciudad
 * borrar compañía

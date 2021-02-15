@@ -32,7 +32,10 @@ function selectInfoRegion(req, res) {
         } else {
 
             let sqlContactsByRegion = `SELECT contacts.id, contacts.name,contacts.lastname, contacts.email, contacts.position, contacts.interest, contacts.img_url,
-                companies.name AS 'company'
+                companies.name AS 'company',
+                regions.name AS 'region',
+                countries.name AS 'country',
+                cities.name AS 'city'
                 FROM contacts
                 INNER JOIN companies ON contacts.company_id = companies.id
                 INNER JOIN cities ON contacts.city_id = cities.id
@@ -51,7 +54,8 @@ function selectInfoRegion(req, res) {
                 }
             })
             let sqlCompaniesByRegion = `SELECT companies.id, companies.name,companies.email, companies.phone, companies.address,
-                cities.name AS 'city'
+                cities.name AS 'city',
+                countries.name AS 'country'
                 FROM companies
                 INNER JOIN cities ON companies.city_id = cities.id
                 INNER JOIN countries ON cities.country_id = countries.id
@@ -101,7 +105,7 @@ function deleteRegion(req, res) {
 
     let regionId = req.params.id;
     let sql = `DELETE FROM regions WHERE id = ${regionId}`
-    
+
     connection.query(sql, function (err, region) {
         if (err) {
             console.log(err)
@@ -109,12 +113,19 @@ function deleteRegion(req, res) {
 
         } else {
 
-            let sqlCountries = `DELETE FROM countries WHERE region_id = ${regionId}`
+            let sqlCountries = `DELETE FROM countries WHERE region_id = ${regionId};`
             connection.query(sqlCountries, function (err, countries) {
                 if (err) {
                     console.log(err)
-                }else{
-                    res.status(200).json({ message: 'region deleted', countries })
+                } 
+            })
+
+            let sqlCompanies = `DELETE FROM companies WHERE region_id = ${regionId}`
+            connection.query(sqlCompanies, function (err, companies) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    res.status(200).json({ message: 'region deleted', companies })
                 }
             })
         }
@@ -125,6 +136,6 @@ function deleteRegion(req, res) {
 module.exports = {
     selectRegions,
     selectInfoRegion,
-    insertRegion, 
+    insertRegion,
     deleteRegion
 }

@@ -44,8 +44,7 @@ addCompanyBtn.addEventListener('click', () => {
                 .then(data => {
                     console.log(data)
                     ctn.classList.add('createdContact')
-                    form.innerHTML = `<span>¡Compañía Creada!</span>`;
-                    setTimeout(function(){ ctn.remove(); }, 2000);
+                    location.reload()
                 })
         }else{
             console.log('falta informacion')

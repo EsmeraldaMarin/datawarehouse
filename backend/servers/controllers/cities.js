@@ -60,9 +60,28 @@ function insertCity(req, res) {
         }
     })
 }
+function deleteCity(req, res) {
 
-module.exports= {
+    let cityId = req.params.id;
+    let sql = `DELETE FROM cities WHERE id = ${cityId}`
+
+    connection.query(sql, function (err, city) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal Error' });
+
+        } else {
+
+            res.status(200).json({ message: 'city deleted', city })
+
+        }
+    })
+
+}
+
+module.exports = {
     selectCities,
     selectCityByCountryId,
     insertCity,
+    deleteCity
 }

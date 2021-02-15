@@ -61,8 +61,34 @@ function insertCountry(req, res) {
     })
 }
 
+function deleteCountry(req, res) {
+
+    let countryId = req.params.id;
+    let sql = `DELETE FROM countries WHERE id = ${countryId}`
+    
+    connection.query(sql, function (err, country) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal Error' });
+
+        } else {
+
+            let sqlCities = `DELETE FROM cities WHERE country_id = ${countryId}`
+            connection.query(sqlCities, function (err, cities) {
+                if (err) {
+                    console.log(err)
+                }else{
+                    res.status(200).json({ message: 'country deleted', country })
+                }
+            })
+        }
+    })
+
+}
+
 module.exports= {
     selectCountries,
     selectCountryByRegionId,
-    insertCountry
+    insertCountry,
+    deleteCountry
 }

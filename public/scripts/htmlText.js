@@ -256,11 +256,12 @@ let deleteWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
     </div>`;
 
 let deleteRegWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
-        <div class='box_delete'>
+        <div class='box_delete' style= "height: 300px;">
         <div class='close_btn' id= 'closeDelContactBtn'>
             <img src='assets/button-close.svg'  alt='close Button'>
         </div>
-        <p>¿Está seguro que desea borrar esta ubicación?</p>
+        <p><b>¿Está seguro que desea borrar esta ubicación?</b></p>
+        <p>Se eliminarán todas las compañías y contactos relacionados</p>
         <button id="delConfirmBtn">Borrar</button>
     </div>
     </div>`;
