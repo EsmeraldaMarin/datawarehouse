@@ -7,7 +7,14 @@ function searcherFunction(url, input, section) {
     }
     let response = []
 
-    input.parentNode.parentNode.parentNode.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a href="index.html">Todos los resultados</a></li><li>${busqueda}</li></ul>`);
+    let termSearched = document.getElementById('termSearched');
+    let termParent = input.parentNode.parentNode.parentNode
+    if (termSearched) {
+        termParent.querySelector('.searchTerms').remove()
+        termParent.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a href="index.html">Todos los resultados</a></li><li id= "termSearched">${busqueda}</li></ul>`);
+    } else {
+        termParent.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a href="index.html">Todos los resultados</a></li><li id= "termSearched">${busqueda}</li></ul>`);
+    }
 
     fetch(url)
         .then(res => res.json())
@@ -15,6 +22,7 @@ function searcherFunction(url, input, section) {
 
             let wordLength = busqueda.length
             function searchTerms(contact, propiedad) {
+                propiedad = propiedad.toLowerCase()
                 if (propiedad.substring(0, wordLength) == busqueda) { response.push(contact) }
             }
 

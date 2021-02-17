@@ -86,10 +86,10 @@ let htmlTextAddContact = `
                         <h4><i class="fab fa-whatsapp"></i>Whatsapp</h4>
                     </div>
                     <div class="form-selects">
-                        <input type="number" id="whatsappCuentaInputAdd" placeholder="0000-000000">
+                        <input type="number" id="whatsappCuentaInputAdd" name="whatsapp" placeholder="0000-000000">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciaWhatsapp">
+                        <select name="wpre" id="preferenciaWhatsapp">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -103,10 +103,10 @@ let htmlTextAddContact = `
                         <h4><i class="fas fa-phone"></i>Telefono</h4>
                     </div>
                     <div class="form-selects">
-                        <input type="number" id="telefonoCuentaInputAdd" placeholder="0000-000000">
+                        <input type="number" name="telefono" id="telefonoCuentaInputAdd" placeholder="0000-000000">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciaTelefono">
+                        <select name="tpre" id="preferenciaTelefono">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -120,10 +120,10 @@ let htmlTextAddContact = `
                         <h4><i class="fab fa-facebook-f"></i>Facebook</h4>
                     </div>
                     <div class="form-selects">
-                        <input type="text" id="facebookCuentaInputAdd" placeholder="Tu Cuenta">
+                        <input type="text" name="facebook" id="facebookCuentaInputAdd" placeholder="Tu Cuenta">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciaFacebook">
+                        <select name="fpre" id="preferenciaFacebook">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -137,10 +137,10 @@ let htmlTextAddContact = `
                         <h4><i class="fab fa-linkedin-in"></i>Linkedin</h4>
                     </div>
                     <div class="form-selects">
-                        <input type="text" id="linkedinCuentaInputAdd" placeholder="Tu Cuenta">
+                        <input type="text" name="linkedin" id="linkedinCuentaInputAdd" placeholder="Tu Cuenta">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciaLinkedin">
+                        <select name="lpre" id="preferenciaLinkedin">
                             <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
@@ -154,11 +154,11 @@ let htmlTextAddContact = `
                         <h4><i class="fab fa-slack"></i>Slack</h4>
                     </div>
                     <div class="form-selects">
-                        <input type="text" id="slackCuentaInputAdd" placeholder="@TuCuenta123">
+                        <input type="text" name="slack" id="slackCuentaInputAdd" placeholder="@TuCuenta123">
                     </div>
                     <div class="form-selects">
-                        <select name="" id="preferenciaSlack>
-                            <option value="sin preferencias">Sin Preferencias</option>
+                        <select name="spre" id="preferenciaSlack>
+                            <option value="sin preferencia">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
                         </select>

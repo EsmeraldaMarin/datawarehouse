@@ -1,6 +1,6 @@
 # Este Commit
 
-* borrar pais y ciudad
+* Mejora del buscador, correcciones de add contact
 
 ## HACER
 

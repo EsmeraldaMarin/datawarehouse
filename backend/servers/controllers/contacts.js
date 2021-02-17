@@ -10,7 +10,6 @@ function selectContacts(req, res) {
     cities.name as 'city',
     countries.name as 'country',
     regions.name as 'region',
-    channels.user_id,
     GROUP_CONCAT(channels.id) as 'channelsId',
     GROUP_CONCAT(channels.channel_name) as 'channelsName'
     FROM contacts
@@ -35,7 +34,6 @@ function selectContacts(req, res) {
 function insertContact(req, res) {
     //let image = req.file
     let newContact = req.body;
-    console.log(newContact)
 
     /*
         {
@@ -107,7 +105,6 @@ function deleteContact(req, res) {
 
     let contactId = req.params.id;
     let sql = `DELETE FROM contacts WHERE id = ${contactId}`
-    console.log(contactId)
     connection.query(sql, function (err, contact) {
         if (err) {
             console.log(err)

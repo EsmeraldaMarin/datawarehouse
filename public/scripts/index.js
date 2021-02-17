@@ -6,6 +6,7 @@ let urlCountries = "http://localhost:3000/countries";
 let urlCities = "http://localhost:3000/cities";
 let urlCompanies = "http://localhost:3000/companies";
 let urlContacts = "http://localhost:3000/contacts";
+let urlChannels = "http://localhost:3000/channels";
 
 //funcion selects dependientes
 
