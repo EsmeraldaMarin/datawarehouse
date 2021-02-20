@@ -1,13 +1,12 @@
 # Este Commit
 
-* searcher de region, pais, ciudad completo
+* hacer función de filas de contactos por hoja
 
 ## HACER
 
 * editar contactos, compañías, región ciudad
 * borrar compañía
 * maquetar usuarios
-* hacer función de filas de contactos por hoja
 * mejorar el buscador para haverlo compatible con mayúsculas y tildes
 * login y sign up
 * middlewares 

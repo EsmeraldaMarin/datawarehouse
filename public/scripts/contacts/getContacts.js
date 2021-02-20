@@ -1,29 +1,68 @@
-let contactsSection = document.getElementById('contactsSection')
+let contactsSection = document.getElementById('contactsSection');
+let totalContactsSpan = document.getElementById('totalContacts');
+let optionsRowsSelect = document.getElementById('optionsRows');
+let firstContactRowSpan = document.getElementById('firstContactRow');
+let lastContactRowSpan = document.getElementById('lastContactRow');
+let optionsRowsSelected = optionsRowsSelect.value;
+let limit = parseFloat(optionsRowsSelected);
+let offset = 0;
+let prevPage = document.getElementById('prevPage');
+let nextPage = document.getElementById('nextPage');
+let lastLimit;
 
-function showContacts() {
+
+function showContacts(offset) {
     const url = 'http://localhost:3000/contacts'
 
     fetch(url)
         .then(res => res.json())
         .then(info => {
-            createContacts(info)
+            let contacts = info.slice(offset, info.length);
+            createContacts(info, limit, contacts)
         })
 }
-showContacts()
+showContacts(offset)
 
-function createContacts(info) {
-    createUl(info);
+
+function createContacts(allCon, limit, info) {
+
+    createUl(info, limit);
     let selectContactBtn = document.querySelectorAll('#selectContact');
-    let seeMoreActionsBtn = document.querySelectorAll('#actions #dots');
+    let seeMoreActionsBtn = document.querySelectorAll('.acciones');
     let trashBtn = document.querySelectorAll('#actions #trashBtn');
     let channelsBtn = document.querySelectorAll('#canal .channel');
 
     actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn)
+
+    totalContactsSpan.textContent = allCon.length;
+    firstContactRowSpan.textContent = offset + 1;
+    lastContactRowSpan.textContent = offset + limit;
+
+    if (offset + limit > allCon.length) {
+        lastContactRowSpan.textContent = allCon.length;
+        nextPage.setAttribute("disabled", "");
+    } else {
+        nextPage.removeAttribute("disabled");
+    }
+    if (offset <= 0) {
+        prevPage.setAttribute("disabled", "");
+    } else {
+        prevPage.removeAttribute("disabled");
+    }
+
 }
 
-function createUl(info) {
+function createUl(info, limit) {
+
+    contactsSection.innerHTML = ``
+
+    let i = 0
 
     info.forEach(contact => {
+
+        if (i == limit) {
+            return
+        }
 
         let classInteres;
         let channels = contact.channelsName.split(",");
@@ -102,7 +141,7 @@ function createUl(info) {
             let ins = 0;
             btn1.addEventListener('click', (e) => {
                 ins++
-                if(ins == channels.length ){
+                if (ins == channels.length) {
                     ins = 0
                 }
                 let channelChildren = []
@@ -119,6 +158,7 @@ function createUl(info) {
 
             })
         }
+        i++
     });
 
 }
@@ -178,9 +218,11 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
 
 
     seeMoreBtn.forEach(el => {
-        el.addEventListener('click', () => {
-            let parent = el.parentNode
-            parent.classList.toggle('active')
+        el.addEventListener('mouseover', () => {
+            el.classList.add('active')
+        })
+        el.addEventListener('mouseout', () => {
+            el.classList.remove('active')
         })
     })
 
@@ -252,3 +294,18 @@ function showDeleteModal(parent) {
 
 
 }
+
+optionsRowsSelect.addEventListener('change', (e) => {
+    limit = parseFloat(optionsRowsSelect.value)
+    showContacts(offset, limit)
+})
+nextPage.addEventListener('click', () => {
+    offset = offset + limit;
+    lastLimit = limit
+    showContacts(offset)
+})
+prevPage.addEventListener('click', () => {
+    console.log(lastLimit)
+    offset = offset - lastLimit
+    showContacts(offset)
+})

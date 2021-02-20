@@ -24,6 +24,12 @@
             &:hover{
                 color: #555;
             }
+            &:disabled{
+                color: #aaa;
+                &:hover{
+                    color: #aaa;
+                }
+            }
         }
     }
 }

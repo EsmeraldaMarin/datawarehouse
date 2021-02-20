@@ -1881,4 +1881,12 @@ button, select {
 .footer_section .pages button:hover {
   color: #555;
 }
+
+.footer_section .pages button:disabled {
+  color: #aaa;
+}
+
+.footer_section .pages button:disabled:hover {
+  color: #aaa;
+}
 /*# sourceMappingURL=styles.css.map */

@@ -73,7 +73,7 @@
             <div class="footer_section">
                 <div class="rows_per_page">
                     <p>Filas por página</p>
-                    <select class="options_rows">
+                    <select class="options_rows" id="optionsRows">
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
@@ -81,10 +81,12 @@
                     </select>
                 </div>
                 <div class="pages">
-                    <!--Cambiar con js-->
-                    <p>1-10 de 30 filas</p>
-                    <button class="prev_page"> 🡠 </button>
-                    <button class="next_page"> 🡢 </button>
+                    <p>
+                        <span id="firstContactRow"></span>-<span id="lastContactRow"></span> de
+                        <span id="totalContacts"></span> filas
+                    </p>
+                    <button class="prev_page" id="prevPage"> 🡠 </button>
+                    <button class="next_page" id="nextPage"> 🡢 </button>
                 </div>
             </div>
         </div>
