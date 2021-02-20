@@ -1,6 +1,6 @@
 # Este Commit
 
-* Mejora del buscador, correcciones de add contact
+* primera parte del searcher de region, pais, ciudad
 
 ## HACER
 

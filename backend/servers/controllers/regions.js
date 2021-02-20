@@ -78,7 +78,6 @@ function selectInfoRegion(req, res) {
 
 }
 
-
 function insertRegion(req, res) {
     let newRegion = req.body;
 
@@ -117,7 +116,7 @@ function deleteRegion(req, res) {
             connection.query(sqlCountries, function (err, countries) {
                 if (err) {
                     console.log(err)
-                } 
+                }
             })
 
             let sqlCompanies = `DELETE FROM companies WHERE region_id = ${regionId}`
@@ -133,9 +132,62 @@ function deleteRegion(req, res) {
 
 }
 
+function selectAllInfoLocation(req, res) {
+    let sql = `SELECT * FROM regions`;
+
+    connection.query(sql, function (err, regions) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal error' });
+
+        } else {
+
+            regions.forEach(re => {
+                re.type = "region"
+            })
+
+            let sqlCon = `SELECT * FROM countries`;
+
+            connection.query(sqlCon, function (err, countries) {
+                if (err) {
+                    console.log(err)
+                    res.status(500).json({ error: 'Internal error' });
+
+                } else {
+
+                    countries.forEach(co => {
+                        co.type = "country"
+                        regions.push(co)
+                    })
+
+                    let sqlCit = `SELECT * FROM cities`;
+
+                    connection.query(sqlCit, function (err, cities) {
+                        if (err) {
+                            console.log(err)
+                            res.status(500).json({ error: 'Internal error' });
+
+                        } else {
+
+                            cities.forEach(ci => {
+                                ci.type = "city"
+                                regions.push(ci)
+                            })
+                            res.send(regions)
+
+                        }
+                    })
+                }
+            })
+
+        }
+    })
+}
+
 module.exports = {
     selectRegions,
     selectInfoRegion,
     insertRegion,
-    deleteRegion
+    deleteRegion,
+    selectAllInfoLocation
 }

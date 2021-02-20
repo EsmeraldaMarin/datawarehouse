@@ -164,24 +164,19 @@ function showLocationInfo(info) {
                     <img src='assets/button-close.svg' alt='close Button'>
                 </div>
                 <h2>${info.name}</h2>
-                
                 <div class="contacts">
                     <div>
                         <i class="fas fa-users"></i>
                         <p>Contactos</p>
                     </div>
-                    <ul class="contactsUl" id="contactsLocationUl">
-                        
-                    </ul>
+                    <ul class="contactsUl" id="contactsLocationUl"></ul>
                 </div>
                 <div class="companies">
                     <div>
                         <i class="fas fa-building"></i>
                         <p>Compañías</p>
                     </div>
-                    <ul class="companiesUl" id="companiesLocationUl">
-                        
-                    </ul>
+                    <ul class="companiesUl" id="companiesLocationUl"></ul>
                 </div>
             </div>
         </div>`
@@ -203,7 +198,7 @@ function createCompaniesList(ctn, allCompaniesInfo) {
         ctn.classList.remove('noCompanies');
         ctn.innerHTML = ``
         allCompaniesInfo.forEach(company => {
-            let country = company.country.substring(0 , 3)
+            let country = company.country.substring(0, 3)
             let companyHtml = `
             <li id="company${company.id}" class = "companyLi">
 
@@ -224,8 +219,6 @@ function createCompaniesList(ctn, allCompaniesInfo) {
     }
 
 }
-
-
 
 function showDeleteModal(id, url) {
 
@@ -258,4 +251,45 @@ function deleteRegion(id, url) {
             location.reload()
         })
 
+}
+
+function createLocationCards(info) {
+    section.classList.add('searchActive')
+    info.forEach(location => {
+        let cardHTML = `<div id= "${location.type}${location.id}" class="searchResults">
+            <p>${location.name} <span>(${location.type})</span></p>
+            <button>Ver Info</button>
+        </div>`
+
+        section.insertAdjacentHTML('beforeend', cardHTML);
+
+    })
+    let cards = document.querySelectorAll('.searchResults')
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            if (card.id.charAt(0) == 'r') {
+
+                let id = card.id.replace("region", "");
+                getLocation(urlRegions, id)
+
+            } else if (card.id.charAt(1) == 'o') {
+
+                let id = card.id.replace("country", "");
+
+            } else if (card.id.charAt(1) == 'i') {
+
+                let id = card.id.replace("city", "");
+
+            }
+        })
+    })
+
+}
+
+function getLocation(url, id) {
+    url = `${url}/${id}`
+
+    fetch(url)
+        .then(res => res.json())
+        .then(info => showLocationInfo(info[0]))
 }

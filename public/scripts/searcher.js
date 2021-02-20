@@ -8,13 +8,17 @@ function searcherFunction(url, input, section) {
     let response = []
 
     let termSearched = document.getElementById('termSearched');
-    let termParent = input.parentNode.parentNode.parentNode
+    let termParent = input.parentNode.parentNode.parentNode;
     if (termSearched) {
         termParent.querySelector('.searchTerms').remove()
-        termParent.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a href="index.html">Todos los resultados</a></li><li id= "termSearched">${busqueda}</li></ul>`);
+        termParent.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a>Todos los resultados</a></li><li id= "termSearched">${busqueda}</li></ul>`);
     } else {
-        termParent.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a href="index.html">Todos los resultados</a></li><li id= "termSearched">${busqueda}</li></ul>`);
+        termParent.insertAdjacentHTML('beforeend', `<ul class="searchTerms"><li><a>Todos los resultados</a></li><li id= "termSearched">${busqueda}</li></ul>`);
     }
+    let a = termParent.querySelector('.searchTerms a');
+    a.addEventListener('click', () => {
+        location.reload()
+    })
 
     fetch(url)
         .then(res => res.json())
@@ -30,6 +34,8 @@ function searcherFunction(url, input, section) {
                 searchContact(info)
             } else if (url == urlCompanies) {
                 searchCompany(info)
+            } else if (url == urlAllLocation) {
+                searchLocation(info)
             }
             function searchContact(info) {
                 info.forEach(contact => { searchTerms(contact, contact.name + contact.lastname) });
@@ -50,7 +56,11 @@ function searcherFunction(url, input, section) {
                 info.forEach(company => { searchTerms(company, company.region) });
                 info.forEach(company => { searchTerms(company, company.address) });
             }
+            function searchLocation(info) {
+                info.forEach(loc => { searchTerms(loc, loc.name) });
+            }
 
+            //si hay un contacto repetido, solo selecciona el primero
             response = response.filter((item, index) => {
                 return response.indexOf(item) === index;
             })
@@ -69,6 +79,8 @@ function searcherFunction(url, input, section) {
                 createContacts(res)
             } else if (url == urlCompanies) {
                 createCompanies(res)
+            } else if (url == urlAllLocation) {
+                createLocationCards(res)
             }
         })
 }

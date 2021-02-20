@@ -10,7 +10,7 @@ let app = express()
 const { defineRol, validateRol, validateAcount } = require('./middlewares/authorization');
 const { selectContacts, insertContact, updateContact, deleteContact } = require('./controllers/contacts')
 const { getChannelsById, insertChannels } = require('./controllers/channels');
-const { selectRegions, selectInfoRegion, insertRegion, deleteRegion } = require('./controllers/regions');
+const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation } = require('./controllers/regions');
 const { selectCountries, selectCountryByRegionId, insertCountry, deleteCountry } = require('./controllers/countries');
 const { selectCities, selectCityByCountryId, insertCity, deleteCity } = require('./controllers/cities');
 const { selectCompanies, insertCompany } = require('./controllers/companies');
@@ -78,6 +78,9 @@ app.put('/cities/:id',);
 app.delete('/cities/:id', deleteCity);
 app.get('/cities/:id', selectCityByCountryId)
 
+//all info location
+
+app.get('/all_info_location', selectAllInfoLocation);
 
 
 

@@ -1024,6 +1024,82 @@ main .all_contacts .contacts_section .not_found p.palabra {
   text-align: center;
 }
 
+.bodyRegionsSection.searchActive {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.bodyRegionsSection.searchActive .searchResults {
+  text-transform: capitalize;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 1px 3px #bbb;
+  padding: 20px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bodyRegionsSection.searchActive .searchResults span {
+  font-size: 14px;
+  color: #222;
+}
+
+.bodyRegionsSection.searchActive .searchResults button {
+  padding: 5px 10px;
+  background-color: #070d59;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.bodyRegionsSection.searchActive .searchResults:hover {
+  background-color: #070d59;
+  color: #fff;
+}
+
+.bodyRegionsSection.searchActive .searchResults:hover span {
+  color: #ddd;
+}
+
+.bodyRegionsSection.searchActive .searchResults:hover button {
+  background-color: #fff;
+  color: #070d59;
+}
+
+.bodyRegionsSection .not_found {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  grid-area: 1/1/1/5;
+}
+
+.bodyRegionsSection .not_found h3 {
+  font-size: 38px;
+}
+
+.bodyRegionsSection .not_found img {
+  width: 400px;
+}
+
+.bodyRegionsSection .not_found p {
+  font-size: 20px;
+}
+
+.bodyRegionsSection .not_found p.palabra {
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .bgInfoLocation .box_location {
   width: 1100px;
   height: 650px;
@@ -1242,6 +1318,7 @@ main .ctn_manager .searchTerms li:first-child:hover {
 
 main .ctn_manager .searchTerms li:first-child a {
   color: #070d59;
+  cursor: pointer;
 }
 
 main .ctn_manager .operations_section_ctn {

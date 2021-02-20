@@ -4,6 +4,7 @@ let body = document.querySelector("body");
 let urlRegions = "http://localhost:3000/regions";
 let urlCountries = "http://localhost:3000/countries";
 let urlCities = "http://localhost:3000/cities";
+let urlAllLocation = "http://localhost:3000/all_info_location";
 let urlCompanies = "http://localhost:3000/companies";
 let urlContacts = "http://localhost:3000/contacts";
 let urlChannels = "http://localhost:3000/channels";

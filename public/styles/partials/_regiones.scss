@@ -170,6 +170,71 @@
             }
         }
     }
+    &.searchActive{
+        padding-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        .searchResults{
+            text-transform: capitalize;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 1px 3px #bbb;
+            padding: 20px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            span{
+                font-size: 14px;
+                color: #222;
+            }
+            button{
+                padding: 5px 10px;
+                background-color: $pColor;
+                color: #fff;
+                border-radius: 10px;
+            }
+            &:hover{
+                background-color: $pColor;
+                color: #fff;
+                span{
+                    color: #ddd;
+                }
+                button{
+                    background-color: #fff;
+                    color: $pColor;
+                }
+            }
+        }
+    }
+    
+    .not_found {
+        width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $pFont;
+        grid-area: 1/1/1/5;
+        h3 {
+            font-size: 38px;
+        }
+        img {
+            width: 400px;
+        }
+        p {
+            font-size: 20px;
+            &.palabra {
+                font-size: 28px;
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 .bgInfoLocation {
