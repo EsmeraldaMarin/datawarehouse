@@ -18,7 +18,7 @@ getRegions()
 function createRegionsCards(infoReg) {
     let it = 0
     infoReg.forEach(reg => {
-        fetch(`${urlCountries}/${reg.id}`)
+        fetch(`${urlCountries}/byRegionId/${reg.id}`)
             .then(res => res.json())
             .then(info => {
                 it++
@@ -55,7 +55,7 @@ function createRegionsCards(infoReg) {
                     let ulCountry = document.querySelector(`#region${reg.id} >ul`)
                     info.forEach(con => {
 
-                        fetch(`${urlCities}/${con.id}`)
+                        fetch(`${urlCities}/byCountryId/${con.id}`)
                             .then(res => res.json())
                             .then(data => {
 
@@ -275,10 +275,12 @@ function createLocationCards(info) {
             } else if (card.id.charAt(1) == 'o') {
 
                 let id = card.id.replace("country", "");
+                getLocation(urlCountries, id)
 
             } else if (card.id.charAt(1) == 'i') {
 
                 let id = card.id.replace("city", "");
+                getLocation(urlCities, id)
 
             }
         })
@@ -287,6 +289,7 @@ function createLocationCards(info) {
 }
 
 function getLocation(url, id) {
+
     url = `${url}/${id}`
 
     fetch(url)

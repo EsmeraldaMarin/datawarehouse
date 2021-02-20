@@ -11,8 +11,8 @@ const { defineRol, validateRol, validateAcount } = require('./middlewares/author
 const { selectContacts, insertContact, updateContact, deleteContact } = require('./controllers/contacts')
 const { getChannelsById, insertChannels } = require('./controllers/channels');
 const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation } = require('./controllers/regions');
-const { selectCountries, selectCountryByRegionId, insertCountry, deleteCountry } = require('./controllers/countries');
-const { selectCities, selectCityByCountryId, insertCity, deleteCity } = require('./controllers/cities');
+const { selectCountries, selectCountryByRegionId, selectInfoCountry, insertCountry, deleteCountry } = require('./controllers/countries');
+const { selectCities, selectCityByCountryId, selectInfoCity, insertCity, deleteCity } = require('./controllers/cities');
 const { selectCompanies, insertCompany } = require('./controllers/companies');
 
 app.use(cors())
@@ -60,7 +60,7 @@ app.get('/regions', selectRegions);
 app.post('/regions', upload.none(), insertRegion);
 app.put('/regions/:id',);
 app.delete('/regions/:id', deleteRegion);
-app.get('/regions/:id', selectInfoRegion)
+app.get('/regions/:id', selectInfoRegion);
 
 //countries
 
@@ -68,7 +68,8 @@ app.get('/countries', selectCountries);
 app.post('/countries', upload.none(), insertCountry);
 app.put('/countries/:id',);
 app.delete('/countries/:id', deleteCountry);
-app.get('/countries/:id', selectCountryByRegionId)
+app.get('/countries/byRegionId/:regionId', selectCountryByRegionId);
+app.get('/countries/:id', selectInfoCountry);
 
 //cities
 
@@ -76,7 +77,8 @@ app.get('/cities', selectCities);
 app.post('/cities', upload.none(), insertCity);
 app.put('/cities/:id',);
 app.delete('/cities/:id', deleteCity);
-app.get('/cities/:id', selectCityByCountryId)
+app.get('/cities/byCountryId/:countryId', selectCityByCountryId);
+app.get('/cities/:id', selectInfoCity);
 
 //all info location
 

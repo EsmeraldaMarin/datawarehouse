@@ -22,7 +22,7 @@ function selectCities(req, res) {
 
 function selectCityByCountryId(req, res) {
 
-    let countryId = req.params.id;
+    let countryId = req.params.countryId;
     let sql = `SELECT * FROM cities WHERE country_id = ${countryId}`;
 
 
@@ -33,6 +33,65 @@ function selectCityByCountryId(req, res) {
 
         } else {
             res.send(cities)
+        }
+    })
+
+
+}
+
+function selectInfoCity(req, res) {
+
+    let cityId = req.params.id;
+    let sql = `SELECT * FROM cities WHERE cities.id = ${cityId}`;
+
+
+    connection.query(sql, function (err, city) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal error' });
+
+        } else {
+
+            let sqlContactsByCity = `SELECT contacts.id, contacts.name,contacts.lastname, contacts.email, contacts.position, contacts.interest, contacts.img_url,
+                companies.name AS 'company',
+                regions.name AS 'region',
+                countries.name AS 'country',
+                cities.name AS 'city'
+                FROM contacts
+                INNER JOIN companies ON contacts.company_id = companies.id
+                INNER JOIN cities ON contacts.city_id = cities.id
+                INNER JOIN countries ON cities.country_id = countries.id
+                INNER JOIN regions ON countries.region_id = regions.id
+                WHERE cities.id = ${cityId}`
+
+            connection.query(sqlContactsByCity, (err, contacts) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).json({ error: 'Internal error' });
+
+                } else {
+                    city[0].allContacts = contacts
+                }
+            })
+            let sqlCompaniesByCity = `SELECT companies.id, companies.name,companies.email, companies.phone, companies.address,
+                cities.name AS 'city',
+                countries.name AS 'country'
+                FROM companies
+                INNER JOIN cities ON companies.city_id = cities.id
+                INNER JOIN countries ON cities.country_id = countries.id
+                INNER JOIN regions ON countries.region_id = regions.id
+                WHERE cities.id = ${cityId}`
+
+            connection.query(sqlCompaniesByCity, (err, companies) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).json({ error: 'Internal error' });
+
+                } else {
+                    city[0].allCompanies = companies
+                    res.send(city)
+                }
+            })
         }
     })
 
@@ -82,6 +141,7 @@ function deleteCity(req, res) {
 module.exports = {
     selectCities,
     selectCityByCountryId,
+    selectInfoCity,
     insertCity,
     deleteCity
 }

@@ -1,10 +1,9 @@
 # Este Commit
 
-* primera parte del searcher de region, pais, ciudad
+* searcher de region, pais, ciudad completo
 
 ## HACER
 
-* buscador región, país, ciudad
 * editar contactos, compañías, región ciudad
 * borrar compañía
 * maquetar usuarios
