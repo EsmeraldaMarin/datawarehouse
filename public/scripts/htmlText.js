@@ -244,16 +244,30 @@ let htmlTextAddCompany = `
 </div>`
 
 let deleteWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
+                <div class='box_delete'>
+                <div class='close_btn' id= 'closeDelContactBtn'>
+                    <img src='assets/button-close.svg'  alt='close Button'>
+                </div>
+                <img src='assets/delete_contact.png' alt='Delete contact Image'>
+
+                <p>¿Está seguro que desea borrar este contacto?</p>
+                <button id="delConfirmBtn">Borrar contacto</button>
+                </div>
+            </div>`;
+
+let deleteManyContactsHTML = (num) => {
+    return `<div class='bg_delete_contact' id= 'bgdeleteContact'>
         <div class='box_delete'>
         <div class='close_btn' id= 'closeDelContactBtn'>
             <img src='assets/button-close.svg'  alt='close Button'>
         </div>
         <img src='assets/delete_contact.png' alt='Delete contact Image'>
 
-        <p>¿Está seguro que desea borrar este contacto?</p>
-        <button id="delConfirmBtn">Borrar contacto</button>
-    </div>
+        <p>¿Está seguro que desea borrar ${num} contactos?</p>
+        <button id="delConfirmBtn">Borrar contactos</button>
+        </div>
     </div>`;
+}
 
 let deleteRegWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
         <div class='box_delete' style= "height: 300px;">
@@ -288,3 +302,15 @@ let importWindowHTML = `<div class='bg_import_contact' id= 'bgImportContact'>
         <button>Importar contacto</button>
     </div>
 </div>`;
+
+let trashContactSection = (num) => {
+    return `<div class="trashSection">
+                <p>
+                    ${num} seleccionados
+                </p>
+                <button id="trashContactsBtn">
+                    <i class="fas fa-trash trash"></i>
+                    Eliminar contactos
+                </button>
+            </div>`
+}

@@ -158,7 +158,7 @@ main {
                 .cargo {
                     padding-right: 10px;
                 }
-                .interes {
+                /* .interes {
                     position: relative;
                     width: 100%;
                     .bg_line {
@@ -215,7 +215,7 @@ main {
                             content: "0%";
                         }
                     }
-                }
+                } */
                 
                 &.selected {
                     background-color: $sColor;
@@ -283,17 +283,18 @@ main {
 }
 .interes {
     position: relative;
-    width: 100%;
+    width: 170px;
+    height: 10px;
+    border-radius: 25px;
     .bg_line {
         width: 170px;
         height: 10px;
         background-color: #eee;
         border-radius: 25px;
-        display: inline-block;
     }
     .color_line {
         position: absolute;
-        top: 5px;
+        top: 0;
         height: 10px;
         border-radius: 25px;
     }
@@ -303,6 +304,9 @@ main {
             width: 170px;
         }
         &::after {
+            position: absolute;
+            top: -3px;
+            right: -30%;
             content: "100%";
         }
     }
@@ -312,6 +316,9 @@ main {
             width: 127.5px;
         }
         &::after {
+            position: absolute;
+            top: -3px;
+            right: -30%;
             content: "75%";
         }
     }
@@ -321,6 +328,9 @@ main {
             width: 85px;
         }
         &::after {
+            position: absolute;
+            top: -3px;
+            right: -30%;
             content: "50%";
         }
     }
@@ -330,12 +340,38 @@ main {
             width: 42.5px;
         }
         &::after {
+            position: absolute;
+            top: -3px;
+            right: -30%;
             content: "25%";
         }
     }
     &.cero {
         &::after {
+            position: absolute;
+            top: -3px;
+            right: -30%;
             content: "0%";
+        }
+    }
+}
+.trashSection{
+    position: absolute;
+    right: 0;
+    bottom: -45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    button{
+        margin-left: 10px;
+        padding: 5px;
+        transition: background-color 0.25s ease;
+        &:hover{
+            background-color: #bbb;
+        }
+        i{
+            font-size: 14px;
         }
     }
 }

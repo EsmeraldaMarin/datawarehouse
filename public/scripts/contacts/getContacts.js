@@ -27,10 +27,10 @@ showContacts(offset)
 function createContacts(allCon, limit, info) {
 
     createUl(info, limit);
-    let selectContactBtn = document.querySelectorAll('#selectContact');
+    let selectContactBtn = document.querySelectorAll('.selectContact');
     let seeMoreActionsBtn = document.querySelectorAll('.acciones');
-    let trashBtn = document.querySelectorAll('#actions #trashBtn');
-    let channelsBtn = document.querySelectorAll('#canal .channel');
+    let trashBtn = document.querySelectorAll('.acciones .trash');
+    let channelsBtn = document.querySelectorAll('.canal .channel');
 
     actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn)
 
@@ -38,7 +38,7 @@ function createContacts(allCon, limit, info) {
     firstContactRowSpan.textContent = offset + 1;
     lastContactRowSpan.textContent = offset + limit;
 
-    if (offset + limit > allCon.length) {
+    if (offset + limit >= allCon.length) {
         lastContactRowSpan.textContent = allCon.length;
         nextPage.setAttribute("disabled", "");
     } else {
@@ -92,7 +92,7 @@ function createUl(info, limit) {
         let contactUl = `
             <ul class="contact" id= "contact${contact.id}">
                 <li class="checkbox">
-                    <input type="checkbox" name="" id="selectContact">
+                    <input type="checkbox" class="selectContact allCheckSelect">
                 </li>
                 <li class="contact_info">
                     <img src= ${contact.img_url} alt="perfil photo">
@@ -107,20 +107,20 @@ function createUl(info, limit) {
                 </li>
                 <li class="empresa">${contact.company}</li>
                 <li class="cargo">${contact.position}</li>
-                <li class="canal" id="canal">
+                <li class="canal">
                 </li>
                 <li class="interes ${classInteres}">
                     <div class="bg_line"></div>
                     <div class="color_line"></div>
                 </li>
-                <li class="acciones" id="actions">
-                    <i class="dots" id="dots">•••</i>
-                    <i class="fas fa-trash trash" id="trashBtn"></i>
+                <li class="acciones">
+                    <i class="dots">•••</i>
+                    <i class="fas fa-trash trash"></i>
                     <i class="fas fa-edit edit"></i>
                 </li>
             </ul>`
         contactsSection.insertAdjacentHTML('beforeend', contactUl);
-        let channelLi = document.querySelector(`#contact${contact.id} li#canal`);
+        let channelLi = document.querySelector(`#contact${contact.id} li.canal`);
         let btn1 = document.createElement('button');
         btn1.textContent = `›`;
 
@@ -176,84 +176,6 @@ function showContactById(id) {
     });
 }
 
-function deleteContact(parent) {
-    let id = parent.id
-    parent.remove()
-
-    id = id.replace("contact", "")
-
-    let url = `http://localhost:3000/contacts/${id}`
-    let parametros = {
-
-        method: 'DELETE',
-        //body: form,
-        type: 'no-cors'
-    }
-
-    fetch(url, parametros)
-        .then(res => res.json())
-        .then(console.log("contacto borrado"))
-
-}
-
-function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
-
-    //select a contact funcion
-
-    checkbox.forEach(el => {
-        el.addEventListener('change', () => {
-
-            let contactRow = el.parentNode.parentNode
-            if (el.checked) {
-                contactRow.classList.add("selected")
-                el.checked = true
-            } else {
-                contactRow.classList.remove("selected")
-                el.checked = false
-            }
-        })
-    })
-
-    //see more actions
-
-
-    seeMoreBtn.forEach(el => {
-        el.addEventListener('mouseover', () => {
-            el.classList.add('active')
-        })
-        el.addEventListener('mouseout', () => {
-            el.classList.remove('active')
-        })
-    })
-
-
-    //trash contact
-
-    trashBtn.forEach(el => {
-        el.addEventListener('click', () => {
-            let parent = el.parentNode.parentNode
-            showDeleteModal(parent)
-
-        })
-    })
-
-    //channel details
-
-    channels.forEach(el => {
-        let parent = el.parentNode.parentNode
-        let id = parent.id
-        id = id.replace("contact", "")
-
-        let contact = showContactById(id).then(el => { return el })
-        contact.then(res => {
-            let channel = res.find(ch => ch.channel_name == el.textContent)
-
-            showChannelDetail(channel, el)
-        })
-
-    })
-}
-
 function showChannelDetail(channel, p) {
     let preferenceIcon;
     switch (channel.preferences) {
@@ -279,33 +201,45 @@ function showChannelDetail(channel, p) {
     p.insertAdjacentHTML('afterbegin', channelDetailHtml)
 }
 
-function showDeleteModal(parent) {
-
-    showWindow(deleteWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
-
-    let delConfirmBtn = document.getElementById('delConfirmBtn')
-
-    delConfirmBtn.addEventListener('click', () => {
-        let container = document.getElementById("bgdeleteContact")
-        container.remove()
-        body.classList.remove('modalActive')
-        deleteContact(parent)
-    })
-
-
-}
+//footer section contacts
 
 optionsRowsSelect.addEventListener('change', (e) => {
-    limit = parseFloat(optionsRowsSelect.value)
-    showContacts(offset, limit)
+    limit = parseFloat(optionsRowsSelect.value);
+
+    let trashSection = document.querySelector('.trashSection');
+    if (trashSection) {
+        trashSection.remove()
+    }
+    if (selectAllContactsBtn.checked) {
+        selectAllContactsBtn.checked = false
+    }
+
+    showContacts(offset, limit);
 })
 nextPage.addEventListener('click', () => {
     offset = offset + limit;
-    lastLimit = limit
+    lastLimit = limit;
+
+    let trashSection = document.querySelector('.trashSection');
+    if (trashSection) {
+        trashSection.remove()
+    } 
+    if (selectAllContactsBtn.checked) {
+        selectAllContactsBtn.checked = false
+    }
+
     showContacts(offset)
 })
 prevPage.addEventListener('click', () => {
-    console.log(lastLimit)
-    offset = offset - lastLimit
+    offset = offset - lastLimit;
+
+    let trashSection = document.querySelector('.trashSection');
+    if (trashSection) {
+        trashSection.remove()
+    }
+    if (selectAllContactsBtn.checked) {
+        selectAllContactsBtn.checked = false
+    }
+
     showContacts(offset)
 })

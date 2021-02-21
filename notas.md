@@ -1,6 +1,6 @@
 # Este Commit
 
-* borrar compañía
+* borrar muchos contactos
 
 ## HACER
 

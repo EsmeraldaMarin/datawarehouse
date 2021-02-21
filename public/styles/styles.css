@@ -332,6 +332,64 @@ main .all_contacts .contacts_section .contact {
   grid-template-columns: 40px 250px repeat(3, 140px) 130px 1fr 50px;
   align-items: center;
   font-size: 16px;
+  /* .interes {
+                    position: relative;
+                    width: 100%;
+                    .bg_line {
+                        width: 170px;
+                        height: 10px;
+                        background-color: #eee;
+                        border-radius: 25px;
+                        display: inline-block;
+                    }
+                    .color_line {
+                        position: absolute;
+                        top: 6px;
+                        height: 10px;
+                        border-radius: 25px;
+                    }
+                    &.onehundred {
+                        .color_line {
+                            background-color: #f00;
+                            width: 170px;
+                        }
+                        &::after {
+                            content: "100%";
+                        }
+                    }
+                    &.seventyfive {
+                        .color_line {
+                            background-color: rgb(255, 174, 0);
+                            width: 127.5px;
+                        }
+                        &::after {
+                            content: "75%";
+                        }
+                    }
+                    &.fifty {
+                        .color_line {
+                            background-color: #ff0;
+                            width: 85px;
+                        }
+                        &::after {
+                            content: "50%";
+                        }
+                    }
+                    &.twentyfive {
+                        .color_line {
+                            background-color: rgb(0, 195, 255);
+                            width: 42.5px;
+                        }
+                        &::after {
+                            content: "25%";
+                        }
+                    }
+                    &.cero {
+                        &::after {
+                            content: "0%";
+                        }
+                    }
+                } */
 }
 
 main .all_contacts .contacts_section .contact > p,
@@ -463,66 +521,6 @@ main .all_contacts .contacts_section .contact .cargo {
   padding-right: 10px;
 }
 
-main .all_contacts .contacts_section .contact .interes {
-  position: relative;
-  width: 100%;
-}
-
-main .all_contacts .contacts_section .contact .interes .bg_line {
-  width: 170px;
-  height: 10px;
-  background-color: #eee;
-  border-radius: 25px;
-  display: inline-block;
-}
-
-main .all_contacts .contacts_section .contact .interes .color_line {
-  position: absolute;
-  top: 6px;
-  height: 10px;
-  border-radius: 25px;
-}
-
-main .all_contacts .contacts_section .contact .interes.onehundred .color_line {
-  background-color: #f00;
-  width: 170px;
-}
-
-main .all_contacts .contacts_section .contact .interes.onehundred::after {
-  content: "100%";
-}
-
-main .all_contacts .contacts_section .contact .interes.seventyfive .color_line {
-  background-color: #ffae00;
-  width: 127.5px;
-}
-
-main .all_contacts .contacts_section .contact .interes.seventyfive::after {
-  content: "75%";
-}
-
-main .all_contacts .contacts_section .contact .interes.fifty .color_line {
-  background-color: #ff0;
-  width: 85px;
-}
-
-main .all_contacts .contacts_section .contact .interes.fifty::after {
-  content: "50%";
-}
-
-main .all_contacts .contacts_section .contact .interes.twentyfive .color_line {
-  background-color: #00c3ff;
-  width: 42.5px;
-}
-
-main .all_contacts .contacts_section .contact .interes.twentyfive::after {
-  content: "25%";
-}
-
-main .all_contacts .contacts_section .contact .interes.cero::after {
-  content: "0%";
-}
-
 main .all_contacts .contacts_section .contact.selected {
   background-color: #baa4f2;
 }
@@ -598,7 +596,9 @@ main .all_contacts .contacts_section .not_found p.palabra {
 
 .interes {
   position: relative;
-  width: 100%;
+  width: 170px;
+  height: 10px;
+  border-radius: 25px;
 }
 
 .interes .bg_line {
@@ -606,12 +606,11 @@ main .all_contacts .contacts_section .not_found p.palabra {
   height: 10px;
   background-color: #eee;
   border-radius: 25px;
-  display: inline-block;
 }
 
 .interes .color_line {
   position: absolute;
-  top: 5px;
+  top: 0;
   height: 10px;
   border-radius: 25px;
 }
@@ -622,6 +621,9 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .interes.onehundred::after {
+  position: absolute;
+  top: -3px;
+  right: -30%;
   content: "100%";
 }
 
@@ -631,6 +633,9 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .interes.seventyfive::after {
+  position: absolute;
+  top: -3px;
+  right: -30%;
   content: "75%";
 }
 
@@ -640,6 +645,9 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .interes.fifty::after {
+  position: absolute;
+  top: -3px;
+  right: -30%;
   content: "50%";
 }
 
@@ -649,11 +657,41 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .interes.twentyfive::after {
+  position: absolute;
+  top: -3px;
+  right: -30%;
   content: "25%";
 }
 
 .interes.cero::after {
+  position: absolute;
+  top: -3px;
+  right: -30%;
   content: "0%";
+}
+
+.trashSection {
+  position: absolute;
+  right: 0;
+  bottom: -45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.trashSection button {
+  margin-left: 10px;
+  padding: 5px;
+  transition: background-color 0.25s ease;
+}
+
+.trashSection button:hover {
+  background-color: #bbb;
+}
+
+.trashSection button i {
+  font-size: 14px;
 }
 
 .all_companies {
@@ -1250,7 +1288,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 main .ctn_manager {
-  margin: 50px 0;
+  margin: 50px 0 60px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -1309,7 +1347,7 @@ main .ctn_manager .search_section_ctn > div i.search_btn:hover {
 
 main .ctn_manager .searchTerms {
   position: absolute;
-  bottom: -35%;
+  bottom: -45%;
   display: flex;
   align-items: center;
 }
@@ -1390,6 +1428,7 @@ main .ctn_manager .operations_section_ctn button.add_contact {
   background-color: #070d59;
   color: #fff;
   transition: all 0.2s ease;
+  margin-right: 0;
 }
 
 main .ctn_manager .operations_section_ctn button.add_contact:hover {
