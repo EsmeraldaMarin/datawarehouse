@@ -1,17 +1,14 @@
 # Este Commit
 
-* hacer función de filas de contactos por hoja
+* borrar compañía
 
 ## HACER
 
 * editar contactos, compañías, región ciudad
-* borrar compañía
-* maquetar usuarios
-* mejorar el buscador para haverlo compatible con mayúsculas y tildes
+* maquetar usuarios : agregar todas las funciones
+* mejorar el buscador para haverlo compatible con tildes
 * login y sign up
 * middlewares 
-* exp contactos, compañias, etc
-* imprtar contactos, compañías, etc 
 * cerrar sesión
 * mostrar info del usuario en el header superior
 * solucionar el problema con las img de los contactos

@@ -787,6 +787,23 @@ main .all_contacts .contacts_section .not_found p.palabra {
   border-bottom: 4px solid #070d59;
 }
 
+.bgInfoCompany .box_company .acciones {
+  width: 100px;
+  height: 36px;
+  position: absolute;
+  top: 35px;
+  right: 80px;
+  align-items: center;
+}
+
+.bgInfoCompany .box_company .acciones i {
+  font-size: 30px;
+}
+
+.bgInfoCompany .box_company .acciones.active i {
+  font-size: 20px;
+}
+
 .bgInfoCompany .box_company > .location {
   display: flex;
   margin: 20px 0;
@@ -1390,6 +1407,11 @@ main .ctn_manager .operations_section_ctn button.exp_contact {
 main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   box-shadow: 0px 3px 13px -7px #000000;
   transform: translateY(-2px);
+}
+
+.bg_import_contact,
+.bg_delete_contact {
+  z-index: 200;
 }
 
 .bg_import_contact .box_import,

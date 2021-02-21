@@ -77,7 +77,23 @@ function insertCompany(req, res) {
     })
 
 }
+
+function deleteCompany(req, res) {
+
+    let companyId = req.params.id;
+    let sql = `DELETE FROM companies WHERE id = ${companyId}`
+    connection.query(sql, function (err, company) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal Error' });
+
+        } else {
+            res.status(200).json({ message: 'company deleted', company })
+        }
+    })
+}
 module.exports = {
     selectCompanies,
-    insertCompany
+    insertCompany,
+    deleteCompany
 }

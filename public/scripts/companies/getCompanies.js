@@ -68,9 +68,14 @@ function showCompanyInfo(companyInfo) {
 
     let htmlCompanyInfo =
         `<div class='bgInfoCompany' id='bgInfoCompany'>
-        <div class='box_company'>
+        <div class='box_company' id="company${companyInfo.id}">
             <div class='close_btn' id='closeInfoCompany'>
                 <img src='assets/button-close.svg' alt='close Button'>
+            </div>
+            <div class="acciones">
+                <i class="dots">•••</i>
+                <i class="fas fa-trash trash"></i>
+                <i class="fas fa-edit edit"></i>
             </div>
             <h2>${companyInfo.name}</h2>
             <div class="location">
@@ -93,6 +98,54 @@ function showCompanyInfo(companyInfo) {
     let contactsSection = document.getElementById('contactsCompanyUl')
     createContactsList(contactsSection, companyInfo.allContacts, "company")
 
+    let actionsBtn = document.querySelector(".acciones");
+    let trashBtn = document.querySelector('.acciones .trash')
+    actionsBtn.addEventListener('mouseover', (e) => {
+        actionsBtn.classList.add('active');
+    })
+    actionsBtn.addEventListener('mouseout', (e) => {
+        actionsBtn.classList.remove('active');
+    })
+    trashBtn.addEventListener('click', () => {
+        let parent = trashBtn.parentNode.parentNode
+        showDeleteModal(parent)
+    })
+
+
 
 }
 
+function showDeleteModal(parent) {
+
+    showWindow(deleteCompWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
+
+    let delConfirmBtn = document.getElementById('delConfirmBtn')
+
+    delConfirmBtn.addEventListener('click', () => {
+        let container = document.getElementById("bgdeleteContact")
+        container.remove()
+        body.classList.remove('modalActive')
+        deleteContact(parent)
+    })
+
+
+}
+function deleteContact(parent) {
+    let id = parent.id
+    id = id.replace("company", "")
+
+    let url = `${urlCompanies}/${id}`
+    let parametros = {
+
+        method: 'DELETE',
+        type: 'no-cors'
+    }
+
+    fetch(url, parametros)
+        .then(res => res.json())
+        .then(data=> {
+            console.log(data);
+            location.reload();
+        })
+
+}

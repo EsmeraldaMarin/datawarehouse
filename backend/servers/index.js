@@ -13,7 +13,7 @@ const { getChannelsById, insertChannels } = require('./controllers/channels');
 const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation } = require('./controllers/regions');
 const { selectCountries, selectCountryByRegionId, selectInfoCountry, insertCountry, deleteCountry } = require('./controllers/countries');
 const { selectCities, selectCityByCountryId, selectInfoCity, insertCity, deleteCity } = require('./controllers/cities');
-const { selectCompanies, insertCompany } = require('./controllers/companies');
+const { selectCompanies, insertCompany, deleteCompany } = require('./controllers/companies');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
@@ -52,7 +52,7 @@ app.post('/channels', upload.none(), insertChannels);
 app.get('/companies', selectCompanies);
 app.post('/companies', upload.none(), insertCompany);
 app.put('/companies/:id',);
-app.delete('/companies/:id',);
+app.delete('/companies/:id', deleteCompany);
 
 //regiones
 

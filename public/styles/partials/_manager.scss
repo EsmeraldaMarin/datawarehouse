@@ -1,6 +1,7 @@
 .bg_import_contact,
 .bg_delete_contact {
     @extend %bgManagers;
+    z-index: 200;
 
     .box_import,
     .box_delete {

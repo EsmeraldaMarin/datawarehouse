@@ -76,7 +76,10 @@ function searcherFunction(url, input, section) {
             section.innerHTML = ``
 
             if (url == urlContacts) {
-                createContacts(res)
+
+                let contacts = res.slice(offset, res.length);
+                createContacts(res, limit, contacts);
+
             } else if (url == urlCompanies) {
                 createCompanies(res)
             } else if (url == urlAllLocation) {
