@@ -137,11 +137,36 @@ function deleteCity(req, res) {
     })
 
 }
+function updateCity(req, res) {
+
+    let update = req.body;
+    let cityId = req.params.id;
+    // let cityRol = req.params.rol.is_admin
+
+
+    let sql = `UPDATE cities
+        SET name =' ${update.name}',
+        country_id = '${update.country_id}'
+        WHERE id = ${cityId}`
+
+
+    connection.query(sql, function (err, city) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos para actualizar' });
+
+        } else {
+            res.status(200).json({ message: 'city updated', city })
+        }
+    })
+
+}
 
 module.exports = {
     selectCities,
     selectCityByCountryId,
     selectInfoCity,
     insertCity,
-    deleteCity
+    deleteCity,
+    updateCity
 }

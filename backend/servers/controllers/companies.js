@@ -78,6 +78,32 @@ function insertCompany(req, res) {
 
 }
 
+function updateCompany(req, res) {
+
+    let update = req.body;
+    let companyId = req.params.id;
+    
+    let sql = `UPDATE companies
+        SET name =' ${update.name}',
+        email = '${update.email}',
+        phone = '${update.phone}',
+        city_id= ${update.city_id},
+        address = '${update.address}'
+        WHERE id = ${companyId}`
+
+
+    connection.query(sql, function (err, company) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos para actualizar' });
+
+        } else {
+            res.status(200).json({ message: 'company updated', company })
+        }
+    })
+
+}
+
 function deleteCompany(req, res) {
 
     let companyId = req.params.id;
@@ -95,5 +121,6 @@ function deleteCompany(req, res) {
 module.exports = {
     selectCompanies,
     insertCompany,
-    deleteCompany
+    deleteCompany,
+    updateCompany
 }

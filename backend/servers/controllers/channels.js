@@ -54,7 +54,32 @@ function insertChannels(req, res) {
 
 }
 
+function updateChannel(req, res) {
+
+    let update = req.body;
+    let channelId = req.params.id;
+
+    let sql = `UPDATE channels
+        SET channel_name ="${update.channel_name}",
+        channel_username = "${update.channel_username}",
+        user_id = ${update.user_id},
+        preferences= ${update.preferences},
+        WHERE id = ${channelId}`
+
+    connection.query(sql, function (err, channel) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: "Asegurese de ingresar todos los datos para actualizar" });
+
+        } else {
+            res.status(200).json({ message: "channel updated", channel })
+        }
+    })
+
+}
+
 module.exports = {
     getChannelsById,
-    insertChannels
+    insertChannels,
+    updateChannel
 }

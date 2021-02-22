@@ -184,10 +184,33 @@ function selectAllInfoLocation(req, res) {
     })
 }
 
+function updateRegion(req, res) {
+
+    let update = req.body;
+    let regionId = req.params.id;
+
+    let sql = `UPDATE regions
+        SET name =' ${update.name}'
+        WHERE id = ${regionId}`
+
+
+    connection.query(sql, function (err, region) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos para actualizar' });
+
+        } else {
+            res.status(200).json({ message: 'region updated', region })
+        }
+    })
+
+}
+
 module.exports = {
     selectRegions,
     selectInfoRegion,
     insertRegion,
     deleteRegion,
-    selectAllInfoLocation
+    selectAllInfoLocation,
+    updateRegion
 }

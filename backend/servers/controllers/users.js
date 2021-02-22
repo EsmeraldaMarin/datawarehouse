@@ -38,6 +38,35 @@ function insertUser(req, res) {
     })
 
 }
+
+function updateUser(req, res) {
+
+    let update = req.body;
+    let userId = req.params.id;
+    // let userRol = req.params.rol.is_admin
+
+
+    let sql = `UPDATE users
+        SET name =' ${update.name}',
+        lastname = '${update.lastname}',
+        email = '${update.email}',
+        is_admin= ${update.is_admin},
+        password = '${update.password}'
+        WHERE id = ${userId}`
+
+
+    connection.query(sql, function (err, user) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos para actualizar' });
+
+        } else {
+            res.status(200).json({ message: 'user updated', user })
+        }
+    })
+
+}
+
 function deleteUser(req, res) {
 
     let userId = req.params.id;
@@ -53,8 +82,9 @@ function deleteUser(req, res) {
     })
 }
 
-module.exports ={
+module.exports = {
     selectUsers,
     insertUser,
+    updateUser,
     deleteUser
 }

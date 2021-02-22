@@ -144,10 +144,34 @@ function deleteCountry(req, res) {
 
 }
 
+function updateCountry(req, res) {
+
+    let update = req.body;
+    let countryId = req.params.id;
+
+    let sql = `UPDATE countries
+        SET name =' ${update.name}',
+        region_id = ${update.region_id}
+        WHERE id = ${countryId}`
+
+
+    connection.query(sql, function (err, country) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Asegurese de ingresar todos los datos para actualizar' });
+
+        } else {
+            res.status(200).json({ message: 'country updated', country })
+        }
+    })
+
+}
+
 module.exports= {
     selectCountries,
     selectCountryByRegionId,
     selectInfoCountry,
     insertCountry,
-    deleteCountry
+    deleteCountry,
+    updateCountry
 }

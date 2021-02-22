@@ -9,12 +9,12 @@ let app = express()
 
 const { defineRol, validateRol, validateAcount } = require('./middlewares/authorization');
 const { selectContacts, insertContact, updateContact, deleteContact } = require('./controllers/contacts')
-const { selectUsers, deleteUser, insertUser} = require('./controllers/users')
-const { getChannelsById, insertChannels } = require('./controllers/channels');
-const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation } = require('./controllers/regions');
-const { selectCountries, selectCountryByRegionId, selectInfoCountry, insertCountry, deleteCountry } = require('./controllers/countries');
-const { selectCities, selectCityByCountryId, selectInfoCity, insertCity, deleteCity } = require('./controllers/cities');
-const { selectCompanies, insertCompany, deleteCompany } = require('./controllers/companies');
+const { selectUsers, deleteUser, insertUser, updateUser} = require('./controllers/users')
+const { getChannelsById, insertChannels, updateChannel } = require('./controllers/channels');
+const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation, updateRegion } = require('./controllers/regions');
+const { selectCountries, selectCountryByRegionId, selectInfoCountry, insertCountry, deleteCountry, updateCountry } = require('./controllers/countries');
+const { selectCities, selectCityByCountryId, selectInfoCity, insertCity, deleteCity, updateCity } = require('./controllers/cities');
+const { selectCompanies, insertCompany, deleteCompany, updateCompany } = require('./controllers/companies');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({
@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 // si es regular, se elimina la pestana de usuarios en el header
 app.get('/users', /* defineRol, validateRol, */ selectUsers);
 app.post('/users', /* defineRol, validateRol */upload.none(), insertUser); //se crea un usuario
-app.put('/users/:id', defineRol, validateRol);
+app.put('/users/:id', /* defineRol, validateRol */ updateUser);
 app.delete('/users/:id', /* defineRol, validateRol */ deleteUser);
 
 //login
@@ -46,20 +46,21 @@ app.delete('/contacts/:id', deleteContact);
 
 app.get('/channels/:id', getChannelsById);
 app.post('/channels', upload.none(), insertChannels);
+app.put('/channels/:id', updateChannel);
 
 
 //companies
 
 app.get('/companies', selectCompanies);
 app.post('/companies', upload.none(), insertCompany);
-app.put('/companies/:id',);
+app.put('/companies/:id', updateCompany);
 app.delete('/companies/:id', deleteCompany);
 
 //regiones
 
 app.get('/regions', selectRegions);
 app.post('/regions', upload.none(), insertRegion);
-app.put('/regions/:id',);
+app.put('/regions/:id', updateRegion);
 app.delete('/regions/:id', deleteRegion);
 app.get('/regions/:id', selectInfoRegion);
 
@@ -67,7 +68,7 @@ app.get('/regions/:id', selectInfoRegion);
 
 app.get('/countries', selectCountries);
 app.post('/countries', upload.none(), insertCountry);
-app.put('/countries/:id',);
+app.put('/countries/:id', updateCountry);
 app.delete('/countries/:id', deleteCountry);
 app.get('/countries/byRegionId/:regionId', selectCountryByRegionId);
 app.get('/countries/:id', selectInfoCountry);
@@ -76,7 +77,7 @@ app.get('/countries/:id', selectInfoCountry);
 
 app.get('/cities', selectCities);
 app.post('/cities', upload.none(), insertCity);
-app.put('/cities/:id',);
+app.put('/cities/:id', updateCity);
 app.delete('/cities/:id', deleteCity);
 app.get('/cities/byCountryId/:countryId', selectCityByCountryId);
 app.get('/cities/:id', selectInfoCity);

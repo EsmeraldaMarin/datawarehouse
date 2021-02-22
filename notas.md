@@ -1,6 +1,6 @@
 # Este Commit
 
-* agregar usuario, busqueda
+* rutas de upload(put)
 
 ## HACER
 
