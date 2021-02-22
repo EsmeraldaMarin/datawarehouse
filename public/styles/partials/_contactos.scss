@@ -158,64 +158,6 @@ main {
                 .cargo {
                     padding-right: 10px;
                 }
-                /* .interes {
-                    position: relative;
-                    width: 100%;
-                    .bg_line {
-                        width: 170px;
-                        height: 10px;
-                        background-color: #eee;
-                        border-radius: 25px;
-                        display: inline-block;
-                    }
-                    .color_line {
-                        position: absolute;
-                        top: 6px;
-                        height: 10px;
-                        border-radius: 25px;
-                    }
-                    &.onehundred {
-                        .color_line {
-                            background-color: #f00;
-                            width: 170px;
-                        }
-                        &::after {
-                            content: "100%";
-                        }
-                    }
-                    &.seventyfive {
-                        .color_line {
-                            background-color: rgb(255, 174, 0);
-                            width: 127.5px;
-                        }
-                        &::after {
-                            content: "75%";
-                        }
-                    }
-                    &.fifty {
-                        .color_line {
-                            background-color: #ff0;
-                            width: 85px;
-                        }
-                        &::after {
-                            content: "50%";
-                        }
-                    }
-                    &.twentyfive {
-                        .color_line {
-                            background-color: rgb(0, 195, 255);
-                            width: 42.5px;
-                        }
-                        &::after {
-                            content: "25%";
-                        }
-                    }
-                    &.cero {
-                        &::after {
-                            content: "0%";
-                        }
-                    }
-                } */
                 
                 &.selected {
                     background-color: $sColor;

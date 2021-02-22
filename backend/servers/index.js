@@ -9,6 +9,7 @@ let app = express()
 
 const { defineRol, validateRol, validateAcount } = require('./middlewares/authorization');
 const { selectContacts, insertContact, updateContact, deleteContact } = require('./controllers/contacts')
+const { selectUsers, deleteUser} = require('./controllers/users')
 const { getChannelsById, insertChannels } = require('./controllers/channels');
 const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation } = require('./controllers/regions');
 const { selectCountries, selectCountryByRegionId, selectInfoCountry, insertCountry, deleteCountry } = require('./controllers/countries');
@@ -25,10 +26,10 @@ app.use(bodyParser.json());
 
 //user routes
 // si es regular, se elimina la pestana de usuarios en el header
-app.get('/users', defineRol, validateRol);
+app.get('/users', /* defineRol, validateRol, */ selectUsers);
 app.post('/users', defineRol, validateRol); //se crea un usuario
 app.put('/users/:id', defineRol, validateRol);
-app.delete('/users/:id', defineRol, validateRol);
+app.delete('/users/:id', /* defineRol, validateRol */ deleteUser);
 
 //login
 

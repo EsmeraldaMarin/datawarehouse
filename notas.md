@@ -1,6 +1,6 @@
 # Este Commit
 
-* mejorar el buscador para haverlo compatible con tildes
+* maqueta de usuarios, styled, get and delete users
 
 ## HACER
 

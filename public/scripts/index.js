@@ -1,6 +1,7 @@
 //varibles globales
 
 let body = document.querySelector("body");
+let urlUsers = "http://localhost:3000/users";
 let urlRegions = "http://localhost:3000/regions";
 let urlCountries = "http://localhost:3000/countries";
 let urlCities = "http://localhost:3000/cities";

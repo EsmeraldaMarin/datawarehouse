@@ -291,6 +291,20 @@ let deleteCompWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'
 </div>
 </div>`;
 
+let deleteUserWindowHTML = (name)=>{
+    return `<div class='bg_delete_contact' id= 'bgdeleteContact'>
+        <div class='box_delete'>
+        <div class='close_btn' id= 'closeDelContactBtn'>
+            <img src='assets/button-close.svg'  alt='close Button'>
+        </div>
+        <img src='assets/delete_contact.png' alt='Delete user Image'>
+
+        <p>¿Está seguro que desea borrar el contacto de <span style= "text-transform: capitalize;">${name}</span>?</p>
+        <button id="delConfirmBtn">Borrar usuario</button>
+        </div>
+    </div>`
+};
+
 let importWindowHTML = `<div class='bg_import_contact' id= 'bgImportContact'>
     <div class='box_import'>
         <div class='close_btn' id= 'closeImpContactBtn'>
