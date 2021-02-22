@@ -147,7 +147,7 @@ function editCompanyModal(info){
     let form = document.getElementById('form');
 
     locationSelects(regionSelect, countrySelect, citySelect, addressInput);
-    conectionToBD(form, 'PUT', info.id)
+    sendToBd(form, 'PUT', info.id)
 
 
 }
@@ -172,7 +172,7 @@ function deleteContact(parent) {
 
 }
 
-function conectionToBD(form, method, id){
+function sendToBd(form, method, id){
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         let formData = new FormData(e.currentTarget)

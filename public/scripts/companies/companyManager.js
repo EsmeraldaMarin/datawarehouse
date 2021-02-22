@@ -23,6 +23,6 @@ addCompanyBtn.addEventListener('click', () => {
         body.classList.remove('modalActive')
         ctn.remove();
     });
-    conectionToBD(form, 'POST')
+    sendToBd(form, 'POST')
 })
 

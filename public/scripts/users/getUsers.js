@@ -15,7 +15,8 @@ function createUsers(info) {
 
     let actionsBtn = document.querySelectorAll(".acciones");
     let trashBtn = document.querySelectorAll('.acciones .trash')
-    actionsBtn.forEach(ac=>{
+    let editBtn = document.querySelectorAll('.acciones .edit')
+    actionsBtn.forEach(ac => {
         ac.addEventListener('mouseover', (e) => {
             ac.classList.add('active');
         })
@@ -23,21 +24,28 @@ function createUsers(info) {
             ac.classList.remove('active');
         })
     })
-    trashBtn.forEach(tr=>{
+    trashBtn.forEach(tr => {
         tr.addEventListener('click', () => {
             let parent = tr.parentNode.parentNode
             showDeleteModal(parent)
         })
     })
-
+    editBtn.forEach(ed => {
+        ed.addEventListener('click', () => {
+            let parentId = ed.parentNode.parentNode.id
+            id = parentId.replace("user", "")
+            let infoUser = info.find(user => user.id == id);
+            editUserModal(infoUser)
+        })
+    })
 }
 
 function createUsersCards(info) {
     let rol;
     info.forEach(user => {
-        if(user.is_admin == 1){
+        if (user.is_admin == 1) {
             rol = "administrador"
-        } else{
+        } else {
             rol = "básico"
         }
         let newUserHtml = `<article class="user_card" id="user${user.id}">
@@ -82,10 +90,51 @@ function deleteContact(parent) {
 
     fetch(url, parametros)
         .then(res => res.json())
-        .then(data=> {
+        .then(data => {
             console.log(data);
             location.reload();
         })
 
 }
+function editUserModal(info) {
 
+    showWindow(htmlTextEditUser(info), "closeAddUserBtn", "bgAddUser");
+    let form = document.getElementById('form');
+    let cancelBtn = document.getElementById("cancelBtn");
+    cancelBtn.addEventListener("click", () => {
+        let ctn = document.getElementById("bgAddUser");
+        body.classList.remove('modalActive')
+        ctn.remove();
+    });
+
+    sendToBd(form, 'PUT', info.id)
+}
+
+function sendToBd(form, method, id) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let formData = new FormData(e.currentTarget)
+        let params = {
+            method: `${method}`,
+            type: 'no-cors',
+            body: formData
+        };
+        if (method == 'PUT') {
+            urlUsers = `${urlUsers}/${id}`
+        }
+        for (var pair of formData.entries()) {
+
+            if (pair[1] == "") {
+                console.log("falta rellenar el campo de " + pair[0])
+                return
+            }
+        }
+        fetch(urlUsers, params)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                location.reload()
+            })
+            .catch(err => console.log(err))
+    })
+}

@@ -103,7 +103,7 @@ function searcherFunction(url, input, section) {
             } else if (url == urlAllLocation) {
                 createLocationCards(res)
             } else if (url == urlUsers) {
-                createUsersCards(res)
+                createUsers(res)
             }
         })
 }

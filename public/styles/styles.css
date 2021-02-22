@@ -1099,7 +1099,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
 }
 
 .bgInfoLocation .box_location {
-  width: 1100px;
+  width: 1200px;
   height: 650px;
   border-radius: 30px;
   margin-top: 20px;
@@ -1656,6 +1656,28 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   position: absolute;
   top: -100%;
   left: 0;
+  font-size: 12px;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit.user {
+  width: 170px;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit select {
+  width: 100%;
+  height: 100%;
+  background-color: #070d59;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit select:focus ~ label {
+  top: -100%;
+  font-size: 12px;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit select.inputActive ~ label {
+  top: -100%;
   font-size: 12px;
 }
 

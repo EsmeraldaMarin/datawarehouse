@@ -153,6 +153,24 @@
                     left: 0;
                     font-size: 12px;
                 }
+                &.user{
+                    width: 170px;
+                }
+                select {
+                    width: 100%;
+                    height: 100%;
+                    background-color: $tColor;
+                    border-bottom: 2px solid #fff;
+                    color: #fff;
+                    &:focus ~ label {
+                        top: -100%;
+                        font-size: 12px;
+                    }
+                    &.inputActive ~ label {
+                        top: -100%;
+                        font-size: 12px;
+                    }
+                }
             }
             .form-floating {
                 width: 170px;

@@ -346,7 +346,58 @@ let htmlTextAddUser = `
             </div>
         </div>
     </form>
-</div>`
+</div>`;
+
+let htmlTextEditUser = (info) => {
+    let text;
+    if (info.is_admin == 1) {
+        text = `<option value="1">Administrador</option>
+        <option value="0">Básico</option>`
+    } else if (info.is_admin == 0) {
+        text = `<option value="0">Básico</option>
+        <option value="1">Administrador</option>`
+    }
+    return `<div class="bg_add_user bg_add" id="bgAddUser">
+    <form id="form">
+         <div class="header_section">
+             <h3><b>EDITAR USUARIO</b></h3>
+             <svg role="img" class="closeBtn" id= "closeAddUserBtn">
+                 <use href="assets/button-close.svg#path-1"/>
+             </svg>
+         </div>
+         <div class="info_contact_p">
+             <div class="inputFloatingEdit user">
+                 <input type="text" class="form-control" value= "${info.name}" name="name" id="floatingNombre">
+                 <label for="floatingNombre">Nombre *</label>
+             </div>           
+             <div class="inputFloatingEdit user">
+                 <input type="text" class="form-control" value= "${info.lastname}" name="lastname" id="floatingApellido">
+                 <label for="floatingApellido">Apellido *</label>
+             </div>           
+             <div class="inputFloatingEdit user">
+                 <input type="email" class="form-control" value= "${info.email}" name="email" id="floatingEmail">
+                 <label for="floatingEmail">Email *</label>
+             </div>      
+             <div class="inputFloatingEdit user form-floating-company">
+                 <select name="is_admin" class="form-control" id="floatingRol">
+                    ${text}
+                 </select>
+                 <label for="floatingRol">Rol *</label>
+             </div>
+             <div class="inputFloatingEdit user">
+                 <input type="password" class="form-control" value="${info.password}" name="password" id="floatingPassword">
+                 <label for="floatingPassword">Contraseña *</label>
+             </div>   
+         </div>
+         <div class="body_section">
+             <div class="btn_section">
+                 <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
+                 <button type= "submit" class="save_btn" id= "saveBtn">Editar</button>
+             </div>
+         </div>
+     </form>
+ </div>`;
+}
 
 let deleteWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>
                 <div class='box_delete'>
