@@ -1,11 +1,10 @@
 # Este Commit
 
-* maqueta de usuarios, styled, get and delete users
+* agregar usuario, busqueda
 
 ## HACER
 
-* editar contactos, compañías, región ciudad
-* maquetar usuarios : agregar todas las funciones
+* editar contactos, compañías, región ciudad, usuarios
 * login y sign up
 * middlewares 
 * cerrar sesión

@@ -31,7 +31,7 @@ let htmlTextAddContact = `
                     <label for="floatingEmail">Email *</label>
                 </div>
                 <div class="form-floating form-floating-company">
-                    <select name="company_id" class="form-control" name="company_id" id="floatingCompania">
+                    <select name="company_id" class="form-control" id="floatingCompania">
                         <option>Seleccione una compañía</option>
                     </select>
                     <label for="floatingCompania">Compañía *</label>
@@ -181,7 +181,6 @@ let htmlTextAddContact = `
         </form>
     </div>`;
 
-
 let htmlTextAddCompany = `
 <div class="bg_add_company bg_add" id="bgAddCompany">
    <form id="form">
@@ -238,6 +237,49 @@ let htmlTextAddCompany = `
                 <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
                 <button type= "submit" class="save_btn" id= "saveBtn">Guadar Compañía</button>
 
+            </div>
+        </div>
+    </form>
+</div>`
+
+let htmlTextAddUser = `
+<div class="bg_add_user bg_add" id="bgAddUser">
+   <form id="form">
+        <div class="header_section">
+            <h3><b>NUEVO USUARIO</b></h3>
+            <svg role="img" class="closeBtn" id= "closeAddUserBtn">
+                <use href="assets/button-close.svg#path-1"/>
+            </svg>
+        </div>
+        <div class="info_contact_p">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="name" id="floatingNombre">
+                <label for="floatingNombre">Nombre *</label>
+            </div>           
+            <div class="form-floating">
+                <input type="text" class="form-control" name="lastname" id="floatingApellido">
+                <label for="floatingApellido">Apellido *</label>
+            </div>           
+            <div class="form-floating">
+                <input type="email" class="form-control" name="email" id="floatingEmail">
+                <label for="floatingEmail">Email *</label>
+            </div>      
+            <div class="form-floating form-floating-company">
+                <select name="is_admin" class="form-control" id="floatingCompania">
+                    <option value="1">Administrador</option>
+                    <option value="0">Básico</option>
+                </select>
+                <label for="floatingCompania">Rol *</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="password" id="floatingPassword">
+                <label for="floatingPassword">Contraseña *</label>
+            </div>   
+        </div>
+        <div class="body_section">
+            <div class="btn_section">
+                <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
+                <button type= "submit" class="save_btn" id= "saveBtn">Guadar Usuario</button>
             </div>
         </div>
     </form>

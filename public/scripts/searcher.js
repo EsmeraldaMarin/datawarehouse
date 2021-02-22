@@ -46,6 +46,8 @@ function searcherFunction(url, input, section) {
                 searchCompany(info)
             } else if (url == urlAllLocation) {
                 searchLocation(info)
+            } else if (url == urlUsers) {
+                searchUsers(info)
             }
             function searchContact(info) {
                 info.forEach(contact => { searchTerms(contact, contact.name + contact.lastname) });
@@ -68,6 +70,12 @@ function searcherFunction(url, input, section) {
             }
             function searchLocation(info) {
                 info.forEach(loc => { searchTerms(loc, loc.name) });
+            }
+            function searchUsers(info) {
+                info.forEach(user => { searchTerms(user, user.name + user.lastname) });
+                info.forEach(user => { searchTerms(user, user.name) });
+                info.forEach(user => { searchTerms(user, user.lastname) });
+                info.forEach(user => { searchTerms(user, user.email) });
             }
 
             //si hay un contacto repetido, solo selecciona el primero
@@ -94,6 +102,8 @@ function searcherFunction(url, input, section) {
                 createCompanies(res)
             } else if (url == urlAllLocation) {
                 createLocationCards(res)
+            } else if (url == urlUsers) {
+                createUsersCards(res)
             }
         })
 }

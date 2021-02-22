@@ -1574,6 +1574,7 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   fill: #070d59;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .bg_add > #form .header_section svg:hover {
