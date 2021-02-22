@@ -157,8 +157,8 @@ let htmlTextAddContact = `
                         <input type="text" name="slack" id="slackCuentaInputAdd" placeholder="@TuCuenta123">
                     </div>
                     <div class="form-selects">
-                        <select name="spre" id="preferenciaSlack>
-                            <option value="sin preferencia">Sin Preferencias</option>
+                        <select name="spre" id="preferenciaSlack">
+                            <option value="sin preferencias">Sin Preferencias</option>
                             <option value="no molestar">No Molestar</option>
                             <option value="canal preferido">Canal Preferido</option>
                         </select>

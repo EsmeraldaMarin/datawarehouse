@@ -1,12 +1,11 @@
 # Este Commit
 
-* borrar muchos contactos
+* mejorar el buscador para haverlo compatible con tildes
 
 ## HACER
 
 * editar contactos, compañías, región ciudad
 * maquetar usuarios : agregar todas las funciones
-* mejorar el buscador para haverlo compatible con tildes
 * login y sign up
 * middlewares 
 * cerrar sesión

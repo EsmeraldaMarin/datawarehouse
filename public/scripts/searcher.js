@@ -1,3 +1,5 @@
+let accent_map = { 'á': 'a', 'é': 'e', 'è': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'a', 'É': 'e', 'è': 'e', 'Í': 'i', 'Ó': 'o', 'Ú': 'u' };
+
 function searcherFunction(url, input, section) {
     let busqueda = input.value;
     busqueda = busqueda.replace(/ /g, "");
@@ -5,6 +7,10 @@ function searcherFunction(url, input, section) {
     if (busqueda == "") {
         return
     }
+
+    //quitar tildes de la busqueda
+    busqueda = accent_fold(busqueda)
+
     let response = []
 
     let termSearched = document.getElementById('termSearched');
@@ -26,7 +32,11 @@ function searcherFunction(url, input, section) {
 
             let wordLength = busqueda.length
             function searchTerms(contact, propiedad) {
+
+                //pasar a minusculas y sacar tildes
                 propiedad = propiedad.toLowerCase()
+                propiedad = accent_fold(propiedad)
+
                 if (propiedad.substring(0, wordLength) == busqueda) { response.push(contact) }
             }
 
@@ -97,3 +107,11 @@ function sinResultados(ctn, busqueda) {
     </div>
     `
 }
+function accent_fold(str) {
+    if (!str) { return ''; }
+    let ret = '';
+    for (let i = 0; i < str.length; i++) {
+        ret += accent_map[str.charAt(i)] || str.charAt(i);
+    }
+    return ret;
+};
