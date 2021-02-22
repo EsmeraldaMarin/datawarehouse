@@ -100,6 +100,7 @@ function showCompanyInfo(companyInfo) {
 
     let actionsBtn = document.querySelector(".acciones");
     let trashBtn = document.querySelector('.acciones .trash')
+    let editBtn = document.querySelector('.acciones .edit')
     actionsBtn.addEventListener('mouseover', (e) => {
         actionsBtn.classList.add('active');
     })
@@ -110,6 +111,9 @@ function showCompanyInfo(companyInfo) {
         let parent = trashBtn.parentNode.parentNode
         showDeleteModal(parent)
     })
+    editBtn.addEventListener('click', ()=>{
+        editCompanyModal(companyInfo)
+    })
 
 
 
@@ -119,7 +123,7 @@ function showDeleteModal(parent) {
 
     showWindow(deleteCompWindowHTML, 'closeDelContactBtn', 'bgdeleteContact')
 
-    let delConfirmBtn = document.getElementById('delConfirmBtn')
+    let delConfirmBtn = document.getElementById('delConfirmBtn');
 
     delConfirmBtn.addEventListener('click', () => {
         let container = document.getElementById("bgdeleteContact")
@@ -127,9 +131,27 @@ function showDeleteModal(parent) {
         body.classList.remove('modalActive')
         deleteContact(parent)
     })
+}
+
+function editCompanyModal(info){
+    
+    let bgInfoCompany = document.getElementById('bgInfoCompany');
+    bgInfoCompany.remove()
+
+    showWindow(htmlTextEditCompany(info), "closeAddCompanyBtn", "bgAddCompany");
+    
+    let regionSelect = document.getElementById("regionSelectAdd");
+    let countrySelect = document.getElementById("paisSelectAdd");
+    let citySelect = document.getElementById("ciudadSelectAdd");
+    let addressInput = document.getElementById("addressInputAdd");
+    let form = document.getElementById('form');
+
+    locationSelects(regionSelect, countrySelect, citySelect, addressInput);
+    conectionToBD(form, 'PUT', info.id)
 
 
 }
+
 function deleteContact(parent) {
     let id = parent.id
     id = id.replace("company", "")
@@ -148,4 +170,30 @@ function deleteContact(parent) {
             location.reload();
         })
 
+}
+
+function conectionToBD(form, method, id){
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let formData = new FormData(e.currentTarget)
+        let params = {
+            method: `${method}`,
+            type: 'no-cors',
+            body: formData
+        };
+        if(method == 'PUT'){
+            urlCompanies = `${urlCompanies}/${id}`
+        }
+        if (formData.has('name') && formData.has('email') && formData.has('phone') && formData.has('city_id') && formData.has('address')) {
+            fetch(urlCompanies, params)
+                .then(res => res.json())
+                .catch(err => console.log(err))
+                .then(data => {
+                    console.log(data)
+                    location.reload()
+                })
+        }else{
+            console.log('falta informacion')
+        }
+    })
 }

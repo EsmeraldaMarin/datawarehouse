@@ -1,10 +1,10 @@
 # Este Commit
 
-* rutas de upload(put)
+* editar company
 
 ## HACER
 
-* editar contactos, compañías, región ciudad, usuarios
+* editar contactos, región ciudad, usuarios
 * login y sign up
 * middlewares 
 * cerrar sesión

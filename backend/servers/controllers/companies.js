@@ -6,6 +6,7 @@ function selectCompanies(req, res) {
     companies.id,
     companies.name, companies.email, companies.phone, companies.address,
     cities.name AS 'city',
+    cities.id AS 'city_id',
     countries.name AS 'country',
     regions.name AS 'region'
     FROM companies
@@ -82,7 +83,7 @@ function updateCompany(req, res) {
 
     let update = req.body;
     let companyId = req.params.id;
-    
+
     let sql = `UPDATE companies
         SET name =' ${update.name}',
         email = '${update.email}',

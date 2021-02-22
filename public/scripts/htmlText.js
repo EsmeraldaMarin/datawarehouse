@@ -242,6 +242,69 @@ let htmlTextAddCompany = `
     </form>
 </div>`
 
+let htmlTextEditCompany = (info) => {
+    return `
+    <div class="bg_add_company bg_add" id="bgAddCompany">
+       <form id="form">
+            <div class="header_section">
+                <h3><b>EDITAR COMPAÑÍA</b></h3>
+                <svg role="img" class="closeBtn" id= "closeAddCompanyBtn">
+                    <use href="assets/button-close.svg#path-1"/>
+                </svg>
+            </div>
+            <div class="info_contact_p">
+                <div class= "inputFloatingEdit">
+                    <input type="text" class="form-control" name="name" value="${info.name}" id="floatingNombre">
+                    <label for="floatingNombre">Nombre *</label>
+                </div>           
+                <div class= "inputFloatingEdit">
+                    <input type="email" class="form-control" name="email" value="${info.email}" id="floatingEmail">
+                    <label for="floatingEmail">Email *</label>
+                </div>
+                <div class= "inputFloatingEdit">
+                    <input type="text" class="form-control" name= "phone" value="${info.phone}" id="floatingPhone">
+                    <label for="floatingPhone">Teléfono *</label>
+                </div>            
+            </div>
+            <div class="body_section">
+                <div class="info_contact_s">
+                    <div class="form-selects">
+                        <label for="regionSelectAdd">Región*</label>
+                        <select id="regionSelectAdd">
+                            <option>${info.region}</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-selects">
+                        <label for="paisSelectAdd">País*</label>
+                        <select id="paisSelectAdd" disabled>
+                            <option>${info.country}</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-selects">
+                        <label for="ciudadSelectAdd">Ciudad*</label>
+                        <select name="city_id" id="ciudadSelectAdd" disabled>
+                            <option value = "${info.city_id}">${info.city}</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-selects">
+                        <label for="addressInputAdd">Dirección*</label>
+                        <input type="text" id="addressInputAdd" name="address" value="${info.address}" placeholder="Ingrese una dirección">
+                    </div>
+    
+                </div>
+                <div class="btn_section">
+                    <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
+                    <button type= "submit" class="save_btn" id= "saveBtn">Editar</button>
+    
+                </div>
+            </div>
+        </form>
+    </div>`
+}
+
 let htmlTextAddUser = `
 <div class="bg_add_user bg_add" id="bgAddUser">
    <form id="form">
@@ -333,7 +396,7 @@ let deleteCompWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'
 </div>
 </div>`;
 
-let deleteUserWindowHTML = (name)=>{
+let deleteUserWindowHTML = (name) => {
     return `<div class='bg_delete_contact' id= 'bgdeleteContact'>
         <div class='box_delete'>
         <div class='close_btn' id= 'closeDelContactBtn'>

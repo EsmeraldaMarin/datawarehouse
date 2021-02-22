@@ -712,6 +712,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
   border: 2px solid #fff;
   border-radius: 25px;
   object-fit: cover;
+  box-shadow: 0 0 5px #bbb;
 }
 
 .all_companies .company_card .users_company > div img:first-child {
@@ -1493,7 +1494,7 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   justify-content: space-evenly;
   position: relative;
   animation-name: comeToWindow;
-  animation-duration: .15s;
+  animation-duration: 0.15s;
   animation-timing-function: linear;
 }
 
@@ -1634,6 +1635,28 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   justify-content: center;
   align-items: center;
   top: 0;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit {
+  width: 250px;
+  height: 25px;
+  position: relative;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit input {
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+}
+
+.bg_add > #form .info_contact_p .inputFloatingEdit label {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  font-size: 12px;
 }
 
 .bg_add > #form .info_contact_p .form-floating {
@@ -1930,7 +1953,8 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   color: #fff;
 }
 
-button, select {
+button,
+select {
   cursor: pointer;
 }
 

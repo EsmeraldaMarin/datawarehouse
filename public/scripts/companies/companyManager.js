@@ -23,31 +23,6 @@ addCompanyBtn.addEventListener('click', () => {
         body.classList.remove('modalActive')
         ctn.remove();
     });
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-
-        floatingInputs.forEach(input => {
-            input.value = input.value.toLowerCase()
-        })
-        addressInput.value = addressInput.value.toLowerCase()
-
-        let formData = new FormData(e.currentTarget)
-        let params = {
-            method: 'POST',
-            type: 'no-cors',
-            body: formData
-        };
-        if (formData.has('name') && formData.has('email') && formData.has('phone') && formData.has('city_id') && formData.has('address')) {
-            fetch(urlCompanies, params)
-                .then(res => res.json())
-                .catch(err => console.log(err))
-                .then(data => {
-                    console.log(data)
-                    ctn.classList.add('createdContact')
-                    location.reload()
-                })
-        }else{
-            console.log('falta informacion')
-        }
-    })
+    conectionToBD(form, 'POST')
 })
+

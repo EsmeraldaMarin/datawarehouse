@@ -16,11 +16,10 @@
         justify-content: space-evenly;
         position: relative;
         animation-name: comeToWindow;
-        animation-duration: .15s;   
-        animation-timing-function: linear; 
+        animation-duration: 0.15s;
+        animation-timing-function: linear;
         .close_btn {
-            @extend %btnClose
-
+            @extend %btnClose;
         }
         p {
             text-align: center;
@@ -136,6 +135,25 @@
                     top: 0;
                 }
             }
+            .inputFloatingEdit {
+                width: 250px;
+                height: 25px;
+                position: relative;
+                input {
+                    width: 100%;
+                    height: 100%;
+                    border-bottom: 2px solid #fff;
+                    background-color: transparent;
+                    color: #fff;
+                    font-size: 16px;
+                }
+                label {
+                    position: absolute;
+                    top: -100%;
+                    left: 0;
+                    font-size: 12px;
+                }
+            }
             .form-floating {
                 width: 170px;
                 height: 25px;
@@ -198,7 +216,7 @@
                 margin: 30px 0 0 50px;
                 display: flex;
                 align-items: center;
-                img.returnIcon{
+                img.returnIcon {
                     width: 17px;
                     transform: translateX(-100%);
                     cursor: pointer;
@@ -264,10 +282,9 @@
                     width: 12px;
                     height: 12px;
                     cursor: pointer;
-
                 }
-                &.channelDisabled{
-                    img.disableChannel{
+                &.channelDisabled {
+                    img.disableChannel {
                         opacity: 0;
                         position: relative;
                         z-index: 1;
@@ -282,8 +299,8 @@
                     }
                     h4 {
                         color: #ccc;
-                        i {  
-                            background-color: #ccc;                          
+                        i {
+                            background-color: #ccc;
                         }
                     }
                 }
@@ -364,7 +381,6 @@
                             color: $cColor;
                             border-color: $cColor;
                         }
-                        
                     }
                     &.save_btn {
                         background-color: $tColor;
@@ -372,37 +388,36 @@
                         &:hover {
                             background-color: $cColor;
                         }
-                        
                     }
                 }
             }
         }
     }
 }
-.bg_add.bg_add_company{
-    >#form{
+.bg_add.bg_add_company {
+    > #form {
         width: 70%;
-        .form-floating{
+        .form-floating {
             width: 220px;
         }
-        .info_contact_s{
+        .info_contact_s {
             margin-bottom: 30px;
         }
     }
-    &.createdContact{
-        >#form{
+    &.createdContact {
+        > #form {
             background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            span{
+            span {
                 font-size: 3em;
                 color: #fff;
             }
         }
     }
 }
-button, select{
+button,
+select {
     cursor: pointer;
 }
-
