@@ -33,7 +33,7 @@ function createUsers(info) {
     editBtn.forEach(ed => {
         ed.addEventListener('click', () => {
             let parentId = ed.parentNode.parentNode.id
-            id = parentId.replace("user", "")
+            let id = parentId.replace("user", "")
             let infoUser = info.find(user => user.id == id);
             editUserModal(infoUser)
         })

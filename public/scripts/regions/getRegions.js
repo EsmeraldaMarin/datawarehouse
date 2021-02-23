@@ -50,8 +50,7 @@ function createRegionsCards(infoReg) {
                         </div>
                     </li>`
                     regionsSection.insertAdjacentHTML('beforeend', liRegion);
-
-
+                    reg.allCountries = info
                     let ulCountry = document.querySelector(`#region${reg.id} >ul`)
                     info.forEach(con => {
 
@@ -82,6 +81,7 @@ function createRegionsCards(infoReg) {
                                     </li>`
                                     ulCountry.insertAdjacentHTML('beforeend', liCountry);
                                     let ulCity = document.querySelector(`#country${con.id} >ul`)
+                                    con.allCities = data
 
                                     data.forEach(cit => {
                                         let liCity = `<li id="city${cit.id}"><span>${cit.name}</span>
@@ -129,6 +129,7 @@ function createRegionsCards(infoReg) {
                     setTimeout(() => {
                         treeView()
                         let trashBtn = document.querySelectorAll('.trash');
+                        let editBtn = document.querySelectorAll('.edit');
                         trashBtn.forEach(el => {
                             el.addEventListener('click', () => {
                                 let parentId = el.parentNode.parentNode.id
@@ -148,7 +149,40 @@ function createRegionsCards(infoReg) {
                                 }
                             })
                         })
-                    }, 500);
+                        editBtn.forEach(el => {
+                            el.addEventListener('click', () => {
+                                let parentId = el.parentNode.parentNode.id
+
+                                if (parentId.charAt(0) == 'r') {
+                                    let id = parentId.replace("region", "");
+                                    let info = infoReg.find(reg => reg.id == id);
+                                    editLocationModal(info, urlRegions, 'r')
+
+                                } else if (parentId.charAt(1) == 'o') {
+                                    let id = parentId.replace("country", "");
+                                    infoReg.forEach(r => {
+                                        if (r.allCountries) {
+                                            let info = r.allCountries.find(con => con.id == id);
+                                            if (info) { editLocationModal(info, urlCountries, 'co') }
+                                        }
+                                    })
+
+                                } else if (parentId.charAt(1) == 'i') {
+                                    let id = parentId.replace("city", "");
+                                    infoReg.forEach(r => {
+                                        if(r.allCountries){
+                                            r.allCountries.forEach(c => {
+                                                if (c.allCities) {
+                                                    let info = c.allCities.find(cit => cit.id == id);
+                                                    if (info) { editLocationModal(info, urlCities, 'ci') }
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        })
+                    }, 1000);
 
 
                 }
@@ -295,4 +329,50 @@ function getLocation(url, id) {
     fetch(url)
         .then(res => res.json())
         .then(info => showLocationInfo(info[0]))
+}
+function editLocationModal(info, url, type) {
+    showWindow(htmlTextEditLocation(info, type), "closeEditLocationBtn", "bgEditLocation");
+
+    if(type == "co"){
+        let regionSelectAdd = document.getElementById('regionSelectAdd');
+        locationSelects(regionSelectAdd);
+    } else if(type == "ci"){
+        let regionSelectAdd = document.getElementById('regionSelectAdd');
+        let countrySelectAdd = document.getElementById('countrySelectAdd');
+        locationSelects(regionSelectAdd, countrySelectAdd);
+    }
+
+    let form = document.getElementById('form');
+    let cancelBtn = document.getElementById("cancelBtn");
+    cancelBtn.addEventListener("click", () => {
+        let ctn = document.getElementById("bgEditLocation");
+        body.classList.remove('modalActive')
+        ctn.remove();
+    });
+
+    sendToBd(form, url, info.id)
+}
+function sendToBd(form, url, id) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let formData = new FormData(e.currentTarget)
+        let params = {
+            method: 'PUT',
+            type: 'no-cors',
+            body: formData
+        };
+        for (var pair of formData.entries()) {
+            if (pair[1] == "") {
+                console.log("falta rellenar el campo de " + pair[0])
+                return
+            }
+        }
+        fetch(`${url}/${id}`, params)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                location.reload()
+            })
+            .catch(err => console.log(err))
+    })
 }

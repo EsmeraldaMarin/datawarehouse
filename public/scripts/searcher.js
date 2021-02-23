@@ -7,7 +7,6 @@ function searcherFunction(url, input, section) {
     if (busqueda == "") {
         return
     }
-
     //quitar tildes de la busqueda
     busqueda = accent_fold(busqueda)
 
@@ -29,13 +28,14 @@ function searcherFunction(url, input, section) {
     fetch(url)
         .then(res => res.json())
         .then(info => {
-
             let wordLength = busqueda.length
             function searchTerms(contact, propiedad) {
 
                 //pasar a minusculas y sacar tildes
+                propiedad = propiedad.replace(/ /g, "");
                 propiedad = propiedad.toLowerCase()
                 propiedad = accent_fold(propiedad)
+                console.log(contact)
 
                 if (propiedad.substring(0, wordLength) == busqueda) { response.push(contact) }
             }

@@ -23,7 +23,15 @@ function selectCities(req, res) {
 function selectCityByCountryId(req, res) {
 
     let countryId = req.params.countryId;
-    let sql = `SELECT * FROM cities WHERE country_id = ${countryId}`;
+    let sql = `SELECT 
+    cities.name, cities.id, cities.country_id ,
+    countries.name AS 'country_name',
+    regions.name AS 'region_name',
+    regions.id AS 'region_id'
+    FROM cities 
+    INNER JOIN countries ON cities.country_id = countries.id
+    INNER JOIN regions ON countries.region_id = regions.id
+    WHERE country_id = ${countryId}`;
 
 
     connection.query(sql, function (err, cities) {
@@ -141,12 +149,11 @@ function updateCity(req, res) {
 
     let update = req.body;
     let cityId = req.params.id;
-    // let cityRol = req.params.rol.is_admin
 
 
     let sql = `UPDATE cities
-        SET name =' ${update.name}',
-        country_id = '${update.country_id}'
+        SET name ='${update.name}',
+        country_id = ${update.country_id}
         WHERE id = ${cityId}`
 
 

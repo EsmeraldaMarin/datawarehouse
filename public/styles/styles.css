@@ -1234,7 +1234,7 @@ main .all_contacts .contacts_section .not_found p.palabra {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 30px;
+  grid-gap: 10px 30px;
 }
 
 .all_users .user_card {

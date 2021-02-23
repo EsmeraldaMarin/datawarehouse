@@ -141,7 +141,6 @@ function selectAllInfoLocation(req, res) {
             res.status(500).json({ error: 'Internal error' });
 
         } else {
-
             regions.forEach(re => {
                 re.type = "region"
             })
@@ -190,7 +189,7 @@ function updateRegion(req, res) {
     let regionId = req.params.id;
 
     let sql = `UPDATE regions
-        SET name =' ${update.name}'
+        SET name ='${update.name}'
         WHERE id = ${regionId}`
 
 

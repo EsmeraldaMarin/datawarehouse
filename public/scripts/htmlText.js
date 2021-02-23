@@ -277,14 +277,14 @@ let htmlTextEditCompany = (info) => {
     
                     <div class="form-selects">
                         <label for="paisSelectAdd">País*</label>
-                        <select id="paisSelectAdd" disabled>
+                        <select id="paisSelectAdd">
                             <option>${info.country}</option>
                         </select>
                     </div>
     
                     <div class="form-selects">
                         <label for="ciudadSelectAdd">Ciudad*</label>
-                        <select name="city_id" id="ciudadSelectAdd" disabled>
+                        <select name="city_id" id="ciudadSelectAdd">
                             <option value = "${info.city_id}">${info.city}</option>
                         </select>
                     </div>
@@ -298,7 +298,6 @@ let htmlTextEditCompany = (info) => {
                 <div class="btn_section">
                     <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
                     <button type= "submit" class="save_btn" id= "saveBtn">Editar</button>
-    
                 </div>
             </div>
         </form>
@@ -423,6 +422,98 @@ let deleteManyContactsHTML = (num) => {
         <button id="delConfirmBtn">Borrar contactos</button>
         </div>
     </div>`;
+}
+let htmlTextEditLocation = (info, type) => {
+    info.name= info.name.trim()
+    if (type == "r") {
+        return ` <div class="bg_add_company bg_add" id="bgEditLocation">
+        <form id="form" style= "width:40%;">
+            <div class="header_section">
+                <h3><b>EDITAR REGION</b></h3>
+                <svg role="img" class="closeBtn" id= "closeEditLocationBtn">
+                    <use href="assets/button-close.svg#path-1"/>
+                </svg>
+            </div>
+            <div class="info_contact_p">
+                <div class= "inputFloatingEdit">
+                    <input type="text" class="form-control" name="name" value="${info.name}" id="floatingNombre">
+                    <label for="floatingNombre">Nombre *</label>
+                </div>                   
+            </div>
+            <div class="body_section">
+                <div class="btn_section">
+                    <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
+                    <button type= "submit" class="save_btn" id= "saveBtn">Editar</button>
+                </div>
+            </div>
+        </form>
+        </div>`
+    } else if (type == "co") {
+        return ` <div class="bg_add_company bg_add" id="bgEditLocation">
+        <form id="form" style= "width:40%;">
+            <div class="header_section">
+                <h3><b>EDITAR PAÍS</b></h3>
+                <svg role="img" class="closeBtn" id= "closeEditLocationBtn">
+                    <use href="assets/button-close.svg#path-1"/>
+                </svg>
+            </div>
+            <div class="info_contact_p">
+                <div class= "inputFloatingEdit">
+                    <input type="text" class="form-control" name="name" value="${info.name}" id="floatingNombre">
+                    <label for="floatingNombre">Nombre *</label>
+                </div>              
+                <div class="inputFloatingEdit user">
+                    <label for="regionSelectAdd">Región*</label>
+                    <select id="regionSelectAdd" name="region_id">
+                        <option value='${info.region_id}'>${info.region_name}</option>
+                    </select>
+                </div>     
+            </div>
+            <div class="body_section">
+                <div class="btn_section">
+                    <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
+                    <button type= "submit" class="save_btn" id= "saveBtn">Editar</button>
+                </div>
+            </div>
+        </form>
+        </div>`
+    } else if (type == "ci") {
+        return ` <div class="bg_add_company bg_add" id="bgEditLocation">
+        <form id="form" style= "width:60%;">
+            <div class="header_section">
+                <h3><b>EDITAR CIUDAD</b></h3>
+                <svg role="img" class="closeBtn" id= "closeEditLocationBtn">
+                    <use href="assets/button-close.svg#path-1"/>
+                </svg>
+            </div>
+            <div class="info_contact_p">
+                <div class= "inputFloatingEdit">
+                    <input type="text" class="form-control" name="name" value="${info.name}" id="floatingNombre">
+                    <label for="floatingNombre">Nombre *</label>
+                </div>                   
+                <div class="inputFloatingEdit user">
+                    <label for="regionSelectAdd">Región*</label>
+                    <select id="regionSelectAdd">
+                        <option value='${info.region_id}'>${info.region_name}</option>
+                    </select>
+                </div>     
+                <div class="inputFloatingEdit user">
+                    <label for="countrySelectAdd">País*</label>
+                    <select id="countrySelectAdd" name="country_id">
+                        <option value='${info.country_id}'>${info.country_name}</option>
+                    </select>
+                </div>     
+            </div>
+
+            <div class="body_section">
+                <div class="btn_section">
+                    <button type= "button" class="cancel_btn" id="cancelBtn">Cancelar</button>
+                    <button type= "submit" class="save_btn" id= "saveBtn">Editar</button>
+                </div>
+            </div>
+        </form>
+        </div>`
+    }
 }
 
 let deleteRegWindowHTML = `<div class='bg_delete_contact' id= 'bgdeleteContact'>

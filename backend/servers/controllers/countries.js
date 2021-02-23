@@ -23,7 +23,12 @@ function selectCountries(req, res) {
 function selectCountryByRegionId(req, res) {
 
     let regionId = req.params.regionId;
-    let sql = `SELECT * FROM countries WHERE region_id = ${regionId}`;
+    let sql = `SELECT 
+    countries.name, countries.id, countries.region_id,
+    regions.name AS 'region_name'
+    FROM countries 
+    INNER JOIN regions ON countries.region_id = regions.id
+    WHERE region_id = ${regionId}`;
 
 
     connection.query(sql, function (err, countries) {
@@ -150,7 +155,7 @@ function updateCountry(req, res) {
     let countryId = req.params.id;
 
     let sql = `UPDATE countries
-        SET name =' ${update.name}',
+        SET name ='${update.name}',
         region_id = ${update.region_id}
         WHERE id = ${countryId}`
 

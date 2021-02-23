@@ -23,13 +23,19 @@ function locationSelects(
   let region = getOptionsOfDB(urlRegions, regionSelect, false);
   region.then((regionsInfo) => {
     regionSelect.addEventListener("change", (e) => {
+      if (!countrySelect) {
+        //solo rellena el campo de region
+        return
+      }
       if (countrySelect.childNodes) {
         countrySelect.innerHTML = `<option>Seleccione un pais</option>`;
       }
-      if (citySelect.childNodes) {
-        citySelect.setAttribute("disabled", "");
-        addressInput.setAttribute("disabled", "");
-        citySelect.innerHTML = `<option>Seleccione una ciudad</option>`;
+      if (citySelect) {
+        if (citySelect.childNodes) {
+          citySelect.setAttribute("disabled", "");
+          addressInput.setAttribute("disabled", "");
+          citySelect.innerHTML = `<option>Seleccione una ciudad</option>`;
+        }
       }
 
       let regionSelected = regionsInfo.find(
