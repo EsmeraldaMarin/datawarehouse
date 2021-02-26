@@ -154,16 +154,10 @@ function disableChannel() {
 
       parent.classList.toggle("channelDisabled");
       let searchClass = parent.classList.contains("channelDisabled");
-
       if (searchClass) {
-        btn.insertAdjacentHTML(
-          "afterend",
-          `<img src="assets/return.png" class="returnIcon"/>`
-        );
         parent.childNodes[3].childNodes[1].setAttribute("disabled", "");
         parent.childNodes[5].childNodes[1].setAttribute("disabled", "");
       } else {
-        btn.nextSibling.remove();
         parent.childNodes[3].childNodes[1].removeAttribute("disabled");
         parent.childNodes[5].childNodes[1].removeAttribute("disabled");
       }

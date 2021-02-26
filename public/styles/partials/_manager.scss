@@ -153,7 +153,7 @@
                     left: 0;
                     font-size: 12px;
                 }
-                &.user{
+                &.user, &.contact{
                     width: 170px;
                 }
                 select {
@@ -300,6 +300,11 @@
                     width: 12px;
                     height: 12px;
                     cursor: pointer;
+                    z-index: 1;
+                }
+                img.returnIcon{
+                   opacity: 0;
+                   z-index: 0;
                 }
                 &.channelDisabled {
                     img.disableChannel {
@@ -307,6 +312,10 @@
                         position: relative;
                         z-index: 1;
                     }
+                    img.returnIcon{
+                        opacity: 1;
+                        z-index: 0;
+                     }
                     .form-selects {
                         select {
                             background-color: #ccc;

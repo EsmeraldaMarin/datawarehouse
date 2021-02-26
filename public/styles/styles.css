@@ -1659,7 +1659,7 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   font-size: 12px;
 }
 
-.bg_add > #form .info_contact_p .inputFloatingEdit.user {
+.bg_add > #form .info_contact_p .inputFloatingEdit.user, .bg_add > #form .info_contact_p .inputFloatingEdit.contact {
   width: 170px;
 }
 
@@ -1845,6 +1845,13 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   width: 12px;
   height: 12px;
   cursor: pointer;
+  z-index: 1;
+}
+
+.bg_add > #form .body_section .info_contact_s img.returnIcon,
+.bg_add > #form .body_section .info_contact_t img.returnIcon {
+  opacity: 0;
+  z-index: 0;
 }
 
 .bg_add > #form .body_section .info_contact_s.channelDisabled img.disableChannel,
@@ -1852,6 +1859,12 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
   opacity: 0;
   position: relative;
   z-index: 1;
+}
+
+.bg_add > #form .body_section .info_contact_s.channelDisabled img.returnIcon,
+.bg_add > #form .body_section .info_contact_t.channelDisabled img.returnIcon {
+  opacity: 1;
+  z-index: 0;
 }
 
 .bg_add > #form .body_section .info_contact_s.channelDisabled .form-selects select,

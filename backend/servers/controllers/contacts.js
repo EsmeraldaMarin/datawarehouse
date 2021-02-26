@@ -7,7 +7,9 @@ function selectContacts(req, res) {
     let sql = `SELECT 
     contacts.id, contacts.name, contacts.lastname, contacts.email, contacts.position, contacts.address,contacts.interest, contacts.img_url,
     companies.name as 'company',
+    companies.id as 'company_id',
     cities.name as 'city',
+    cities.id as 'city_id',
     countries.name as 'country',
     regions.name as 'region',
     GROUP_CONCAT(channels.id) as 'channelsId',
@@ -26,7 +28,24 @@ function selectContacts(req, res) {
             res.status(500).json({ error: 'Internal error' });
 
         } else {
-            res.send(contacts)
+
+            for (let i = 0; i < contacts.length; i++) {
+                let con = contacts[i]
+                let sqlChannels = `SELECT * FROM channels WHERE channels.user_id = ${con.id}`;
+                connection.query(sqlChannels, function (err, channels) {
+                    if (err) {
+                        console.log(err)
+                        res.status(500).json({ error: 'Internal error' });
+
+                    } else {
+                        con.channels = channels
+                        if (i == contacts.length - 1) {
+                            res.send(contacts)
+                        }
+                    }
+                })
+            }
+
         }
     })
 }
@@ -83,7 +102,7 @@ function updateContact(req, res) {
             company_id = ${update.company_id},
             city_id = ${update.city_id},
             address = '${update.address}',
-            interest = ${update.interest}
+            interest = ${update.interest},
             img_url= '${update.img_url}'
         WHERE
             id = ${contactId}`
@@ -111,7 +130,18 @@ function deleteContact(req, res) {
             res.status(500).json({ error: 'Internal Error' });
 
         } else {
-            res.status(200).json({ message: 'contact deleted', contact })
+            let sql = `DELETE FROM channels WHERE user_id = ${contactId}`
+
+            connection.query(sql, function (err, channel) {
+                if (err) {
+                    console.log(err)
+                    res.status(500).json({ error: 'Internal Error' });
+        
+                } else {
+                    
+                    res.status(200).json({ message: 'contact deleted', contact })
+                }
+            })
         }
     })
 }

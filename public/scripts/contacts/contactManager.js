@@ -90,51 +90,13 @@ addContactBtn.addEventListener("click", () => {
     body.classList.remove('modalActive')
     ctn.remove();
   });
+  sendToBd(form, 'POST')
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
-
-    let formData = new FormData(e.currentTarget)
-    let params = {
-      method: 'POST',
-      type: 'no-cors',
-      body: formData
-    };
-    // formData.set('img_url', imgPreview.src)
-    formData.set('img_url', "assets/avatar.png")
-
-
-    for (var pair of formData.entries()) {
-
-      if (pair[1] == "") {
-        console.log("falta rellenar el campo de " + pair[0])
-        return
-      } else if (pair[1] == "Seleccione una compañía") {
-        console.log("falta rellenar el campo de compañía")
-        return
-      }
-    }
-    fetch(urlContacts, params)
-      .then(res => res.json())
-      .then(data => {
-
-        formData.set('user_id', data.contactId)
-
-        fetch(urlChannels, params)
-          .then(res => res.json())
-          .then(data => location.reload())
-          .catch(err => console.log(err))
-
-      })
-      .catch(err => console.log(err))
-
-
-  });
 });
 
 //acciones del contacto
 
-function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
+function actionsTable(checkbox, seeMoreBtn, trashBtn, channels, editBtn, info) {
 
 
   //select a contact funcion
@@ -195,7 +157,120 @@ function actionsTable(checkbox, seeMoreBtn, trashBtn, channels) {
 
   })
 
+  //edit contact
+
+  editBtn.forEach(ed => {
+    ed.addEventListener('click', () => {
+      let parentId = ed.parentNode.parentNode.id
+      let id = parentId.replace("contact", "")
+      let infoContact = info.find(contact => contact.id == id);
+      editContactModal(infoContact)
+    })
+  })
+
 }
+
+function editContactModal(info) {
+
+  showWindow(htmlTextEditContact(info), "closeEditContactBtn", "bgEditContact");
+  let regionSelect = document.getElementById("regionSelectAdd");
+  let countrySelect = document.getElementById("paisSelectAdd");
+  let citySelect = document.getElementById("ciudadSelectAdd");
+  let addressInput = document.getElementById("addressInputAdd");
+  let floatingInputCompany = document.querySelector("#floatingCompania");
+  let form = document.getElementById('form');
+  let cancelBtn = document.getElementById("cancelBtn");
+  let imgPreview = document.getElementById("imgPreview");
+  let imgUploader = document.getElementById("imgUploader");
+  let file = []
+
+  disableChannel()
+  locationSelects(regionSelect, countrySelect, citySelect, addressInput);
+  uploadImg(imgPreview, imgUploader, file);
+  getOptionsOfDB(urlCompanies, floatingInputCompany, false);
+
+
+
+  cancelBtn.addEventListener("click", () => {
+    let ctn = document.getElementById("bgEditContact");
+    body.classList.remove('modalActive')
+    ctn.remove();
+  });
+
+  sendToBd(form, 'PUT', info.id)
+}
+
+function sendToBd(form, method, id) {
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let formData = new FormData(e.currentTarget)
+    let params = {
+      method: `${method}`,
+      type: 'no-cors',
+      body: formData
+    };
+    if (method == 'PUT') {
+      urlContacts = `${urlContacts}/${id}`;
+      urlChannels = `${urlChannels}/${id}`;
+    }
+    formData.set('img_url', "assets/avatar.png")
+
+
+    for (var pair of formData.entries()) {
+
+      if (pair[1] == "") {
+        console.log("falta rellenar el campo de " + pair[0])
+        return
+      } else if (pair[1] == "Seleccione una compañía") {
+        console.log("falta rellenar el campo de compañía")
+        return
+      }
+    }
+    fetch(urlContacts, params)
+      .then(res => res.json())
+      .then(data => {
+
+        if (method == 'PUT') {
+          let deleteParams = {
+            method: 'DELETE',
+            type: 'no-cors'
+          }
+          fetchChannels(deleteParams)
+
+
+        } else {
+          formData.set('user_id', data.contactId)
+          fetchChannels(params)
+        }
+
+        function fetchChannels(params) {
+          fetch(urlChannels, params)
+            .then(res => res.json())
+            .then(data => {
+              if (method == 'PUT') {
+                urlChannels = `http://localhost:3000/channels`;
+                formData.set('user_id', id)
+                let params = {
+                  method: 'POST',
+                  type: 'no-cors',
+                  body: formData
+                };
+                fetch(`http://localhost:3000/channels`, params)
+                .then(res=>res.json())
+                .then(location.reload())
+                .catch(err => console.log(err))
+              }
+              location.reload()
+            })
+            .catch(err => console.log(err))
+        }
+      })
+      .catch(err => console.log(err))
+  })
+}
+
+//seleccionar contactos
 function selectContactsFunction() {
 
   let contactsSelected = document.querySelectorAll('ul.selected');

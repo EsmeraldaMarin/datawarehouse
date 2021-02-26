@@ -1,10 +1,9 @@
 # Este Commit
 
-* editar location
+* editar contactos
 
 ## HACER
 
-* editar contactos
 * login y sign up
 * middlewares 
 * cerrar sesión

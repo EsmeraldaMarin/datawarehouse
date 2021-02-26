@@ -31,8 +31,9 @@ function createContacts(allCon, limit, info) {
     let seeMoreActionsBtn = document.querySelectorAll('.acciones');
     let trashBtn = document.querySelectorAll('.acciones .trash');
     let channelsBtn = document.querySelectorAll('.canal .channel');
+    let editBtn = document.querySelectorAll('.acciones .edit')
 
-    actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn)
+    actionsTable(selectContactBtn, seeMoreActionsBtn, trashBtn, channelsBtn, editBtn, allCon)
 
     totalContactsSpan.textContent = allCon.length;
     firstContactRowSpan.textContent = offset + 1;
