@@ -47,7 +47,7 @@ function updateUser(req, res) {
 
 
     let sql = `UPDATE users
-        SET name =' ${update.name}',
+        SET name ='${update.name}',
         lastname = '${update.lastname}',
         email = '${update.email}',
         is_admin= ${update.is_admin},

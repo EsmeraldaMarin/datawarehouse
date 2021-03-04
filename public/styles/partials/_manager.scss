@@ -153,7 +153,8 @@
                     left: 0;
                     font-size: 12px;
                 }
-                &.user, &.contact{
+                &.user,
+                &.contact {
                     width: 170px;
                 }
                 select {
@@ -302,9 +303,9 @@
                     cursor: pointer;
                     z-index: 1;
                 }
-                img.returnIcon{
-                   opacity: 0;
-                   z-index: 0;
+                img.returnIcon {
+                    opacity: 0;
+                    z-index: 0;
                 }
                 &.channelDisabled {
                     img.disableChannel {
@@ -312,10 +313,10 @@
                         position: relative;
                         z-index: 1;
                     }
-                    img.returnIcon{
+                    img.returnIcon {
                         opacity: 1;
                         z-index: 0;
-                     }
+                    }
                     .form-selects {
                         select {
                             background-color: #ccc;
@@ -440,6 +441,26 @@
             span {
                 font-size: 3em;
                 color: #fff;
+            }
+        }
+    }
+}
+.bg_add.bg_add_user {
+    > #form {
+        width: 450px;
+        overflow: initial;
+
+        .info_contact_p {
+            flex-direction: column;
+            height: 450px;
+            .form-floating, .inputFloatingEdit {
+                width: 70%;
+            }
+        }
+        .body_section{
+            padding-top: 370px;
+            .btn_section{
+                width: 100%;
             }
         }
     }

@@ -9,13 +9,12 @@
         flex-direction: row;
         padding-top: 0;
         padding-left: 20px;
-        a{
+        a {
             padding: 0;
             border: 0;
             position: relative;
             z-index: 2;
         }
-
     }
     .form_register {
         display: flex;
@@ -27,7 +26,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: all .75s ease;
+            transition: all 0.75s ease;
             h1 {
                 font-size: 2.3em;
                 color: $pColor;
@@ -53,7 +52,7 @@
                             color: #444;
                         }
                     }
-                    input, select {
+                    input {
                         height: 100%;
                         width: 100%;
                         background-color: transparent;
@@ -62,10 +61,6 @@
                         &::placeholder {
                             color: #444;
                         }
-                    }
-                    select{
-                        color: #444;
-                        width: 80%;
                     }
                 }
                 button {
@@ -81,9 +76,6 @@
                     }
                 }
             }
-            &.signInMode{
-                transform: translateX(130%);
-            }
         }
         .register {
             width: 60%;
@@ -97,31 +89,14 @@
             background-position-y: 50%;
             background-attachment: fixed;
             clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
-            transition: all .75s ease;
+            transition: all 0.75s ease;
             h2 {
+                font-size: 1.7em;
                 color: $pColor;
             }
             img {
-                margin: 20px 0 30px;
+                margin: 50px 0 30px;
                 width: 500px;
-            }
-            button {
-                width: 200px;
-                height: 45px;
-                background-color: #fff;
-                color: $pColor;
-                border-radius: 25px;
-                font-size: 15px;
-                transition: all 0.2s ease;
-                &:hover {
-                    background-color: $pColor;
-                    color: #fff;
-                }
-            }
-            &.signInMode{
-                clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 0% 100%);
-                transform: translateX(-70%);
-                padding: 0 150px 0 0 ;
             }
         }
     }

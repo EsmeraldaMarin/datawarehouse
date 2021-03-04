@@ -212,7 +212,7 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all .75s ease;
+  transition: all 0.75s ease;
 }
 
 .login .form_register .login h1 {
@@ -247,7 +247,7 @@ select {
   color: #444;
 }
 
-.login .form_register .login form div input, .login .form_register .login form div select {
+.login .form_register .login form div input {
   height: 100%;
   width: 100%;
   background-color: transparent;
@@ -255,13 +255,8 @@ select {
   font-size: 16px;
 }
 
-.login .form_register .login form div input::placeholder, .login .form_register .login form div select::placeholder {
+.login .form_register .login form div input::placeholder {
   color: #444;
-}
-
-.login .form_register .login form div select {
-  color: #444;
-  width: 80%;
 }
 
 .login .form_register .login form button {
@@ -278,10 +273,6 @@ select {
   background-color: #baa4f2;
 }
 
-.login .form_register .login.signInMode {
-  transform: translateX(130%);
-}
-
 .login .form_register .register {
   width: 60%;
   padding-left: 150px;
@@ -294,37 +285,17 @@ select {
   background-position-y: 50%;
   background-attachment: fixed;
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
-  transition: all .75s ease;
+  transition: all 0.75s ease;
 }
 
 .login .form_register .register h2 {
+  font-size: 1.7em;
   color: #070d59;
 }
 
 .login .form_register .register img {
-  margin: 20px 0 30px;
+  margin: 50px 0 30px;
   width: 500px;
-}
-
-.login .form_register .register button {
-  width: 200px;
-  height: 45px;
-  background-color: #fff;
-  color: #070d59;
-  border-radius: 25px;
-  font-size: 15px;
-  transition: all 0.2s ease;
-}
-
-.login .form_register .register button:hover {
-  background-color: #070d59;
-  color: #fff;
-}
-
-.login .form_register .register.signInMode {
-  clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 0% 100%);
-  transform: translateX(-70%);
-  padding: 0 150px 0 0;
 }
 
 header {
@@ -2135,6 +2106,28 @@ main .ctn_manager .operations_section_ctn button.exp_contact:hover {
 .bg_add.bg_add_company.createdContact > #form span {
   font-size: 3em;
   color: #fff;
+}
+
+.bg_add.bg_add_user > #form {
+  width: 450px;
+  overflow: initial;
+}
+
+.bg_add.bg_add_user > #form .info_contact_p {
+  flex-direction: column;
+  height: 450px;
+}
+
+.bg_add.bg_add_user > #form .info_contact_p .form-floating, .bg_add.bg_add_user > #form .info_contact_p .inputFloatingEdit {
+  width: 70%;
+}
+
+.bg_add.bg_add_user > #form .body_section {
+  padding-top: 370px;
+}
+
+.bg_add.bg_add_user > #form .body_section .btn_section {
+  width: 100%;
 }
 
 button,

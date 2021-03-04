@@ -1,6 +1,6 @@
 # Este Commit
 
-* editar contactos
+* layout login
 
 ## HACER
 
