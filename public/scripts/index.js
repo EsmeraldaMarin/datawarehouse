@@ -256,3 +256,29 @@ function createContactsList(ctn, allContactsInfo, key) {
   }
 
 }
+
+let moveSectionBtn = document.getElementById('moveSectionBtn')
+moveSectionBtn.addEventListener('click', () => {
+  let parent = moveSectionBtn.parentElement;
+  let loginSect = parent.previousElementSibling;
+  parent.classList.toggle('signInMode')
+  loginSect.classList.toggle('signInMode')
+  if (parent.classList.contains('signInMode')) {
+    //h2, img, button
+    parent.children[0].textContent = '¿Ya tienes una cuenta aquí?';
+    parent.children[1].src = "assets/login.svg";
+    parent.children[2].textContent = "Iniciar Sesión";
+
+    setTimeout(() => {
+      loginSect.innerHTML = signinFormHtml
+    }, 250);
+
+  } else {
+    parent.children[0].textContent = '¿Eres nuevo/a aquí?';
+    parent.children[1].src = "assets/signin.svg";
+    parent.children[2].textContent = "Registrarse";
+    setTimeout(() => {
+      loginSect.innerHTML = loginFormHtml
+    }, 250);
+  }
+})

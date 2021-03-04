@@ -220,7 +220,7 @@ let htmlTextEditContact = (info) => {
                 <img src="assets/return.png" class="returnIcon"/>
 
             </div>`
-    }else{
+    } else {
         wh = `<div class="info_contact_t whatsapp channelDisabled">
                 <div class="form-selects">
                     <h4><i class="fab fa-whatsapp"></i>Whatsapp</h4>
@@ -259,7 +259,7 @@ let htmlTextEditContact = (info) => {
             <img src="assets/button-close.svg" class="disableChannel"/>
             <img src="assets/return.png" class="returnIcon"/>
         </div>`
-    }else{
+    } else {
         te = `<div class="info_contact_t telefono channelDisabled">
         <div class="form-selects">
             <h4><i class="fas fa-phone"></i>Telefono</h4>
@@ -297,8 +297,8 @@ let htmlTextEditContact = (info) => {
 
             <img src="assets/button-close.svg" class="disableChannel"/>
             <img src="assets/return.png" class="returnIcon"/>
-        </div>` 
-    }else{
+        </div>`
+    } else {
         fa = ` <div class="info_contact_t facebook channelDisabled">
         <div class="form-selects">
             <h4><i class="fab fa-facebook-f"></i>Facebook</h4>
@@ -315,9 +315,9 @@ let htmlTextEditContact = (info) => {
         </div>
         <img src="assets/button-close.svg" class="disableChannel"/>
         <img src="assets/return.png" class="returnIcon"/>
-         </div>` 
-    } 
-    if(infoLi){
+         </div>`
+    }
+    if (infoLi) {
         li = `<div class="info_contact_t linkedin">
             <div class="form-selects">
                 <h4><i class="fab fa-linkedin-in"></i>Linkedin</h4>
@@ -337,7 +337,7 @@ let htmlTextEditContact = (info) => {
             <img src="assets/button-close.svg" class="disableChannel"/>
             <img src="assets/return.png" class="returnIcon"/>
         </div>`
-    }else{
+    } else {
         li = `<div class="info_contact_t linkedin channelDisabled">
             <div class="form-selects">
                 <h4><i class="fab fa-linkedin-in"></i>Linkedin</h4>
@@ -356,8 +356,8 @@ let htmlTextEditContact = (info) => {
             <img src="assets/return.png" class="returnIcon"/>
             </div>`
     }
-    if(infoSl){
-        sl= `<div class="info_contact_t slack">
+    if (infoSl) {
+        sl = `<div class="info_contact_t slack">
             <div class="form-selects">
                 <h4><i class="fab fa-slack"></i>Slack</h4>
             </div>
@@ -376,8 +376,8 @@ let htmlTextEditContact = (info) => {
             <img src="assets/button-close.svg" class="disableChannel"/>
             <img src="assets/return.png" class="returnIcon"/>
         </div> `
-    } else{
-        sl= `<div class="info_contact_t slack channelDisabled">
+    } else {
+        sl = `<div class="info_contact_t slack channelDisabled">
             <div class="form-selects">
                 <h4><i class="fab fa-slack"></i>Slack</h4>
             </div>
@@ -891,3 +891,50 @@ let trashContactSection = (num) => {
                 </button>
             </div>`
 }
+let signinFormHtml = `<h1>Crear Cuenta</h1>
+ <form action="/signin">
+   <div>
+       <label for="name"></label>
+       <input type="text" name="name" id="name" placeholder="Nombre">
+   </div>
+   <div>
+       <label for="lastname"></label>
+       <input type="text" name="lastname" id="lastname" placeholder="Apellido">
+   </div>
+   <div>
+       <label for="email"></label>
+       <input type="email" name="email" id="email" placeholder="Email">
+   </div>
+   <div>
+       <label for="perfil"></label>
+       <select name="perfil" id="perfil">
+           <option>Seleccione un perfil</option>
+           <option value="1">Administrador</option>
+           <option value="0">Basico</option>
+       </select>
+   </div>
+   <div>
+       <label for="password"></label>
+       <input type="password" name="password" id="password" placeholder="Contraseña">
+   </div>
+   <div>
+       <label for="repeatPassword"></label>
+       <input type="password" id="repeatPassword" placeholder="Repetir contraseña">
+   </div>
+   <button type="submit">Registrarse</button>
+</form>
+ `
+let loginFormHtml = `
+<h1>Iniciar Sesión</h1>
+<form action="/login">
+    <div>
+        <label for="email"><i class="fas fa-envelope"></i></label>
+        <input type="email" name="email" id="email" placeholder="Email">
+    </div>
+    <div>
+        <label for="password"><i class="fas fa-lock"></i></label>
+        <input type="password" name="password" id="password" placeholder="Password">
+    </div>
+    <button type="submit">Iniciar Sesión</button>
+</form>
+`
