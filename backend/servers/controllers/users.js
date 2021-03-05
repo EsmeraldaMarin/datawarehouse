@@ -42,27 +42,39 @@ function selectUserById(req, res) {
     })
 }
 function insertUser(req, res) {
+
     let newUser = req.body;
     let password = jwt.sign(newUser.password, firma);
+    let validator = 'SELECT email FROM users'
 
-    let sql = `INSERT INTO datawarehouse.users(name, lastname, email, is_admin, password)
-    VALUES ("${newUser.name}", "${newUser.lastname}", "${newUser.email}", ${newUser.is_admin}, "${password}");`;
+    connection.query(validator, function (err, info) {
 
-    connection.query(sql, function (err, user) {
-        if (err) {
-            console.log(err)
-            res.status(500).json({ error: 'Asegurese de ingresar todos los datos' });
+        let resultEmail = info.find(elem => elem.email === newUser.email)
 
-        } else {
-            res.status(201).json(
-                {
-                    message: 'user created',
-                    userId: user.insertId
-                }
-            )
+        if (resultEmail) {
+
+            res.status(409).json({ message: 'This user already exists' })
+            return
         }
-    })
 
+        let sql = `INSERT INTO datawarehouse.users(name, lastname, email, is_admin, password)
+        VALUES ("${newUser.name}", "${newUser.lastname}", "${newUser.email}", ${newUser.is_admin}, "${password}");`;
+
+        connection.query(sql, function (err, user) {
+            if (err) {
+                console.log(err)
+                res.status(500).json({ error: 'Asegurese de ingresar todos los datos' });
+
+            } else {
+                res.status(201).json(
+                    {
+                        message: 'user created',
+                        userId: user.insertId
+                    }
+                )
+            }
+        })
+    })
 }
 
 function updateUser(req, res) {

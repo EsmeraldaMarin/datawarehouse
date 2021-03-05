@@ -138,9 +138,12 @@ function sendToBd(form, method, id) {
             body: formData,
         };
         fetch(newUrlUsers, params)
-            .then(res => res.json())
-            .then(data => {
-                location.reload()
+            .then(res => {
+                if (res.status == 409) {
+                    console.log("Este usuario ya existe")
+                } else {
+                    location.reload()
+                }
             })
             .catch(err => console.log(err))
     })
