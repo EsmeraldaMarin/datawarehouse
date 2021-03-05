@@ -192,7 +192,6 @@ let htmlTextAddContact = `
     </div>`;
 
 let htmlTextEditContact = (info) => {
-    console.log(info)
     let infoWh = info.channels.find(ch => ch.channel_name == "whatsapp"),
         infoTe = info.channels.find(ch => ch.channel_name == "telefono"),
         infoFa = info.channels.find(ch => ch.channel_name == "facebook"),

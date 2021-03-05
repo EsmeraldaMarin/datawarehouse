@@ -166,7 +166,6 @@ function deleteContact(parent) {
     fetch(url, parametros)
         .then(res => res.json())
         .then(data=> {
-            console.log(data);
             location.reload();
         })
 
@@ -189,7 +188,6 @@ function sendToBd(form, method, id){
                 .then(res => res.json())
                 .catch(err => console.log(err))
                 .then(data => {
-                    console.log(data)
                     location.reload()
                 })
         }else{

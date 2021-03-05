@@ -1,6 +1,6 @@
 # Este Commit
 
-* login casi completo
+* login completo
 
 ## HACER
 

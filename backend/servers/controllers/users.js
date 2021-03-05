@@ -13,7 +13,11 @@ function selectUsers(req, res) {
             res.status(500).json({ error: 'Internal error' });
 
         } else {
+            users.forEach(user => {
 
+                let decodedPassword = jwt.verify(user.password, firma);
+                user.password = decodedPassword;
+            })
             res.send(users)
 
         }
@@ -39,9 +43,10 @@ function selectUserById(req, res) {
 }
 function insertUser(req, res) {
     let newUser = req.body;
+    let password = jwt.sign(newUser.password, firma);
 
     let sql = `INSERT INTO datawarehouse.users(name, lastname, email, is_admin, password)
-    VALUES ("${newUser.name}", "${newUser.lastname}", "${newUser.email}", ${newUser.is_admin}, "${newUser.password}");`;
+    VALUES ("${newUser.name}", "${newUser.lastname}", "${newUser.email}", ${newUser.is_admin}, "${password}");`;
 
     connection.query(sql, function (err, user) {
         if (err) {
@@ -64,15 +69,14 @@ function updateUser(req, res) {
 
     let update = req.body;
     let userId = req.params.id;
-    // let userRol = req.params.rol.is_admin
-
+    let password = jwt.sign(update.password, firma)
 
     let sql = `UPDATE users
         SET name ='${update.name}',
         lastname = '${update.lastname}',
         email = '${update.email}',
         is_admin= ${update.is_admin},
-        password = '${update.password}'
+        password = '${password}'
         WHERE id = ${userId}`
 
 
@@ -106,7 +110,6 @@ function logIn(req, res) {
     let user = req.body
     let token = jwt.sign(user.password, firma);
     let sql = `SELECT password FROM users WHERE users.password = '${token}' AND users.email = '${user.email}'`
-    console.log(token, user.email)
 
     connection.query(sql, function (err, passwords) {
 

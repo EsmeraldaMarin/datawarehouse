@@ -281,7 +281,6 @@ function deleteRegion(id, url) {
     fetch(newUrl, parametros)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             location.reload()
         })
 
@@ -370,7 +369,6 @@ function sendToBd(form, url, id) {
         fetch(`${url}/${id}`, params)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 location.reload()
             })
             .catch(err => console.log(err))

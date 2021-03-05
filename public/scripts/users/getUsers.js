@@ -1,10 +1,10 @@
 let usersSection = document.getElementById('usersSection');
 
 function getUsers() {
+
     fetch(urlUsers)
         .then(res => res.json())
         .then(info => {
-
             createUsers(info)
         })
 }
@@ -91,7 +91,6 @@ function deleteContact(parent) {
     fetch(url, parametros)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             location.reload();
         })
 
@@ -113,12 +112,9 @@ function editUserModal(info) {
 function sendToBd(form, method, id) {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        let formData = new FormData(e.currentTarget)
-        let params = {
-            method: `${method}`,
-            type: 'no-cors',
-            body: formData
-        };
+        let formData = new FormData(e.currentTarget);
+        formData.set('token', token)
+
         if (method == 'PUT') {
             urlUsers = `${urlUsers}/${id}`
         }
@@ -129,10 +125,14 @@ function sendToBd(form, method, id) {
                 return
             }
         }
+        let params = {
+            method: `${method}`,
+            type: 'no-cors',
+            body: formData,
+        };
         fetch(urlUsers, params)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 location.reload()
             })
             .catch(err => console.log(err))

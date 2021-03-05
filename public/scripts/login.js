@@ -19,7 +19,6 @@ formLogin.addEventListener('submit', e => {
     fetch('http://localhost:3000/login', params)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.user){
                 localStorage.setItem("token", data.jwt)
                 location.href = "http://127.0.0.1:5500/public/index.html";

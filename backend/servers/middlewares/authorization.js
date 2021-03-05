@@ -15,7 +15,7 @@ let validateToken = (token) => {
 
 let defineRol = (req, res, next) => {
 
-    const token = req.headers['authorization'].replace("Bearer ", "")
+    const token = req.body.token
     let decodedUser = validateToken(token)
 
     if (decodedUser) {
@@ -30,7 +30,7 @@ let defineRol = (req, res, next) => {
 let validateRol = (req, res, next) => {
 
     let info = req.params.user
-    let sql = `SELECT is_admin, id FROM delilah_Resto.users WHERE users.username = '${info.username}'`
+    let sql = `SELECT is_admin, id FROM .users WHERE users.name = '${info.name}'`
 
     connection.query(sql, (err, rol) => {
 

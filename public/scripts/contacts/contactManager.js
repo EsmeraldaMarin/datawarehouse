@@ -283,7 +283,6 @@ function selectContactsFunction() {
     ctnManager.insertAdjacentHTML('beforeend', trashContactSection(contactsSelected.length))
     let trashContactsBtn = document.getElementById('trashContactsBtn');
     trashContactsBtn.addEventListener("click", () => {
-      console.log(contactsSelected)
       showDeleteManyContactsModal(contactsSelected)
     })
   }
@@ -344,7 +343,6 @@ function deleteContact(parent) {
   fetch(url, parametros)
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       location.reload()
     })
 
@@ -362,7 +360,6 @@ function deleteManyContacts(id) {
   fetch(url, parametros)
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       location.reload()
     })
 

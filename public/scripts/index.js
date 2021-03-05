@@ -166,7 +166,6 @@ function uploadImg(imgP, imgU, file) {
 
     } else {
 
-      console.log("Archivo invalido")
       imgP.classList.add("archivoInvalido")
     }
 

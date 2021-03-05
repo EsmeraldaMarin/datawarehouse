@@ -26,10 +26,10 @@ app.use(bodyParser.json());
 
 //user routes
 // si es regular, se elimina la pestana de usuarios en el header
-app.get('/users', /* defineRol, validateRol, */ selectUsers);
-app.post('/users', defineRol, validateRol, upload.none(), insertUser); //se crea un usuario
-app.put('/users/:id', /* defineRol, validateRol */ upload.none(), updateUser);
-app.delete('/users/:id', /* defineRol, validateRol */ deleteUser);
+app.get('/users', selectUsers);
+app.post('/users', upload.none(), insertUser); //se crea un usuario
+app.put('/users/:id', upload.none(), updateUser);
+app.delete('/users/:id', deleteUser);
 app.get('/users/:token', selectUserById);
 
 //login
