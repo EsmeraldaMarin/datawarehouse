@@ -35,7 +35,6 @@ function searcherFunction(url, input, section) {
                 propiedad = propiedad.replace(/ /g, "");
                 propiedad = propiedad.toLowerCase()
                 propiedad = accent_fold(propiedad)
-                console.log(contact)
 
                 if (propiedad.substring(0, wordLength) == busqueda) { response.push(contact) }
             }

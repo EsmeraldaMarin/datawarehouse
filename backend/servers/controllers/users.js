@@ -1,4 +1,7 @@
 let connection = require('../connection');
+let jwt = require('jsonwebtoken');
+
+let firma = "Acamica 2020 dwh";
 
 function selectUsers(req, res) {
 
@@ -13,6 +16,24 @@ function selectUsers(req, res) {
 
             res.send(users)
 
+        }
+    })
+}
+
+function selectUserById(req, res) {
+
+    let userToken = req.params.token;
+    let token = jwt.verify(userToken, firma);
+
+    let sql = `SELECT * FROM users WHERE users.email = '${token.email}'`;
+
+    connection.query(sql, function (err, user) {
+        if (err) {
+            console.log(err)
+            res.status(500).json({ error: 'Internal error' });
+
+        } else {
+            res.send(user)
         }
     })
 }
@@ -81,10 +102,41 @@ function deleteUser(req, res) {
         }
     })
 }
+function logIn(req, res) {
+    let user = req.body
+    let token = jwt.sign(user.password, firma);
+    let sql = `SELECT password FROM users WHERE users.password = '${token}' AND users.email = '${user.email}'`
+    console.log(token, user.email)
 
+    connection.query(sql, function (err, passwords) {
+
+        if (err) {
+            res.status(500).json({ message: "Error al autenticar" })
+            return
+        } else {
+            if (passwords.length == 0) {
+                res.json({
+                    message: "This user doesn't exist or the password is wrong",
+                    user: false
+                })
+            } else {
+                let userLogged = jwt.sign(user, firma)
+                res.json({
+                    'mensaje': 'Usuario autenticado correctamente',
+                    'jwt': userLogged,
+                    'user': true
+                })
+            }
+
+        }
+    })
+
+}
 module.exports = {
     selectUsers,
     insertUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    selectUserById,
+    logIn
 }

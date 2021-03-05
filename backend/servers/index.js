@@ -7,9 +7,9 @@ let upload = multer();
 
 let app = express()
 
-const { defineRol, validateRol, validateAcount } = require('./middlewares/authorization');
+const { defineRol, validateRol } = require('./middlewares/authorization');
 const { selectContacts, insertContact, updateContact, deleteContact } = require('./controllers/contacts')
-const { selectUsers, deleteUser, insertUser, updateUser } = require('./controllers/users')
+const { selectUsers, deleteUser, insertUser, updateUser, selectUserById, logIn } = require('./controllers/users')
 const { getChannelsById, insertChannels, updateChannel, deleteChannel } = require('./controllers/channels');
 const { selectRegions, selectInfoRegion, insertRegion, deleteRegion, selectAllInfoLocation, updateRegion } = require('./controllers/regions');
 const { selectCountries, selectCountryByRegionId, selectInfoCountry, insertCountry, deleteCountry, updateCountry } = require('./controllers/countries');
@@ -27,13 +27,14 @@ app.use(bodyParser.json());
 //user routes
 // si es regular, se elimina la pestana de usuarios en el header
 app.get('/users', /* defineRol, validateRol, */ selectUsers);
-app.post('/users', /* defineRol, validateRol */upload.none(), insertUser); //se crea un usuario
+app.post('/users', defineRol, validateRol, upload.none(), insertUser); //se crea un usuario
 app.put('/users/:id', /* defineRol, validateRol */ upload.none(), updateUser);
 app.delete('/users/:id', /* defineRol, validateRol */ deleteUser);
+app.get('/users/:token', selectUserById);
 
 //login
 
-app.post('/users/login', validateAcount); //se loguea un usuario
+app.post('/login', upload.none(), logIn); //se loguea un usuario
 
 //contactos
 

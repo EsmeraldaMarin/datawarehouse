@@ -9,6 +9,47 @@ let urlAllLocation = "http://localhost:3000/all_info_location";
 let urlCompanies = "http://localhost:3000/companies";
 let urlContacts = "http://localhost:3000/contacts";
 let urlChannels = "http://localhost:3000/channels";
+let token = localStorage.getItem('token');
+let userLogued = document.getElementById('userLogued');
+let logOutBtn = document.getElementById('logOutBtn')
+
+function selectUser(token) {
+
+  if (!token) {
+    location.href = "http://127.0.0.1:5500/public/login.html";
+    return
+  }
+
+  fetch(`${urlUsers}/${token}`)
+    .then(res => res.json())
+    .then(data => {
+      let rol;
+      if (data[0].is_admin == 1) {
+        body.classList.add("adminMode")
+        rol = "Administrador"
+      } else {
+        body.classList.add("basicMode")
+        rol = "Basico"
+      }
+      userLogued.innerHTML = `
+      <img src="assets/avatar.png" alt="user picture">
+      <p>${data[0].name} ${data[0].lastname}</p>
+      <div>
+        <p class="email">${data[0].email}</p>
+        <p class="rol">Rol: ${rol}</p>
+      </div>
+      `
+      userLogued.addEventListener('click', () => {
+        userLogued.classList.toggle('active')
+      })
+    })
+}
+selectUser(token)
+
+logOutBtn.addEventListener('click', () => {
+  localStorage.removeItem('token')
+  location.href = "http://127.0.0.1:5500/public/login.html";
+})
 
 //funcion selects dependientes
 

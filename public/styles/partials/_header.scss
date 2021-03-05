@@ -1,3 +1,11 @@
+.basicMode{
+    header{
+        .usersHeaderOption{
+            display: none;
+        }
+    }
+}
+
 header {
     max-width: 200px;
     min-width: 200px;
@@ -80,13 +88,33 @@ header {
         height: 100%;
         display: flex;
         align-items: center;
-        padding: 0 20px 0 17px;
+        padding: 0 25px 0 22px;
         cursor: pointer;
+        position: relative;
         img {
             @extend %imgStyles;
         }
         &:hover {
             background-color: #ddd;
+        }
+        div{
+           display: none;
+        }
+        &.active{
+            div{
+                position: absolute;
+                width: 235px;
+                height: 75px;
+                top: 100%;
+                left: 0;
+                padding: 0px 10px;
+                background-color: #eee;
+                border: 1px solid #ddd;
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
         }
     }
     button {

@@ -1,6 +1,6 @@
 # Este Commit
 
-* layout login
+* login casi completo
 
 ## HACER
 

@@ -43,13 +43,9 @@ let validateRol = (req, res, next) => {
     })
 }
 
-let validateAcount = (req, res, next)=>{
-    next()
-}
 
 module.exports = {
     defineRol,
-    validateRol,
-    validateAcount
+    validateRol
 }
 
