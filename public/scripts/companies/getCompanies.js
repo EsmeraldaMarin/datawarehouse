@@ -111,7 +111,7 @@ function showCompanyInfo(companyInfo) {
         let parent = trashBtn.parentNode.parentNode
         showDeleteModal(parent)
     })
-    editBtn.addEventListener('click', ()=>{
+    editBtn.addEventListener('click', () => {
         editCompanyModal(companyInfo)
     })
 
@@ -133,13 +133,13 @@ function showDeleteModal(parent) {
     })
 }
 
-function editCompanyModal(info){
-    
+function editCompanyModal(info) {
+
     let bgInfoCompany = document.getElementById('bgInfoCompany');
     bgInfoCompany.remove()
 
     showWindow(htmlTextEditCompany(info), "closeAddCompanyBtn", "bgAddCompany");
-    
+
     let regionSelect = document.getElementById("regionSelectAdd");
     let countrySelect = document.getElementById("paisSelectAdd");
     let citySelect = document.getElementById("ciudadSelectAdd");
@@ -165,32 +165,33 @@ function deleteContact(parent) {
 
     fetch(url, parametros)
         .then(res => res.json())
-        .then(data=> {
+        .then(data => {
             location.reload();
         })
 
 }
 
-function sendToBd(form, method, id){
+function sendToBd(form, method, id) {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
+        let newUrlCompanies = urlCompanies
         let formData = new FormData(e.currentTarget)
         let params = {
             method: `${method}`,
             type: 'no-cors',
             body: formData
         };
-        if(method == 'PUT'){
-            urlCompanies = `${urlCompanies}/${id}`
+        if (method == 'PUT') {
+            newUrlCompanies = `${urlCompanies}/${id}`
         }
         if (formData.has('name') && formData.has('email') && formData.has('phone') && formData.has('city_id') && formData.has('address')) {
-            fetch(urlCompanies, params)
+            fetch(newUrlCompanies, params)
                 .then(res => res.json())
                 .catch(err => console.log(err))
                 .then(data => {
                     location.reload()
                 })
-        }else{
+        } else {
             console.log('falta informacion')
         }
     })

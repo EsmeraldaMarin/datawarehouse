@@ -112,11 +112,18 @@ function editUserModal(info) {
 function sendToBd(form, method, id) {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
+        let newUrlUsers;
         let formData = new FormData(e.currentTarget);
         formData.set('token', token)
 
         if (method == 'PUT') {
-            urlUsers = `${urlUsers}/${id}`
+            newUrlUsers = `${urlUsers}/${id}`
+        } else {
+            newUrlUsers = urlUsers
+        }
+        if (formData.get('password') != formData.get('repeatPassword')) {
+            console.log("las contraseas no son iguales")
+            return
         }
         for (var pair of formData.entries()) {
 
@@ -130,7 +137,7 @@ function sendToBd(form, method, id) {
             type: 'no-cors',
             body: formData,
         };
-        fetch(urlUsers, params)
+        fetch(newUrlUsers, params)
             .then(res => res.json())
             .then(data => {
                 location.reload()

@@ -111,22 +111,7 @@ function deleteRegion(req, res) {
             res.status(500).json({ error: 'Internal Error' });
 
         } else {
-
-            let sqlCountries = `DELETE FROM countries WHERE region_id = ${regionId};`
-            connection.query(sqlCountries, function (err, countries) {
-                if (err) {
-                    console.log(err)
-                }
-            })
-
-            let sqlCompanies = `DELETE FROM companies WHERE region_id = ${regionId}`
-            connection.query(sqlCompanies, function (err, companies) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    res.status(200).json({ message: 'region deleted', companies })
-                }
-            })
+            res.status(200).json({ message: 'region deleted', region })
         }
     })
 

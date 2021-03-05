@@ -205,14 +205,16 @@ function sendToBd(form, method, id) {
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     let formData = new FormData(e.currentTarget)
+    let newUrlContacts = urlContacts;
+    let newUrlChannels = urlChannels;
     let params = {
       method: `${method}`,
       type: 'no-cors',
       body: formData
     };
     if (method == 'PUT') {
-      urlContacts = `${urlContacts}/${id}`;
-      urlChannels = `${urlChannels}/${id}`;
+      newUrlContacts = `${urlContacts}/${id}`;
+      newUrlChannels = `${urlChannels}/${id}`;
     }
     formData.set('img_url', "assets/avatar.png")
 
@@ -227,7 +229,7 @@ function sendToBd(form, method, id) {
         return
       }
     }
-    fetch(urlContacts, params)
+    fetch(newUrlContacts, params)
       .then(res => res.json())
       .then(data => {
 
@@ -245,11 +247,10 @@ function sendToBd(form, method, id) {
         }
 
         function fetchChannels(params) {
-          fetch(urlChannels, params)
+          fetch(newUrlChannels, params)
             .then(res => res.json())
             .then(data => {
               if (method == 'PUT') {
-                urlChannels = `http://localhost:3000/channels`;
                 formData.set('user_id', id)
                 let params = {
                   method: 'POST',
@@ -257,9 +258,9 @@ function sendToBd(form, method, id) {
                   body: formData
                 };
                 fetch(`http://localhost:3000/channels`, params)
-                .then(res=>res.json())
-                .then(location.reload())
-                .catch(err => console.log(err))
+                  .then(res => res.json())
+                  .then(location.reload())
+                  .catch(err => console.log(err))
               }
               location.reload()
             })
