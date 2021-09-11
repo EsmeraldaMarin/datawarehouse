@@ -2,9 +2,9 @@ var mysql = require('mysql2');
 
 var connection = mysql.createConnection({
     host: 'localhost',
-    port: '3306',
+    port: '3308',
     user: 'root',
-    password: '45092611esmeM03',
+    password: 'xxx',
     database: 'datawarehouse'
 })
 
